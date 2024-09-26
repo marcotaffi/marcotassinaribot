@@ -1,13 +1,17 @@
 //import TaffiBot from './utils/bot/bottaffi.js';
-import BotChat from './utils/bot/botchat.js';
-import DialogoChat from './utils/bot/dialogochat.js';
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+import BotChat from 'TaffiTools/bot/botchat.js';
+import DialogoChat from 'TaffiTools/bot/dialogochat.js';
 import * as cheerio from 'cheerio'; //usata in textedit.js per scaricare una pagina web, lo metto qui per via dei miei link simbolici
 export { cheerio };
 import yaml from 'js-yaml';
 export {yaml}; 
 //import fs from "fs";
 import fs from 'fs/promises';
-import { debug } from './utils/utils.js';
+import { debug } from 'TaffiTools/utils.js';
 
 
 
@@ -30,9 +34,6 @@ async function loadPrompt(command) {
 //import IFTTT from './utils/api/ifttt.js';
 //import ChatMarcoTassinari from './src/chatmarcotassinari.js';
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 /**
  * La classe MarcoTassinariBot estende la classe BotChat e rappresenta un bot specifico.
  * Inizializza il bot con il token e il form di accoglienza specifico.
@@ -45,7 +46,9 @@ class BotMarcoTassinari extends BotChat {
     debug(4,"BotMarcoTassinari costruttore");
     const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
     const chatGptApiKey = process.env.OPENAI_API_KEY;
+    debug(5,"chatGptApiKey:", chatGptApiKey);
     const assistantID = "asst_F1wG4u9cROL2mFJCjfZMbSm3"; //l'assistente di questo bot
+
    const chat = new DialogoChat(chatGptApiKey, assistantID); //contiene i prompt. questa importazione in botzona è fatta diversa 
    //const chat = new DialogoChat (chatGptApiKey, assistantID, domande)
    //.init(assistantID);
