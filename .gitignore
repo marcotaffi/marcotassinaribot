@@ -1,5 +1,10 @@
 # Taffi
 .env
+.gitignore
+*~
+todel*
+temp*
+suspend*
 
 
 # Logs
