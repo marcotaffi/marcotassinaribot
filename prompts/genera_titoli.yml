@@ -1,0 +1,7 @@
+name: genera_titoli
+command: Genera i titoli di un articolo per un portale online.
+assistant: ""
+prompt: >
+ Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
+ Generami un set di titoli per il portale semprenews.it, che aiutino il lettore a comprendere gli elementi chiave dell'articolo dato.
+ I titoli devono essere rispettosi e descrittivi, e introdurre ad aspetti più curiosi e popolari dell'articolo. 

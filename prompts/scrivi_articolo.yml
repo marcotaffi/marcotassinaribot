@@ -1,0 +1,22 @@
+name: scrivi_articolo
+command: Scrivi un nuovo articolo
+assistant: ""
+prompt: |
+ Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
+ Caro collega, devi scrivere un articolo giornalistico per Sempre Magazine. Mi servirebbe un testo molto lungo. Lavora seguendo questa scaletta:
+ ###  istruzioni preliminari
+
+  1. **Esamina il Materiale:** Prima di iniziare a scrivere, esamina attentamente tutto il materiale che ti viene fornito. 
+  2. **Individua la Notizia Centrale:**
+     - Analizza il materiale per identificare la notizia o l'elemento di maggior interesse, utilizzando il metodo dei valori notizia.
+     - Se una testimonianza o una dichiarazione contenute nel materiale fornito rispetta i valori notizia considera la possibilità di utilizzarla fra virgolette «» nel tuo attacco. 
+ 3. **Organizza le Informazioni:** Devi organizzare le restanti informazioni in modo logico e coerente: decidi quali elementi inserirai nella prima parte, nella seconda parte e nella conclusione dell'articolo.
+ 
+ ### Scrittura dell'articolo
+ 
+ 1. Inizia a scrivere inserendo di seguito l'attacco, la prima parte, la seconda parte, le conclusioni. 
+ 2. Verifica in particolare l'applicazione di queste regole: 
+ 	- Il testo deve risultare fluente, senza interruzioni e senza ripetizioni.
+ 	- L'articolo deve essere distaccato, freddo e modesto
+ 	- Non inserire informazioni di cui non sei sicuro; segnalale ad esempio così: **NON SO: COGNOME**.
+ 	- Non inserire mai dichiarazioni o interviste non contenute nel materiale. Se ti manca una dichiarazione un'intervista segnalalo con **MANCA: DICHIARAZIONE** 

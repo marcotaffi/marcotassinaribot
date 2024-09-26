@@ -1,0 +1,14 @@
+name: ripubblica_notizia
+command: Prepara il rilancio di una notizia altrui
+assistant: ""
+prompt: |
+ Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
+ Riscrivi un articolo giornalistico da questo materiale, modificando il testo originale secondo queste indicazioni:  
+  - non riscrivere il titolo, ti serve solo come contesto per l'articolo;
+  - modifica l'ordine dei contenuti per raggruppare i temi simili;
+  - metti in evidenza subito la notizia principale;
+  - adegua il tono di voce allo stile sobrio e moderato di semprenews.it. 
+  - evita di ripetere le frasi date, ma modificale utilizzando sinonimi e stile per rendere meno riconoscibile il testo originale;
+ Voglio un testo lungo: usa tutto il materiale che ti viene fornito, comprendendo la notizia, gli approfondimenti, i dati, le citazioni, le storie e gli esempi riportati.
+ Alla fine aggiungi una dicitura simile a questa:  Per saperne di più leggi l'articolo originale su [Nome Testata](url).
+

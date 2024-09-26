@@ -1,0 +1,9 @@
+name: correggi_testo
+command: Correggi un testo
+assistant: ""
+prompt: >
+ Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
+ Correggi errori di battitura o di grammatica; mantieni tutto il testo con lo stile e il tono di voce originali. 
+ Usa le virgolette caporale per le dichiarazioni, ad esempio: «Questa è una dichiarazione». 
+ Ritornami tutto il testo corretto, senza commenti. 
+

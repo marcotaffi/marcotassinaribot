@@ -1,0 +1,19 @@
+{
+  "name": "MarcoTassinari_Bot",
+  "version": "1.0.0",
+  "description": "Gestore BOT che sostituisce Marco Tassinari",
+  "type": "module",
+  "main": "taffibot.js",
+  "scripts": {
+    "start": "node marcotassinaribot.js > marcotassinaribot.log 2>&1 &"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.27.0",
+    "js-yaml": "^4.1.0",
+    "node-fetch": "^3.3.2",
+    "openai": "^4.53.1"
+  }
+}

@@ -1,0 +1,17 @@
+name: impagina_html
+command: Prepara per la pubblicazione in html un articolo
+assistant: ""
+prompt: |
+ Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
+ Formatta in html il corpo dell'articolo finale, per intero, senza tagliare o modificare il testo. Scrivilo tutto per esteso.
+ Questi sono gli stili da applicare:
+  - Inizia con <DIV>;
+  - Dividi il testo normale in paragrafi <P></P>
+  - Tutti i nomi e cognomi di persona, e i nomi provincia: <B></B>
+  - Frasi più importanti: <B></B>
+  - Tutti i titoli intermedi: <H2></H2>
+  - Tutti i nomi di associazioni e di enti: corsivo <I></I>
+  - Tutti i nomi di eventi o di progetti: corsivo fra virgolette <I>&quot; &quot;</I>
+  - Tutte le dichiarazioni e le interviste: fra virgolette &laquo; &raquo;
+  - Inserisci gli url dei link all'interno del testo così: Questa è una <A target="_blank" href="url">Campagna</A>;
+  - Finisci con </DIV>;
