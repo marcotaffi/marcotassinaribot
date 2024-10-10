@@ -5,8 +5,8 @@ dotenv.config();
 
 import BotChat from 'TaffiTools/bot/botchat.js';
 import DialogoChat from 'TaffiTools/bot/dialogochat.js';
-import * as cheerio from 'cheerio'; //usata in textedit.js per scaricare una pagina web, lo metto qui per via dei miei link simbolici
-export { cheerio };
+//import * as cheerio from 'cheerio'; //usata in textedit.js per scaricare una pagina web, lo metto qui per via dei miei link simbolici
+//export { cheerio };
 import yaml from 'js-yaml';
 export {yaml}; 
 //import fs from "fs";
@@ -44,7 +44,7 @@ class BotMarcoTassinari extends BotChat {
    */
   constructor() {
     debug(4,"BotMarcoTassinari costruttore");
-    const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+    const telegramToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
     const chatGptApiKey = process.env.OPENAI_API_KEY;
     debug(5,"chatGptApiKey:", chatGptApiKey);
     const assistantID = "asst_F1wG4u9cROL2mFJCjfZMbSm3"; //l'assistente di questo bot
