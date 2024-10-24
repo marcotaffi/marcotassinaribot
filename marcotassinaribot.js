@@ -7,8 +7,8 @@ import BotChat from 'TaffiTools/bot/botchat.js';
 import DialogoChat from 'TaffiTools/bot/dialogochat.js';
 //import * as cheerio from 'cheerio'; //usata in textedit.js per scaricare una pagina web, lo metto qui per via dei miei link simbolici
 //export { cheerio };
-import yaml from 'js-yaml';
-export {yaml}; 
+//import yaml from 'js-yaml';
+//export {yaml}; 
 //import fs from "fs";
 import fs from 'fs/promises';
 import { debug } from 'TaffiTools/utils.js';
@@ -16,7 +16,7 @@ import { debug } from 'TaffiTools/utils.js';
 
 
 // Funzione per caricare un prompt specifico dal file JSON corrispondente al nome del comando
-async function loadPrompt(command) {
+/*async function loadPrompt(command) {
   try {
     const filePath = path.join(__dirname, 'prompts', `${command}.json`);
     const data = await fs.readFile(filePath, 'utf-8');
@@ -25,7 +25,7 @@ async function loadPrompt(command) {
     debug(1,"Error loading prompt:", error.message);
     return null;
   }
-}
+}*/
 
 
 //import DialogoRedattore from './src/dialogoredattore.js';
@@ -44,12 +44,11 @@ class BotMarcoTassinari extends BotChat {
    */
   constructor() {
     debug(4,"BotMarcoTassinari costruttore");
-    const telegramToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
+    const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
     const chatGptApiKey = process.env.OPENAI_API_KEY;
-    debug(5,"chatGptApiKey:", chatGptApiKey);
     const assistantID = "asst_F1wG4u9cROL2mFJCjfZMbSm3"; //l'assistente di questo bot
 
-   const chat = new DialogoChat(chatGptApiKey, assistantID); //contiene i prompt. questa importazione in botzona è fatta diversa 
+   //const chat = new DialogoChat(chatGptApiKey, assistantID); //contiene i prompt. questa importazione in botzona è fatta diversa 
    //const chat = new DialogoChat (chatGptApiKey, assistantID, domande)
    //.init(assistantID);
     /*const salvataggio=new IFTTT(                        //salvataggio
@@ -64,22 +63,24 @@ class BotMarcoTassinari extends BotChat {
       );
  */
  
-
-    super(telegramToken, chat); 
+      super(chatGptApiKey, assistantID, botToken); 
+//    super(telegramToken, chat); 
   }
 
-  async generaDomanda(ctx, comando) {//era dialogo.run. Mi serve anticiparlo qui perché qui posso personalizzarlo. bottaffi dovrebbe diventare un più generico botchat. 
-    return this.dialogo.run(ctx, comando);
+  /*
+  async generaDomanda(utente, ctx, comando) {//era dialogo.run. Mi serve anticiparlo qui perché qui posso personalizzarlo. bottaffi dovrebbe diventare un più generico botchat. 
+//    return this.dialogo.run(ctx, comando);
+    return this.dialogo.run(utente, ctx, comando);
 
-  }
-  
-  async mostraDomanda(ctx, domandaGenerata) { //posso alterare il comportamento se serve, eg filtrare quando mostrare una domanda
+  }*/
+/*  
+  async mostraDomanda(utente, ctx, domandaGenerata) { //posso alterare il comportamento se serve, eg filtrare quando mostrare una domanda
 
    // if ( ctx?.chat?.type != "supergroup" )
-       await super.mostraDomanda(ctx, domandaGenerata);
+       await super.mostraDomanda(utente, ctx, domandaGenerata);
     
     }
-
+*/
 
 }
 
@@ -108,4 +109,3 @@ const taffiPrompts = [
 })();
 
 //***************************************
-
