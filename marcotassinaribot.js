@@ -11,7 +11,7 @@ import DialogoChat from 'TaffiTools/bot/dialogochat.js';
 //export {yaml}; 
 //import fs from "fs";
 import fs from 'fs/promises';
-import { debug } from 'TaffiTools/utils.js';
+import { debug } from 'TaffiTools/utils/debug.js';
 
 
 
