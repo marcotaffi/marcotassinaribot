@@ -1,17 +1,9 @@
-//import TaffiBot from './utils/bot/bottaffi.js';
-
-import dotenv from 'dotenv';
-dotenv.config();
 
 import BotChat from 'TaffiTools/bot/botchat.js';
-import DialogoChat from 'TaffiTools/bot/dialogochat.js';
-//import * as cheerio from 'cheerio'; //usata in textedit.js per scaricare una pagina web, lo metto qui per via dei miei link simbolici
-//export { cheerio };
-//import yaml from 'js-yaml';
-//export {yaml}; 
-//import fs from "fs";
-import fs from 'fs/promises';
+import { ProcessManager } from 'TaffiTools/system/ProcessManager.js';
 import { debug } from 'TaffiTools/utils/debug.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 
@@ -47,61 +39,28 @@ class BotMarcoTassinari extends BotChat {
     const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
     const chatGptApiKey = process.env.OPENAI_API_KEY;
     const assistantID = "asst_F1wG4u9cROL2mFJCjfZMbSm3"; //l'assistente di questo bot
-
-   //const chat = new DialogoChat(chatGptApiKey, assistantID); //contiene i prompt. questa importazione in botzona è fatta diversa 
-   //const chat = new DialogoChat (chatGptApiKey, assistantID, domande)
-   //.init(assistantID);
-    /*const salvataggio=new IFTTT(                        //salvataggio
-      'telegram_bot_form_complete', 
-       process.env.IFTTT_WEBHOOKKEY
-       ); */
-    //const dialogo = new DialogoForm(domande);
-
-    /*super(telegramToken,
-      dialogo,                          //array di domande
-      salvataggio
-      );
- */
  
       super(chatGptApiKey, assistantID, botToken); 
-//    super(telegramToken, chat); 
   }
 
-  /*
-  async generaDomanda(utente, ctx, comando) {//era dialogo.run. Mi serve anticiparlo qui perché qui posso personalizzarlo. bottaffi dovrebbe diventare un più generico botchat. 
-//    return this.dialogo.run(ctx, comando);
-    return this.dialogo.run(utente, ctx, comando);
 
-  }*/
-/*  
-  async mostraDomanda(utente, ctx, domandaGenerata) { //posso alterare il comportamento se serve, eg filtrare quando mostrare una domanda
-
-   // if ( ctx?.chat?.type != "supergroup" )
-       await super.mostraDomanda(utente, ctx, domandaGenerata);
-    
-    }
-*/
 
 }
 
 // ******************************** main **************************************
 
 
-/*
-const taffiPrompts = [
-  { command: "scrivi_articolo", prompt: "Hello! How can I assist you today?" },
-  { command: "farewell", prompt: "Goodbye! Have a great day!" },
-  { command: "weather", prompt: "What's the weather like in your city?" },
-  { command: "news", prompt: "Tell me the latest news." },
-  { command: "joke", prompt: "Can you tell me a joke?" }
-];
-*/
 /**
  * Avvia il bot MarcoTassinariBot.
  */
 (async () => {
   try {
-    debug(0,"Avvio il server...");
+    const DEBUG_LEVEL = process.env.DEBUG_LEVEL;
+    ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
+   
+    debug(0,"Avvio il server...", process.env.DEBUG_LEVEL);
+    debug(0, "debug level:", DEBUG_LEVEL);
+
     new BotMarcoTassinari().start();
   } catch (error) {
     debug(1,`Errore nell'avvio del bot Marco Tassinari:`, error);
