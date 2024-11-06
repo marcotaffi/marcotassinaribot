@@ -1,7 +1,7 @@
 
-import BotChat from 'TaffiTools/bot/botchat.js';
-import { ProcessManager } from 'TaffiTools/system/ProcessManager.js';
-import { debug } from 'TaffiTools/utils/debug.js';
+import BotChat from 'TaffiTools/src/bot/botchat.js';
+import { ProcessManager } from 'TaffiTools/src/system/ProcessManager.js';
+import { debug } from 'TaffiTools/src/utils/debug.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
