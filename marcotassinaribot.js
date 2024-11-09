@@ -20,11 +20,6 @@ dotenv.config();
 }*/
 
 
-//import DialogoRedattore from './src/dialogoredattore.js';
-//import domande from './src/formaccoglienza.js';
-
-//import IFTTT from './utils/api/ifttt.js';
-//import ChatMarcoTassinari from './src/chatmarcotassinari.js';
 
 /**
  * La classe MarcoTassinariBot estende la classe BotChat e rappresenta un bot specifico.
