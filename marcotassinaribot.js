@@ -2,6 +2,9 @@
 import BotChat from 'TaffiTools/src/bot/botchat.js';
 import { ProcessManager } from 'TaffiTools/src/system/ProcessManager.js';
 import { debug } from 'TaffiTools/src/utils/debug.js';
+import { Servizi, Servizio } from "TaffiTools/src//utils/servizi.js";
+import { MailTo, GoogleDrive } from "TaffiTools/src/api/ifttt.js"
+import { Console } from "TaffiTools/src/utils/console.js"
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -20,6 +23,24 @@ dotenv.config();
 }*/
 
 
+export class MarcoBotServizi extends Servizi  {
+  hookId =  process.env.IFTTT_WEBHOOKKEY; //proviamo, dovrò caricarlo da dot env
+  serviziMail = ["sendmail_root_mailto","sendmail_generic_mailto"];
+
+  constructor(  ) { //mi passerò hookId
+    super();
+
+   this.serviziMail.forEach((hookName) => {
+      this.registraServizio(new MailTo(hookName, this.hookId)); //servizi email
+    });
+ 
+    this.registraServizio(new Console("info"));  // servizio logger
+   
+    this.registraServizio(new GoogleDrive("googledrive_filetest_save", this.hookId) ) ; 
+  }
+
+}
+
 
 /**
  * La classe MarcoTassinariBot estende la classe BotChat e rappresenta un bot specifico.
@@ -31,12 +52,17 @@ class BotMarcoTassinari extends BotChat {
    */
   constructor() {
     debug(4,"BotMarcoTassinari costruttore");
+    
     const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
     const chatGptApiKey = process.env.OPENAI_API_KEY;
-    const assistantID = "asst_F1wG4u9cROL2mFJCjfZMbSm3"; //l'assistente di questo bot
+    const assistantID = process.env.ASSISTANT_ID; //l'assistente di questo bot
  
-      super(chatGptApiKey, assistantID, botToken); 
-  }
+    let serviziPerMArco = new MarcoBotServizi(); //lo sposterò nella marcotassinari.js e me lo passerò
+    serviziPerMArco.start();
+
+      super(chatGptApiKey, assistantID, botToken, serviziPerMArco ); 
+ 
+    }
 
 
 
