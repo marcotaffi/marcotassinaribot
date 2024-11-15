@@ -1,13 +1,12 @@
 
 import BotChat from 'TaffiTools/src/bot/botchat.js';
-import { ProcessManager } from 'TaffiTools/src/system/ProcessManager.js';
+import { ProcessManager } from 'TaffiTools/src/system/processmanager.js';
 import { debug } from 'TaffiTools/src/utils/debug.js';
-import { Servizi, Servizio } from "TaffiTools/src//utils/servizi.js";
-import { MailTo, GoogleDrive } from "TaffiTools/src/api/ifttt.js"
+import { Servizi } from "TaffiTools/src/utils/servizi.js";
+import { SendMail, GoogleDrive } from "TaffiTools/src/api/ifttt.js"
 import { Console } from "TaffiTools/src/utils/console.js"
 import dotenv from 'dotenv';
 dotenv.config();
-
 
 
 // Funzione per caricare un prompt specifico dal file JSON corrispondente al nome del comando
@@ -22,24 +21,6 @@ dotenv.config();
   }
 }*/
 
-
-export class MarcoBotServizi extends Servizi  {
-  hookId =  process.env.IFTTT_WEBHOOKKEY; //proviamo, dovrò caricarlo da dot env
-  serviziMail = ["sendmail_root_mailto","sendmail_generic_mailto"];
-
-  constructor(  ) { //mi passerò hookId
-    super();
-
-   this.serviziMail.forEach((hookName) => {
-      this.registraServizio(new MailTo(hookName, this.hookId)); //servizi email
-    });
- 
-    this.registraServizio(new Console("info"));  // servizio logger
-   
-    this.registraServizio(new GoogleDrive("googledrive_filetest_save", this.hookId) ) ; 
-  }
-
-}
 
 
 /**
@@ -57,7 +38,9 @@ class BotMarcoTassinari extends BotChat {
     const chatGptApiKey = process.env.OPENAI_API_KEY;
     const assistantID = process.env.ASSISTANT_ID; //l'assistente di questo bot
  
-    let serviziPerMArco = new MarcoBotServizi(); //lo sposterò nella marcotassinari.js e me lo passerò
+    let serviziPerMArco = new Servizi (["sendmail_root" , "sendmail_generic", "googledrive_filetest", "console_warn"], process.env.IFTTT_WEBHOOKKEY ); //sevizi di esempio; mi passerò hookId
+ 
+    
     serviziPerMArco.start();
 
       super(chatGptApiKey, assistantID, botToken, serviziPerMArco ); 
