@@ -38,10 +38,13 @@ class BotMarcoTassinari extends BotChat {
     const chatGptApiKey = process.env.OPENAI_API_KEY;
     const assistantID = process.env.ASSISTANT_ID; //l'assistente di questo bot
  
-    let serviziPerMArco = new Servizi (["sendmail_root" , "sendmail_generic", "googledrive_filetest", "console_warn", "textedit_url_download"], process.env.IFTTT_WEBHOOKKEY ); //sevizi di esempio; mi passerò hookId
+
+
+ //   let serviziPerMArco = new Servizi (["sendmail_root" , "sendmail_generic", "googledrive_filetest", "console_warn", "textedit_url_download"], process.env.IFTTT_WEBHOOKKEY ); //sevizi di esempio; mi passerò hookId. I servizi li saprò facendo una chiamata a chatgpt per sapere l'assistente cosa sa fare
+    let serviziPerMArco = new Servizi (["console_log", "textedit_url_download", "wordpress_dipendenze_elencaArticoli"], process.env.IFTTT_WEBHOOKKEY ); //sevizi di esempio; mi passerò hookId. I servizi li saprò facendo una chiamata a chatgpt per sapere l'assistente cosa sa fare
  
     
-    serviziPerMArco.start();
+//    serviziPerMArco.start(); NON SERVE
 
       super(chatGptApiKey, assistantID, botToken, serviziPerMArco ); 
  
