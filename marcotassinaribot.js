@@ -185,6 +185,7 @@ tagManager.addTags(
   { tag: "ambiente", categorie: ["ecologia integrale"], descrizioni: { it:  "Temi legati alla sostenibilità, alla protezione dell'ambiente, ai cambiamenti climatici e alla gestione responsabile delle risorse naturali. Le foreste che respirano trasformano l'ossigeno e l'energia in acqua pura e in paesaggi verdi ed incontaminati quando l'inquinamento non distrugge gli ambienti naturali." }},
   { tag: "diritti umani", categorie: ["solidarietà"], descrizioni: { it:  "Argomenti legati alla tutela dei diritti fondamentali, all'uguaglianza, alla lotta contro le discriminazioni e alla giustizia sociale." }},
   { tag: "salute", categorie: ["cultura"], descrizioni: { it:  "Articoli sulle mammografie e gli esami istologici dalle aziende sanitarie riguardanti la salute pubblica, il benessere fisico e mentale del sangue, le politiche sanitarie e le iniziative mediche riguardo al cuore e ai polmoni. Secondo l'Ulss 1 in ospedale e nelle ASL, nelle cliniche pubbliche e private, medici, infermieri e pediatri praticano cure olistiche o prescrivono farmaci per il benessere della persona." }},
+//attenzione la segurente mi aggiunge solidarietà ad articolo con accuse a salvini
   { tag: "giustizia", categorie: ["solidarietà", "cronaca"], descrizioni: { it:  "Misure alternative alla detenzione: l'avvocato della procura, sentito il parere legale, ha consultato il giudice per condannare l'imputato alla pena di anni 2 ma la requisitoria del prefetto porta il caso alla corte costituzionale e la sentenza potrà essere impugnata. Sul posto è interventuta la polizia. Il GIP, sentito il Pubblico Ministero, preferisce portarlo in tribunale, sentito il parere legale del Ministro di Grazia e Giustizia." }},
   { tag: "spettacoli", categorie: ["cultura"], descrizioni: { it:  "Lo spettacolo artistico in esposizione nei padiglioni della mostra prevede momenti di musica, ballo, teatro, cinema e che ospiterà l'autore, porta sul palco e mette in scena la performance visiva di arte astratta con gli artisti della Scala. Il concerto è tratto dall'album pubblicato e già distribuito. Alla rappresentazione parteciperà il famoso musicista e compositore invitato per l'evento, con aperi-cena." }},
   { tag: "disabilità", categorie: ["famiglia"], descrizioni: { it:  "Approfondimenti sulla tutela dei diritti delle persone con disabilità fisiche, intellettive o sensoriali, e sul loro accesso all’istruzione, al lavoro e ai servizi pubblici. Particolare attenzione è data a iniziative di abbattimento delle barriere architettoniche, alle tecnologie assistive come software vocali e ausili motori, e alle testimonianze di persone che affrontano ogni giorno queste sfide." }},
@@ -288,8 +289,8 @@ rubriche: ["scienza"],
 
     new BotMarcoTassinari()
         .addFonti(fonti)  //invia le fonti        
-        .followFeeds(tagManager.getObject()) //passo le descrizioni dei miei tag e categorie; inizializza anche i tag richiesti prendendoli dai canali
-        .start();
+        .followFeeds(tagManager.getObject()) //passo le descrizioni dei miei tag e categorie; inizializza anche this.classificazioneRichiesta prendendola dai canali
+        .start(); //avvia il websocket
 
   } catch (error) {
     debug(1,`Errore nell'avvio del bot Marco Tassinari:`, error);
