@@ -34,15 +34,15 @@ class BotMarcoTassinari extends BotNews {
  
  
 const prompts = {
-   ripubblicaNotizia : "Devi scrivere in html un articolo di rilancio di una notizia, partendo da uno o più articoli dati. Scrivi un articolo giornalistico da questo materiale, modificando i contenuti originali secondo queste indicazioni: - Mantieni le dichiarazioni originali dette dai protagonisti in prima persona, fra virgolette « »; - Non inserire il titolo ma inizia mettendo in evidenza all'inizio del testo la notizia principale cambiando l'attacco;  - Modifica l'ordine dei contenuti per raggruppare i temi simili; - Adegua il tono di voce allo stile sobrio e moderato di semprenews.it; - Evita di ripetere le frasi date, ma modificale utilizzando sinonimi e stili per rendere meno riconoscibile il testo originale; - Voglio un testo lungo: usa tutto il materiale che ti viene fornito, comprendendo la notizia, gli approfondimenti, i dati, le citazioni, le storie e gli esempi riportati. <br>Dove necessario, circa a metà articolo, aggiungi diciture simili a queste: - come spiega [Nome Testata](url) - Leggi anche [Nome Testata](url) - secondo i dati riportati da [Nome Testata](url). Non inserire commenti e conclusioni. Dammi il testo finale formattato: usa <br> per fine riga. Puoi utilizzare tag html come <p> <b> e <i> e titoli intermedi <h2> per inserire grassetti ed altre formattazioni",
-   scriviTitoli : "Devi generare dei titoli per il portale online semprenews.it. Genera i titoli per l'articolo dato, che aiutino il lettore a comprendere gli elementi chiave del pezzo. Sono richiesti: titolo breve, occhiello, sommario, meta title, meta description.  I titoli devono essere rispettosi e descrittivi, e introdurre ad aspetti più curiosi e popolari dell'articolo. Voglio i titoli espressi come coppia chiave:valore separati da <br><br> ma scritti tutti come testo normale senza altre formattaziomi. Ad esempio: 'Titolo: Oggi in città piove.'",
-   postLinkedin: "Scrivi un breve post per la pagina personale su Linkedin di Marco Tassinari. Devi commentare il testo dato, che verrà inserito nel link allegato, e che riferisce una notizia in ambiti come tecnologia, intelligenza artificiale, scienza, fisica quantistica. Inizia subito con il commento senza preamboli od introduzioni, e taglia in maniera netta senza conclusioni o rimandi. Marco in generale ritiene che sia utile mettersi a capofitto a sperimentare sulle nuove possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità, perché è necessario conoscerli per poterli controllare. Marco è molto attento al rispetto dei diritti umani e alla libertà dell'individuo, cui le macchine dovranno rimanere sottomesse. In particolare le nuove tecnologie presentano rischi di omologazione della società, che può essere utilizzata dai governi per stringere i controlli sulle persone, e calare dall'alto decisioni di cui le persone possono non essere consapevoli. Il cambiamento dei prossimi anni sarà repentino; per quanto riguarda le scienze dell'informazione, trasformerà completamente l'attuale flusso di notizie cui siamo abituali; la democrazia dovrà trovare strumenti per rimanere al passo.",
+  ripubblicaNotizia : "Devi scrivere in html un articolo di rilancio di una notizia, partendo da uno o più articoli dati. Individua la notizia di interesse. Scrivi un articolo giornalistico sulla notizia testa partendo da questo materiale, modificando i contenuti originali secondo queste indicazioni: - Mantieni le dichiarazioni originali dette dai protagonisti in prima persona, fra virgolette « »; - Non inserire il titolo ma inizia mettendo in evidenza all'inizio del testo la notizia principale cambiando l'attacco;  - Modifica l'ordine dei contenuti per raggruppare i temi simili; - Adegua il tono di voce allo stile sobrio e moderato di semprenews.it; - Evita di ripetere le frasi date, ma modificale utilizzando sinonimi e stili per rendere meno riconoscibile il testo originale; - Voglio un testo lungo: usa tutto il materiale pertinente  che ti viene fornito , comprendendo la notizia, gli approfondimenti, i dati, le citazioni, le storie e gli esempi riportati. <br>Dove necessario, circa a metà articolo, aggiungi diciture simili a queste: \"come spiega [Nome Testata](url):\", \"Leggi anche [Nome Testata](url)\", \"secondo i dati riportati da [Nome Testata](url)\". Non inserire commenti e conclusioni. Dammi il testo finale tutto su una riga, formattato in html. Puoi utilizzare tag come <br>, <p>, <b> e <i>; titoli intermedi <h2>, liste <ul> o altre formattazioni",
+  scriviTitoli : "Devi generare dei titoli per il portale online semprenews.it. Genera i titoli per l'articolo dato, che aiutino il lettore a comprendere gli elementi chiave del pezzo. Sono richiesti: titolo breve, occhiello, sommario, meta title, meta description.  I titoli devono essere rispettosi e descrittivi, e introdurre ad aspetti più curiosi e popolari dell'articolo. Voglio i titoli espressi come coppia chiave:valore separati da <br><br> ma scritti tutti come testo normale senza altre formattaziomi. Ad esempio: 'Titolo: Oggi in città piove.'",
+  postLinkedin: "Scrivi un breve post per la pagina personale su Linkedin di Marco Tassinari. Devi commentare il testo dato, che verrà inserito nel link allegato, e che riferisce una notizia in ambiti come tecnologia, intelligenza artificiale, scienza, fisica quantistica. Inizia subito con il commento senza preamboli od introduzioni, e taglia in maniera netta senza conclusioni o rimandi. Marco in generale ritiene che sia utile mettersi a capofitto a sperimentare sulle nuove possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità, perché è necessario conoscerli per poterli controllare. Marco è molto attento al rispetto dei diritti umani e alla libertà dell'individuo, cui le macchine dovranno rimanere sottomesse. In particolare le nuove tecnologie presentano rischi di omologazione della società, che può essere utilizzata dai governi per stringere i controlli sulle persone, e calare dall'alto decisioni di cui le persone possono non essere consapevoli. Il cambiamento dei prossimi anni sarà repentino; per quanto riguarda le scienze dell'informazione, trasformerà completamente l'attuale flusso di notizie cui siamo abituali; la democrazia dovrà trovare strumenti per rimanere al passo.",
   }
 
 
     //   let sitoDipendenze = new Canale("wordpress_dipendenzepatologiche.apg23.org_creaArticolo", wordpressDipendenzeID, "https://dipendenzepatologiche.apg23.org",chatGptApiKey);
    
-      let sitoSempreEcologia = new Canale("sendmail_redazionesempre_mailto","alessiozamboni@apg23.org",iftttKey, chatGptApiKey)
+      let sitoSempreEcologia = new Canale("sendmail_redazionesempre_mailto","marcotassinari@apg23.org",iftttKey, chatGptApiKey)
               .setClassificazioneRichiesta({
                  includi: {  //se non specificato prende tutti  
                   tags: ["economia","ambiente"],
@@ -57,7 +57,7 @@ const prompts = {
                 })
               .setPrompts(prompts);
 
-      let sitoSempreMondo = new Canale("sendmail_redazionesempre_mailto", "anna8.03.98@gmail.com",iftttKey,chatGptApiKey)
+      let sitoSempreMondo = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
       .setClassificazioneRichiesta({
         includi: {  //se non specificato prende tutti  
          tags: ["pace","migranti","volontariato","diritti umani"],
@@ -75,7 +75,7 @@ const prompts = {
 
 
 
-      let sitoSempre_ChiaraBonetto = new Canale("sendmail_redazionesempre_mailto", "chiarabonetto@apg23.org",iftttKey,chatGptApiKey)
+      let sitoSempre_ChiaraBonetto = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
       .setClassificazioneRichiesta({
         includi: {  //se non specificato prende tutti  
          tags: ["salute", "religione", "tecnologia", "giustizia", "rom","alimentazione","missioni", "dipendenze",  "strada"],
@@ -86,7 +86,7 @@ const prompts = {
 
     
     
-      let sitoSempreFamiglia = new Canale("sendmail_redazionesempre_mailto", "marcoscarmagnani@apg23.org",iftttKey,chatGptApiKey)
+      let sitoSempreFamiglia = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
       .setClassificazioneRichiesta({
         includi: {  //se non specificato prende tutti  
          tags: ["disabilità","educazione","infanzia", "salute","famiglia","vita","affido"],
@@ -95,7 +95,7 @@ const prompts = {
      .setPrompts(prompts);
   
       
-      let sitoSempreCultura = new Canale("sendmail_redazionesempre_mailto", "nicolettapasqualini@apg23.org",iftttKey,chatGptApiKey)
+      let sitoSempreCultura = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
       .setClassificazioneRichiesta({
         includi: {  //se non specificato prende tutti  
          tags: ["politica", "spettacoli", "religione"],
@@ -112,7 +112,7 @@ const prompts = {
      .setPrompts(prompts);
 
 
-      let sitoSempre_IreneCiambezi = new Canale("sendmail_redazionesempre_mailto", "ireneciambezi@gmail.com",iftttKey,chatGptApiKey)
+      let sitoSempre_IreneCiambezi = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
       .setClassificazioneRichiesta({
         includi: {  //se non specificato prende tutti  
          tags: ["prostituzione"],
