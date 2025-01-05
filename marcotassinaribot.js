@@ -32,13 +32,41 @@ class BotMarcoTassinari extends BotNews {
    // const wordpressDipendenzeID = process.env.WORDPRESS_DIPENDENZE_ID
 
  
- 
-const prompts = {
-  ripubblicaNotizia : "Devi scrivere in html un articolo di rilancio di una notizia, partendo da uno o più articoli dati. Individua la notizia di interesse. Scrivi un articolo giornalistico sulla notizia testa partendo da questo materiale, modificando i contenuti originali secondo queste indicazioni: - Mantieni le dichiarazioni originali dette dai protagonisti in prima persona, fra virgolette « »; - Non inserire il titolo ma inizia mettendo in evidenza all'inizio del testo la notizia principale cambiando l'attacco;  - Modifica l'ordine dei contenuti per raggruppare i temi simili; - Adegua il tono di voce allo stile sobrio e moderato di semprenews.it; - Evita di ripetere le frasi date, ma modificale utilizzando sinonimi e stili per rendere meno riconoscibile il testo originale; - Voglio un testo lungo: usa tutto il materiale pertinente  che ti viene fornito , comprendendo la notizia, gli approfondimenti, i dati, le citazioni, le storie e gli esempi riportati. <br>Dove necessario, circa a metà articolo, aggiungi diciture simili a queste: \"come spiega [Nome Testata](url):\", \"Leggi anche [Nome Testata](url)\", \"secondo i dati riportati da [Nome Testata](url)\". Non inserire commenti e conclusioni. Dammi il testo finale tutto su una riga, formattato in html. Puoi utilizzare tag come <br>, <p>, <b> e <i>; titoli intermedi <h2>, liste <ul> o altre formattazioni",
-  scriviTitoli : "Devi generare dei titoli per il portale online semprenews.it. Genera i titoli per l'articolo dato, che aiutino il lettore a comprendere gli elementi chiave del pezzo. Sono richiesti: titolo breve, occhiello, sommario, meta title, meta description.  I titoli devono essere rispettosi e descrittivi, e introdurre ad aspetti più curiosi e popolari dell'articolo. Voglio i titoli espressi come coppia chiave:valore separati da <br><br> ma scritti tutti come testo normale senza altre formattaziomi. Ad esempio: 'Titolo: Oggi in città piove.'",
-  postLinkedin: "Scrivi un breve post per la pagina personale su Linkedin di Marco Tassinari. Devi commentare il testo dato, che verrà inserito nel link allegato, e che riferisce una notizia in ambiti come tecnologia, intelligenza artificiale, scienza, fisica quantistica. Inizia subito con il commento senza preamboli od introduzioni, e taglia in maniera netta senza conclusioni o rimandi. Marco in generale ritiene che sia utile mettersi a capofitto a sperimentare sulle nuove possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità, perché è necessario conoscerli per poterli controllare. Marco è molto attento al rispetto dei diritti umani e alla libertà dell'individuo, cui le macchine dovranno rimanere sottomesse. In particolare le nuove tecnologie presentano rischi di omologazione della società, che può essere utilizzata dai governi per stringere i controlli sulle persone, e calare dall'alto decisioni di cui le persone possono non essere consapevoli. Il cambiamento dei prossimi anni sarà repentino; per quanto riguarda le scienze dell'informazione, trasformerà completamente l'attuale flusso di notizie cui siamo abituali; la democrazia dovrà trovare strumenti per rimanere al passo.",
-  }
+   const promptsArticolo = {
+        ripubblicaNotizia: { prompt:`Devi scrivere il testo di un articolo giornalistico di approfondimento di una notizia, senza titolo, partendo da uno o più articoli dati. 
+          Voglio un testo lungo: individua la notizia di interesse e usa tutto il materiale pertinente che ti viene fornito per raccontare il fatto, comprendendo i dati, le citazioni, le storie e gli esempi dati. 
+        Cambia l'attacco e modifica l'ordine dei contenuti per raggruppare i temi simili, seguendo queste indicazioni: 
+        - Inizia direttamente dal testo dell'articolo raccontando a piramide invertita con le 5W del giornalismo la notizia principale; 
+        - Evita di ripetere le frasi date, ma modificale utilizzando sinonimi per adeguare il tono di voce allo stile sobrio e moderato di semprenews.it; 
+        - Preferisci i verbi attivi, contenuti certi e ben definiti, frasi brevi;
+        - Mantieni le dichiarazioni originali dette dai protagonisti in prima persona, fra virgolette « »; 
+        - Dove necessario, circa a metà articolo, aggiungi diciture simili a queste: "come spiega [Nome Testata](url):", "Leggi anche [Nome Testata](url)", "secondo i dati riportati da [Nome Testata](url)". 
+        - Alla fine chiudi l'articolo bruscamente senza inserire conclusioni o commenti.
+        
+        Istruzioni di formattazione html: utilizza <b> per sottolineare i concetti importanti e i nomi propri, <i> per nomi di eventi, progetti, enti, inserisci alcuni titoli intermedi, che contengano parole chiave SEO, in <h2>. 
+        Alla fine chiudi l'articolo di netto, senza inserire commenti e conclusioni.`,
 
+        params: {assistant_id:"asst_bHDl6nBPLhF6AyBVddSlnl7C"}
+        },
+    
+        scriviTitoli: { prompt:`Devi generare dei titoli in formato JSON per il portale online semprenews.it, per l'articolo dato, per invogliare alla lettura e aiutare il lettore a comprendere gli elementi chiave. 
+        Sono richiesti: titolo, occhiello, sommario, SEO title, SEO description. 
+        Il titolo principale deve essere molto breve; contiene una citazione oppure un soggetto ed un verbo ed introdurre uno degli aspetti curiosi e popolari dell'articolo. Nell'occhiello e nel sommario spiega meglio la notizia e verranno introduci i temi trattati. 
+        I titoli SEO comprendono la parola chiave principale e servono per il posizionamento, invogliando al click.
+        Voglio i titoli scritti come testo normale senza altre formattazioni. Esempio: "Biden:«La guerra è finita»"`,
+          params: {assistant_id:"asst_3ivJI6e7wqnQ4rPaGUe1HwoZ"}    
+            }
+    };
+
+  const propmtLinkedin = {
+    postLinkedin: { prompt:`Scrivi un post molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post commenta il testo dato e che riferisce una notizia. 
+                  Inizia subito con il commento senza preamboli od introduzioni, e taglia in maniera netta senza conclusioni o rimandi. 
+                  Nel commentare tieni presente che Marco in generale ritiene che sia utile mettersi a capofitto a sperimentare sulle nuove possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità, perché è necessario conoscerli per poterli controllare. 
+                  Marco è molto attento al rispetto dei diritti umani e alla libertà dell'individuo, cui le macchine dovranno rimanere sottomesse. In particolare le nuove tecnologie presentano rischi di omologazione della società, che può essere utilizzata dai governi per stringere i controlli sulle persone, e calare dall'alto decisioni di cui le persone possono non essere consapevoli. 
+                  Pensa che il cambiamento dei prossimi anni sarà repentino; per quanto riguarda le scienze dell'informazione, ritiene che verrà trasformato repentinamente l'attuale flusso di notizie cui siamo abituali; la democrazia dovrà trovare strumenti nuovi per rimanere al passo.`,
+                   },
+                   params: {} 
+                  };
 
     //   let sitoDipendenze = new Canale("wordpress_dipendenzepatologiche.apg23.org_creaArticolo", wordpressDipendenzeID, "https://dipendenzepatologiche.apg23.org",chatGptApiKey);
    
@@ -55,7 +83,7 @@ const prompts = {
                   lingue: ["en"],            
                  }
                 })
-              .setPrompts(prompts);
+              .setPrompts(promptsArticolo);
 
       let sitoSempreMondo = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
       .setClassificazioneRichiesta({
@@ -69,7 +97,7 @@ const prompts = {
          lingue: ["en"],            
         }
        })
-     .setPrompts(prompts);
+     .setPrompts(promptsArticolo);
 
 
 
@@ -81,7 +109,7 @@ const prompts = {
          tags: ["salute", "religione", "tecnologia", "giustizia", "rom","alimentazione","missioni", "dipendenze",  "strada"],
          },
        })
-     .setPrompts(prompts);
+     .setPrompts(promptsArticolo);
 
 
     
@@ -92,7 +120,7 @@ const prompts = {
          tags: ["disabilità","educazione","infanzia", "salute","famiglia","vita","affido"],
          },
        })
-     .setPrompts(prompts);
+     .setPrompts(promptsArticolo);
   
       
       let sitoSempreCultura = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
@@ -101,7 +129,7 @@ const prompts = {
          tags: ["politica", "spettacoli", "religione"],
          },
        })
-     .setPrompts(prompts);
+     .setPrompts(promptsArticolo);
 
       let sitoSempreScienza = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
       .setClassificazioneRichiesta({
@@ -109,7 +137,7 @@ const prompts = {
          tags: ["intelligenza artificiale", "fisica quantistica"],
          },
        })
-     .setPrompts(prompts);
+     .setPrompts(promptsArticolo);
 
 
       let sitoSempre_IreneCiambezi = new Canale("sendmail_redazionesempre_mailto", "marcotassinari@apg23.org",iftttKey,chatGptApiKey)
@@ -118,7 +146,7 @@ const prompts = {
          tags: ["prostituzione"],
          },
        })
-     .setPrompts(prompts);
+     .setPrompts(promptsArticolo);
 
 
 
@@ -158,6 +186,7 @@ const prompts = {
 this.aggiungiCanali([sitoSempreEcologia,sitoSempreMondo,sitoSempre_ChiaraBonetto,sitoSempreFamiglia,sitoSempreCultura, sitoSempreScienza, sitoSempre_IreneCiambezi]); //aggiunge i contesti al dialogo attuale
 //this.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale
 
+
     }
 
 
@@ -176,6 +205,7 @@ const tagManager = new TagManager(
 
 tagManager.addTags(
 [ 
+  /*
   { tag: "infanzia", categorie: ["famiglia"], descrizioni: { it: "Argomenti che riguardano i bambini, la loro crescita, l'educazione, la salute, i diritti e la protezione, con particolare attenzione ai minori vulnerabili. Accoglienza di minori più piccoli, fra i 0 e i 6 anni, inseriti negli asili nido e nelle scuole dell'infanzia, anche in affido."} },
   { tag: "volontariato", categorie: ["solidarietà"], descrizioni: { it:  "Attività svolte da volontari per aiutare la comunità, sostenere gruppi in difficoltà, promuovere l'inclusione sociale e partecipare a iniziative solidali."} },
   { tag: "educazione", categorie: ["famiglia"], descrizioni: { it: "Temi legati all'insegnamento, alla scuola, all'apprendimento, alla formazione professionale e all'accesso all'istruzione per tutte le fasce d'età. La pedagogia moderna propone agli insegnanti di non utilizzare i voti nella valutazione degli alunni e degli studenti." }},
@@ -204,8 +234,10 @@ tagManager.addTags(
   { tag: "intelligenza artificiale",  categorie: ["cultura", "scienza"], descrizioni: { it:  "L'AI (intelligenza artificiale) di ChatGpt fondata da OpenAI, passa alla versione Gemini 4.0. I due modelli semantici di DeepMind propongono testi auto-generati ed immagini veritiere che paiono falsificate, attraveso i server innovativi di Claude AI e del riconoscimento facciale. La rete neurale NVidia permetterà l'analisi automatizzata via IA delle procedure."}}, 
   { tag: "fisica quantistica", categorie: ["cultura", "scienza"],  descrizioni: { it:  "La fisica quantistica delle particelle con lo spin dell'elettrone permetterà ai computer quantici attraverso i fotoni di specchiarsi nello spazio-tempo relativo curvando le dimensioni dell'universo. Al Cern l'entanglement di Einstain verso una nuova percezione"}},
   { tag: "missioni", categorie: ["mondo"],  descrizioni: { it:  "Le missioni dei missionari all'estero nei Paesi emergenti dell'Africa, del Sud America, dell'Asia nel terzo mondo per il diritto allo sviluppo dei popoli africani con i comboniani, i francescani, la Comunità Papa Giovanni XXIII, e le suore. La siccità e le guerre oltre alle inondazioni dei monsoni mietono vittime nella povertà e nella fame, con la sanità e l'accesso ai diritti per i più poveri della Terra e del Mondo, fra le baraccopoli e le favelas" }}, 
-  { tag: "rom",  categorie: ["solidarietà"], descrizioni: { it:  "Incendio nei campi Rom balcanici discriminati per antiziganismo. Battaglia per l'integrazione delle comunità nomadi gipsy. Le roulotte degli zingari gitani poveri accusati di rubare e chiedere l'elemosina. Morto il bambino di origine Sinti emarginato nella società romanì, denuncia l'UNAR, l'odio razziale nella precarietà e il pregiudizio. "}}, 
-]);
+  
+  { tag: "rom",  categorie: ["solidarietà"], descrizioni: { it:  "Campi Rom balcanici discriminati per antiziganismo. l'integrazione delle comunità nomadi gipsy. Le roulotte degli zingari gitani poveri accusati di rubare e chiedere l'elemosina. Bambino di origine Sinti nella società romanì, denuncia l'UNAR."}}, 
+*/
+  ]);
 
 
 
@@ -280,6 +312,9 @@ rubriche: ["scienza"],
  * Avvia il bot MarcoTassinariBot.
  */
 (async () => {
+
+let bot = null;
+
   try {
     const DEBUG_LEVEL = process.env.DEBUG_LEVEL;
     ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
@@ -287,14 +322,23 @@ rubriche: ["scienza"],
     debug(0,"Avvio il server...", process.env.DEBUG_LEVEL);
     debug(0, "debug level:", DEBUG_LEVEL);
 
-    new BotMarcoTassinari()
-        .addFonti(fonti)  //invia le fonti        
-        .followFeeds(tagManager.getObject()) //passo le descrizioni dei miei tag e categorie; inizializza anche this.classificazioneRichiesta prendendola dai canali
-        .start(); //avvia il websocket
+    bot = new BotMarcoTassinari()
+      .addFonti(fonti) //invia le fonti        
+      .followFeeds(tagManager.getObject()); //passo le descrizioni dei miei tag e categorie; inizializza anche this.classificazioneRichiesta prendendola dai canali
+    
+      await bot.start(); // inizializza i canali e avvia il websocket
+      console.log("Bot avviato!");
+
+
 
   } catch (error) {
     debug(1,`Errore nell'avvio del bot Marco Tassinari:`, error);
   }
+
+// bot.test(numerocanale); ABILITARE SE SERVE FARE UNA PROVA DI CANALE SENZA ASPETTARE
+
+
+
 })();
 
 //***************************************
