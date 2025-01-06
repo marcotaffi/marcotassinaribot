@@ -41,9 +41,9 @@ class BotMarcoTassinari extends BotNews {
         - Preferisci i verbi attivi, contenuti certi e ben definiti, frasi brevi;
         - Mantieni le dichiarazioni originali dette dai protagonisti in prima persona, fra virgolette « »; 
         - Dove necessario, circa a metà articolo, aggiungi diciture simili a queste: "come spiega [Nome Testata](url):", "Leggi anche [Nome Testata](url)", "secondo i dati riportati da [Nome Testata](url)". 
-        - Alla fine chiudi l'articolo bruscamente senza inserire conclusioni o commenti.
+        - Alla fine chiudi l'articolo bruscamente senza conclusioni o commenti.
         
-        Istruzioni di formattazione html: utilizza <b> per sottolineare i concetti importanti e i nomi propri, <i> per nomi di eventi, progetti, enti, inserisci alcuni titoli intermedi, che contengano parole chiave SEO, in <h2>. 
+        Istruzioni di formattazione html: utilizza <b> per sottolineare i concetti importanti e i nomi propri, <i> per nomi di eventi, progetti, enti, inserisci uno o due titoli intermedi formattati in <h2>. 
         Alla fine chiudi l'articolo di netto, senza inserire commenti e conclusioni.`,
 
         params: {assistant_id:"asst_bHDl6nBPLhF6AyBVddSlnl7C"}
