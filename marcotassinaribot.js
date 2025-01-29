@@ -31,7 +31,7 @@ class BotMarcoTassinari extends BotNews {
     const iftttKey = process.env.IFTTT_WEBHOOKKEY;
    // const wordpressDipendenzeID = process.env.WORDPRESS_DIPENDENZE_ID
 
- 
+ /*
    const promptsArticolo = {
         ripubblicaNotizia: { prompt:`Devi scrivere il testo di un articolo giornalistico di approfondimento di una notizia, senza titolo, partendo da uno o più articoli dati. 
           Voglio un testo lungo: individua la notizia di interesse e usa tutto il materiale pertinente che ti viene fornito per raccontare il fatto, comprendendo i dati, le citazioni, le storie e gli esempi dati. 
@@ -57,7 +57,7 @@ class BotMarcoTassinari extends BotNews {
           params: {assistant_id:"asst_3ivJI6e7wqnQ4rPaGUe1HwoZ"}    
             }
     };
-
+*/
   const propmtLinkedin = {
     postLinkedin: { prompt:`Scrivi un post molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post commenta il testo dato e che riferisce una notizia. 
                   Inizia subito con il commento senza preamboli od introduzioni, e taglia in maniera netta senza conclusioni o rimandi. 
@@ -70,7 +70,7 @@ class BotMarcoTassinari extends BotNews {
 
     //   let sitoDipendenze = new Canale("wordpress_dipendenzepatologiche.apg23.org_creaArticolo", wordpressDipendenzeID, "https://dipendenzepatologiche.apg23.org",chatGptApiKey);
    
-      let sitoSempreEcologia = new Canale("sendmail_redazionesempre_mailto","marcotassinari@apg23.org",iftttKey, chatGptApiKey)
+    /*  let sitoSempreEcologia = new Canale("sendmail_redazionesempre_mailto","marcotassinari@apg23.org",iftttKey, chatGptApiKey)
               .setClassificazioneRichiesta({
                  includi: {  //se non specificato prende tutti  
                   tags: ["economia","ambiente"],
@@ -149,42 +149,40 @@ class BotMarcoTassinari extends BotNews {
      .setPrompts(promptsArticolo);
 
 
+ */
 
-      //   let sitoSempreSpiritualità = new Canale("sendmail_redazionesempre_mailto", "nicolettapasqualini@apg23.org",iftttKey,chatGptApiKey);
-   //    let socialMarcoLinkedin = new Canale("linkedin_marcot_post", "Marco Tassinari",iftttKey,chatGptApiKey);
+     //constructor(richiesta, address, accesso, apiKey){
+//la stringa address qui è usata solo nei debug
+     let socialMarcoLinkedin = new Canale("linkedin_marcot_post","Marco Tassinari",iftttKey,chatGptApiKey)
+     .setClassificazioneRichiesta({
+      includi: {  //se non specificato prende tutti  
+       tags: ["intelligenza artificiale"],
+       },
+     })
+   .setPrompts(propmtLinkedin);
 
-
-//        sitoSempreEcologia
-
-
-  //     sitoSempreSpiritualità.setClassificazioneRichiesta(["religione"]).setPrompts(prompts);
-    //   socialMarcoLinkedin.setClassificazioneRichiesta(["scienza", "intelligenza artificiale"]).setPrompts(prompts);
-
-
-/*       sitoSempreSolidarietà.setClassificazioneRichiesta(["dipendenze", "giustizia", "disabilità", "educazione"]);
-       sitoSempre.setClassificazioneRichiesta(["politica", "sport", "pace", "economia", "infanzia", "religione"]).setAuto().setPrompts(prompts);
-  */
-      // servizi generici
+  
+    // servizi generici
       // let serviziPerMArco = new Servizi (["sendmail_root" , "sendmail_generic", "googledrive_filetest", "console_info_log",  "textedit_url_download"], process.env.IFTTT_WEBHOOKKEY ); //sevizi di esempio; mi passerò hookId. I servizi li saprò facendo una chiamata a chatgpt per sapere l'assistente cosa sa fare
       let serviziPerMArco = new Servizi (["console_info_log", "textedit_url_download", "googledrive_filetest"], process.env.IFTTT_WEBHOOKKEY ); //sevizi di esempio; mi passerò hookId. I servizi li saprò facendo una chiamata a chatgpt per sapere l'assistente cosa sa fare
 
-      serviziPerMArco.registraServizio(sitoSempreEcologia.servizio); //aggiungo questi due servizi: pubblicazione sui canali
+/*      serviziPerMArco.registraServizio(sitoSempreEcologia.servizio); //aggiungo questi due servizi: pubblicazione sui canali
       serviziPerMArco.registraServizio(sitoSempreMondo.servizio);
       serviziPerMArco.registraServizio(sitoSempre_ChiaraBonetto.servizio);
       serviziPerMArco.registraServizio(sitoSempreFamiglia.servizio);
       serviziPerMArco.registraServizio(sitoSempreCultura.servizio);
       serviziPerMArco.registraServizio(sitoSempreScienza.servizio);
       serviziPerMArco.registraServizio(sitoSempre_IreneCiambezi.servizio);
-
-    //  serviziPerMArco.registraServizio(socialMarcoLinkedin.servizio);
+*/
+     serviziPerMArco.registraServizio(socialMarcoLinkedin.servizio);
 
 //- Nota: tutti questi servizi devono essere già presenti nell'assistente
 
       super(chatGptApiKey, assistantID, botToken, serviziPerMArco ); 
 
     
-this.aggiungiCanali([sitoSempreEcologia,sitoSempreMondo,sitoSempre_ChiaraBonetto,sitoSempreFamiglia,sitoSempreCultura, sitoSempreScienza, sitoSempre_IreneCiambezi]); //aggiunge i contesti al dialogo attuale
-//this.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale
+//this.aggiungiCanali([sitoSempreEcologia,sitoSempreMondo,sitoSempre_ChiaraBonetto,sitoSempreFamiglia,sitoSempreCultura, sitoSempreScienza, sitoSempre_IreneCiambezi]); //aggiunge i contesti al dialogo attuale
+this.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale
 
 
     }
@@ -209,10 +207,10 @@ tagManager.addTags(
  /* { tag: "infanzia", categorie: ["famiglia"], descrizioni: { it: "Argomenti che riguardano i bambini, la loro crescita, l'educazione, la salute, i diritti e la protezione, con particolare attenzione ai minori vulnerabili. Accoglienza di minori più piccoli, fra i 0 e i 6 anni, inseriti negli asili nido e nelle scuole dell'infanzia, anche in affido."} },
   { tag: "volontariato", categorie: ["solidarietà"], descrizioni: { it:  "Attività svolte da volontari per aiutare la comunità, sostenere gruppi in difficoltà, promuovere l'inclusione sociale e partecipare a iniziative solidali."} },
   { tag: "educazione", categorie: ["famiglia"], descrizioni: { it: "Temi legati all'insegnamento, alla scuola, all'apprendimento, alla formazione professionale e all'accesso all'istruzione per tutte le fasce d'età. La pedagogia moderna propone agli insegnanti di non utilizzare i voti nella valutazione degli alunni e degli studenti." }},
- */ { tag: "politica", categorie: ["cultura", "cronaca"], descrizioni: { it:  "Commissione Ue: in Parlamento, alla Camera dei Deputati e al Senato, la maggioranza di sindaci sostiene l'opposizione in politica nazionale. Le votazioni in commissione e nelle elezioni dei partiti, di centro-destra e di sinistra, hanno deciso lo stanziamento dei fondi per un accordo di parte. Il Presidente del Consiglio nelle istituzioni europee i contributi del Presidente della Repubblica e del voto in Consiglio dei Ministri portano a decisioni legislative rilevanti. Duri i commenti politici dei leader delle coalizioni, mentre il premier regionale appoggia il Governo uscente." }},
+  { tag: "politica", categorie: ["cultura", "cronaca"], descrizioni: { it:  "Commissione Ue: in Parlamento, alla Camera dei Deputati e al Senato, la maggioranza di sindaci sostiene l'opposizione in politica nazionale. Le votazioni in commissione e nelle elezioni dei partiti, di centro-destra e di sinistra, hanno deciso lo stanziamento dei fondi per un accordo di parte. Il Presidente del Consiglio nelle istituzioni europee i contributi del Presidente della Repubblica e del voto in Consiglio dei Ministri portano a decisioni legislative rilevanti. Duri i commenti politici dei leader delle coalizioni, mentre il premier regionale appoggia il Governo uscente." }},
   { tag: "pace", categorie: ["mondo"], descrizioni: { it:  "Esplodono i combattimenti che reprimono il dissenso: promozione della pace con mine antiuomo, droni e truppe; risoluzione dei conflitti, iniziative contro la guerra e mediazione internazionale. Il dittatore del regime ha inviato droni sulle basi militari prese d'assalto, missili e bombe provocano morte e distruzione; manifestazioni nella nonviolenza contro le armi atomiche. Militari nelle piazze chiedono il cessate il fuoco." }},
   { tag: "migranti", categorie: ["solidarietà"], descrizioni: { it:  "Argomenti legati alle migrazioni, alle politiche di accoglienza, alle crisi umanitarie, al traffico di esseri umani e ai diritti dei rifugiati. Nei campi profughi MSNA viaggiano soli a volte trafficati nei gommoni sul mare Mediterraneo o attraverso i balcani. Dal Messico agli Stati Uniti persone in fuga trovano un muro." }},
- /* { tag: "ambiente", categorie: ["ecologia integrale"], descrizioni: { it:  "Temi legati alla sostenibilità, alla protezione dell'ambiente, ai cambiamenti climatici e alla gestione responsabile delle risorse naturali. Le foreste che respirano trasformano l'ossigeno e l'energia in acqua pura e in paesaggi verdi ed incontaminati quando l'inquinamento non distrugge gli ambienti naturali." }},
+  { tag: "ambiente", categorie: ["ecologia integrale"], descrizioni: { it:  "Temi legati alla sostenibilità, alla protezione dell'ambiente, ai cambiamenti climatici e alla gestione responsabile delle risorse naturali. Le foreste che respirano trasformano l'ossigeno e l'energia in acqua pura e in paesaggi verdi ed incontaminati quando l'inquinamento non distrugge gli ambienti naturali." }},
   { tag: "diritti umani", categorie: ["solidarietà"], descrizioni: { it:  "Argomenti legati alla tutela dei diritti fondamentali, all'uguaglianza, alla lotta contro le discriminazioni e alla giustizia sociale." }},
   { tag: "salute", categorie: ["cultura"], descrizioni: { it:  "Articoli sulle mammografie e gli esami istologici dalle aziende sanitarie riguardanti la salute pubblica, il benessere fisico e mentale del sangue, le politiche sanitarie e le iniziative mediche riguardo al cuore e ai polmoni. Secondo l'Ulss 1 in ospedale e nelle ASL, nelle cliniche pubbliche e private, medici, infermieri e pediatri praticano cure olistiche o prescrivono farmaci per il benessere della persona." }},
 //attenzione la segurente mi aggiunge solidarietà ad articolo con accuse a salvini
@@ -268,7 +266,9 @@ tagManager.addTags(
   { tag: "affido", descrizioni: { it:  "Foster care and welcoming children at risk in family homes:..." }
 */
 
+const fonti = [];
 
+/*
 const fonti = [{ 
   url: "https://www.operazionecolomba.it/?format=feed&type=rss",
   rubriche: ["pace","apg23"],  //qui ci salvo la sezione del feed, eg esteri, cronaca...
@@ -320,7 +320,7 @@ rubriche: ["scienza"],
 },
 ];
 
-
+*/
 
 
 /**
