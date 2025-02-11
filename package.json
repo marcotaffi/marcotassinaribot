@@ -1,5 +1,5 @@
 {
-  "name": "MarcoTassinari_Bot",
+  "name": "marcotassinari_bot",
   "version": "1.0.0",
   "description": "Gestore BOT che sostituisce Marco Tassinari",
   "type": "module",
@@ -9,5 +9,9 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
