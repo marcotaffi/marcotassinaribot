@@ -1,12 +1,10 @@
 
-//import { BotChat } from 'TaffiTools/src/bot/botchat.js';
-import { BotNews } from 'TaffiTools/src/bot/botnews.js';
-//import { Canale } from 'TaffiTools/src/bot/canale.js';
-import { ProcessManager } from 'TaffiTools/src/system/processmanager.js';
-import { debug } from 'TaffiTools/src/utils/debug.js';
-import { Servizi } from "TaffiTools/src/utils/servizi.js";
-import { TagManager } from "TaffiTools/src/bot/tagmanager.js";
-import { Linkedin } from "TaffiTools/src/api/linkedin.js";
+import { BotNews } from 'taffitools/src/bot/botnews.js';
+import { ProcessManager } from 'taffitools/src/system/processmanager.js';
+import { debug } from 'taffitools/src/utils/debug.js';
+import { TagManager } from "taffitools/src/bot/tagmanager.js";
+import { Linkedin } from "taffitools/src/api/linkedin.js";
+import { ChatGPTAssistant } from "taffitools/src/ai/chatgptassistant.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -42,25 +40,30 @@ class BotMarcoTassinari extends BotNews {
                    params: {assistant_id: assistantID,} 
                   };
 
-
-
-
-//     let socialMarcoLinkedin = new Canale("linkedin_marcot_post","Marco Tassinari",iftttKey,chatGptApiKey)
   
 const credenziali = {
-  iftttKey: iftttKey,
+  iftttKey: iftttKey, 
 }
 
-let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
-//definisco sia run che post. comunque chatgpt non lo troverà se non è definito nell'assistente. 
-//sennò potrei definire solo linkedin_marcot_run
 
+/*
+* Attenzione: l'assistente che uso non deve prevedere i servizi dei canali 
+  ma può prevedere servizi ausiliari semplici. Non passo le credenziali ifttt.
+ */
+
+const linkedinAI = new ChatGPTAssistant(chatGptApiKey); //qui potrei passare eventuali credenziali dovessero servire ai servizi, ma non devono esserci servizi relativi al canale
+                   /*   .inizializza ({
+                        assistant_id: assistantID,
+                      })); 
+*/
+let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
      .setClassificazioneRichiesta({
       includi: {  //se non specificato prende tutti   
        tags: ["intelligenza artificiale"],
        },
      })
-    .setPrompts(propmtLinkedin);
+    .setPrompts(propmtLinkedin)
+    .setMotoreAI(linkedinAI);
 
   
     // servizi generici in uso al bot telegram: LI CARICO DALL'ASSISTENTE
@@ -69,9 +72,8 @@ let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali)
 
       super(chatGptApiKey, assistantID, botToken, credenziali); 
 
-    
-this.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale
-
+debug(0, "Aggiungo i canali al mio bot");    
+this.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale. Aggiunge la classificazione all'elenco canali.
 
     }
 
@@ -108,7 +110,7 @@ let bot = null;
 
     bot = new BotMarcoTassinari()
       .addFonti(fonti) //invia le fonti        
-      .followFeeds(tagManager.getObject()); //passo le descrizioni dei miei tag e categorie; inizializza anche this.classificazioneRichiesta prendendola dai canali
+      .setKnowledge(tagManager.getObject()); //passo le descrizioni dei miei tag e categorie
     
       await bot.start(); // inizializza i canali e avvia il websocket
       console.log("Bot avviato!");
