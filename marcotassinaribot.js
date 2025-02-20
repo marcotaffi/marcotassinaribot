@@ -5,6 +5,8 @@ import { debug } from 'taffitools/src/utils/debug.js';
 import { TagManager } from "taffitools/src/bot/tagmanager.js";
 import { Linkedin } from "taffitools/src/api/linkedin.js";
 import { ChatGPTAssistant } from "taffitools/src/ai/chatgptassistant.js";
+import { ChatGptAIBot } from "taffitools/src/ai/chatgptaibot.js";
+import { AIManager } from "taffitools/src/ai/aimanager.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -15,18 +17,25 @@ dotenv.config();
  * La classe MarcoTassinariBot: l'avatar di Marco su Telegram
  */
 
+
+  
+const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
+const chatGptApiKey = process.env.OPENAI_API_KEY;
+const assistantID = process.env.ASSISTANT_ID; //l'assistente di questo bot. scelto Marco Tassinari
+const iftttKey = process.env.IFTTT_WEBHOOKKEY;
+const DEBUG_LEVEL = process.env.DEBUG_LEVEL;
+
+
+
 class BotMarcoTassinari extends BotNews {
 
   /**
    * Crea un'istanza di MarcoTassinariBot.
    */
   constructor() {
-    debug(4,"BotMarcoTassinari costruttore");
-    
-    const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
-    const chatGptApiKey = process.env.OPENAI_API_KEY;
-    const assistantID = process.env.ASSISTANT_ID; //l'assistente di questo bot. scelto Marco Tassinari
-    const iftttKey = process.env.IFTTT_WEBHOOKKEY;
+    debug(2,"BotMarcoTassinari costruttore");
+  
+
    // const wordpressDipendenzeID = process.env.WORDPRESS_DIPENDENZE_ID
 
 
@@ -51,11 +60,13 @@ const credenziali = {
   ma può prevedere servizi ausiliari semplici. Non passo le credenziali ifttt.
  */
 
-const linkedinAI = new ChatGPTAssistant(chatGptApiKey); //qui potrei passare eventuali credenziali dovessero servire ai servizi, ma non devono esserci servizi relativi al canale
+//const linkedinAI = new ChatGPTAssistant(chatGptApiKey); //qui potrei passare eventuali credenziali dovessero servire ai servizi, ma non devono esserci servizi relativi al canale
                    /*   .inizializza ({
                         assistant_id: assistantID,
                       })); 
 */
+
+debug(2, "Creo il canale linkedin");
 let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
      .setClassificazioneRichiesta({
       includi: {  //se non specificato prende tutti   
@@ -63,16 +74,29 @@ let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali)
        },
      })
     .setPrompts(propmtLinkedin)
-    .setMotoreAI(linkedinAI);
+   // .setMotoreAI(linkedinAI);
 
   
     // servizi generici in uso al bot telegram: LI CARICO DALL'ASSISTENTE
    //let serviziPerMArco = new Servizi(["console_info_log", "textedit_url_download"],iftttKey ); //sevizi di esempio; mi passerò hookId. I servizi li saprò facendo una chiamata a chatgpt per sapere l'assistente cosa sa fare
      //serviziPerMArco.registraServizio(socialMarcoLinkedin.servizio);
 
-      super(chatGptApiKey, assistantID, botToken, credenziali); 
+//      super(chatGptApiKey, assistantID, botToken, credenziali); 
 
-debug(0, "Aggiungo i canali al mio bot");    
+
+debug (2, "definisco l'assistenteAI")
+const assistenteAI = new ChatGPTAssistant(chatGptApiKey);
+debug (2, "definisco il managerAI")
+const managerAI = new AIManager(credenziali).setAssistant(assistenteAI);
+debug (2, "definisco il bot AI")
+const botAI = new ChatGptAIBot(botToken, managerAI);
+  
+
+
+debug (2, "chiamo il costruttore di botNews" );
+super( botAI, assistantID, botToken );
+
+debug(2, "Aggiungo i canali al bot");    
 this.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale. Aggiunge la classificazione all'elenco canali.
 
     }
@@ -102,18 +126,23 @@ const fonti = [];
 let bot = null;
 
   try {
-    const DEBUG_LEVEL = process.env.DEBUG_LEVEL;
     ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
    
-    debug(0,"Avvio il server...", process.env.DEBUG_LEVEL);
+    debug(0,"Avvio il server...");
     debug(0, "debug level:", DEBUG_LEVEL);
 
-    bot = new BotMarcoTassinari()
-      .addFonti(fonti) //invia le fonti        
-      .setKnowledge(tagManager.getObject()); //passo le descrizioni dei miei tag e categorie
+    bot = new BotMarcoTassinari();
+
+
+    debug (2, "Aggiungo le fonti e la conoscenza")
+      bot.addFonti(fonti); //invia le fonti        
+     
+      bot.setKnowledge(tagManager.getObject()); //passo le descrizioni dei miei tag e categorie
     
-      await bot.start(); // inizializza i canali e avvia il websocket
-      console.log("Bot avviato!");
+debug(2, "Avvio il bot!");
+
+      bot.start(); // inizializza i canali e avvia il websocket
+      debug(0,"Bot avviato!");
 
 
 

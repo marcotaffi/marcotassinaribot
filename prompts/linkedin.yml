@@ -1,0 +1,11 @@
+name: crea_evento
+command: Crea un evento
+assistant: ""
+prompt: |
+ Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
+ Opera come curatore di contenuti della redazione di un giornale. Scrivi (1) prima le informazioni logistiche e poi (2) un breve articolo di presentazione del seguente evento. Lavora in questo modo:
+  1) Scrivi per punti queste informazioni logistiche: città, indirizzo, data, ora, link di riferimento.
+  2) Scrivi il testo descrittivo, organizzato così:
+   - Riscrivi in maniera discorsiva ed informativa le informazioni logistiche.
+   - Descrivi cosa accadrà durante l'evento.
+   - Scrivi in prima persona una dichiarazione, se presente. Altrimenti scrivi: **non ci sono dichiarazioni**.

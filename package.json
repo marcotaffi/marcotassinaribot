@@ -5,7 +5,7 @@
   "type": "module",
   "main": "taffibot.js",
   "scripts": {
-    "start": "node marcotassinaribot.js > marcotassinaribot.log 2>&1 &"
+    "start": "node marcotassinaribot.js > /var/log/iooo/marcotassinaribot.log 2>&1 &"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
