@@ -66,7 +66,7 @@ const credenziali = {
                       })); 
 */
 
-debug(2, "Creo il canale linkedin");
+debug(2, "Creo i canale: ");
 let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
      .setClassificazioneRichiesta({
       includi: {  //se non specificato prende tutti   
@@ -90,13 +90,10 @@ debug (2, "definisco il managerAI")
 const managerAI = new AIManager(credenziali).setAssistant(assistenteAI);
 debug (2, "definisco il bot AI")
 const botAI = new ChatGptAIBot(botToken, managerAI);
-  
+debug (4, "chiamo il costruttore di botNews" ); 
+super( botAI, assistantID, botToken ); //crea un AITagManager on una lista di Canali
 
-
-debug (2, "chiamo il costruttore di botNews" );
-super( botAI, assistantID, botToken );
-
-debug(2, "Aggiungo i canali al bot");    
+debug(4, "Aggiungo i canali al bot");    
 this.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale. Aggiunge la classificazione all'elenco canali.
 
     }
