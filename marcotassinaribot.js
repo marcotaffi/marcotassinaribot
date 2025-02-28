@@ -40,12 +40,19 @@ class BotMarcoTassinari extends BotNews {
 
 
   const propmtLinkedin = {
-    postLinkedin: { prompt:`Scrivi un post molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post commenta il testo dato e che riferisce una notizia. 
+    postLinkedin: { prompt:`Scrivi un post molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post esprime un commento puntuale e sintetico sul testo dato. 
                   Inizia subito con il commento senza preamboli od introduzioni, e taglia in maniera netta senza conclusioni o rimandi. 
-                  Nel commentare tieni presente che Marco in generale ritiene che sia utile mettersi a capofitto a sperimentare sulle nuove possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità, perché è necessario conoscerli per poterli controllare. 
-                  Marco è molto attento al rispetto dei diritti umani e alla libertà dell'individuo, cui le macchine dovranno rimanere sottomesse. In particolare le nuove tecnologie presentano rischi di omologazione della società, che può essere utilizzata dai governi per stringere i controlli sulle persone, e calare dall'alto decisioni di cui le persone possono non essere consapevoli. 
-                  Pensa che il cambiamento dei prossimi anni sarà repentino; per quanto riguarda le scienze dell'informazione, ritiene che verrà trasformato repentinamente l'attuale flusso di notizie cui siamo abituali; la democrazia dovrà trovare strumenti nuovi per rimanere al passo.`,
-                   },
+
+                  Questi i criteri per la scrittura del breve commento:
+                  Marco in generale ritiene che sia utile mettersi a capofitto a sperimentare sulle nuove possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità, perché è necessario conoscerli per poterli controllare. 
+                  Marco è molto attento al rispetto dei diritti umani e alla libertà dell'individuo, cui le macchine devono rimanere sottomesse. In particolare le nuove tecnologie presentano rischi di omologazione della società, e possono essere utilizzate dai governi per stringere i controlli sulle persone e calare dall'alto decisioni. 
+                  Le nuove tecnologie rischiano di mettere a rischio le democrazie e di favorire i governi autoritari.
+                  Marco pensa che il cambiamento dei prossimi anni sarà repentino: ritiene che verrà trasformato repentinamente l'attuale flusso di notizie cui siamo abituali; soprattutto le fasce più fragili della popolazione dovranno dotarsi di strumenti nuovi per rimanere al passo.
+                  Dal punto di vista tecnologico Marco programma in node.js su Linux Debian chiamando le API di ChatGpt e di molti altri servizi, creando soluzioni per l'automazione avanzata.
+                  
+                  Ecco il testo su cui lavorare:
+                  `
+                 },
                    params: {assistant_id: assistantID,} 
                   };
 
