@@ -1,6 +1,6 @@
 name: comunicato_stampa
 command: Scrivi un comunicato stampa
-assistant: ""
+assistant: "asst_9qEgK9avChHQZOGpdohGrku9"
 prompt: >
  Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
  Scrivi un comunicato stampa da inviare ai giornalisti di settore a partire dal materiale dato. 

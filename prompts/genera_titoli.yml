@@ -1,6 +1,6 @@
 name: genera_titoli
 command: Genera i titoli di un articolo per un portale online.
-assistant: ""
+assistant: "asst_bHDl6nBPLhF6AyBVddSlnl7C"
 prompt: >
  Devi scrivere un articolo di rilancio di una notizia.
  Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.

@@ -1,6 +1,6 @@
 name: impagina_html
 command: Prepara per la pubblicazione in html un articolo
-assistant: ""
+assistant: "asst_lQaLpnbVWv55mWbeGgrA2PO7"
 prompt: |
  Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
  Formatta in html il corpo dell'articolo finale, per intero, senza tagliare o modificare il testo. Scrivilo tutto per esteso.

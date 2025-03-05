@@ -1,6 +1,6 @@
 name: correggi_testo
 command: Correggi un testo
-assistant: ""
+assistant: "asst_lQaLpnbVWv55mWbeGgrA2PO7"
 prompt: >
  Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
  Correggi errori di battitura o di grammatica; mantieni tutto il testo con lo stile e il tono di voce originali. 

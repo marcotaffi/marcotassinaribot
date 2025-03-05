@@ -1,6 +1,6 @@
 name: crea_evento
 command: Crea un evento
-assistant: ""
+assistant: "asst_9qEgK9avChHQZOGpdohGrku9"
 prompt: |
  Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
  Opera come curatore di contenuti della redazione di un giornale. Scrivi (1) prima le informazioni logistiche e poi (2) un breve articolo di presentazione del seguente evento. Lavora in questo modo:
