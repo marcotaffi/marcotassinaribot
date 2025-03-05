@@ -17,7 +17,21 @@ dotenv.config();
  * La classe MarcoTassinariBot: l'avatar di Marco su Telegram
  */
 
+/** descrizioni comandi
 
+start - chiacchiera con Marco 
+help - Mi presento e ti spiego cosa so fare
+scrivi_articolo - Scrivo un nuovo articolo.
+comunicato_stampa - Scrivo un comunicato stampa.
+ripubblica_notizia - Preparo il rilancio di una notizia.
+correggi_testo - Correggo un testo.
+migliora_intervista - Miglioro un'intervista.
+impagina_html - Preparo per la pubblicazione in html un articolo.
+genera_titoli - Genero i titoli di un articolo per un portale online.
+genera_descrizioni_foto - Genero i campi di descrizione per una foto per semprenews.
+crea_evento - Creo un evento da pubblicare su semprenews.
+
+ */
   
 const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
 const chatGptApiKey = process.env.OPENAI_API_KEY;
