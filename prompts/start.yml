@@ -1,1 +1,7 @@
-/srv/apg23cdrbot/prompts/start.yml
+name: help
+command: Ricomincia.
+assistant: ""
+prompt: |
+ Salutami calorosamente.
+ 
+
