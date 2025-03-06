@@ -1,4 +1,4 @@
-name: genera_descrizioni_foto
+name: Genero descrizione foto
 command: Genera i campi di descrizione per una foto
 assistant: "asst_bHDl6nBPLhF6AyBVddSlnl7C"
 prompt: |
