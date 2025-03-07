@@ -7,8 +7,9 @@ import { Linkedin } from "taffitools/src/api/linkedin.js";
 import { ChatGPTAssistant } from "taffitools/src/ai/chatgptassistant.js";
 import { ChatGptAIBot } from "taffitools/src/ai/chatgptaibot.js";
 import { AIManager } from "taffitools/src/ai/aimanager.js";
+import { ChatGptImageGenerator } from "taffitools/src/ai/chatgptimagegenerator.js";
 import dotenv from 'dotenv';
-dotenv.config();
+ dotenv.config();
 
 
 // IL CARICAMENTO DEI PROMPT DINAMICI DAL FILE E' GESTITO NELLA BOTCHAT.JS
@@ -38,6 +39,7 @@ const chatGptApiKey = process.env.OPENAI_API_KEY;
 const assistantID = process.env.ASSISTANT_ID; //l'assistente di questo bot. scelto Marco Tassinari
 const iftttKey = process.env.IFTTT_WEBHOOKKEY;
 const DEBUG_LEVEL = process.env.DEBUG_LEVEL;
+
 
 
 const propmtLinkedin = {
@@ -81,37 +83,11 @@ class BotMarcoTassinari extends BotNews {
    * Crea un'istanza di MarcoTassinariBot.
    */
   constructor(botAI) {
-    debug(2,"BotMarcoTassinari costruttore");
-  
 
-   // const wordpressDipendenzeID = process.env.WORDPRESS_DIPENDENZE_ID
-
-
-
-
-/*
-* Attenzione: l'assistente che uso non deve prevedere i servizi dei canali 
-  ma può prevedere servizi ausiliari semplici. Non passo le credenziali ifttt.
- */
-
-//const linkedinAI = new ChatGPTAssistant(chatGptApiKey); //qui potrei passare eventuali credenziali dovessero servire ai servizi, ma non devono esserci servizi relativi al canale
-                   /*   .inizializza ({
-                        assistant_id: assistantID,
-                      })); 
-*/
-
-  
-    // servizi generici in uso al bot telegram: LI CARICO DALL'ASSISTENTE
-   //let serviziPerMArco = new Servizi(["console_info_log", "textedit_url_download"],iftttKey ); //sevizi di esempio; mi passerò hookId. I servizi li saprò facendo una chiamata a chatgpt per sapere l'assistente cosa sa fare
-     //serviziPerMArco.registraServizio(socialMarcoLinkedin.servizio);
-
-//      super(chatGptApiKey, assistantID, botToken, credenziali); 
 
 debug (4, "chiamo il costruttore di botNews" ); 
 
 super( botAI, botToken ); //crea un AITagManager on una lista di Canali, //ERA ASSISTANDID
-
-debug(4, "Aggiungo i canali al bot");    
 
     }
 
@@ -120,6 +96,10 @@ debug(4, "Aggiungo i canali al bot");
 }
 
 // ******************************** main **************************************
+
+
+
+
 
 
 const tagManager = new TagManager(
@@ -159,17 +139,17 @@ let bot = null;
     
 
 
+        debug (2, "definisco il generatore di foto");
+        const photoG = new ChatGptImageGenerator(chatGptApiKey);
+
     debug (2, "definisco l'assistenteAI")
     const assistenteAI = new ChatGPTAssistant(chatGptApiKey).setAssistantID(assistantID);
     debug (2, "definisco il managerAI")
-    const managerAI = new AIManager(credenziali).setAssistant(assistenteAI).newCanali();
+    const managerAI = new AIManager(credenziali).setAssistant(assistenteAI).setPhotoGenerator(photoG).newCanali();
         await managerAI.aggiungiCanali([socialMarcoLinkedin]);//ritorna un this a servizi
         await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
-
-
     debug (2, "definisco il bot AI")
     const botAI = new ChatGptAIBot(botToken, managerAI); //POTREI INIZIALIZZARE QUI ASSISTANTID
-
 
 
     bot = new BotMarcoTassinari(botAI);
