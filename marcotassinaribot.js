@@ -1,14 +1,16 @@
 
-import { BotNews } from 'taffitools/src/bot/botnews.js';
-import { ProcessManager } from 'taffitools/src/system/processmanager.js';
-import { debug } from 'taffitools/src/utils/debug.js';
-import { TagManager } from "taffitools/src/bot/tagmanager.js";
+//import { BotNews } from 'taffitools/src/bot/botnews.js';
+//import { ProcessManager } from 'taffitools/src/system/processmanager.js';
+//import { debug } from 'taffitools/src/utils/debug.js';
+/*import { TagManager } from "taffitools/src/bot/tagmanager.js";
 import { Linkedin } from "taffitools/src/api/linkedin.js";
 import { ChatGPTAssistant } from "taffitools/src/ai/chatgptassistant.js";
 import { ChatGptAIBot } from "taffitools/src/ai/chatgptaibot.js";
 import { AIManager } from "taffitools/src/ai/aimanager.js";
-import { ChatGptImageGenerator } from "taffitools/src/ai/chatgptimagegenerator.js";
+import { ChatGptImageGenerator } from "taffitools/src/ai/chatgptimagegenerator.js";*/
 import dotenv from 'dotenv';
+import { debug, BotNews, TagsManager, ProcessManager, Linkedin, ChatGPTAssistant, ChatGptAIBot, AIManager, ChatGptImageGenerator  } from "taffitools";
+
  dotenv.config();
 
 
@@ -104,11 +106,11 @@ super( botAI, botToken ); //crea un AITagManager on una lista di Canali, //ERA A
 
 
 
-const tagManager = new TagManager(
+const tagManager = new TagsManager(
   ["famiglia", "solidarietà", "cultura", "mondo", "spiritualità", "ecologia integrale", "scienza", "cronaca"]  //categorie permesse
 );
 
-tagManager.addTags(
+tagManager.registraEventi(
 []);
 
 const fonti = [];
@@ -160,8 +162,12 @@ let bot = null;
 
     debug (2, "Aggiungo le fonti e la conoscenza");
     
-      bot.addFonti(fonti); //invia le fonti        
+    let news = [];
      
+      if (fonti.length>0) bot.addFeeds(fonti); //invia le fonti       
+      if (news.length>0) bot.addNews(news); //invia le fonti       
+       
+
       bot.setKnowledge(tagManager.getObject()); //passo le descrizioni dei miei tag e categorie
     
 debug(2, "Avvio il bot!");
