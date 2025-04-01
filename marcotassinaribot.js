@@ -131,7 +131,7 @@ let bot = null;
 
 
 
-    debug(2, "definisco il canale linkedin: ");
+    debug(3, "definisco il canale linkedin: ");
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
          .setClassificazioneRichiesta({
           includi: {  //se non specificato prende tutti   
@@ -143,16 +143,16 @@ let bot = null;
     
 
 
-        debug (2, "definisco il generatore di foto");
+        debug (3, "definisco il generatore di foto");
         const photoG = new ChatGptImageGenerator(chatGptApiKey);
 
-    debug (2, "definisco l'assistenteAI")
+    debug (3, "definisco l'assistenteAI")
     const assistenteAI = new ChatGPTAssistant(chatGptApiKey).setAssistantID(assistantID);
-    debug (2, "definisco il managerAI")
+    debug (3, "definisco il managerAI")
     const managerAI = new AIManager(credenziali).setAssistant(assistenteAI).setPhotoGenerator(photoG).newCanali();
         await managerAI.aggiungiCanali([socialMarcoLinkedin]);//ritorna un this a servizi
         await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
-    debug (2, "definisco il bot AI")
+    debug (3, "definisco il bot AI")
     const botAI = new ChatGptAIBot(botToken, managerAI); //POTREI INIZIALIZZARE QUI ASSISTANTID
 
 
@@ -170,7 +170,7 @@ let bot = null;
 
       bot.setKnowledge(tagManager.getObject()); //passo le descrizioni dei miei tag e categorie
     
-debug(2, "Avvio il bot!");
+debug(3, "Avvio il bot!");
 
       bot.start(); // inizializza i canali e avvia il websocket
       debug(0,"Bot avviato!");
