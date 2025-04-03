@@ -106,12 +106,8 @@ super( botAI, botToken ); //crea un AITagManager on una lista di Canali, //ERA A
 
 
 
-const tagManager = new TagsManager(
-  ["famiglia", "solidarietà", "cultura", "mondo", "spiritualità", "ecologia integrale", "scienza", "cronaca"]  //categorie permesse
-);
 
-tagManager.registraEventi(
-[]);
+const tags = [];
 
 const fonti = [];
 
@@ -166,9 +162,9 @@ let bot = null;
      
       if (fonti.length>0) bot.addFeeds(fonti); //invia le fonti       
       if (news.length>0) bot.addNews(news); //invia le fonti       
-       
+      if (tags.length>0) bot.setKnowledge(tags); //passo le descrizioni dei miei tag e categorie
+ 
 
-      bot.setKnowledge(tagManager.getObject()); //passo le descrizioni dei miei tag e categorie
     
 debug(3, "Avvio il bot!");
 
