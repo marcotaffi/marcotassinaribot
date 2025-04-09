@@ -9,7 +9,7 @@ import { ChatGptAIBot } from "taffitools/src/ai/chatgptaibot.js";
 import { AIManager } from "taffitools/src/ai/aimanager.js";
 import { ChatGptImageGenerator } from "taffitools/src/ai/chatgptimagegenerator.js";*/
 import dotenv from 'dotenv';
-import { debug, BotNews, TagsManager, ProcessManager, Linkedin, ChatGPTAssistant, ChatGptAIBot, AIManager, ChatGptImageGenerator  } from "taffitools";
+import { debug, BotNews, ProcessManager, Linkedin, ChatGPTAssistant, ChatGptAIBot, AIManager, ChatGptImageGenerator  } from "taffitools";
 
  dotenv.config();
 
@@ -41,7 +41,8 @@ const chatGptApiKey = process.env.OPENAI_API_KEY;
 const assistantID = process.env.ASSISTANT_ID; //l'assistente di questo bot. scelto Marco Tassinari
 const iftttKey = process.env.IFTTT_WEBHOOKKEY;
 const DEBUG_LEVEL = process.env.DEBUG_LEVEL;
-
+const TEST_ONLY = (process.env['TEST_ONLY'] && process.env['TEST_ONLY']==="true"); // se true i canali non pubblicano realmente
+if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
 
 const propmtLinkedin = {
@@ -120,7 +121,7 @@ const fonti = [];
 let bot = null;
 
   try {
-    ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
+   // ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
    
     debug(0,"Avvio il server...");
     debug(0, "debug level:", DEBUG_LEVEL);
@@ -129,13 +130,8 @@ let bot = null;
 
     debug(3, "definisco il canale linkedin: ");
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
-         .setClassificazioneRichiesta({
-          includi: {  //se non specificato prende tutti   
-           tags: ["intelligenza artificiale"],
-           },
-         })
+       .addContent("tags", { categories:["intelligenza artificiale"]})
         .setPrompts(propmtLinkedin);
-  
     
 
 
@@ -146,7 +142,6 @@ let bot = null;
     const assistenteAI = new ChatGPTAssistant(chatGptApiKey).setAssistantID(assistantID);
     debug (3, "definisco il managerAI")
     const managerAI = new AIManager(credenziali).setAssistant(assistenteAI).setPhotoGenerator(photoG).newCanali();
-        await managerAI.aggiungiCanali([socialMarcoLinkedin]);//ritorna un this a servizi
         await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
     debug (3, "definisco il bot AI")
     const botAI = new ChatGptAIBot(botToken, managerAI); //POTREI INIZIALIZZARE QUI ASSISTANTID
@@ -167,8 +162,9 @@ let bot = null;
 
     
 debug(3, "Avvio il bot!");
+      await bot.aggiungiCanali([socialMarcoLinkedin]);//ritorna un this a servizi
 
-      bot.start(); // inizializza i canali e avvia il websocket
+      bot.start(TEST_ONLY); // inizializza i canali e avvia il websocket
       debug(0,"Bot avviato!");
 
 
