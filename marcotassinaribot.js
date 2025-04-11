@@ -139,7 +139,7 @@ let bot = null;
         const photoG = new ChatGptImageGenerator(chatGptApiKey);
 
     debug (3, "definisco l'assistenteAI")
-    const assistenteAI = new ChatGPTAssistant(chatGptApiKey).setAssistantID(assistantID);
+    const assistenteAI = new ChatGPTAssistant(chatGptApiKey).setDefaultAssistantID(assistantID);
     debug (3, "definisco il managerAI")
     const managerAI = new AIManager(credenziali).setAssistant(assistenteAI).setPhotoGenerator(photoG).newCanali();
         await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
