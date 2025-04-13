@@ -80,6 +80,7 @@ params: {assistant_id: assistantID,}
 
 const credenziali = {
 iftttKey: iftttKey, 
+test_only:TEST_ONLY,
 }
 
 class BotMarcoTassinari extends BotNews {
