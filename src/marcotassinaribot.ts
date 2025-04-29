@@ -1,15 +1,7 @@
 
-//import { BotNews } from 'taffitools/src/bot/botnews.js';
-//import { ProcessManager } from 'taffitools/src/system/processmanager.js';
-//import { debug } from 'taffitools/src/utils/debug.js';
-/*import { TagManager } from "taffitools/src/bot/tagmanager.js";
-import { Linkedin } from "taffitools/src/api/linkedin.js";
-import { ChatGPTAssistant } from "taffitools/src/ai/chatgptassistant.js";
-import { ChatGptAIBot } from "taffitools/src/ai/chatgptaibot.js";
-import { AIManager } from "taffitools/src/ai/aimanager.js";
-import { ChatGptImageGenerator } from "taffitools/src/ai/chatgptimagegenerator.js";*/
 import dotenv from 'dotenv';
 import { debug, BotNews, ProcessManager, Linkedin, ChatGPTAssistant, ChatGptAIBot, AIManager, ChatGptImageGenerator  } from "taffitools";
+import type {Trigger, TagProposti, TriggerProposti, Credenziali, PromptArticolo} from "taffitools";
 
  dotenv.config();
 
@@ -36,18 +28,17 @@ crea_evento - Creo un evento da pubblicare su semprenews.
 
  */
   
-const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN;
-const chatGptApiKey = process.env.OPENAI_API_KEY;
-const assistantID = process.env.ASSISTANT_ID; //l'assistente di questo bot. scelto Marco Tassinari
-const iftttKey = process.env.IFTTT_WEBHOOKKEY;
-const DEBUG_LEVEL = process.env.DEBUG_LEVEL;
-const TEST_ONLY = (process.env['TEST_ONLY'] && process.env['TEST_ONLY']==="true"); // se true i canali non pubblicano realmente
+const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN||"";
+const chatGptApiKey = process.env.OPENAI_API_KEY||"";
+const assistantID = process.env.ASSISTANT_ID||""; //l'assistente di questo bot. scelto Marco Tassinari
+const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
+const DEBUG_LEVEL = process.env.DEBUG_LEVEL||6;
+const TEST_ONLY = (process.env['TEST_ONLY'] && process.env['TEST_ONLY']==="true")||true; // se true i canali non pubblicano realmente
 if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
 
-const propmtLinkedin = {
-  postLinkedin: 
-{ prompt:
+const propmtLinkedin : PromptArticolo = {
+  postLinkedin: { prompt:
 `Scrivi un post molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post è costituito da una o due frasi e può esprimere un commento puntuale e sintetico sul testo dato. 
 Lo stile deve essere empatico, colloquiale ed informale, scritto con vocaboli semplici e frasi brevi. Non usare punti esclamativi o toni enfatici, ma preferisci un testo in generale moderato, anche se a tratti impulsivo. 
 
@@ -72,13 +63,12 @@ Esempi:
 - L'Europa finirà in secondo piano? La crescente dipendenza dalle infrastrutture digitali americane evidenzia quanto sia urgente investire in un'autonomia tecnologica. Ci serve una strategia di innovazione che salvaguardi la libertà dell'individuo e la sovranità dei dati.
 - OpenAI lancia il modello 5: lo aspettavamo tutti. Novità principale è la capacità di elaborazione parallela dei prompt, che supera il concetto di token cui eravamo abituati. Dico subito ai miei bot di testarla.
 - Ci sono lavori che l'AI non farà mai: da domani, tutti pasticcieri!
-`
-},
-params: {assistant_id: assistantID,} 
-                };
+`,
+params: {assistant_id: assistantID} 
+}};
 
 
-const credenziali = {
+const credenziali : Credenziali = {
 iftttKey: iftttKey, 
 test_only:TEST_ONLY,
 }
@@ -88,7 +78,7 @@ class BotMarcoTassinari extends BotNews {
   /**
    * Crea un'istanza di MarcoTassinariBot.
    */
-  constructor(botAI) {
+  constructor(botAI:any) {
 
 
 debug (4, "chiamo il costruttore di botNews" ); 
@@ -109,9 +99,9 @@ super( botAI, botToken ); //crea un AITagManager on una lista di Canali, //ERA A
 
 
 
-const tags = [];
-
-const fonti = [];
+let tags : TagProposti[] = [];
+let feeds: TriggerProposti[] = [];
+let news : TriggerProposti[] = [];
 
 
 /**
@@ -119,51 +109,51 @@ const fonti = [];
  */
 (async () => {
 
-let bot = null;
-
   try {
-   // ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
+    ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
    
-    debug(0,"Avvio il server...");
     debug(0, "debug level:", DEBUG_LEVEL);
 
 
+    debug(2, "Creo i canali: ");
 
-    debug(3, "definisco il canale linkedin: ");
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
-       .addContent("tags", { categories:["intelligenza artificiale"]})
+       .addContent({ categories:["intelligenza artificiale"],type:"tags" , flusso:"RaggruppaSimili"})
         .setPrompts(propmtLinkedin);
     
 
-
-        debug (3, "definisco il generatore di foto");
-        const photoG = new ChatGptImageGenerator(chatGptApiKey);
-
+       
     debug (3, "definisco l'assistenteAI")
     const assistenteAI = new ChatGPTAssistant(chatGptApiKey).setDefaultAssistantID(assistantID);
     debug (3, "definisco il managerAI")
-    const managerAI = new AIManager(credenziali).setAssistant(assistenteAI).setPhotoGenerator(photoG).newCanali();
-        await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
-    debug (3, "definisco il bot AI")
-    const botAI = new ChatGptAIBot(botToken, managerAI); //POTREI INIZIALIZZARE QUI ASSISTANTID
+    const managerAI = new AIManager(credenziali)
+     .setAssistant(assistenteAI)
+     .newCanali();
+     
+     debug (3, "definisco il bot AI")
+     const botAI = new ChatGptAIBot(botToken, managerAI); //POTREI INIZIALIZZARE QUI ASSISTANTID
+     const bot = new BotMarcoTassinari(botAI);
 
+     debug(2, "Aggiungo i canali al bot"); 
 
-    bot = new BotMarcoTassinari(botAI);
+     await bot.aggiungiCanali([socialMarcoLinkedin]);//ritorna un this a servizi
+
+     await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
+    
+
 
   //  bot.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale. Aggiunge la classificazione all'elenco canali.
 
     debug (2, "Aggiungo le fonti e la conoscenza");
     
-    let news = [];
      
-      if (fonti.length>0) bot.addFeeds(fonti); //invia le fonti       
+      if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       
       if (news.length>0) bot.addNews(news); //invia le fonti       
       if (tags.length>0) bot.setKnowledge(tags); //passo le descrizioni dei miei tag e categorie
  
 
     
 debug(3, "Avvio il bot!");
-      await bot.aggiungiCanali([socialMarcoLinkedin]);//ritorna un this a servizi
 
       bot.start(TEST_ONLY); // inizializza i canali e avvia il websocket
       debug(0,"Bot avviato!");

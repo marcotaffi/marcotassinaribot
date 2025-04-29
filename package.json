@@ -5,12 +5,17 @@
   "type": "module",
   "main": "taffibot.js",
   "scripts": {
-    "start": "node marcotassinaribot.js > /var/log/iooo/marcotassinaribot.log 2>&1 &"
+    "start": "node dist/marcotassinaribot.js > /var/log/iooo/marcotassinaribot.log 2>&1 &",
+    "build": "npx tsc",
+    "dev": "npx tsc --watch"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
