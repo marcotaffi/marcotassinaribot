@@ -1,19 +1,27 @@
 {
-  "name": "marcotassinari_bot",
+  "name": "taffiserver",
   "version": "1.0.0",
-  "description": "Gestore BOT che sostituisce Marco Tassinari",
+  "description": "Gestore AI by Taffi",
   "type": "module",
-  "main": "taffibot.js",
+  "main": "dist/taffiserver.js",
+  "types": "types",
   "scripts": {
     "start": "node dist/marcotassinaribot.js > /var/log/iooo/marcotassinaribot.log 2>&1 &",
     "build": "npx tsc",
     "dev": "npx tsc --watch"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "openai": "^4.53.1",
+    "rss-parser": "^3.13.0",
+    "ws": "^8.18.1"
   },
   "devDependencies": {
-    "@types/node": "^22.15.3",
+    "@types/node": "^22.13.14",
+    "@types/ws": "^8.18.1",
+    "@types/xml2js": "^0.4.14",
     "typescript": "^5.8.3"
   },
   "keywords": [],
