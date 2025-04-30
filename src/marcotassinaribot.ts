@@ -39,7 +39,7 @@ if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
 const propmtLinkedin : PromptArticolo = {
   postLinkedin: { prompt:
-`Scrivi un post molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post è costituito da una o due frasi e può esprimere un commento puntuale e sintetico sul testo dato. 
+`Scrivi un post molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post è costituito da due o tre frasi e spiega la notizia data. Se serve, può esprimere un commento (puntuale e sintetico) sul testo dato. 
 Lo stile deve essere empatico, colloquiale ed informale, scritto con vocaboli semplici e frasi brevi. Non usare punti esclamativi o toni enfatici, ma preferisci un testo in generale moderato, anche se a tratti impulsivo. 
 
 Puoi scegliere un criterio fra questi per la scrittura del breve commento:
@@ -55,14 +55,15 @@ Puoi scegliere un criterio fra questi per la scrittura del breve commento:
 Inizia subito con il commento senza preamboli od introduzioni, e taglia subito in maniera netta senza conclusioni o rimandi. 
 
 Esempi: 
-- Xiaomi ha presentato al MWC 2025 una serie di prodotti che dimostrano la loro forza e visione. Sono curioso di vedere come influenzeranno il nostro modo di informarci e interagire.
-- Meta è un'ottima misura per velocità con cui i tempi cambiano, e anche Zuckemberg è pronto a lanciare la sua app generativa. Ogni giorno nel settore piovono novità a ritmo serrato, ma mi chiedo quanto stiano mettendo sempre più a rischio la nostra libertà e i nostri diritti di base. 
-- Le nuove regole del Copyright Office degli USA sollevano un bel polverone nel mondo dell'arte e della creatività. L'idea che solo le opere con una "significativa creatività umana" possano essere protette ha implicazioni enormi.  
-- L'energia che useranno i nostri figli sarà pulita: mi rincuora vedere ogni giorno sviluppi nelle conoscenze delle tecnologie da fusione nucleare. Il Tokamak italiano è firmato Enea. 
-- I video POV generati dall'intelligenza artificiale stanno cambiando il modo in cui interagiamo con i contenuti visivi. Quanto tecnologie sostenute da miliardi di investimenti trasformeranno il nostro modo di vivere?
-- L'Europa finirà in secondo piano? La crescente dipendenza dalle infrastrutture digitali americane evidenzia quanto sia urgente investire in un'autonomia tecnologica. Ci serve una strategia di innovazione che salvaguardi la libertà dell'individuo e la sovranità dei dati.
+- Xiaomi ha presentato al MWC 2025 una serie di prodotti che dimostrano la loro forza e visione. Molto interessanti soprattutto i nuovi occhiali in grado di fare traduzioni automatiche. Sono curioso di vedere come influenzeranno il nostro modo di informarci e interagire.
+- Meta è un'ottima misura per velocità con cui i tempi cambiano, e anche Zuckemberg è pronto a lanciare la sua app generativa. Si chiama MetaAI ed elabora testi usando il motore DeepSeek, realizzato in Cina. Ogni giorno nel settore piovono novità a ritmo serrato, ma mi chiedo quanto stiano mettendo sempre più a rischio la nostra libertà e i nostri diritti di base. 
+- Le nuove regole del Copyright Office degli USA sollevano un bel polverone nel mondo dell'arte e della creatività. Prevedono di multare chi usa l'intelligenza artificiale senza citare le fonti. L'idea che solo le opere con una "significativa creatività umana" possano essere protette ha implicazioni enormi.  
+- L'energia che useranno i nostri figli sarà pulita: mi rincuora vedere ogni giorno sviluppi nelle conoscenze delle tecnologie da fusione nucleare. La fusione del plasma è possibile grazie all'idrogeno inserito nei reattori; il Tokamak italiano è firmato Enea. 
+- I video POV generati dall'intelligenza artificiale stanno cambiando il modo in cui interagiamo con i contenuti visivi. ChatGPT ha pubblicato Sora, disponibile a pagamento da giovedì. Quanto tecnologie sostenute da miliardi di investimenti trasformeranno il nostro modo di vivere?
+- L'Europa finirà in secondo piano? La Presidente Von Der Leyen ne ha parlato a 500 parlamentari esprimendo preoccupazione per i nuovi dazi. La crescente dipendenza dalle infrastrutture digitali americane evidenzia quanto sia urgente investire in un'autonomia tecnologica. Ci serve una strategia di innovazione che salvaguardi la libertà dell'individuo e la sovranità dei dati.
 - OpenAI lancia il modello 5: lo aspettavamo tutti. Novità principale è la capacità di elaborazione parallela dei prompt, che supera il concetto di token cui eravamo abituati. Dico subito ai miei bot di testarla.
-- Ci sono lavori che l'AI non farà mai: da domani, tutti pasticcieri!
+- Ci sono lavori che l'AI non farà mai: da domani, tutti pasticcieri! Mi vien da pensare questo quando scrpro che il mio computer ha iniziato a lavorare da solo grazie all'AI di Apple. Vi aspetto con un pasticcino!
+- Ieri sono sceso dalla mia canoa, insieme a mia figlia, e ho pensato: chissà se le stelle resteranno al loro posto a lungo? Il positrone scoperto al Cern apre strade fino ad oggi impensabili.
 `,
 params: {assistant_id: assistantID} 
 }};
@@ -118,8 +119,8 @@ let news : TriggerProposti[] = [];
     debug(2, "Creo i canali: ");
 
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
-       .addContent({ categories:["intelligenza artificiale"],type:"tags" , flusso:"RaggruppaSimili"})
-        .setPrompts(propmtLinkedin);
+       .addContent({ hooks:["intelligenza artificiale"], categories:["intelligenza artificiale", "scienza"], type:"tags" , flusso:"RaggruppaSimili"})
+       .setPrompts(propmtLinkedin);
     
 
        
