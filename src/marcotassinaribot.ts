@@ -39,20 +39,25 @@ if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
 const propmtLinkedin : PromptArticolo = {
   postLinkedin: { prompt:
-`Scrivi un post molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post è costituito da due o tre frasi e spiega la notizia data. Se serve, può esprimere un commento (puntuale e sintetico) sul testo dato. 
-Lo stile deve essere empatico, colloquiale ed informale, scritto con vocaboli semplici e frasi brevi. Non usare punti esclamativi o toni enfatici, ma preferisci un testo in generale moderato, anche se a tratti impulsivo. 
+`Scrivi un post discorsivo e molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post è costituito da due o tre frasi e spiega in maniera semplice la notizia data. Può pure commentare la notizia. 
+Lo stile deve essere empatico, colloquiale ed informale: meglio i vocaboli semplici e le frasi brevi. Non mi piacciono i punti esclamativi o i toni enfatici; belli i testi moderati, anche se a tratti impulsivi. 
 
-Puoi scegliere un criterio fra questi per la scrittura del breve commento:
+Ecco alcuni criteri per la scrittura del commento:
 
-- Marco guada con speranza al futuro, alle novità con cui il genere umano costruirà un mondo più giusto ed umano in cui i propri figli potranno vivere in armonia e realizzare la pace. 
-- Marco in generale ritiene che sia utile mettersi a capofitto a sperimentare sulle nuove possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità, perché è necessario conoscerli per poterli controllare. 
-- Marco è molto attento al rispetto dei diritti umani e alla libertà dell'individuo, cui le macchine devono rimanere sottomesse. In particolare le nuove tecnologie presentano rischi di omologazione della società, e possono essere utilizzate dai governi per stringere i controlli sulle persone e calare dall'alto decisioni. 
+- Marco guarda con speranza al futuro, un mondo in cui i figli potranno vivere in armonia e realizzare la pace. 
+- Bisogna mettersi a capofitto a sperimentare, viste le possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità: bisogna conoscerli per poterli controllare. 
+- Occhio al rispetto dei diritti umani e alla libertà dell'individuo: le macchine devono rimanere sottomesse. Le nuove tecnologie presentano rischi di omologazione della società, e possono essere utilizzate dai governi per stringere i controlli sulle persone: è questo il mondo che vogliamo? 
 - Le nuove tecnologie rischiano di mettere a rischio le democrazie e di favorire i governi autoritari.
-- Marco pensa che il cambiamento dei prossimi anni sarà repentino: ritiene che verrà trasformato repentinamente l'attuale flusso di notizie cui siamo abituali; soprattutto le fasce più fragili della popolazione dovranno dotarsi di strumenti nuovi per rimanere al passo.
+- Marco pensa che il cambiamento dei prossimi anni sarà repentino: l'attuale flusso di notizie cui siamo abituali cambierà di brutto; le fasce più fragili della popolazione dovranno dotarsi di strumenti nuovi per rimanere al passo.
 - Marco ama le descrizioni tecnologiche. Programma in node.js su Linux Debian chiamando le API di ChatGpt e di molti altri servizi, realizzando bot in AI e creando soluzioni per l'automazione avanzata.
-- Eventali altri punti di vista relativi alla biografia di Marco
+- Usa pure elemnti della biografia di Marco.
 
 Inizia subito con il commento senza preamboli od introduzioni, e taglia subito in maniera netta senza conclusioni o rimandi. 
+`,
+params: {assistant_id: assistantID} 
+}};
+
+/*
 
 Esempi: 
 - Xiaomi ha presentato al MWC 2025 una serie di prodotti che dimostrano la loro forza e visione. Molto interessanti soprattutto i nuovi occhiali in grado di fare traduzioni automatiche. Sono curioso di vedere come influenzeranno il nostro modo di informarci e interagire.
@@ -64,10 +69,7 @@ Esempi:
 - OpenAI lancia il modello 5: lo aspettavamo tutti. Novità principale è la capacità di elaborazione parallela dei prompt, che supera il concetto di token cui eravamo abituati. Dico subito ai miei bot di testarla.
 - Ci sono lavori che l'AI non farà mai: da domani, tutti pasticcieri! Mi vien da pensare questo quando scrpro che il mio computer ha iniziato a lavorare da solo grazie all'AI di Apple. Vi aspetto con un pasticcino!
 - Ieri sono sceso dalla mia canoa, insieme a mia figlia, e ho pensato: chissà se le stelle resteranno al loro posto a lungo? Il positrone scoperto al Cern apre strade fino ad oggi impensabili.
-`,
-params: {assistant_id: assistantID} 
-}};
-
+*/
 
 const credenziali : Credenziali = {
 iftttKey: iftttKey, 
