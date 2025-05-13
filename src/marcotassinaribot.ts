@@ -28,7 +28,7 @@ crea_evento - Creo un evento da pubblicare su semprenews.
 
  */
   
-const botToken = process.env.TELEGRAM_TAFFIBOT_TOKEN||"";
+const botToken = process.env.TELEGRAM_TOKEN||"";
 const chatGptApiKey = process.env.OPENAI_API_KEY||"";
 const assistantID = process.env.ASSISTANT_ID||""; //l'assistente di questo bot. scelto Marco Tassinari
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
