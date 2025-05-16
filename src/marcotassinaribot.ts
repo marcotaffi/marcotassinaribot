@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotNews, ProcessManager, Linkedin, ChatGPTAssistant, ChatGptAIBot, AIManager, ChatGptImageGenerator  } from "taffitools";
+import { debug, BotNews, ProcessManager, Linkedin, ChatGPTAssistant, AIManager, ChatGptImageGenerator } from "taffitools";
 import type {Trigger, TagProposti, TriggerProposti, Credenziali, PromptArticolo} from "taffitools";
 
  dotenv.config();
@@ -74,14 +74,16 @@ Esempi:
 const credenziali : Credenziali = {
 iftttKey: iftttKey, 
 test_only:TEST_ONLY,
+botToken: botToken,
+//assistantID: assistantID
 }
 
-class BotMarcoTassinari extends BotNews {
+//class BotMarcoTassinari extends BotNews {
 
   /**
    * Crea un'istanza di MarcoTassinariBot.
    */
-  constructor(botAI:any) {
+ /* constructor(botAI:any) {
 
 
 debug (4, "chiamo il costruttore di botNews" ); 
@@ -89,10 +91,10 @@ debug (4, "chiamo il costruttore di botNews" );
 super( botAI, botToken ); //crea un AITagManager on una lista di Canali, //ERA ASSISTANDID
 
     }
+*/
 
 
-
-}
+//}
 
 // ******************************** main **************************************
 
@@ -127,21 +129,24 @@ let news : TriggerProposti[] = [];
 
        
     debug (3, "definisco l'assistenteAI")
-    const assistenteAI = new ChatGPTAssistant(chatGptApiKey).setDefaultAssistantID(assistantID);
+    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey).setDefaultAssistantID(assistantID);
     debug (3, "definisco il managerAI")
-    const managerAI = new AIManager(credenziali)
-     .setAssistant(assistenteAI)
-     .newCanali();
+    //const managerAI = new AIManager(credenziali)
+    // .setAssistant(assistenteAI)
+    // .newCanali();
      
      debug (3, "definisco il bot AI")
-     const botAI = new ChatGptAIBot(botToken, managerAI); //POTREI INIZIALIZZARE QUI ASSISTANTID
-     const bot = new BotMarcoTassinari(botAI);
+//     const botAI = new ChatGptAIBot(botToken, managerAI); //POTREI INIZIALIZZARE QUI ASSISTANTID
+//     const bot = new BotMarcoTassinari(botAI);
+
+const bot = new BotNews(assistenteAI, credenziali);
+
 
      debug(2, "Aggiungo i canali al bot"); 
 
      await bot.aggiungiCanali([socialMarcoLinkedin]);//ritorna un this a servizi
 
-     await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
+    // await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
     
 
 
