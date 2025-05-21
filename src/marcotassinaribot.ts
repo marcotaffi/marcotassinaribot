@@ -1,7 +1,7 @@
 
 import dotenv from 'dotenv';
-import { debug, BotNews, ProcessManager, Linkedin, ChatGPTAssistant, AIManager, ChatGptImageGenerator } from "taffitools";
-import type {Trigger, TagProposti, TriggerProposti, Credenziali, PromptArticolo} from "taffitools";
+import { debug, BotIooo, ProcessManager, Linkedin, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator } from "taffitools";
+import type {TagProposti, TriggerProposti, Credenziali, PromptArticolo} from "taffitools";
 
  dotenv.config();
 
@@ -38,24 +38,36 @@ if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
 
 const propmtLinkedin : PromptArticolo = {
-  postLinkedin: { prompt:
-`Scrivi un post discorsivo e molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post è costituito da due o tre frasi e spiega in maniera semplice la notizia data. Può pure commentare la notizia. 
-Lo stile deve essere empatico, colloquiale ed informale: meglio i vocaboli semplici e le frasi brevi. Non mi piacciono i punti esclamativi o i toni enfatici; belli i testi moderati, anche se a tratti impulsivi. 
-
-Ecco alcuni criteri per la scrittura del commento:
-
-- Marco guarda con speranza al futuro, un mondo in cui i figli potranno vivere in armonia e realizzare la pace. 
-- Bisogna mettersi a capofitto a sperimentare, viste le possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità: bisogna conoscerli per poterli controllare. 
-- Occhio al rispetto dei diritti umani e alla libertà dell'individuo: le macchine devono rimanere sottomesse. Le nuove tecnologie presentano rischi di omologazione della società, e possono essere utilizzate dai governi per stringere i controlli sulle persone: è questo il mondo che vogliamo? 
-- Le nuove tecnologie rischiano di mettere a rischio le democrazie e di favorire i governi autoritari.
-- Marco pensa che il cambiamento dei prossimi anni sarà repentino: l'attuale flusso di notizie cui siamo abituali cambierà di brutto; le fasce più fragili della popolazione dovranno dotarsi di strumenti nuovi per rimanere al passo.
-- Marco ama le descrizioni tecnologiche. Programma in node.js su Linux Debian chiamando le API di ChatGpt e di molti altri servizi, realizzando bot in AI e creando soluzioni per l'automazione avanzata.
-- Usa pure elemnti della biografia di Marco.
-
-Inizia subito con il commento senza preamboli od introduzioni, e taglia subito in maniera netta senza conclusioni o rimandi. 
+  postSocial: { prompt:
+`Ciao, scrivi per favore un post discorsivo e colloquiale, molto breve per la mia pagina personale su Linkedin  (io sono Marco Tassinari, mi conosci già). Il post è costituito da due o tre frasi e spiega in maniera semplice la notizia.
+Di solito ho uno stile empatico, colloquiale ed informale: secondo me son meglio i vocaboli semplici e le frasi brevi. Non mi piacciono i punti esclamativi o i toni enfatici; belli invece i testi moderati, soprattutto se a tratti impulsivi. 
+Inizia subito il mio post con il commento senza preamboli od introduzioni, e taglia subito in maniera netta senza conclusioni o rimandi. Lo pubblico direttamente io, grazie!
 `,
 params: {assistant_id: assistantID} 
-}};
+},
+
+postOld: { prompt:
+  `Scrivi un post discorsivo e molto breve per la pagina personale su Linkedin di Marco Tassinari. Il post è costituito da due o tre frasi e spiega in maniera semplice la notizia data. Può pure commentare la notizia. 
+  Lo stile deve essere empatico, colloquiale ed informale: meglio i vocaboli semplici e le frasi brevi. Non mi piacciono i punti esclamativi o i toni enfatici; belli i testi moderati, anche se a tratti impulsivi. 
+  
+  Ecco alcuni criteri per la scrittura del commento:
+  
+  - Marco guarda con speranza al futuro, un mondo in cui i figli potranno vivere in armonia e realizzare la pace. 
+  - Bisogna mettersi a capofitto a sperimentare, viste le possibilità offerte dalle recenti scoperte, dall'innovazione tecnologica e dai progressi dell'umanità: bisogna conoscerli per poterli controllare. 
+  - Occhio al rispetto dei diritti umani e alla libertà dell'individuo: le macchine devono rimanere sottomesse. Le nuove tecnologie presentano rischi di omologazione della società, e possono essere utilizzate dai governi per stringere i controlli sulle persone: è questo il mondo che vogliamo? 
+  - Le nuove tecnologie rischiano di mettere a rischio le democrazie e di favorire i governi autoritari.
+  - Marco pensa che il cambiamento dei prossimi anni sarà repentino: l'attuale flusso di notizie cui siamo abituali cambierà di brutto; le fasce più fragili della popolazione dovranno dotarsi di strumenti nuovi per rimanere al passo.
+  - Marco ama le descrizioni tecnologiche. Programma in node.js su Linux Debian chiamando le API di ChatGpt e di molti altri servizi, realizzando bot in AI e creando soluzioni per l'automazione avanzata.
+  - Usa pure elemnti della biografia di Marco.
+  
+  Inizia subito con il commento senza preamboli od introduzioni, e taglia subito in maniera netta senza conclusioni o rimandi. 
+  `,
+  params: {assistant_id: assistantID} 
+  },
+  
+
+
+};
 
 /*
 
@@ -74,33 +86,34 @@ Esempi:
 const credenziali : Credenziali = {
 iftttKey: iftttKey, 
 test_only:TEST_ONLY,
-botToken: botToken,
+//botToken: botToken,
 //assistantID: assistantID
 }
 
-//class BotMarcoTassinari extends BotNews {
+class BotMarcoTassinari extends BotIooo {
 
   /**
    * Crea un'istanza di MarcoTassinariBot.
    */
- /* constructor(botAI:any) {
+  constructor() {
+        
+    debug (3, "definisco l'assistenteAI")
+    const sessionManager: AISessionManager = new AISessionManager();
+    const aiManager = new AIManager(sessionManager);
+    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager).setDefaultAssistantID(assistantID);
+    
+    //ci vorrebbe await 
+    aiManager.setAssistant(assistenteAI).newCanali().avviaServiziAssistente(credenziali); 
 
+    super(aiManager, sessionManager, botToken);
 
-debug (4, "chiamo il costruttore di botNews" ); 
-
-super( botAI, botToken ); //crea un AITagManager on una lista di Canali, //ERA ASSISTANDID
-
+    debug (4, "chiamo il costruttore di botNews" ); 
     }
-*/
 
 
-//}
+}
 
 // ******************************** main **************************************
-
-
-
-
 
 
 
@@ -110,7 +123,7 @@ let news : TriggerProposti[] = [];
 
 
 /**
- * Avvia il bot MarcoTassinariBot.
+ * Avvia il bot.
  */
 (async () => {
 
@@ -122,47 +135,28 @@ let news : TriggerProposti[] = [];
 
     debug(2, "Creo i canali: ");
 
-    let socialMarcoLinkedin = new Linkedin ("linkedin_marcot", credenziali) 
+    let socialMarcoLinkedin = new Linkedin ("linkedin_marcot") 
        .addContent({ hooks:["intelligenza artificiale"], categories:["intelligenza artificiale", "scienza"], type:"tags" , flusso:"RaggruppaSimili"})
        .setPrompts(propmtLinkedin);
     
 
-       
-    debug (3, "definisco l'assistenteAI")
-    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey).setDefaultAssistantID(assistantID);
-    debug (3, "definisco il managerAI")
-    //const managerAI = new AIManager(credenziali)
-    // .setAssistant(assistenteAI)
-    // .newCanali();
-     
-     debug (3, "definisco il bot AI")
-//     const botAI = new ChatGptAIBot(botToken, managerAI); //POTREI INIZIALIZZARE QUI ASSISTANTID
-//     const bot = new BotMarcoTassinari(botAI);
-
-const bot = new BotNews(assistenteAI, credenziali);
-
-
+   
+    debug (3, "definisco il bot AI")
+//    const bot = new BotIooo(aiManager, sessionManager, botToken);
+     const bot = new BotMarcoTassinari();
      debug(2, "Aggiungo i canali al bot"); 
+     await bot.aggiungiCanali([socialMarcoLinkedin], credenziali);//ritorna un this a servizi
 
-     await bot.aggiungiCanali([socialMarcoLinkedin]);//ritorna un this a servizi
-
-    // await managerAI.avviaServiziAssistente(); //ritorna un this a managerAI
     
-
-
-  //  bot.aggiungiCanali([socialMarcoLinkedin]); //aggiunge i contesti al dialogo attuale. Aggiunge la classificazione all'elenco canali.
-
     debug (2, "Aggiungo le fonti e la conoscenza");
     
-     
-      if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       
+        if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       
       if (news.length>0) bot.addNews(news); //invia le fonti       
       if (tags.length>0) bot.setKnowledge(tags); //passo le descrizioni dei miei tag e categorie
  
 
     
-debug(3, "Avvio il bot!");
-
+      debug(3, "Avvio il bot!");
       bot.start(TEST_ONLY); // inizializza i canali e avvia il websocket
       debug(0,"Bot avviato!");
 
