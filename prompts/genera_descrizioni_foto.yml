@@ -1,8 +1,8 @@
 name: Genero descrizione foto
 command: Genera i campi di descrizione per una foto
 assistant: "asst_bHDl6nBPLhF6AyBVddSlnl7C"
+chiediMateriale: true
 prompt: |
- Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti (per ora solo testuali).
  Fammi le didascalie per una foto relativa a questo articolo, inserendo i campi titolo, alt, descrizione, tags, autore. Oltre all'articolo ti serve conoscere una descrizione della foto. Se non ti viene fornita una descrizione della foto chiedimela pure, se ti mancano le informazioni per alcuni campi lasciali vuoti.
   Ecco una spiegazione dei campi in dettaglio:
    Titolo: Titolo dell'immagine per identificazione

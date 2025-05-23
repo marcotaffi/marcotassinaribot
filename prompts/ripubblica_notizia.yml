@@ -1,8 +1,8 @@
 name: Ripubblico una notizia
 command: Prepara il rilancio di una notizia altrui
 assistant: "asst_bHDl6nBPLhF6AyBVddSlnl7C"
+chiediMateriale: true
 prompt: |
- Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
  Riscrivi un articolo giornalistico da questo materiale, modificando il testo originale secondo queste indicazioni:  
   - non riscrivere il titolo, ti serve solo come contesto per l'articolo;
   - modifica l'ordine dei contenuti per raggruppare i temi simili;

@@ -32,7 +32,7 @@ const botToken = process.env.TELEGRAM_TOKEN||"";
 const chatGptApiKey = process.env.OPENAI_API_KEY||"";
 const assistantID = process.env.ASSISTANT_ID||""; //l'assistente di questo bot. scelto Marco Tassinari
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
-const DEBUG_LEVEL = process.env.DEBUG_LEVEL||6;
+//const DEBUG_LEVEL = process.env.DEBUG_LEVEL||6;
 const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
 if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
@@ -128,16 +128,17 @@ let news : TriggerProposti[] = [];
 (async () => {
 
   try {
-    ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
+   // ProcessManager.getInstance().setup();
    
-    debug(0, "debug level:", DEBUG_LEVEL);
+   // debug(0, "debug level:", DEBUG_LEVEL);
 
 
     debug(2, "Creo i canali: ");
 
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot") 
        .addContent({ hooks:["intelligenza artificiale"], categories:["intelligenza artificiale", "scienza"], type:"tags" , flusso:"RaggruppaSimili"})
-       .setPrompts(propmtLinkedin);
+       .setPrompts(propmtLinkedin)
+       .start(credenziali);
     
 
    

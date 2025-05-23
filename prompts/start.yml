@@ -1,6 +1,7 @@
 name: help
 command: Ricomincia.
 assistant: ""
+chiediMateriale: false
 prompt: |
  Salutami calorosamente.
  

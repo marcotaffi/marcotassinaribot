@@ -1,8 +1,8 @@
 name: Miglioro intervista
 command: Migliora un'intervista.
 assistant: "asst_bHDl6nBPLhF6AyBVddSlnl7C"
+chiediMateriale: true
 prompt: >
- Prima di iniziare chiedi se hai già il materiale necessario oppure se l'utente vuole inviarti contenuti.
  Correggi, riscrivendo per esteso, tutta questa dichiarazione di un intervistato, detta da lui in prima persona e migliorando le espressioni del parlato per renderle più coerenti con la lingua scritta. Rimuovi solo eventuali concetti ripetuti e didondanti, ma riporta per intero tutto il resto. 
  Separa le domande dalle risposte, formattando le domande come #### titolo di livello 4.  Scrivi le risposte dell'intervistato scritte fra virgolette, così: Spiega **Nome Cognome**: «Questa è la mia risposta corretta».
 
