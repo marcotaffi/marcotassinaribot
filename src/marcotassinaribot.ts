@@ -1,7 +1,7 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, ProcessManager, Linkedin, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator } from "taffitools";
-import type {TagProposti, TriggerProposti, Credenziali, PromptArticolo} from "taffitools";
+import { debug, BotIooo, ProcessManager, Linkedin, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager } from "taffitools";
+import type {TagProposti, TriggerProposti, Credenziali, PromptArticolo, Files} from "taffitools";
 
  dotenv.config();
 
@@ -36,7 +36,7 @@ const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
 const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
 if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
-
+/*
 const propmtLinkedin : PromptArticolo = {
   postSocial: { prompt:
 `Ciao, scrivi per favore un post discorsivo e colloquiale, molto breve per la mia pagina personale su Linkedin  (io sono Marco Tassinari, mi conosci già). Il post è costituito da due o tre frasi e spiega in maniera semplice la notizia.
@@ -64,10 +64,8 @@ postOld: { prompt:
   `,
   params: {assistant_id: assistantID} 
   },
-  
-
-
-};
+  };
+*/
 
 /*
 
@@ -103,7 +101,9 @@ class BotMarcoTassinari extends BotIooo {
     const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager).setDefaultAssistantID(assistantID);
     
     //ci vorrebbe await 
-    aiManager.setAssistant(assistenteAI).newCanali().avviaServiziAssistente(credenziali); 
+    aiManager.setAssistant(assistenteAI)
+      .newCanali()
+      .avviaServiziAssistente(credenziali); 
 
     super(aiManager, sessionManager, botToken);
 
@@ -134,10 +134,22 @@ let news : TriggerProposti[] = [];
 
 
     debug(2, "Creo i canali: ");
+    const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
 
-    let socialMarcoLinkedin = new Linkedin ("linkedin_marcot") 
+    let socialMarcoLinkedin = new Linkedin ("linkedin_marcot");
+    
+    const promptRichiestiLinkedin = socialMarcoLinkedin.requiredPrompts();
+    type PromptIDLinkedin = typeof promptRichiestiLinkedin[number]["id"];
+
+    
+    const promptDisponibiliLinkedin: Record<PromptIDLinkedin, string> = {
+      social: "linkedin",
+    };
+
+    socialMarcoLinkedin
        .addContent({ hooks:["intelligenza artificiale"], categories:["intelligenza artificiale", "scienza"], type:"tags" , flusso:"RaggruppaSimili"})
-       .setPrompts(propmtLinkedin)
+//       .setPrompts(propmtLinkedin)
+       .setMyPrompts(promptDisponibiliLinkedin,listaPromptFiles)
        .start(credenziali);
     
 

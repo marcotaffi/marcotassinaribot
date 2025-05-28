@@ -1,6 +1,6 @@
 name: Ripubblico una notizia
 command: Prepara il rilancio di una notizia altrui
-assistant: "asst_bHDl6nBPLhF6AyBVddSlnl7C"
+assistant_id: "asst_bHDl6nBPLhF6AyBVddSlnl7C"
 chiediMateriale: true
 prompt: |
  Riscrivi un articolo giornalistico da questo materiale, modificando il testo originale secondo queste indicazioni:  

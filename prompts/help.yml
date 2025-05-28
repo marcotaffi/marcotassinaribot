@@ -1,6 +1,6 @@
 name: Help
 command: Mi presento e ti spiego cosa so fare.
-assistant: ""
+assistant_id: ""
 chiediMateriale: false
 prompt: |
  Presentati brevemente, presenta in maniera umile le tue capacità e competenze, e spiega chi sei e cosa sai fare. 
