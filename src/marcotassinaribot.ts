@@ -32,7 +32,6 @@ const botToken = process.env.TELEGRAM_TOKEN||"";
 const chatGptApiKey = process.env.OPENAI_API_KEY||"";
 const assistantID = process.env.ASSISTANT_ID||""; //l'assistente di questo bot. scelto Marco Tassinari
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
-//const DEBUG_LEVEL = process.env.DEBUG_LEVEL||6;
 const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
 if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
@@ -150,7 +149,7 @@ let news : TriggerProposti[] = [];
      await bot.aggiungiCanali([socialMarcoLinkedin], credenziali);//ritorna un this a servizi
 
     
-    debug (2, "Aggiungo le fonti e la conoscenza");
+    debug (2, "*Aggiungo le fonti e la conoscenza*");
     
      if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       
       if (news.length>0) bot.addNews(news); //invia le fonti       
