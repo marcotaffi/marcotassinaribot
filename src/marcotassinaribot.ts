@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, ProcessManager, Linkedin, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager } from "taffitools";
+import { debug, BotIooo, ProcessManager, Linkedin, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface } from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, PromptArticolo, Files} from "taffitools";
 
  dotenv.config();
@@ -84,33 +84,8 @@ Esempi:
 const credenziali : Credenziali = {
 iftttKey: iftttKey, 
 test_only:TEST_ONLY,
-//botToken: botToken,
+botToken: botToken,
 //assistantID: assistantID
-}
-
-class BotMarcoTassinari extends BotIooo {
-
-  /**
-   * Crea un'istanza di MarcoTassinariBot.
-   */
-  constructor() {
-        
-    debug (3, "definisco l'assistenteAI")
-    const sessionManager: AISessionManager = new AISessionManager();
-    const aiManager = new AIManager(sessionManager);
-    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager).setDefaultAssistantID(assistantID);
-    
-    //ci vorrebbe await 
-    aiManager.setAssistant(assistenteAI)
-      .newCanali()
-      .avviaServiziAssistente(credenziali); 
-
-    super(aiManager, sessionManager, botToken);
-
-    debug (4, "chiamo il costruttore di botNews" ); 
-    }
-
-
 }
 
 // ******************************** main **************************************
@@ -128,12 +103,10 @@ let news : TriggerProposti[] = [];
 (async () => {
 
   try {
-   // ProcessManager.getInstance().setup();
-   
-   // debug(0, "debug level:", DEBUG_LEVEL);
 
 
-    debug(2, "Creo i canali: ");
+
+    debug(3, "*Creo i canali*");
     const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
 
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot");
@@ -148,38 +121,52 @@ let news : TriggerProposti[] = [];
 
     socialMarcoLinkedin
        .addContent({ hooks:["intelligenza artificiale"], categories:["intelligenza artificiale", "scienza"], type:"tags" , flusso:"RaggruppaSimili"})
-//       .setPrompts(propmtLinkedin)
        .setMyPrompts(promptDisponibiliLinkedin,listaPromptFiles)
        .start(credenziali);
     
 
    
-    debug (3, "definisco il bot AI")
-//    const bot = new BotIooo(aiManager, sessionManager, botToken);
-     const bot = new BotMarcoTassinari();
-     debug(2, "Aggiungo i canali al bot"); 
+
+     
+    debug (3, "*definisco l'assistenteAI*")
+    const sessionManager: AISessionManager = new AISessionManager();
+    const aiManager = new AIManager(sessionManager);
+    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager).setDefaultAssistantID(assistantID);
+    //const telegram = new TelegramInterface(botToken);
+    
+    await aiManager.setAssistant(assistenteAI)
+      .newCanali()
+      .avviaServiziAssistente(credenziali); 
+
+      debug (3, "*Definisco il bot*")
+
+     const bot = new BotIooo(aiManager,sessionManager);
+
+     debug (3, "*Aggiungo le inferfacce*")
+
+     await bot.addDefaultInterfaces(credenziali);
+
+     debug(2, "*Aggiungo i canali al bot*"); 
      await bot.aggiungiCanali([socialMarcoLinkedin], credenziali);//ritorna un this a servizi
 
     
     debug (2, "Aggiungo le fonti e la conoscenza");
     
-        if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       
+     if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       
       if (news.length>0) bot.addNews(news); //invia le fonti       
       if (tags.length>0) bot.setKnowledge(tags); //passo le descrizioni dei miei tag e categorie
  
 
     
-      debug(3, "Avvio il bot!");
+      debug(3, "*Avvio il bot*");
       bot.start(TEST_ONLY); // inizializza i canali e avvia il websocket
-      debug(0,"Bot avviato!");
-
+ 
 
 
   } catch (error) {
     debug(1,`Errore nell'avvio del bot Marco Tassinari:`, error);
   }
 
-// bot.test(numerocanale); ABILITARE SE SERVE FARE UNA PROVA DI CANALE SENZA ASPETTARE
 
 
 
