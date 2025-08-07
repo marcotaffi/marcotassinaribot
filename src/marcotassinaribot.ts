@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, ChatGPTAssistant, AIManagerSoloServizi, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi} from "taffitools";
+import { debug, BotIooo, Linkedin, ChatGPTAssistant, AIManagerSoloServizi, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi, BotChat} from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, Files } from "taffitools";
 
  dotenv.config();
@@ -27,7 +27,7 @@ crea_evento - Creo un evento da pubblicare su semprenews.
   
 const botToken = process.env.TELEGRAM_TOKEN||"";
 const chatGptApiKey = process.env.OPENAI_API_KEY||"";
-const assistantID = process.env.ASSISTANT_ID||""; 
+let assistantID = process.env.ASSISTANT_ID||""; 
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
 const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
 if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
@@ -38,9 +38,35 @@ test_only:TEST_ONLY,
 botToken: botToken,
 }
 
+
+
+async function aggiornaServiziAssistenteAusiliario(assistantToUpdateID:string) {
+     debug(2, "Configuro i servizi di un bot ausiliario");
+ 
+    const serviziToUpdate = new Servizi();
+    const sessionManagerToUpdate: AISessionManager = new AISessionManager();
+    const aiManagerToUpdate = new AIManagerSoloServizi(sessionManagerToUpdate);     
+    const assistenteAIToUpdate : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManagerToUpdate);
+      serviziToUpdate.creaServizi([ "textedit_url_download"], credenziali); //"console_warn_shout",
+      aiManagerToUpdate.setServizi(serviziToUpdate);  
+      aiManagerToUpdate.setAssistant(assistenteAIToUpdate);
+      assistenteAIToUpdate.setDefaultAssistantID(assistantToUpdateID);
+   
+     // const botToUpdate = new BotIooo(aiManager,sessionManager);
+      await aiManagerToUpdate.uploadServiziToApi();
+      debug(2, "Ho configurato i servizi di un bot ausiliario");
+      process.exit(0);
+
+    }
+
+
+
+
+
 // ******************************** main **************************************
 
 
+//await aggiornaServiziAssistenteAusiliario("asst_gQfO45QP2LdXwHyqw26Asu31");
 
 let tags : TagProposti[] = [];
 let feeds: TriggerProposti[] = [];
@@ -83,7 +109,7 @@ let news : TriggerProposti[] = [];
     const sessionManager: AISessionManager = new AISessionManager();
     const aiManager = new AIManagerSoloServizi(sessionManager);
     const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager);
-      assistenteAI.setDefaultAssistantID(assistantID);
+    assistenteAI.setDefaultAssistantID(assistantID);
     //const telegram = new TelegramInterface(botToken);
     
     const servizi = new CanaliExtendsServizi();
@@ -92,6 +118,12 @@ let news : TriggerProposti[] = [];
     await aiManager.setAssistant(assistenteAI)
                    .setServizi(servizi);
                 //   .creaServiziPrevistiDallAssistenteOnline(credenziali);
+
+
+
+
+
+
 
       debug (3, "*Definisco il bot*")
 
