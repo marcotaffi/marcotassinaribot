@@ -87,7 +87,7 @@ let news : TriggerProposti[] = [];
     //const telegram = new TelegramInterface(botToken);
     
     const servizi = new CanaliExtendsServizi();
-      servizi.creaServizi(["console_log_warn"], credenziali);
+      servizi.creaServizi(["console_info_log","console_warn_shout", "textedit_url_download", "sendmail_generic_post"], credenziali);
 
     await aiManager.setAssistant(assistenteAI)
                    .setServizi(servizi);
