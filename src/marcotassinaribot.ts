@@ -87,9 +87,11 @@ let news : TriggerProposti[] = [];
     //const telegram = new TelegramInterface(botToken);
     
     const servizi = new CanaliExtendsServizi();
+      servizi.creaServizi(["console_log_warn"], credenziali);
+
     await aiManager.setAssistant(assistenteAI)
-                   .setServizi(servizi)
-                   .creaServiziPrevistiDallAssistenteOnline(credenziali);
+                   .setServizi(servizi);
+                //   .creaServiziPrevistiDallAssistenteOnline(credenziali);
 
       debug (3, "*Definisco il bot*")
 
@@ -99,16 +101,19 @@ let news : TriggerProposti[] = [];
 
      await bot.addDefaultInterfaces(credenziali);
 
-     debug(2, "*Aggiungo i canali al bot*"); 
+     debug(3, "*Aggiungo i canali al bot*"); 
      await bot.aggiungiCanali([socialMarcoLinkedin], credenziali);//ritorna un this a servizi
 
     
-    debug (2, "*Aggiungo le fonti e la conoscenza*");
+    debug (3, "*Aggiungo le fonti e la conoscenza*");
     
       if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       
       if (news.length>0) bot.addNews(news); //invia le fonti       
       if (tags.length>0) bot.setKnowledge(tags); //passo le descrizioni dei miei tag e categorie
  
+
+     debug (3, "*Aggiorno le funtions dell'assistente online*"); 
+      await aiManager.uploadServiziToApi();
 
     
       debug(3, "*Avvio il bot*");
