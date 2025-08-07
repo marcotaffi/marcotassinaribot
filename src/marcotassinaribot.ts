@@ -1,7 +1,7 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface } from "taffitools";
-import type {TagProposti, TriggerProposti, Credenziali, Files} from "taffitools";
+import { debug, BotIooo, Linkedin, ChatGPTAssistant, AIManagerSoloServizi, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi} from "taffitools";
+import type {TagProposti, TriggerProposti, Credenziali, Files } from "taffitools";
 
  dotenv.config();
 
@@ -75,18 +75,21 @@ let news : TriggerProposti[] = [];
        .start(credenziali);
     
 
-   
+   //tutto il resto
+
 
      
     debug (3, "*definisco l'assistenteAI*")
     const sessionManager: AISessionManager = new AISessionManager();
-    const aiManager = new AIManager(sessionManager);
-    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager).setDefaultAssistantID(assistantID);
+    const aiManager = new AIManagerSoloServizi(sessionManager);
+    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager);
+      assistenteAI.setDefaultAssistantID(assistantID);
     //const telegram = new TelegramInterface(botToken);
     
+    const servizi = new CanaliExtendsServizi();
     await aiManager.setAssistant(assistenteAI)
-      .newCanali()
-      .avviaServiziAssistente(credenziali); 
+                   .setServizi(servizi)
+                   .creaServiziPrevistiDallAssistenteOnline(credenziali);
 
       debug (3, "*Definisco il bot*")
 
