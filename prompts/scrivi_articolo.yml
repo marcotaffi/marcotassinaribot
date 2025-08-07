@@ -1,6 +1,6 @@
 name: Scrivo un articolo
 command: Scrivi un nuovo articolo
-assistant_id: "asst_bHDl6nBPLhF6AyBVddSlnl7C"
+assistant_id: asst_bHDl6nBPLhF6AyBVddSlnl7C
 chiediMateriale: true
 prompt: |
  Caro collega, devi scrivere un articolo giornalistico per Sempre Magazine. Mi servirebbe un testo molto lungo. Lavora seguendo questa scaletta:

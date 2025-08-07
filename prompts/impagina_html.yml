@@ -1,6 +1,6 @@
 name: Impagino in html
 command: Prepara per la pubblicazione in html un articolo
-assistant_id: "asst_lQaLpnbVWv55mWbeGgrA2PO7"
+assistant_id: asst_lQaLpnbVWv55mWbeGgrA2PO7
 chiediMateriale: false
 prompt: |
  Formatta in html il corpo dell'articolo finale, per intero, senza tagliare o modificare il testo. Scrivilo tutto per esteso.

@@ -1,6 +1,6 @@
 name: Genero titoli
 command: Genera i titoli di un articolo per un portale online.
-assistant_id: "asst_3ivJI6e7wqnQ4rPaGUe1HwoZ"
+assistant_id: asst_3ivJI6e7wqnQ4rPaGUe1HwoZ
 chiediMateriale: false
 type: json
 prompt: >
