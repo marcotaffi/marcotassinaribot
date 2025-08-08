@@ -63,7 +63,6 @@ async function aggiornaServiziAssistenteAusiliario(assistantToUpdateID:string) {
 
 
 
-// ******************************** main **************************************
 
 
 //await aggiornaServiziAssistenteAusiliario("asst_gQfO45QP2LdXwHyqw26Asu31");
@@ -72,6 +71,7 @@ let tags : TagProposti[] = [];
 let feeds: TriggerProposti[] = [];
 let news : TriggerProposti[] = [];
 
+// ******************************** main **************************************
 
 /**
  * Avvia il bot.
@@ -83,6 +83,7 @@ let news : TriggerProposti[] = [];
 
 
     debug(3, "*Creo i canali*");
+
     const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
 
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot");
@@ -105,7 +106,8 @@ let news : TriggerProposti[] = [];
 
 
      
-    debug (3, "*definisco l'assistenteAI*")
+debug (3, "*Definisco le classi AI*");
+    
     const sessionManager: AISessionManager = new AISessionManager();
     const aiManager = new AIManagerSoloServizi(sessionManager);
     const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager);
