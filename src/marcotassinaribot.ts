@@ -113,14 +113,13 @@ let news : TriggerProposti[] = [];
     //const telegram = new TelegramInterface(botToken);
     
     const servizi = new CanaliExtendsServizi();
-      servizi.creaServizi(["console_warn_shout", "textedit_url_download"], credenziali); //"sendmail_generic_post"
-
+      servizi.creaServizi(["console_info_log", "textedit_url_download"], credenziali); //"sendmail_generic_post"
+    //  servizi.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO
     await aiManager.setAssistant(assistenteAI)
                    .setServizi(servizi);
-                //   .creaServiziPrevistiDallAssistenteOnline(credenziali);
+                //   .creaServiziPrevistiDallAssistenteOnline(credenziali); //crea tutti i servizi anche dalle firme lunghe, non va bene
 
-
-
+          aiManager.uploadServiziToApiFromFirme(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
 
 
 
@@ -134,8 +133,8 @@ let news : TriggerProposti[] = [];
      await bot.addDefaultInterfaces(credenziali);
 
      debug(3, "*Aggiungo i canali al bot*"); 
-     await bot.aggiungiCanali([socialMarcoLinkedin], credenziali);//ritorna un this a servizi
-
+     bot.aggiungiCanali([socialMarcoLinkedin], credenziali);//ritorna un this a servizi
+     
     
     debug (3, "*Aggiungo le fonti e la conoscenza*");
     
