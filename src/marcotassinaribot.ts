@@ -111,7 +111,7 @@ let news : TriggerProposti[] = [];
 
 
     sitoIooo
-      .addContent({hooks: ["Don Oreste Benzi"], type:"news", flusso:""})
+      .addContent({hooks: ["Don Oreste Benzi"], type:"news", flusso:"Instant"})
       .removeContent({hooks: ["fondazionedonorestebenzi.org"], type:"urls"})
       .setMyPrompts(promptDisponibiliSito, listaPromptFiles)
       .start(credenziali);
