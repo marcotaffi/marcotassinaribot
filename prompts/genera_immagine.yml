@@ -1,0 +1,10 @@
+name: genera_immagine
+command: Genera il prompt per un'immagine
+assistant_id: ""
+model: "gpt-4o-mini"
+chiediMateriale: false
+prompt: |
+  Analizza attentamente l'articolo dato e identifica l'argomento principale. In base a esso, formula un prompt per generare un'illustrazione utilizzando DALL-E 2. 
+  L'immagine illustra il tema rappresentando ad esempio un oggetto, un paesaggio, edifici, un ambiente naturale, realizzato con un collage artigianale (con carta, stoffe, scotch, conchiglie, bottoni e simili) in stile naïf.  
+  I colori variano fra toni di grigio o panna, con toni chiari. Evita nomi di luoghi o di persone reali. 
+  Restituisci un prompt dettagliato senza commenti o spiegazioni aggiuntive.
