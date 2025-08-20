@@ -104,7 +104,7 @@ let news : TriggerProposti[] = [];
 
 
     const promptDisponibiliSito: Record<PromptIDSito, string> = {
-      ripubblica_notizia: "rassegna-stampa",
+      ripubblica_notizia: "rassegna_stampa",
       genera_titoli: "genera_titoli",
       genera_immagine: "genera_immagine",
     };
