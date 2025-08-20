@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, ChatGPTAssistant, AIManagerSoloServizi, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi, BotChat} from "taffitools";
+import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManagerSoloServizi, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi, BotChat} from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, Files } from "taffitools";
 
  dotenv.config();
@@ -29,13 +29,24 @@ const botToken = process.env.TELEGRAM_TOKEN||"";
 const chatGptApiKey = process.env.OPENAI_API_KEY||"";
 let assistantID = process.env.ASSISTANT_ID||""; 
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
+const IOOO = process.env.IOOO_WORDPRESS||"";
+
 const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
 if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
+
+
+const categoryMapping:  { [key: string]: string } = {
+  "don-oreste-benzi": "44",
+};
 
 const credenziali : Credenziali = {
 iftttKey: iftttKey, 
 test_only:TEST_ONLY,
 botToken: botToken,
+wordpress_sito: "https://iooo.ai",
+wordpress_basic_auth: IOOO,
+categoryMapping,
+
 }
 
 
@@ -86,6 +97,28 @@ let news : TriggerProposti[] = [];
 
     const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
 
+    let sitoIooo = new Wordpress ("wordpress_iooo");
+
+    const promptRichiestiSito = sitoIooo.requiredPrompts();
+    type PromptIDSito = typeof promptRichiestiSito[number]["id"];
+
+
+    const promptDisponibiliSito: Record<PromptIDSito, string> = {
+      ripubblica_notizia: "rassegna-stampa",
+      genera_titoli: "genera_titoli",
+      genera_immagine: "genera_immagine",
+    };
+
+
+    sitoIooo
+      .addContent({hooks: ["Don Oreste Benzi"], type:"news", flusso:""})
+      .removeContent({hooks: ["fondazionedonorestebenzi.org"], type:"urls"})
+      .setMyPrompts(promptDisponibiliSito, listaPromptFiles)
+      .start(credenziali);
+
+    //---------------
+
+
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot");
     
     const promptRichiestiLinkedin = socialMarcoLinkedin.requiredPrompts();
@@ -135,7 +168,7 @@ debug (3, "*Definisco le classi AI*");
      await bot.addDefaultInterfaces(credenziali);
 
      debug(3, "*Aggiungo i canali al bot*"); 
-     bot.aggiungiCanali([socialMarcoLinkedin], credenziali);//ritorna un this a servizi
+     bot.aggiungiCanali([sitoIooo, socialMarcoLinkedin], credenziali);//ritorna un this a servizi
      
     
     debug (3, "*Aggiungo le fonti e la conoscenza*");
