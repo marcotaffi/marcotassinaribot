@@ -82,6 +82,17 @@ let tags : TagProposti[] = [];
 let feeds: TriggerProposti[] = [];
 let news : TriggerProposti[] = [];
 
+
+
+  news = [
+    {
+     hooks: ['Don Oreste Benzi'],
+     categories: ["apg23"],
+     lingua: "it"
+    },
+    ]; 
+
+
 // ******************************** main **************************************
 
 /**
@@ -104,7 +115,7 @@ let news : TriggerProposti[] = [];
 
 
     const promptDisponibiliSito: Record<PromptIDSito, string> = {
-      ripubblica_notizia: "rassegna_stampa",
+      ripubblica_notizia: "rassegna_npstampa",
       genera_titoli: "genera_titoli",
       genera_immagine: "genera_immagine",
     };
@@ -112,6 +123,7 @@ let news : TriggerProposti[] = [];
 
     sitoIooo
       .addContent({hooks: ["Don Oreste Benzi"], type:"news", flusso:"Instant"})
+      //jn alternativa da provare     .addContent({categories: ["apg23"], flusso:"Instant" })
       .removeContent({hooks: ["fondazionedonorestebenzi.org"], type:"urls"})
       .setMyPrompts(promptDisponibiliSito, listaPromptFiles)
       .start(credenziali);
