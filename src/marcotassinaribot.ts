@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManagerSoloServizi, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi, BotChat} from "taffitools";
+import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi, BotChat, LinkedinGPTAssistant, WordpressGPTAssistant} from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, Files } from "taffitools";
 
  dotenv.config();
@@ -56,7 +56,7 @@ async function aggiornaServiziAssistenteAusiliario(assistantToUpdateID:string) {
  
     const serviziToUpdate = new Servizi();
     const sessionManagerToUpdate: AISessionManager = new AISessionManager();
-    const aiManagerToUpdate = new AIManagerSoloServizi(sessionManagerToUpdate);     
+    const aiManagerToUpdate = new AIManager(sessionManagerToUpdate);     
     const assistenteAIToUpdate : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManagerToUpdate);
       serviziToUpdate.creaServizi([ "textedit_url_download"], credenziali); //"console_warn_shout",
       aiManagerToUpdate.setServizi(serviziToUpdate);  
@@ -108,7 +108,7 @@ let news : TriggerProposti[] = [];
 
     const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
 
-    let sitoIooo = new Wordpress ("wordpress_iooo");
+    let sitoIooo = new WordpressGPTAssistant ("wordpress_iooo");
 
     const promptRichiestiSito = sitoIooo.requiredPrompts();
     type PromptIDSito = typeof promptRichiestiSito[number]["id"];
@@ -131,7 +131,7 @@ let news : TriggerProposti[] = [];
     //---------------
 
 
-    let socialMarcoLinkedin = new Linkedin ("linkedin_marcot");
+    let socialMarcoLinkedin = new LinkedinGPTAssistant ("linkedin_marcot");
     
     const promptRichiestiLinkedin = socialMarcoLinkedin.requiredPrompts();
     type PromptIDLinkedin = typeof promptRichiestiLinkedin[number]["id"];
@@ -154,7 +154,7 @@ let news : TriggerProposti[] = [];
 debug (3, "*Definisco le classi AI*");
     
     const sessionManager: AISessionManager = new AISessionManager();
-    const aiManager = new AIManagerSoloServizi(sessionManager);
+    const aiManager = new AIManager(sessionManager);
     const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager);
     assistenteAI.setDefaultAssistantID(assistantID);
     //const telegram = new TelegramInterface(botToken);
@@ -166,7 +166,7 @@ debug (3, "*Definisco le classi AI*");
                    .setServizi(servizi);
                 //   .creaServiziPrevistiDallAssistenteOnline(credenziali); //crea tutti i servizi anche dalle firme lunghe, non va bene
 
-          aiManager.uploadServiziToApiFromFirme(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
+          aiManager.uploadServiziToApi(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
 
 
 
