@@ -155,18 +155,21 @@ debug (3, "*Definisco le classi AI*");
     
     const sessionManager: AISessionManager = new AISessionManager();
     const aiManager = new AIManager(sessionManager);
-    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager);
-    assistenteAI.setDefaultAssistantID(assistantID);
+    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager)
+                         .setDefaultAssistantID(assistantID);
     //const telegram = new TelegramInterface(botToken);
-    
+    const photoG = new ChatGptImageGenerator(chatGptApiKey);
+
     const servizi = new CanaliExtendsServizi();
       servizi.creaServizi(["console_info_log", "textedit_url_download"], credenziali); //"sendmail_generic_post"
     //  servizi.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO
     await aiManager.setAssistant(assistenteAI)
-                   .setServizi(servizi);
+                   .setServizi(servizi)
+                   .setPhotoGenerator(photoG);
+
                 //   .creaServiziPrevistiDallAssistenteOnline(credenziali); //crea tutti i servizi anche dalle firme lunghe, non va bene
 
-          aiManager.uploadServiziToApi(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
+      //    aiManager.uploadServiziToApi(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
 
 
 
