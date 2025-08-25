@@ -1,10 +1,11 @@
 name: Genero titoli
-command: Genera i titoli di un articolo per un portale online.
+command: Genera il titolo di un articolo per un portale online.
 assistant_id: asst_3ivJI6e7wqnQ4rPaGUe1HwoZ
 chiediMateriale: false
 type: json
 prompt: >
- Generami un set di titoli per il portale semprenews.it, che aiutino il lettore a comprendere gli elementi chiave dell'articolo dato.
- I titoli devono essere rispettosi e descrittivi, e introdurre ad aspetti più curiosi e popolari dell'articolo.
+ Identifica il valore notizia principale dell'articolo per generare un titolo che sia descrittivo del fatto principale. 
+ Il titolo deve aiutare il lettore a comprendere gli elementi chiave dell'articolo dato.
+ Deve essere rispettoso e descrittivo, e introdurre ad aspetti curiosi e popolari dell'articolo.
 
 
