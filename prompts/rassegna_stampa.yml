@@ -3,6 +3,6 @@ command: Prepara la rassegna stampa
 assistant_id: asst_9qEgK9avChHQZOGpdohGrku9
 chiediMateriale: true
 prompt: |
- Scrivi un breve abstract, con tono freddo e neutrale, di questo articolo per la rassegna stampa.
- Alla fine aggiungi la fonte con la dicitura: "leggi l'articolo originale su [Nome Testata](url)".
+ Scrivi un breve abstract con tono freddo e neutrale, di questo articolo per la rassegna stampa. Puoi usare <b> e <i> se serve.
+ Alla fine aggiungi la fonte con la dicitura: "Leggi l'articolo originale su <a href="url">Nome Testata</a>".
 
