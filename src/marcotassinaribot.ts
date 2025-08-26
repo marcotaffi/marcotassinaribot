@@ -36,7 +36,7 @@ if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
 
 const categoryMapping:  { [key: string]: string } = {
-  "don-oreste-benzi": "44",
+  "*": "44",
 };
 
 const credenziali : Credenziali = {
