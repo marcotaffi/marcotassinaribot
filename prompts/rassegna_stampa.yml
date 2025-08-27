@@ -3,6 +3,8 @@ command: Prepara la rassegna stampa
 assistant_id: asst_9qEgK9avChHQZOGpdohGrku9
 chiediMateriale: true
 prompt: |
- Devo pubblicare un articolo in una <div> html. Scrivi un breve abstract con tono freddo e neutrale, di questo articolo per la rassegna stampa. Inserisci alcuni grassetti e sottolineati usando <b> e <i>.
+ Scrivi un abstract molto breve con tono freddo e neutrale, di questo articolo per la rassegna stampa. Inserisci alcuni grassetti e sottolineati usando <b> e <i> ed eventuali titoli intermedi usando <h2></h2>.
  Alla fine aggiungi la fonte con la dicitura: "Leggi l'articolo originale su <a href="url">Nome Testata</a>".
+ Devi insermi l'articolo in una <div> formattato in html. 
+ 
 
