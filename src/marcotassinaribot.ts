@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi, BotChat, LinkedinGPTAssistant, WordpressGPTAssistant} from "taffitools";
+import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi,} from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, Files } from "taffitools";
 
  dotenv.config();
@@ -108,7 +108,7 @@ let news : TriggerProposti[] = [];
 
     const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
 
-    let sitoIooo = new WordpressGPTAssistant ("wordpress_iooo");
+    let sitoIooo = new Wordpress ("wordpress_iooo");
 
     const promptRichiestiSito = sitoIooo.requiredPrompts();
     type PromptIDSito = typeof promptRichiestiSito[number]["id"];
@@ -131,7 +131,7 @@ let news : TriggerProposti[] = [];
     //---------------
 
 
-    let socialMarcoLinkedin = new LinkedinGPTAssistant ("linkedin_marcot");
+    let socialMarcoLinkedin = new Linkedin ("linkedin_marcot");
     
     const promptRichiestiLinkedin = socialMarcoLinkedin.requiredPrompts();
     type PromptIDLinkedin = typeof promptRichiestiLinkedin[number]["id"];
@@ -157,26 +157,32 @@ debug (3, "*Definisco le classi AI*");
     const aiManager = new AIManager(sessionManager);
     const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager)
                          .setDefaultAssistantID(assistantID);
-    //const telegram = new TelegramInterface(botToken);
+      
+      
+ //    const responseassistantAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager)
+ //                        .setDefaultAssistantID(assistantID);
+
+
     const photoG = new ChatGptImageGenerator(chatGptApiKey);
 
-    const servizi = new CanaliExtendsServizi();
+    const servizi= new CanaliExtendsServizi ();
       servizi.creaServizi(["console_info_log", "textedit_url_download"], credenziali); //"sendmail_generic_post"
-    //  servizi.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO
-    await aiManager.setAssistant(assistenteAI)
+       aiManager.setAssistant(assistenteAI)
                    .setServizi(servizi)
                    .setPhotoGenerator(photoG);
 
-                //   .creaServiziPrevistiDallAssistenteOnline(credenziali); //crea tutti i servizi anche dalle firme lunghe, non va bene
-
-      //    aiManager.uploadServiziToApi(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
-
-
-
-
       debug (3, "*Definisco il bot*")
 
-     const bot = new BotIooo(aiManager,sessionManager);
+     const bot = new BotIooo<any,any,any,any,any,any>(aiManager,sessionManager);
+
+
+                   
+   //  servizi.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO  
+   //   aiManager.creaServiziPrevistiDallAssistenteOnline(credenziali); //crea tutti i servizi anche dalle firme lunghe, non va bene      
+   //   aiManager.uploadServiziToApi(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
+
+
+
 
      debug (3, "*Aggiungo le inferfacce*")
 
