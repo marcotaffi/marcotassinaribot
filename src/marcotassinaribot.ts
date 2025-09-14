@@ -173,7 +173,7 @@ debug (3, "*Definisco le classi AI*");
 
       debug (3, "*Definisco il bot*")
 
-     const bot = new BotIooo<any,any,any,any,any,any>(aiManager,sessionManager);
+     const bot = new BotIooo(aiManager,sessionManager);
 
 
                    
