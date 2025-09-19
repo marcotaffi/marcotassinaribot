@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi,} from "taffitools";
+import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, PromptManager, TelegramInterface, Servizi, CanaliExtendsServizi, ChatGPTRespond,} from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, Files } from "taffitools";
 
  dotenv.config();
@@ -155,19 +155,18 @@ debug (3, "*Definisco le classi AI*");
     
     const sessionManager: AISessionManager = new AISessionManager();
     const aiManager = new AIManager(sessionManager);
-    const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager)
+   // const assistenteAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager)
+    const responseassistantAI : ChatGPTRespond = new ChatGPTRespond(chatGptApiKey, aiManager)
                          .setDefaultAssistantID(assistantID);
-      
-      
- //    const responseassistantAI : ChatGPTAssistant = new ChatGPTAssistant(chatGptApiKey, aiManager)
  //                        .setDefaultAssistantID(assistantID);
-
 
     const photoG = new ChatGptImageGenerator(chatGptApiKey);
 
     const servizi= new CanaliExtendsServizi ();
       servizi.creaServizi(["console_info_log", "textedit_url_download"], credenziali); //"sendmail_generic_post"
-       aiManager.setAssistant(assistenteAI)
+  //     aiManager.setAssistant(assistenteAI)
+    
+      aiManager.setAssistant(responseassistantAI)
                    .setServizi(servizi)
                    .setPhotoGenerator(photoG);
 
@@ -199,8 +198,8 @@ debug (3, "*Definisco le classi AI*");
       if (tags.length>0) bot.setKnowledge(tags); //passo le descrizioni dei miei tag e categorie
  
 
-     debug (3, "*Aggiorno le funtions dell'assistente online*"); 
-      await aiManager.uploadServiziToApi();
+     //debug (3, "*Aggiorno le funtions dell'assistente online*"); 
+     // await aiManager.uploadServiziToApi();
 
     
       debug(3, "*Avvio il bot*");
