@@ -163,7 +163,10 @@ debug (3, "*Definisco le classi AI*");
     const photoG = new ChatGptImageGenerator(chatGptApiKey);
 
     const servizi= new CanaliExtendsServizi ();
-      servizi.creaServizi(["console_info_log", "textedit_url_download"], credenziali); //"sendmail_generic_post"
+    
+      servizi.creaServizi(
+            ["console_info_log", "textedit_url_download", "gestoredate_getTimestamp_now"], 
+            credenziali); //"sendmail_generic_post"
   //     aiManager.setAssistant(assistenteAI)
     
       aiManager.setAssistant(responseassistantAI)
