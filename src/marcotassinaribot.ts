@@ -165,7 +165,7 @@ debug (3, "*Definisco le classi AI*");
     const servizi= new CanaliExtendsServizi ();
     
       servizi.creaServizi(
-            ["console_info_log", "textedit_url_download", "gestoredate_getTimestamp_now"], 
+            ["console_info_log", "textedit_url_download", "gestoredate_now_readClock"], 
             credenziali); //"sendmail_generic_post"
   //     aiManager.setAssistant(assistenteAI)
     
