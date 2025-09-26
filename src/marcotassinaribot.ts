@@ -106,7 +106,9 @@ let news : TriggerProposti[] = [];
 
     debug(3, "*Creo i canali*");
 
-    const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
+    const promptManager = new PromptManager();
+    //const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
+    const listaPromptFiles : Files = await promptManager.elencaFiles("yml");
 
     let sitoIooo = new Wordpress ("wordpress_iooo");
 
