@@ -1,0 +1,11 @@
+name: genera_articolo_completo
+type: sequenziale
+tasks:
+  - name: ripubblica_notizia
+    type: step
+  - name: genera_titoli
+    type: step
+  - name: genera_prompt_immagine
+    type: step
+  - name: genera_immagine
+    type: step

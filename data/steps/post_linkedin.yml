@@ -1,0 +1,5 @@
+name: post_linkedin
+type: prompt
+description: "Pubblica un post su Linkedin"
+prompt: linkedin
+instructions: socialmanager

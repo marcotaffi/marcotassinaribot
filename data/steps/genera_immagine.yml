@@ -1,0 +1,4 @@
+name: genera_immagine
+type: photoeditor
+description: "Genera l'immagine a partire dal prompt creato"
+photoEditor: dall-e2

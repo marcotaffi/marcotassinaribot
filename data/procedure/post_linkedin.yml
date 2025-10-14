@@ -1,0 +1,6 @@
+name: post_linkedin
+type: step
+tasks:
+  - name: post_linkedin
+    type: step
+ 
