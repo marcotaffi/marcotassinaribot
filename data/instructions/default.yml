@@ -1,5 +1,9 @@
 name: default
-description: ""
+description: "assistente per ora è Marco T. Nota: non caricato da qui per telegram."
 assistant_id: "pmpt_68b5758ebe048190b884056eba78e6980da836621f88ece7"
 model: "gpt-4o-mini"
+tool_choice: "auto"
+
+
+
 

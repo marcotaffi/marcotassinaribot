@@ -218,8 +218,8 @@ debug (3, "*Definisco le classi AI*");
 // Creazione di AIManager con sessione, servizi e API
 const aiManager = new AIManager({
   credenziali,
-  sessionManager: new AISessionManager(),
- // servizi: new CanaliExtendsServizi(),  // servizi personalizzati
+ // sessionManager: new AISessionManager(), //già fatto di default
+ // servizi: new CanaliExtendsServizi(),  // già fatto di default
   apis: [
     {
       name: "response-assistant",
@@ -243,16 +243,19 @@ const aiManager = new AIManager({
 
 
 // Se vuoi puoi impostare parametri di default per le API
-aiManager.setDefaultParams({ assistant_id: assistantID }, "response-assistant");
+aiManager.setDefaultParams({ 
+  assistant_id: assistantID,
+  tool_choice: "auto",
+}, "response-assistant");
 
 
 // Creazione dei servizi aggiuntivi !!!DA ABILITARE E DEBUGGARE!!!
-/*aiManager.creaServizi(
+aiManager.creaServizi(
   ["console_info_log", "textedit_url_download", "gestoredate_now_readClock"],
-);*/
+);
 
 // L'oggetto responseAssistant è già disponibile tramite il manager
-const responseAssistant = aiManager.getApi("response-assistant") as ChatGPTRespond;
+//const responseAssistant = aiManager.getApi("response-assistant") as ChatGPTRespond;
 
 // Ora puoi usare responseAssistant e photoManager direttamente
 //const photoGenerator = aiManager.photoManager;
@@ -264,7 +267,7 @@ const responseAssistant = aiManager.getApi("response-assistant") as ChatGPTRespo
 
 
                    
-   //  servizi.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO  
+     aiManager.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO  
    //   aiManager.creaServiziPrevistiDallAssistenteOnline(credenziali); //crea tutti i servizi anche dalle firme lunghe, non va bene      
    //   aiManager.uploadServiziToApi(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
 
