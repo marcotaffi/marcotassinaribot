@@ -251,7 +251,7 @@ aiManager.setDefaultParams({
 
 // Creazione dei servizi aggiuntivi !!!DA ABILITARE E DEBUGGARE!!!
 aiManager.creaServizi(
-  ["console_info_log", "textedit_url_download", "gestoredate_now_readClock"],
+  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock", "websearch_italia_low", "textedit_url_download"], 
 );
 
 // L'oggetto responseAssistant è già disponibile tramite il manager
@@ -267,7 +267,8 @@ aiManager.creaServizi(
 
 
                    
-     aiManager.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO  
+   // FORSE NON SERVE  aiManager.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO  
+   
    //   aiManager.creaServiziPrevistiDallAssistenteOnline(credenziali); //crea tutti i servizi anche dalle firme lunghe, non va bene      
    //   aiManager.uploadServiziToApi(["console_info_log", "textedit_url_download"]); //evito di caricare ad esempio console_info_shout
 
@@ -279,7 +280,7 @@ aiManager.creaServizi(
      await bot.addDefaultInterfaces(credenziali);
 
      debug(3, "*Aggiungo i canali al bot*"); 
-     bot.aggiungiCanali([sitoIooo, socialMarcoLinkedin], credenziali);//ritorna un this a servizi
+     bot.aggiungiCanali([sitoIooo, socialMarcoLinkedin], credenziali); 
      
     
     debug (3, "*Aggiungo le fonti e la conoscenza*");
