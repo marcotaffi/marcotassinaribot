@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManager, AISessionManager, ChatGptImageGenerator, Servizi, CanaliExtendsServizi, ChatGPTRespond, ProcedureManager,} from "taffitools";
+import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManager, AISessionManager, ProcedureManager,} from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, Files } from "taffitools";
 
  dotenv.config();
@@ -251,7 +251,7 @@ aiManager.setDefaultParams({
 
 // Creazione dei servizi aggiuntivi !!!DA ABILITARE E DEBUGGARE!!!
 aiManager.creaServizi(
-  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock", "websearch_italia_low", "textedit_url_download"], 
+  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock", "websearch_italia_low", "scraper_url_download"], 
 );
 
 // L'oggetto responseAssistant è già disponibile tramite il manager
