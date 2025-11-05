@@ -1,0 +1,5 @@
+clientName: gpt-response-dev
+clientDescription: ChatGPT response API
+apiType: chatgpt-respond
+apiKeyEnvVar: OPENAI_API_KEY
+providerType: openai

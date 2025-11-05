@@ -2,4 +2,4 @@ name: genera_prompt_immagine
 type: prompt
 description: "Crea un prompt testuale adatto alla generazione di un'immagine"
 prompt: genera_immagine
-instructions: default
+agent: default

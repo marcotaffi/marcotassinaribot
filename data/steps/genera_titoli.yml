@@ -2,4 +2,4 @@ name: genera_titoli
 type: prompt
 description: "Genera titoli alternativi e SEO-friendly a partire dal testo della notizia"
 prompt: genera_titoli
-instructions: titolista
+agent: titolista

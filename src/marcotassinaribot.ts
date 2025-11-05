@@ -1,7 +1,7 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, Wordpress, ChatGPTAssistant, AIManager, AISessionManager, ProcedureManager,} from "taffitools";
-import type {TagProposti, TriggerProposti, Credenziali, Files } from "taffitools";
+import { debug, BotIooo, Linkedin, Wordpress, ProcedureManager, AISessionManager, AIManager, TelegramInterface,} from "taffitools";
+import type {TagProposti, TriggerProposti, Credenziali, Files, ChatGPTAssistant } from "taffitools";
 
  dotenv.config();
 
@@ -42,7 +42,7 @@ const categoryMapping:  { [key: string]: string } = {
 const credenziali : Credenziali = {
 iftttKey: iftttKey, 
 test_only:TEST_ONLY,
-botToken: botToken,
+botToken: botToken as string,
 wordpress_sito: "https://iooo.ai",
 wordpress_basic_auth: IOOO,
 categoryMapping,
@@ -76,25 +76,17 @@ async function aggiornaServiziAssistenteAusiliario(assistantToUpdateID: string) 
 
   // Creo un nuovo session manager e AIManager
   const sessionManagerToUpdate = new AISessionManager();
-  const aiManagerToUpdate = new AIManager({
+  const aiManagerToUpdate = new AIManager(
     credenziali,
-    sessionManager: sessionManagerToUpdate,
-    //servizi: new Servizi(),
-    apis: [
-      {
-        name: "assistant-aux",
-        type: "chatgpt-assistants",
-        client: "openai-prod",
-        clientConfig: { type: "openai", apiKey: chatGptApiKey }
-      }
-    ]
-  });
+    sessionManagerToUpdate);
+
 
   // Creo l’assistente associato all’API già registrata nella factory
-  const assistenteAIToUpdate = aiManagerToUpdate.getApi("assistant-aux") as ChatGPTAssistant;
-  if (!assistenteAIToUpdate) throw new Error("API assistant non trovata");
+ //  RIPRISTINARE SE SERVE:
+  //const assistenteAIToUpdate = aiManagerToUpdate.getApi("assistant-aux") as ChatGPTAssistant;
+  //if (!assistenteAIToUpdate) throw new Error("API assistant non trovata");
 
-  assistenteAIToUpdate.setDefaultAssistantID(assistantToUpdateID);
+//  assistenteAIToUpdate.setDefaultAssistantID(assistantToUpdateID);
 
   // Creo e assegno i servizi   DA ABILITARE E PROVARE  E DEBUGGARE
  // const serviziToUpdate = new Servizi();
@@ -216,42 +208,48 @@ debug (3, "*Definisco le classi AI*");
                    .setPhotoGenerator(photoG);
 */
 // Creazione di AIManager con sessione, servizi e API
-const aiManager = new AIManager({
+
+//const apiManager = await AIApiConfigManager.creaApiManagerDaCartelleLocali(aiManager);
+
+const aiManager = new AIManager(credenziali);
+
+await aiManager.creaApiDaCartelleLocali();
+
+/*const aiManager = new AIManager({
   credenziali,
- // sessionManager: new AISessionManager(), //già fatto di default
- // servizi: new CanaliExtendsServizi(),  // già fatto di default
-  apis: [
+   apis: [
     {
-      name: "response-assistant",
-      type: "chatgpt-respond",
-      client: "openai-prod",
-      clientConfig: { type: "openai", apiKey: chatGptApiKey }
+      name: "gpt-response",
+      clientType: "chatgpt-respond",
+      provider: "openai-prod",
+      providerConfig: { 
+         name: "openai-runtime",
+         providerType: "openai", 
+         apiKey: chatGptApiKey 
+        }
     },
     {
       name: "dall-e",
-      type: "image-generator",             // tipo per ChatGptImageGenerator
-      client: "openai-prod",               // riutilizza lo stesso client
-      clientConfig: {                       // anche qui se vuoi creare un client separato
-        type: "openai",
-        apiKey: chatGptApiKey
-      }
+      clientType: "image-generator",             // tipo per ChatGptImageGenerator
+      provider: "openai-prod",               // riutilizza lo stesso client
+  
     }
     // puoi aggiungere altre API qui
   ]
 });
 
+*/
 
-
-// Se vuoi puoi impostare parametri di default per le API
-aiManager.setDefaultParams({ 
+//  parametri di default per le API
+/*aiManager.setDefaultParams({ 
   assistant_id: assistantID,
   tool_choice: "auto",
-}, "response-assistant");
+}, "gpt-response");
+*/
 
-
-// Creazione dei servizi aggiuntivi !!!DA ABILITARE E DEBUGGARE!!!
+// Creazione dei servizi aggiuntivi 
 aiManager.creaServizi(
-  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock", "websearch_italia_low", "scraper_url_download"], 
+  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock",  "scraper_url_download"], //"websearch_italia_low",
 );
 
 // L'oggetto responseAssistant è già disponibile tramite il manager
@@ -263,7 +261,7 @@ aiManager.creaServizi(
 
       debug (3, "*Definisco il bot*")
 
-     const bot = new BotIooo(aiManager);
+     const bot = new BotIooo(aiManager, "marcotassinari");
 
 
                    
@@ -277,7 +275,13 @@ aiManager.creaServizi(
 
      debug (3, "*Aggiungo le inferfacce*")
 
-     await bot.addDefaultInterfaces(credenziali);
+
+     
+     //await bot.addDefaultInterfaces(credenziali);
+
+    const telegram = new TelegramInterface(credenziali.botToken as string, bot);
+    // Aggiunge l'interfaccia e registra i comandi da file
+    await bot.aggiungiInterfaccia(telegram);
 
      debug(3, "*Aggiungo i canali al bot*"); 
      bot.aggiungiCanali([sitoIooo, socialMarcoLinkedin], credenziali); 
