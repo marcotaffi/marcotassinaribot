@@ -1,6 +1,5 @@
 name: genera_immagine
 command: Genera il prompt per un'immagine
-assistant_id: ""
 model: "gpt-4o-mini"
 chiediMateriale: false
 prompt: |

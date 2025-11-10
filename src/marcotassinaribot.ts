@@ -249,7 +249,7 @@ await aiManager.creaApiDaCartelleLocali();
 
 // Creazione dei servizi aggiuntivi 
 aiManager.creaServizi(
-  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock",  "scraper_url_download"], //"websearch_italia_low",
+  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock",  "scraper_url_download", "websearch_italia_low"], //"websearch_italia_low",
 );
 
 // L'oggetto responseAssistant è già disponibile tramite il manager

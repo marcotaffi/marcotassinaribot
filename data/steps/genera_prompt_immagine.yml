@@ -1,5 +1,5 @@
 name: genera_prompt_immagine
-type: prompt
 description: "Crea un prompt testuale adatto alla generazione di un'immagine"
+type: prompt
 prompt: genera_immagine
-agent: default
+agentName: redattore

@@ -1,4 +1,5 @@
 name: genera_immagine
-type: photoeditor
 description: "Genera l'immagine a partire dal prompt creato"
+type: photoeditor
+agentName: "nonloso"
 photoEditor: dall-e2
