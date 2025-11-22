@@ -212,6 +212,8 @@ debug (3, "*Definisco le classi AI*");
 //const apiManager = await AIApiConfigManager.creaApiManagerDaCartelleLocali(aiManager);
 
 const aiManager = new AIManager(credenziali);
+     socialMarcoLinkedin.setManagerAI(aiManager); 
+     sitoIooo.setManagerAI(aiManager); 
 
 await aiManager.creaApiDaCartelleLocali();
 
@@ -248,9 +250,10 @@ await aiManager.creaApiDaCartelleLocali();
 */
 
 // Creazione dei servizi aggiuntivi 
-aiManager.creaServizi(
-  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock",  "scraper_url_download", "websearch_italia_low"], //"websearch_italia_low",
-);
+//LO SOSPENDO PERCHE' LO FACCIO NEL FILE DELL'AGENT
+//aiManager.creaServizi(
+//  [ "sendmail_generic_send","console_info_log",  "gestoredate_now_readClock",  "scraper_url_download", "websearch_italia_low"], //"websearch_italia_low",
+//);
 
 // L'oggetto responseAssistant è già disponibile tramite il manager
 //const responseAssistant = aiManager.getApi("response-assistant") as ChatGPTRespond;
