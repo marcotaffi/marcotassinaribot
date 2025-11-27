@@ -217,37 +217,6 @@ const aiManager = new AIManager(credenziali);
 
 await aiManager.creaApiDaCartelleLocali();
 
-/*const aiManager = new AIManager({
-  credenziali,
-   apis: [
-    {
-      name: "gpt-response",
-      clientType: "chatgpt-respond",
-      provider: "openai-prod",
-      providerConfig: { 
-         name: "openai-runtime",
-         providerType: "openai", 
-         apiKey: chatGptApiKey 
-        }
-    },
-    {
-      name: "dall-e",
-      clientType: "image-generator",             // tipo per ChatGptImageGenerator
-      provider: "openai-prod",               // riutilizza lo stesso client
-  
-    }
-    // puoi aggiungere altre API qui
-  ]
-});
-
-*/
-
-//  parametri di default per le API
-/*aiManager.setDefaultParams({ 
-  assistant_id: assistantID,
-  tool_choice: "auto",
-}, "gpt-response");
-*/
 
 // Creazione dei servizi aggiuntivi 
 //LO SOSPENDO PERCHE' LO FACCIO NEL FILE DELL'AGENT
