@@ -212,8 +212,8 @@ debug (3, "*Definisco le classi AI*");
 //const apiManager = await AIApiConfigManager.creaApiManagerDaCartelleLocali(aiManager);
 
 const aiManager = new AIManager(credenziali);
-     socialMarcoLinkedin.setManagerAI(aiManager); 
-     sitoIooo.setManagerAI(aiManager); 
+    // socialMarcoLinkedin.setManagerAI(aiManager); 
+    // sitoIooo.setManagerAI(aiManager); 
 
 await aiManager.creaApiDaCartelleLocali();
 
