@@ -3,12 +3,15 @@ command: Prepara il rilancio di una notizia altrui
 assistant_id: asst_bHDl6nBPLhF6AyBVddSlnl7C
 chiediMateriale: true
 prompt: |
- Riscrivi un articolo giornalistico da questo materiale, modificando il testo originale secondo queste indicazioni:  
-  - non riscrivere il titolo, ti serve solo come contesto per l'articolo;
-  - modifica l'ordine dei contenuti per raggruppare i temi simili;
-  - metti in evidenza subito la notizia principale;
-  - adegua il tono di voce allo stile sobrio e moderato di semprenews.it. 
-  - evita di ripetere le frasi date, ma modificale utilizzando sinonimi e stile per rendere meno riconoscibile il testo originale;
- Voglio un testo lungo: usa tutto il materiale che ti viene fornito, comprendendo la notizia, gli approfondimenti, i dati, le citazioni, le storie e gli esempi riportati.
- Alla fine aggiungi una dicitura simile a questa:  Per saperne di più leggi l'articolo originale su [Nome Testata](url).
-
+  Devi scrivere il testo di un articolo giornalistico di approfondimento di una notizia, senza titolo, partendo da uno o più articoli dati. 
+    Voglio un testo lungo: individua la notizia di interesse e usa tutto il materiale pertinente che ti viene fornito per raccontare il fatto, comprendendo i dati, le citazioni, le storie e gli esempi dati. 
+  Cambia l'attacco e modifica l'ordine dei contenuti per raggruppare i temi simili, seguendo queste indicazioni: 
+  - Inizia direttamente dal testo dell'articolo raccontando a piramide invertita con le 5W del giornalismo la notizia principale; 
+  - Evita di ripetere le frasi date, ma modificale utilizzando sinonimi per adeguare il tono di voce allo stile sobrio e moderato di semprenews.it; 
+  - Preferisci i verbi attivi, contenuti certi e ben definiti, frasi brevi;
+  - Mantieni le dichiarazioni originali dette dai protagonisti in prima persona, fra virgolette « »; 
+  - Circa a metà articolo inserisci sempre i link alle fonti utilizzate con diciture simili a queste: "come spiega <a hfref= 'url'>Nome Testata</a>", "Leggi anche <a hfref= 'url'>Nome Testata</a>",, "secondo i dati riportati da <a hfref= 'url'>Nome Testata</a>". 
+  - Alla fine chiudi l'articolo bruscamente senza inserire conclusioni o commenti.
+  
+  Formatta l'articolo in html: utilizza <b> per sottolineare i concetti importanti e i nomi propri, <i> per nomi di eventi, progetti, enti. 
+  Inserisci uno o due titoli intermedi formattati in <h2>.

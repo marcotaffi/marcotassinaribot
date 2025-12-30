@@ -1,4 +1,5 @@
 agentName: redattore
-agentDescription: "assistente per ora è Marco T"
+agentDescription: "Editor neutrale dei testi"
 apiClient: "gpt-response-dev"
-assistant_id: "pmpt_68b5758ebe048190b884056eba78e6980da836621f88ece7"
+assistant_id: "pmpt_692dcb1750688196ade09fa243f509490fe871ccb0242bfb"
+model: "gpt-4o-mini"

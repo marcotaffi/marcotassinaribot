@@ -3,8 +3,11 @@ command: Genera il titolo di un articolo per un portale online.
 chiediMateriale: false
 type: json
 prompt: >
- Identifica il valore notizia principale dell'articolo per generare un titolo che sia descrittivo del fatto principale. 
- Il titolo deve aiutare il lettore a comprendere gli elementi chiave dell'articolo dato.
- Deve essere rispettoso e descrittivo, e introdurre ad aspetti curiosi e popolari dell'articolo.
+ Identifica il fatto centrale dell'articolo e genera un titolo che lo descriva in modo chiaro e sintetico.  
+  Il titolo deve aiutare il lettore a comprendere rapidamente gli elementi chiave dell’articolo e mettere in evidenza eventuali aspetti interessanti e facilmente comprensibili.  
 
-
+  # Indicazioni stilistiche
+  - Il titolo deve essere rispettoso, informativo e privo di opinioni personali.  
+  - Evita aggettivi superflui o valutazioni soggettive.  
+  - Se l’articolo include dichiarazioni dirette, usa le virgolette caporali « ».  
+  - Mantieni il titolo breve e diretto, con verbi attivi quando possibile.
