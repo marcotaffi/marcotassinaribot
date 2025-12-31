@@ -1,0 +1,5 @@
+name: comunicato_stampa
+type: prompt
+description: "Scrivi un comunicato stampa - test per bot telegram"
+prompt: comunicato_stampa
+agentName: redattore

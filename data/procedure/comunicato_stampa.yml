@@ -1,0 +1,9 @@
+name: comunicato_stampa
+description: provo per fare un comando del bot telegram
+type: sequenziale
+tasks:
+  - name: comunicato_stampa
+    type: step
+  - name: genera_titoli
+    type: step
+

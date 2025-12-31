@@ -1,4 +1,5 @@
 name: genera_articolo_completo
+description: eseguita per creare articoli di rassegna stampa del don su iooo 
 type: sequenziale
 tasks:
   - name: ripubblica_notizia

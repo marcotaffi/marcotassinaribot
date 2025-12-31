@@ -1,0 +1,15 @@
+# wordpress_iooo.yml
+firma: "wordpress_iooo"
+servizio: "wordpress"
+destinazione: "iooo"
+procedura: "genera_articolo_completo"
+
+classificazione:
+  includi:
+    - hooks: ["Don Oreste Benzi"]
+      type: "news"
+      flusso: "Instant"
+  escludi:
+    - hooks: ["fondazionedonorestebenzi.org"]
+      type: "urls"
+

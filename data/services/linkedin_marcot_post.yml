@@ -1,0 +1,21 @@
+firma: linkedin_marcot_post
+servizio: linkedin
+destinazione: marcot
+procedura: post_linkedin
+
+classificazione:
+  includi:
+    - hooks: ["intelligenza artificiale"]
+      categories: ["intelligenza artificiale", "scienza"]
+      type: "tags"
+      flusso: "RaggruppaSimili"
+  escludi: []
+  canaleId: ""
+  botId: ""
+  botName: marcot_linkedin
+
+
+opzioni:
+  descrizioneOpzioni: "Queste opzioni sono solo un demo, usabili se serve in futuro"
+  maxPostLength: 1300
+  defaultHashtags: ["#AI", "#Scienza"]

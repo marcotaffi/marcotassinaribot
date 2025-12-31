@@ -1,0 +1,8 @@
+firma: console_info_log
+servizio: console
+destinazione: info
+
+opzioni:
+  descrizioneOpzioni: "Queste opzioni sono solo un demo, usabili se serve in futuro"
+  maxPostLength: 1300
+  defaultHashtags: ["#AI", "#Scienza"]

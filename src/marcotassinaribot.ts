@@ -1,7 +1,8 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, Wordpress, ProcedureManager, AISessionManager, AIManager, TelegramInterface,} from "taffitools";
+import { debug, BotIooo, Linkedin, Wordpress, ProcedureManager, AISessionManager, AIManager, TelegramInterface, ServiceFactory,} from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, Files, ChatGPTAssistant } from "taffitools";
+import { CanaleExtendsServizio } from '../../libraries/taffitools/types/canali/canale.js';
 
  dotenv.config();
 
@@ -9,7 +10,7 @@ import type {TagProposti, TriggerProposti, Credenziali, Files, ChatGPTAssistant 
  * La classe MarcoTassinariBot: l'avatar di Marco su Telegram
  */
 
-/** descrizioni comandi
+/** descrizioni comandi per botfather
 
 start - chiacchiera con Marco 
 help - Mi presento e ti spiego cosa so fare
@@ -22,6 +23,8 @@ impagina_html - Preparo per la pubblicazione in html un articolo.
 genera_titoli - Genero i titoli di un articolo per un portale online.
 genera_descrizioni_foto - Genero i campi di descrizione per una foto per semprenews.
 crea_evento - Creo un evento da pubblicare su semprenews.
+genera_articolo_completo - genera un articolo per apg23
+post_linkedin - scrivi un post sulla pagina linkedin di Marco T
 
  */
   
@@ -136,8 +139,13 @@ let news : TriggerProposti[] = [];
 
     debug(3, "*Creo i canali*");
 
-    const procedureManager = new ProcedureManager();
+
+//CARICAMENTO TRADIZIONALE
+
+    /*  
+        const procedureManager = new ProcedureManager();
     //const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
+
     const listaPromptFiles : Files = await procedureManager.elencaFiles("yml");
 
     let sitoIooo = new Wordpress ("wordpress_iooo");
@@ -148,8 +156,6 @@ let news : TriggerProposti[] = [];
 
     const promptDisponibiliSito: Record<PromptIDSito, string> = {
       run: "genera_articolo_completo",
-    //  genera_titoli: "genera_titoli",
-    //  genera_immagine: "genera_immagine",
     };
 
 
@@ -159,10 +165,17 @@ let news : TriggerProposti[] = [];
       .removeContent({hooks: ["fondazionedonorestebenzi.org"], type:"urls"})
       .setMyPrompts(promptDisponibiliSito, listaPromptFiles)
       .start(credenziali);
+*/
+
+//----------
+//CARICAMENTO MODERNO
+
+const sitoIooo = await ServiceFactory.create("wordpress_iooo") as CanaleExtendsServizio;
+    sitoIooo.start(credenziali);
 
     //---------------
-
-
+//CARICAMENTO TRADIZIONALE
+/*
     let socialMarcoLinkedin = new Linkedin ("linkedin_marcot");
     
     const promptRichiestiLinkedin = socialMarcoLinkedin.requiredPrompts();
@@ -177,8 +190,19 @@ let news : TriggerProposti[] = [];
        .addContent({ hooks:["intelligenza artificiale"], categories:["intelligenza artificiale", "scienza"], type:"tags" , flusso:"RaggruppaSimili"})
        .setMyPrompts(promptDisponibiliLinkedin,listaPromptFiles)
        .start(credenziali);
-    
+  */  
+//--------------
+//CARICAMENTO MODERNO
+const socialMarcoLinkedin = await ServiceFactory.create("linkedin_marcot_post") as CanaleExtendsServizio;
 
+// Non serve più definire manualmente promptDisponibiliLinkedin
+// Li prende dalla config
+socialMarcoLinkedin.start(credenziali);
+
+// La classificazione e i contenuti già vengono caricati dalla factory
+
+
+//-------------
    //tutto il resto
 
 
@@ -215,7 +239,7 @@ const aiManager = new AIManager(credenziali);
     // socialMarcoLinkedin.setManagerAI(aiManager); 
     // sitoIooo.setManagerAI(aiManager); 
 
-await aiManager.creaApiDaCartelleLocali();
+await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli agenti
 
 
 // Creazione dei servizi aggiuntivi 
@@ -253,7 +277,19 @@ await aiManager.creaApiDaCartelleLocali();
 
     const telegram = new TelegramInterface(credenziali.botToken as string, bot);
     // Aggiunge l'interfaccia e registra i comandi da file
-    await bot.aggiungiInterfaccia(telegram);
+    // prendo i comandi dalla cartella data/procedure: 'genera_articolo_completo', 'post_linkedin'
+    // nota, i tools sono definiti nel file dell'agente e qui posso definire anche i tools usati dai canali.
+    // potrei definire una procedura comunicato_stampa mentre il tool comunicato_stampa non è definito in taffitools. 
+    // potrei definire allora un servizio comunicato_stampa 
+
+
+    // probabilmente un canale può contenere un servizio di tipo EseguiProcedura, eseguito dalla Run come Redazione 
+    // esegue un servizio di tipo Mail. EseguiProcedura poi sarebbe un servizio che potrei usare come tool. 
+
+     //però forse devo creare un nuovo tipo di step che non prenda in ingresso niente ma per toamdni telegram
+
+
+    await bot.aggiungiInterfaccia(telegram); 
 
      debug(3, "*Aggiungo i canali al bot*"); 
      bot.aggiungiCanali([sitoIooo, socialMarcoLinkedin], credenziali); 

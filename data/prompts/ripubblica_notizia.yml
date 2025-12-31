@@ -1,6 +1,5 @@
 name: Ripubblico una notizia
 command: Prepara il rilancio di una notizia altrui
-assistant_id: asst_bHDl6nBPLhF6AyBVddSlnl7C
 chiediMateriale: true
 prompt: |
   Devi scrivere il testo di un articolo giornalistico di approfondimento di una notizia, senza titolo, partendo da uno o più articoli dati. 

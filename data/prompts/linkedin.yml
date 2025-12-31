@@ -1,6 +1,6 @@
-name: Creo un evento
-command: Crea un evento
-assistant_id: asst_9qEgK9avChHQZOGpdohGrku9
+name: linkedin
+description: post linkedin in test
+command: Crea un post linkedin
 chiediMateriale: true
 prompt: |
  Ciao, scrivi per favore un post discorsivo e colloquiale, molto breve per la mia pagina personale su Linkedin (io sono Marco Tassinari, mi conosci già) dedicata all'innovazione. Il post è costituito da due o tre frasi e spiega in maniera semplice la notizia approfondendo in maniera specifica la novità tecnologica o il cambiamento sociale ispirato dall'articolo.
