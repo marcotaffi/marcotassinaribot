@@ -1,7 +1,8 @@
 name: Genero titoli
 command: Genera il titolo di un articolo per un portale online.
 chiediMateriale: false
-type: json
+params:
+  type: json
 prompt: >
  Identifica il fatto centrale dell'articolo e genera un titolo che lo descriva in modo chiaro e sintetico.  
   Il titolo deve aiutare il lettore a comprendere rapidamente gli elementi chiave dell’articolo e mettere in evidenza eventuali aspetti interessanti e facilmente comprensibili.  

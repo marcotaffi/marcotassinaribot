@@ -2,8 +2,9 @@ agentName: marcotassinari
 agentDescription: "Marco Tassinari avatar"
 apiClient: "gpt-response-dev"
 assistant_id: "pmpt_68b5758ebe048190b884056eba78e6980da836621f88ece7"
-model: "gpt-4o-mini"
-type: "text"
+params:
+  model: "gpt-4o-mini"
+  type: "text"
 toolNames: 
            - console_info_log
            - console_info_shout
@@ -11,5 +12,4 @@ toolNames:
            - gestoredate_now_readClock
            - scraper_url_download
            - websearch_italia_low
-
 

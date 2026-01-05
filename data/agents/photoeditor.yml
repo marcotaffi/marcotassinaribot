@@ -1,4 +1,5 @@
 agentName: photoeditor
 agentDescription: "provo a far così per generare le foto anche se forse sarà meglio farlo diventare un servizio"
 apiClient: "dall-e"
-model: "dall-e-2"
+params:
+  model: "dall-e-2"
