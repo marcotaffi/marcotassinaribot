@@ -14,7 +14,6 @@ classificazione:
   botId: ""
   botName: marcot_linkedin
 
-
 opzioni:
   descrizioneOpzioni: "Queste opzioni sono solo un demo, usabili se serve in futuro"
   maxPostLength: 1300

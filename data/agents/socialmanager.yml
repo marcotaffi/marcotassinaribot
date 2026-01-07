@@ -2,7 +2,7 @@ agentName: socialmanager
 agentDescription: "assistente è Marco T perché voglio scriva da parte mia"
 apiClient: "gpt-response-dev"
 assistant_id: "pmpt_68b5758ebe048190b884056eba78e6980da836621f88ece7"
-toolNames: 
+toolNames-suspend: 
            - gestoredate_now_readClock
            - websearch_italia_low
 

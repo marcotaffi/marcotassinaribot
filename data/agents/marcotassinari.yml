@@ -7,6 +7,7 @@ params:
   type: "text"
 toolNames: 
            - console_info_log
+toolNames-suspend:        
            - console_info_shout
            - sendmail_generic_post
            - gestoredate_now_readClock
