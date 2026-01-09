@@ -7,10 +7,10 @@ params:
   type: "text"
 toolNames: 
            - console_info_log
+           - gestoredate_now_readClock
 toolNames-suspend:        
            - console_info_shout
            - sendmail_generic_post
-           - gestoredate_now_readClock
            - scraper_url_download
            - websearch_italia_low
 
