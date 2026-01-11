@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, Wordpress, ProcedureManager, AISessionManager, AIManager, TelegramInterface, ServiceFactory,} from "taffitools";
+import { debug, BotIooo, Linkedin, Wordpress, ProcedureManager, AISessionManager, AIManager, TelegramInterface, ServiceFactory, ProcessManager,} from "taffitools";
 import type {TagProposti, TriggerProposti, Credenziali, Files, ChatGPTAssistant } from "taffitools";
 import { CanaleExtendsServizio } from '../../libraries/taffitools/types/canali/canale.js';
 
@@ -33,6 +33,8 @@ const chatGptApiKey = process.env.OPENAI_API_KEY||"";
 let assistantID = process.env.ASSISTANT_ID||""; 
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
 const IOOO = process.env.IOOO_WORDPRESS||"";
+
+ProcessManager.getInstance().setDebugLevel(process.env.DEBUG_LEVEL);
 
 const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
 if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
