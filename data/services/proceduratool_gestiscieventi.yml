@@ -1,0 +1,9 @@
+firma: proceduratool_gestiscieventi
+servizio: proceduratool
+procedura: gestiscieventi
+azione: esegui 
+destinazione: Genera il testo per la pubblicazione di un evento sul sito Apg23, dato il materiale fornito in precedenza. Non richiede parametri. 
+
+opzioni:
+  descrizioneOpzioni: "Queste opzioni sono solo un demo, usabili se serve in futuro"
+ 

@@ -55,63 +55,7 @@ categoryMapping,
 }
 
 
-/*
-async function aggiornaServiziAssistenteAusiliario(assistantToUpdateID:string) {
-     debug(2, "Configuro i servizi di un bot ausiliario");
- 
-    const serviziToUpdate = new Servizi();
-    const sessionManagerToUpdate: AISessionManager = new AISessionManager();
-    const aiManagerToUpdate = new AIManager(sessionManagerToUpdate);     
-    const assistenteAIToUpdate : ChatGPTAssistant = new ChatGPTAssistant(aiManagerToUpdate);
-      serviziToUpdate.creaServizi([ "textedit_url_download"], credenziali); //"console_warn_shout",
-      aiManagerToUpdate.setServizi(serviziToUpdate);  
-      aiManagerToUpdate.setAssistant(assistenteAIToUpdate);
 
-      assistenteAIToUpdate.setDefaultAssistantID(assistantToUpdateID);
-   
-     // const botToUpdate = new BotIooo(aiManager,sessionManager);
-      await aiManagerToUpdate.uploadServiziToApi();
-      debug(2, "Ho configurato i servizi di un bot ausiliario");
-      process.exit(0);
-
-    }
-*/
-async function aggiornaServiziAssistenteAusiliario(assistantToUpdateID: string) {
-  debug(2, "Configuro i servizi di un bot ausiliario");
-
-  // Creo un nuovo session manager e AIManager
-  const sessionManagerToUpdate = new AISessionManager();
-  const aiManagerToUpdate = new AIManager(
-    credenziali,
-    sessionManagerToUpdate);
-
-
-  // Creo l’assistente associato all’API già registrata nella factory
- //  RIPRISTINARE SE SERVE:
-  //const assistenteAIToUpdate = aiManagerToUpdate.getApi("assistant-aux") as ChatGPTAssistant;
-  //if (!assistenteAIToUpdate) throw new Error("API assistant non trovata");
-
-//  assistenteAIToUpdate.setDefaultAssistantID(assistantToUpdateID);
-
-  // Creo e assegno i servizi   DA ABILITARE E PROVARE  E DEBUGGARE
- // const serviziToUpdate = new Servizi();
- // serviziToUpdate.creaServizi(["textedit_url_download"], credenziali);
- // aiManagerToUpdate.setServizi(serviziToUpdate);
-
-  // Carica i servizi nell’API (metodo già presente in AIManager)
-  //await aiManagerToUpdate.uploadServiziToApi();
-
-  debug(2, "Ho configurato i servizi di un bot ausiliario");
-  process.exit(0);
-}
-
-
-
-
-
-
-
-//await aggiornaServiziAssistenteAusiliario("asst_gQfO45QP2LdXwHyqw26Asu31");
 
 let tags : TagProposti[] = [];
 let feeds: TriggerProposti[] = [];
