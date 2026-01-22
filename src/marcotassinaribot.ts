@@ -221,8 +221,7 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
      
      //await bot.addDefaultInterfaces(credenziali);
 
-    const telegram = new TelegramInterface(credenziali.botToken as string, bot);
-    // Aggiunge l'interfaccia e registra i comandi da file
+     // Aggiunge l'interfaccia e registra i comandi da file
     // prendo i comandi dalla cartella data/procedure: 'genera_articolo_completo', 'post_linkedin'
     // nota, i tools sono definiti nel file dell'agente e qui posso definire anche i tools usati dai canali.
     // potrei definire una procedura comunicato_stampa mentre il tool comunicato_stampa non è definito in taffitools. 
@@ -235,9 +234,9 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
      //però forse devo creare un nuovo tipo di step che non prenda in ingresso niente ma per toamdni telegram
 
 
-    await bot.aggiungiInterfaccia(telegram); 
-
-     debug(3, "*Aggiungo i canali al bot*"); 
+    await bot.aggiungieInizializzaInterfaccePredefinite(credenziali); 
+  
+    debug(3, "*Aggiungo i canali al bot*"); 
      bot.aggiungiCanali([sitoIooo, socialMarcoLinkedin], credenziali); 
      
     
