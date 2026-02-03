@@ -1,0 +1,7 @@
+name: start
+description: Saluta calorosamente e ricomincia
+type: step
+tasks:
+  - name: start
+    type: step
+ 

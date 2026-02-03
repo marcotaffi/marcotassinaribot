@@ -1,8 +1,8 @@
-name: comunicato_stampa
+name: comunicatostampa
 description: provo per fare un comando del bot telegram
 type: sequenziale
 tasks:
-  - name: comunicato_stampa
+  - name: comunicatostampa
     type: step
   - name: genera_titoli
     type: step

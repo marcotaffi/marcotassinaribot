@@ -1,0 +1,5 @@
+name: start
+type: prompt
+description: "Saluta calorosamente e ricomincia"
+prompt: start
+agentName: marcotassinari

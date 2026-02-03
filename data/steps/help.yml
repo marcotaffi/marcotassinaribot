@@ -1,0 +1,5 @@
+name: help
+type: prompt
+description: "Spiegami come funziona il bot e cosa sa fare"
+prompt: help
+agentName: marcotassinari

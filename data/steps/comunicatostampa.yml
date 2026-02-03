@@ -1,5 +1,5 @@
-name: comunicato_stampa
+name: comunicatostampa
 type: prompt
 description: "Scrivi un comunicato stampa."
-prompt: comunicato_stampa
+prompt: comunicatostampa
 agentName: redattore

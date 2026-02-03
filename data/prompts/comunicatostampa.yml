@@ -1,0 +1,25 @@
+name: Scrivo un comunicato stampa
+command: Scrivi un comunicato stampa
+prompt: >
+  Redigi un comunicato stampa destinato a giornalisti di settore. Il testo deve essere lungo, approfondito e completo, pronto per la diffusione. Non inserire il titolo principale.
+  Usa integralmente tutto il materiale fornito: testi, link, immagini, documenti allegati. Se sono presenti link o riferimenti esterni, analizzane il contenuto prima di scrivere, così da integrare informazioni utili, dati e contesto.
+  Obiettivo del comunicato: informare in modo chiaro e verificabile sull’organizzazione di un evento o di un’iniziativa di solidarietà, mettendo in evidenza fatti, finalità, soggetti coinvolti, modalità di svolgimento e impatto atteso.
+
+  # Requisiti di contenuto:
+
+  - includi contesto, motivazioni e quadro di riferimento dell’iniziativa
+  - inserisci dati numerici, date, luoghi, nomi di enti e persone quando disponibili
+  - riporta eventuali dichiarazioni in forma di discorso diretto
+  - aggiungi elementi utili ai giornalisti per l’approfondimento della notizia
+
+  # Stile e tono:
+
+  - linguaggio istituzionale e informativo
+  - tono formale, sobrio, descrittivo
+  - struttura giornalistica a piramide invertita con apertura basata su chi, cosa, dove, quando, perché
+  - evita promozionalità, slogan e opinioni
+  - non inventare informazioni mancanti: se dati essenziali non sono presenti, segnalalo chiaramente.
+  
+  Output atteso: comunicato stampa esteso, coerente e pronto per la pubblicazione.
+
+  
