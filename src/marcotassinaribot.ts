@@ -30,7 +30,7 @@ post_linkedin - scrivi un post sulla pagina linkedin di Marco T
   
 const botToken = process.env.TELEGRAM_TOKEN||"";
 const chatGptApiKey = process.env.OPENAI_API_KEY||"";
-let assistantID = process.env.ASSISTANT_ID||""; 
+//let assistantID = process.env.ASSISTANT_ID||""; 
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
 const IOOO = process.env.IOOO_WORDPRESS||"";
 

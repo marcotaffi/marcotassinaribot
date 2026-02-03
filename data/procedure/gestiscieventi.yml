@@ -2,8 +2,5 @@ name: gestiscieventi
 description: provo una procedura da lanciare come tool
 type: sequenziale
 tasks:
-  - name: comunicato_stampa
+  - name: crea_evento
     type: step
-  - name: genera_titoli
-    type: step
-

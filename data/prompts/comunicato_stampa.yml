@@ -1,11 +1,10 @@
 name: Scrivo un comunicato stampa
 command: Scrivi un comunicato stampa
-chiediMateriale: true
 prompt: >
- Mi serve un comunicato stampa da inviare ai giornalisti di settorea partire dal materiale dato. 
+ Mi serve un comunicato stampa da inviare ai giornalisti di settore. Voglio un testo lungo.
+ Utilizza il materiale dato: se necessario scarica i link, guarda le foto e leggi gli eventuali documenti allegati in modo da produrre un testo approfondito. 
 
  Il comunicato stampa informativo ha l'obiettivo di portare a conoscenza i lettori dell'organizzazione di un evento o di una iniziativa di solidarietà. 
  Utilizza le indicazione di stile fornite e un linguaggio istituzionale, mantenendo un tono formale ed informativo, simile a quello di un annuncio governativo o accademico. 
  Il testo finale dovrà contenere elementi che possano aiutare nell'approfondimento e nell'individuazione della notizia, come ad esempio indicazioni di contesto e dati numerici.
- Ecco alcune informazioni.
 

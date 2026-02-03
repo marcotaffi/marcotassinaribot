@@ -1,6 +1,13 @@
 agentName: redattore
 agentDescription: "Editor neutrale dei testi"
 apiClient: "gpt-response-dev"
-assistant_id: "pmpt_692dcb1750688196ade09fa243f509490fe871ccb0242bfb"
+assistant_id: "pmpt_692dc8a381208194a41a9a3cf1a75fa904d9225f75a2ee29" 
 params:
   model: "gpt-4o-mini"
+vectoreStores: 
+  - vs_7rCG39exRfvB9geL5N2hsWwY
+toolNames: 
+           - gestoredate_now_readClock
+           - scraper_url_download
+          
+           

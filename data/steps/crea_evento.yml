@@ -1,0 +1,5 @@
+name: crea_evento
+type: prompt
+description: "Scrivi un evento per un sito web"
+prompt: crea_evento
+agentName: redattore
