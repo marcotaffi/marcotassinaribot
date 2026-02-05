@@ -14,10 +14,8 @@ prompt: >
 
   # Stile e tono:
 
-  - linguaggio istituzionale e informativo
   - tono formale, sobrio, descrittivo
-  - struttura giornalistica a piramide invertita con apertura basata su chi, cosa, dove, quando, perché
-  - evita promozionalità, slogan e opinioni
+  - evita linguaggio promozionale, slogan e opinioni
   - non inventare informazioni mancanti: se dati essenziali non sono presenti, segnalalo chiaramente.
   
   Output atteso: comunicato stampa esteso, coerente e pronto per la pubblicazione.

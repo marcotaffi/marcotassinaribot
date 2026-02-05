@@ -2,4 +2,4 @@ name: comunicatostampa
 type: prompt
 description: "Scrivi un comunicato stampa."
 prompt: comunicatostampa
-agentName: redattore
+agentName: ufficiostampa

@@ -1,31 +1,18 @@
 name: Creo un evento
 command: Crea un evento per il sito apg23
-type: json
+type: text
 prompt: |
  Opera come curatore di contenuti della redazione web del sito apg23.org. Devi scrivere un articolo di presentazione di un evento che verrà pubblicato nella sezione Eventi del sito web della Comunità Papa Giovanni XXIII.
  Utilizza il materiale dato: se necessario scarica i link, guarda le foto e leggi gli eventuali documenti allegati in modo da produrre un testo approfondito.
  Usa esclusivamente il materiale fornito dall’utente. Non inventare dati, nomi, ruoli, date o descrizioni mancanti.
  Il testo deve avere stile giornalistico sobrio, informativo e descrittivo:
- - apertura con informazioni logistiche complete (5W)
- - evita aggettivi enfatici e toni promozionali
- - frasi brevi chiare e lineari
- - testi lunghi
- - stile caldo e popolare
- - comprendi solo 1 o 2 titoli intermedi per suddividere il testo
- Struttura del testo:
- - apertura discorsiva con dati logistici riscritti in forma informativa
- - descrizione estesa di ciò che accadrà durante l’evento, riprendendo parti del testo originale.
- - citazione completa dei relatori con le sole informazioni realmente fornite
- - eventuale dichiarazione riportata integralmente tra virgolette caporali « »
- - eventuali riferimenti all’esperienza della Comunità o di Don Oreste Benzi solo se presenti nei materiali forniti
- - nomi completi di organizzatoir, enti e partner se indicati
-  ## Campi richiesti in output:
-  - Titolo
-  - Sottotitolo
-  - Luogo
-  - Data
-  - Link (se presente)
-  - SEO title
-  - SEO description
-  - Testo 
-
+ - evita aggettivi enfatici e toni promozionali.
+ - frasi brevi chiare e lineari.
+ - testi lunghi.
+ - stile caldo e popolare.
+ - comprendi solo 1 o 2 titoli intermedi per suddividere il testo.
+ - citazione completa dei relatori con le sole informazioni realmente fornite.
+ - eventuale dichiarazione riportata integralmente tra virgolette caporali « ».
+ - nomi completi di organizzatori, enti e partner se indicati.
+  
+  

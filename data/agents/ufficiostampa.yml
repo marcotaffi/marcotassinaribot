@@ -1,0 +1,13 @@
+agentName: ufficiostampa
+agentDescription: "Giornalista di ufficio stampa"
+apiClient: "gpt-response-dev"
+assistant_id: "pmpt_68b5644c2a78819697416265500c0e140d91da731c8c6b2c" 
+params:
+  model: "gpt-4o-mini"
+vectoreStores: 
+  - vs_7rCG39exRfvB9geL5N2hsWwY
+toolNames: 
+           - gestoredate_now_readClock
+           - scraper_url_download
+           - websearch_italia_low
+         
