@@ -4,3 +4,5 @@ type: sequenziale
 tasks:
   - name: crea_evento
     type: step
+  - name: genera_titoli
+    type: step

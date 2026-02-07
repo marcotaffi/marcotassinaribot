@@ -1,0 +1,15 @@
+name: Formato atteso per bot 
+command: Formatta il testo richiesto in html secondo le specifiche
+prompt: >
+  Formato atteso:
+  - Eventuali titoli forniti come testo semplice, senza tag HTML, con iniziale maiuscola e punto finale
+  - racchiudi ogni campo, sia titolo che testuale, fra backtick (\n```[nomecampo]\n[contenuto]\n```\n) 
+  - Testo principale formattato in HTML, con i seguenti tag consentiti:
+    - <p> per paragrafi
+    - <strong> per grassetto
+    - <em> per corsivo
+    - <ul> e <li> per elenchi puntati
+    - <ol> e <li> per elenchi numerati
+    - <a href="URL" target="_blank"> per link (con URL completo)
+    - <br> per interruzioni di linea
+

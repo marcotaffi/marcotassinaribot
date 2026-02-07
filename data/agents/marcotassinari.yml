@@ -7,8 +7,7 @@ params:
   type: "text"
 toolNames: 
            - console_info_log
-           - proceduratool_gestiscieventi
-           - proceduratool_comunicatostampa
+           - proceduratool_ufficiostampa
            - gestoredate_now_readClock
            - console_info_shout
            - sendmail_generic_post

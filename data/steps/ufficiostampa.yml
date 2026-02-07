@@ -1,0 +1,5 @@
+name: comunicatostampa
+type: prompt
+description: "Scrivi un testo per l'ufficio stampa."
+prompt: format_html
+agentName: ufficiostampa

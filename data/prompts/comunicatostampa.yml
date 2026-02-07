@@ -1,23 +1,44 @@
 name: Scrivo un comunicato stampa
 command: Scrivi un comunicato stampa
 prompt: >
-  Redigi un comunicato stampa destinato a giornalisti di settore. Il testo deve essere lungo, approfondito e completo, pronto per la diffusione. Non inserire il titolo principale.
-  Usa integralmente tutto il materiale fornito: testi, link, immagini, documenti allegati. Se sono presenti link o riferimenti esterni, analizzane il contenuto prima di scrivere, così da integrare informazioni utili, dati e contesto.
-  Obiettivo del comunicato: informare in modo chiaro e verificabile sull’organizzazione di un evento o di un’iniziativa di solidarietà, mettendo in evidenza fatti, finalità, soggetti coinvolti, modalità di svolgimento e impatto atteso.
-
-  # Requisiti di contenuto:
-
-  - includi contesto, motivazioni e quadro di riferimento dell’iniziativa
-  - inserisci dati numerici, date, luoghi, nomi di enti e persone quando disponibili
-  - riporta eventuali dichiarazioni in forma di discorso diretto
-  - aggiungi elementi utili ai giornalisti per l’approfondimento della notizia
-
-  # Stile e tono:
-
-  - tono formale, sobrio, descrittivo
-  - evita linguaggio promozionale, slogan e opinioni
-  - non inventare informazioni mancanti: se dati essenziali non sono presenti, segnalalo chiaramente.
+  Redigi un comunicato stampa destinato a giornalisti di settore utilizzando il materiale fornito in precedenza. Non inserire il titolo principale.   
   
-  Output atteso: comunicato stampa esteso, coerente e pronto per la pubblicazione.
-
+  # Requisiti
+  - Analizza integralmente tutto il materiale fornito: testi, link, immagini, documenti allegati. 
+  - Il materiale fornito deve contenere informazioni sulle 5W del giornalistmo (chi, dove, quando, cosa, perché)
+  - Inserisci dichiarazioni solo se presenti nel materiale fornito, eventualmente da riportare integralmente fra virgolette caporale.
+  - Se mancano informazioni nel materiale fornito non restituire nulla ma chiedi il materiale mancante, in testo semplice.
+  - Il comunicato stampa ottenuto deve essere lungo, approfondito e completo, pronto per la diffusione.
   
+  Output atteso: comunicato stampa esteso, coerente e pronto per la pubblicazione, oppure richiesta di approfondimenti in formato testo.
+
+  # Formato del comunicato stampa atteso  
+
+  - Produci il testo richiesto in formato HTML racchiuso fra backtick usando come etichetta "TESTO". 
+  - Tag HTML consentiti:
+    - <H2>, <H3> per titoli intermedi
+    - <p> per paragrafi
+    - <strong> per grassetto
+    - <em> per corsivo
+    - <ul> e <li> per elenchi puntati
+    - <ol> e <li> per elenchi numerati
+    - <a href="URL" target="_blank"> per link (con URL completo)
+    - <br> per interruzioni di linea
+ 
+  ## Esempip di risultato fornito:
+
+  ```TESTO
+  <strong>Questo</strong> è un esempio di testo principale in formato html.<br>
+  Il testo <em>html</em> è distribuito su più righe.\n
+  ```
+
+  # Formato in caso di errori o mancanza di informazioni essenziali
+
+  - Produci un testo semplice chiedendo all'utente le informazioni mancanti
+
+  ## Esempio di richiesta di ulteriori approfondimenti
+
+  Non posso scrivere il comunicato stampa perché mi mancano delle informazioni: dove si svolgerà l'evento? Grazie!
+
+ 
+

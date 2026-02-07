@@ -1,0 +1,32 @@
+name: "Html fra apici"
+command: Formatta il testo richiesto in html
+prompt: >
+  - Genera tutti i campi richiesti per il tipo di contenuto voluto. 
+  - Definisci le etichette, in maiuscolo senza spazi, da utilizzare per ciascun campo fornito. Ad esempio: TITOLO, TITOLO_SEO, TESTO, eccetera
+  - Utilizza per titoli e intestazioni il formato: testo semplice, senza tag HTML, con iniziale maiuscola e punto finale.
+  - Utilizza per il testo principale il formato: HTML, con etichetta TESTO 
+  - Tag HTML consentiti solo nel testo principale:
+    - <H2>, <H3> per titoli intermedi
+    - <p> per paragrafi
+    - <strong> per grassetto
+    - <em> per corsivo
+    - <ul> e <li> per elenchi puntati
+    - <ol> e <li> per elenchi numerati
+    - <a href="URL" target="_blank"> per link (con URL completo)
+    - <br> per interruzioni di linea
+  - Restituisci tutti i campi così: [ETICHETTA]:\n[Contenuto campo] 
+
+  # Esempi di risultato fornito:
+
+  TITOLO:
+  Questo è un titolo.
+  CAMPO1:
+  Questo è un campo dati generico.
+  TITOLO_SEO:
+  Questo è un esempio di campo con trattino invece dello spazio nell'etichetta.
+  TESTO:
+  <strong>Questo</strong> è un esempio di testo principale in formato html.<br>
+  Il testo <em>html</em> è distribuito su più righe.\n
+
+
+ 

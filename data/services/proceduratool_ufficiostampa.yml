@@ -1,0 +1,9 @@
+firma: proceduratool_ufficiostampa
+servizio: proceduratool
+procedura: ufficiostampa
+azione: esegui 
+destinazione: ufficiostampa 
+cosafa: This tool can write or edit press releases and event announcements, as well as all similar documents, on behalf of the press office of Comunità Papa Giovanni XXIII.  
+opzioni:
+  descrizioneOpzioni: "Queste opzioni sono solo un demo, usabili se serve in futuro"
+ 

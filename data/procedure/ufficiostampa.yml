@@ -1,0 +1,7 @@
+name: ufficiostampa
+description: multitask per ufficio stampa. Sa rilanciare eventi e scrivere comunicati stampa e altro
+type: step
+tasks:
+  - name: ufficiostampa
+    type: step
+

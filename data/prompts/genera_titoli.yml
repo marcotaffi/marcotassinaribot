@@ -1,14 +1,39 @@
 name: Genero titoli
-command: Genera il titolo di un articolo per un portale online.
+command: Genera il titolo di un articolo giornalistico istituzionale.
 chiediMateriale: false
 params:
   type: json
 prompt: >
- Identifica il fatto centrale dell'articolo e genera un titolo che lo descriva in modo chiaro e sintetico.  
-  Il titolo deve aiutare il lettore a comprendere rapidamente gli elementi chiave dell’articolo e mettere in evidenza eventuali aspetti interessanti e facilmente comprensibili.  
+ Devi generare i titoli per il testo dato. Il titolo deve aiutare il lettore a comprendere rapidamente gli elementi chiave del testo e mettere in evidenza eventuali aspetti interessanti e facilmente comprensibili.  
+
+ # Modalità di lavoro
+  - Verifica di avere un testo valido su cui lavorare. Se il testo è vuoto o riporta un messaggio di errore, non ritornare nulla.
+ - Se il testo contentiene contenuti validi, identifica il tema centrale e genera un titolo e un sottotitolo che lo descrivano in modo chiaro e sintetico.  
 
   # Indicazioni stilistiche
   - Il titolo deve essere rispettoso, informativo e privo di opinioni personali.  
   - Evita aggettivi superflui o valutazioni soggettive.  
   - Se l’articolo include dichiarazioni dirette, usa le virgolette caporali « ».  
   - Mantieni il titolo breve e diretto, con verbi attivi quando possibile.
+
+  Output atteso: Titolo e sottotitolo testuali pronti per la pubblicazione, oppure nulla.
+
+  # Formato atteso per i titoli
+
+  - Produci il testo richiesto in testo semplice, racchiuso fra backtick usando come etichette "TITOLO" e "SOTTOTITOLO". 
+ 
+  ## Esempip di risultato fornito:
+
+  ```TITOLO
+  Questo è il titolo.
+  ```
+
+  ```SOTTOTITOLO
+  Questo è il sottotitolo.
+  ```
+  
+  # Formato in caso di errori o di mancanza di informazioni essenziali
+ 
+   - In caso di errori o di mancanza di contenuti validi ritorna una stringa vuota: ""
+   
+     
