@@ -1,7 +1,7 @@
 
 import dotenv from 'dotenv';
-import { debug, BotIooo, Linkedin, Wordpress, ProcedureManager, AISessionManager, AIManager, TelegramInterface, ServiceFactory, ProcessManager,} from "taffitools";
-import type {TagProposti, TriggerProposti, Credenziali, Files, ChatGPTAssistant } from "taffitools";
+import { debug, BotIooo, AIManager, ServiceFactory, ProcessManager,} from "taffitools";
+import type {TagProposti, TriggerProposti, Credenziali } from "taffitools";
 import { CanaleExtendsServizio } from '../../libraries/taffitools/types/canali/canale.js';
 
  dotenv.config();
