@@ -3,7 +3,6 @@ firma: "wordpress_iooo"
 servizio: "wordpress"
 destinazione: "iooo"
 procedura: "genera_articolo_completo"
-
 classificazione:
   includi:
     - hooks: ["Don Oreste Benzi"]
@@ -12,4 +11,4 @@ classificazione:
   escludi:
     - hooks: ["fondazionedonorestebenzi.org"]
       type: "urls"
-
+ 

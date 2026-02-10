@@ -11,6 +11,12 @@ import { CanaleExtendsServizio } from '../../libraries/taffitools/types/canali/c
  */
 
 /** descrizioni comandi per botfather
+ * 
+start - Chiacchiero con te
+help - Mi presento e ti spiego cosa so fare
+comunicatostampa - Scrivo un comunicato stampa
+crea_evento - Creo un evento per il sito apg23
+
 
 start - chiacchiera con Marco 
 help - Mi presento e ti spiego cosa so fare
@@ -29,8 +35,7 @@ post_linkedin - scrivi un post sulla pagina linkedin di Marco T
  */
   
 const botToken = process.env.TELEGRAM_TOKEN||"";
-const chatGptApiKey = process.env.OPENAI_API_KEY||"";
-//let assistantID = process.env.ASSISTANT_ID||""; 
+//const chatGptApiKey = process.env.OPENAI_API_KEY||"";
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
 const IOOO = process.env.IOOO_WORDPRESS||"";
 

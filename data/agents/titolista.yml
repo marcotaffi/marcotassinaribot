@@ -1,7 +1,7 @@
 agentName: titolista
 agentDescription: "assistente per ora è Marco T"
 apiClient: "gpt-response-dev"
-assistant_id: "pmpt_68b5758ebe048190b884056eba78e6980da836621f88ece7"
+assistant_id: "pmpt_690f45d1fb988190bc4b62562bbc55f40f0c5f030993c141"
 params:
   model: "gpt-4o-mini"
   type: "json"

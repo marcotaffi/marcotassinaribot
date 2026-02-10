@@ -2,6 +2,8 @@ import  DialogoForm  from '../utils/bot/dialogoform.js';
 
 
 /*
+OBSOLETO
+
 La classe FormAccoglienza estende DialogoForm e specifica un particolare flusso di domande per l'accoglienza.
 Inizializza un array di domande specifiche e uno stato associato a ciascuna domanda. 
 Definisce le condizioni che determinano le transizioni tra le domande in base alle risposte dell'utente. 

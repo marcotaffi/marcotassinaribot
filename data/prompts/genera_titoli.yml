@@ -19,11 +19,9 @@ prompt: >
   Output atteso: Titolo e sottotitolo testuali pronti per la pubblicazione, oppure nulla.
 
   # Formato atteso per i titoli
-
   - Produci il testo richiesto in testo semplice, racchiuso fra backtick usando come etichette "TITOLO" e "SOTTOTITOLO". 
  
   ## Esempip di risultato fornito:
-
   ```TITOLO
   Questo è il titolo.
   ```
