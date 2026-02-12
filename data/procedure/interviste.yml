@@ -1,0 +1,7 @@
+name: interviste
+description: multitask per giornalista di interviste/testimonianze
+type: step
+tasks:
+  - name: interviste
+    type: step
+

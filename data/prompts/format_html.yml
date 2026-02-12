@@ -1,4 +1,4 @@
-name: "Html fra apici"
+name: "Html fra apici per multibot"
 command: Formatta il testo richiesto in html
 prompt: >
   - Genera tutti i campi richiesti per il tipo di contenuto voluto. 

@@ -1,0 +1,6 @@
+firma: proceduratool_dossier
+servizio: proceduratool
+procedura: dossier
+azione: esegui 
+destinazione: dossier 
+cosafa: This tool can write or edit long-form dossiers, thematic reports, and in-depth narrative articles intended for the apg23.org web site and related editorial channels, organizing extended material, context, data, and documented stories into structured analytical content.

@@ -5,5 +5,5 @@ azione: esegui
 destinazione: ufficiostampa 
 cosafa: This tool can write or edit press releases and event announcements intended for the apg23.org web site, as well as all similar documents, on behalf of the press office of Comunità Papa Giovanni XXIII.  
 opzioni:
-  descrizioneOpzioni: "Queste opzioni sono solo un demo, usabili se serve in futuro"
+  descrizione: "Questo è il comando multiprompt per testi affidati all'agente ufficio stampa"
  

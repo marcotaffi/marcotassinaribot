@@ -1,0 +1,5 @@
+name: dossier
+type: prompt
+description: "Scrivi un dossier"
+prompt: format_html
+agentName: dossier

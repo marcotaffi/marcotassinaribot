@@ -1,0 +1,6 @@
+firma: proceduratool_cronaca
+servizio: proceduratool
+procedura: cronaca
+azione: esegui 
+destinazione: cronaca 
+cosafa: This tool can write or edit news articles, factual reports, and current affairs coverage intended for the apg23.org web site and related editorial channels, based strictly on provided sources and verified material, following a neutral journalistic style.

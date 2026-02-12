@@ -1,0 +1,5 @@
+name: cronaca
+type: prompt
+description: "Scrivi un testo di cronaca."
+prompt: format_html
+agentName: cronaca

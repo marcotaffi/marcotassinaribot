@@ -1,0 +1,6 @@
+firma: proceduratool_interviste
+servizio: proceduratool
+procedura: interviste
+azione: esegui 
+destinazione: interviste 
+cosafa: This tool can write or edit interviews and first-person testimonies intended for the apg23.org web site and related editorial channels, preserving the speaker’s voice and statements, structuring questions and answers or narrative testimony from provided material.

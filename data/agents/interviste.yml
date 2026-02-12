@@ -1,0 +1,12 @@
+agentName: interviste
+agentDescription: "Giornalista per interviste/testimonianze"
+apiClient: "gpt-response-dev"
+assistant_id: "pmpt_68b5758ebe048190b884056eba78e6980da836621f88ece7" 
+params:
+  model: "gpt-4o-mini"
+vectoreStores: 
+  - vs_7rCG39exRfvB9geL5N2hsWwY
+toolNames: 
+           - gestoredate_now_readClock
+           - scraper_url_download
+    

@@ -1,0 +1,7 @@
+name: cronaca
+description: multitask per giornalista di cronaca
+type: step
+tasks:
+  - name: cronaca
+    type: step
+

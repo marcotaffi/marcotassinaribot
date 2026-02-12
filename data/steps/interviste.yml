@@ -1,0 +1,5 @@
+name: interviste
+type: prompt
+description: "Scrivi una intervista o una testimonianza."
+prompt: format_html
+agentName: interviste

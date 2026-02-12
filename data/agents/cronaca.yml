@@ -1,5 +1,5 @@
-agentName: redattore
-agentDescription: "Editor neutrale dei testi"
+agentName: cronaca
+agentDescription: "Giornalista di cronaca/notizie"
 apiClient: "gpt-response-dev"
 assistant_id: "pmpt_692dc8a381208194a41a9a3cf1a75fa904d9225f75a2ee29" 
 params:
