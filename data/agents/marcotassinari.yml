@@ -8,6 +8,9 @@ params:
 toolNames: 
            - console_info_log
            - proceduratool_ufficiostampa
+           - proceduratool_cronaca
+           - proceduratool_interviste
+           - proceduratool_dossier
            - gestoredate_now_readClock
            - console_info_shout
            - sendmail_generic_post
