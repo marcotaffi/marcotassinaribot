@@ -1,0 +1,11 @@
+# wordpress_iooo.yml
+firma: "wordpress_apg23_elencarisorse"
+servizio: "wordpress"
+destinazione: "apg23" #usata per costruire le firme chiamabili da ai
+procedura: nessuna # non definisco una procedura da usare per la run. Dunque questo servizio non va bene come canale e devo evitare di definire la run come tool.
+#azione
+opzioni:
+  sito: "www.apg23.org" # usato per costruire le descrizoni dei tools per ai
+  basic_auth: "APG23_WORDPRESS"
+  categoryMapping:
+      "*": "1"

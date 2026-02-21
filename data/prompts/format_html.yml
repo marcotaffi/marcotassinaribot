@@ -1,4 +1,5 @@
 name: "Html fra apici per multibot"
+description: "Formattazione per chiamate da proceduratools richieste da AI chiacchierando su Telegram"
 command: Formatta il testo richiesto in html
 prompt: >
   - Genera tutti i campi richiesti per il tipo di contenuto voluto. 

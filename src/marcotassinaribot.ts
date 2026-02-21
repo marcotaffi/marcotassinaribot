@@ -37,25 +37,28 @@ post_linkedin - scrivi un post sulla pagina linkedin di Marco T
 const botToken = process.env.TELEGRAM_TOKEN||"";
 //const chatGptApiKey = process.env.OPENAI_API_KEY||"";
 const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
-const IOOO = process.env.IOOO_WORDPRESS||"";
+//const IOOO = process.env.IOOO_WORDPRESS||"";
+//const APG23 = process.env.APG23_WORDPRESS||"";
 
 ProcessManager.getInstance().setDebugLevel(process.env.DEBUG_LEVEL);
 
 const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
 if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
-
+/*
 const categoryMapping:  { [key: string]: string } = {
   "*": "44",
 };
+*/
 
-const credenziali : Credenziali = {
+const credenziali : Credenziali = {  //sempre più inutili.... da rimuovere TODO. Usare i file di configurazione invece.
 iftttKey: iftttKey, 
 test_only:TEST_ONLY,
 botToken: botToken as string,
-wordpress_sito: "https://iooo.ai",
-wordpress_basic_auth: IOOO,
-categoryMapping,
+//wordpress_sito: "https://iooo.ai",
+//wordpress_sito: "https://www.apg23.org",
+//wordpress_basic_auth: APG23,
+//categoryMapping,
 
 }
 
@@ -121,8 +124,11 @@ let news : TriggerProposti[] = [];
 //----------
 //CARICAMENTO MODERNO
 
-const sitoIooo = await ServiceFactory.create("wordpress_iooo") as CanaleExtendsServizio;
-    sitoIooo.start(credenziali);
+//const sitoIooo = await ServiceFactory.create("wordpress_iooo") as CanaleExtendsServizio;
+//    sitoIooo.start(credenziali);
+
+//const sitoIooo = await ServiceFactory.create("wordpress_apg23") as CanaleExtendsServizio;
+//    sitoIooo.start(credenziali);
 
     //---------------
 //CARICAMENTO TRADIZIONALE
@@ -242,7 +248,7 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
     await bot.aggiungieInizializzaInterfaccePredefinite(credenziali); 
   
     debug(3, "*Aggiungo i canali al bot*"); 
-     bot.aggiungiCanali([sitoIooo, socialMarcoLinkedin], credenziali); 
+     bot.aggiungiCanali([socialMarcoLinkedin], credenziali); //sitoIooo
      
     
     debug (3, "*Aggiungo le fonti e la conoscenza*");

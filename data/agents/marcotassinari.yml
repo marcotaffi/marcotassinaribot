@@ -16,5 +16,9 @@ toolNames:
            - sendmail_generic_post
            - scraper_url_download
            - websearch_italia_low
-           - wordpress_iooo_elencaArticoli
+           - wordpress_apg23_elencaarticoli
+           - wordpress_apg23_elencarisorse
+           - wordpress_apg23_post
+         # - wordpress_iooo_elencaArticoli
+
 

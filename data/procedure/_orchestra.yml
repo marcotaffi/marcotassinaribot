@@ -1,0 +1,11 @@
+name: orchestra
+type: sequenziale
+tasks:
+  - name: scrivi
+    type: step
+  - name: genera_titoli
+    type: step
+  - name: genera_prompt_immagine
+    type: step
+  - name: genera_immagine
+    type: step
