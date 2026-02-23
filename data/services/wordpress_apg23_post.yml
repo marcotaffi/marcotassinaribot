@@ -1,8 +1,7 @@
-firma: "wordpress_apg23_elencaarticoli"
+firma: "wordpress_apg23_post"
 servizio: "wordpress"
 destinazione: "apg23" #usata per costruire le firme chiamabili da ai
-azione: "run"
-procedura: "TODO"
+azione: "post"
 opzioni:
   sito: "www.apg23.org" # usato per costruire le descrizoni dei tools per ai
   basic_auth: "APG23_WORDPRESS"

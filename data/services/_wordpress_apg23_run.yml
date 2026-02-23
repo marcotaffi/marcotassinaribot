@@ -1,4 +1,4 @@
-firma: "wordpress_apg23_elencaarticoli"
+firma: "wordpress_apg23_run"
 servizio: "wordpress"
 destinazione: "apg23" #usata per costruire le firme chiamabili da ai
 azione: "run"
