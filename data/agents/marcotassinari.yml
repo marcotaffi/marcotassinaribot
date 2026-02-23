@@ -18,7 +18,7 @@ toolNames:
            - websearch_italia_low
            - wordpress_apg23_elencaarticoli
            - wordpress_apg23_elencarisorse
-           - wordpress_apg23_post
+         # - wordpress_apg23_post
          # - wordpress_iooo_elencaArticoli
 
 
