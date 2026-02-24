@@ -1,0 +1,11 @@
+# Formato atteso in uscita: html
+  - Inizia con <DIV>;
+  - Dividi il testo normale in paragrafi <P></P>
+  - Tutti i nomi e cognomi di persona, e i nomi di provincia: <B></B>
+  - Frasi più importanti: <B></B>
+  - Tutti i titoli intermedi: <H2></H2>
+  - Tutti i nomi di associazioni e di enti: corsivo <I></I>
+  - Tutti i nomi di eventi o di progetti: corsivo fra virgolette <I>&quot; &quot;</I>
+  - Tutte le dichiarazioni e le interviste: fra virgolette &laquo; &raquo;
+  - Inserisci gli url dei link all'interno del testo così: Questa è una <A target="_blank" href="url">Campagna</A>;
+  - Finisci con </DIV>;

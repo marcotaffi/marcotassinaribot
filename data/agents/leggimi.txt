@@ -1,0 +1,29 @@
+
+Struttura degli agenti:
+
+ - marcotassinari
+ Chiamato via Telegram. Avatar di Marco Tassinari. 
+ È un orchestratore: per scrivere testi professionali chiama gli agenti giornalisti.
+ Dialoga con l'utente in formato html semplificato.
+ Restituisce lavori professionali in campi separati da backtick senza modificarli. 
+
+- orchestratore
+ Chiamato dai canali che vogliono scrivere testi professionali.
+ Chiama sempre un agente giornalistico e ritorna il risultato.
+ Restituisce il solo articolo, senza campi titolo, in html senza backtick.
+
+ - bot giornalisti: dossier, cronaca, interviste, dossier
+ Giornalisti in grado di produrre contenuti con stile specifico
+ Ritornano il pezzo senza titoli in formato html senza backtick.  
+
+- titolista 
+ Sa produrre titoli, campi Seo e campi logistici.
+ Ritorna i campi in formato JSON.  
+
+ - photoeditor
+ Generatore di foto
+
+ - socialmanager
+ Sa scrivere post per i social (da controllare).
+
+  

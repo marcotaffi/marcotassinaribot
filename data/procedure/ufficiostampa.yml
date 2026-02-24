@@ -4,4 +4,6 @@ type: step
 tasks:
   - name: ufficiostampa
     type: step
+  - name: genera_titoli
+    type: step
 

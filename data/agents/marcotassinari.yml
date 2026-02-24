@@ -1,10 +1,22 @@
 agentName: marcotassinari
 agentDescription: "Marco Tassinari avatar"
 apiClient: "gpt-response-dev"
-assistant_id: "pmpt_695390b492b081969de7c23cff45414509bb23fead8dab83"
+#assistant_id: "pmpt_695390b492b081969de7c23cff45414509bb23fead8dab83"
 params:
   model: "gpt-4o-mini"
   type: "text"
+  temperature: 0.80
+  top_p: 0.90 
+instructions: 
+           - instructions_marcotassinari
+           - comelavorare_1raccolta
+           - comelavorare_2analisi_marcotassinari
+           - comelavorare_3scrittura_marcotassinari
+           - comelavorare_4pubblicazione_marcotassinari
+           - tools_marcotassinari
+           - formato_marcotassinari
+           - esempi_marcotassinari        
+           - biografia_marcotassinari   
 toolNames: 
            - console_info_log
            - proceduratool_ufficiostampa

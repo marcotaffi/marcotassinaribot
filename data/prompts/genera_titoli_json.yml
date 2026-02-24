@@ -1,0 +1,39 @@
+name: genera_titoli_json
+command: Genera il titolo di un articolo per il sito istituzionale della Comunità Papa Giovanni XXIII. 
+params:
+  type:
+    - titolo
+    - sottotitolo
+    - SEO_title
+    - SEO_description
+    - luogo
+    - data
+    - Pubblica_homepage
+prompt: >
+  Genera i titoli per il tsto dato in formato JSON, fornendo i campi necessari per la pubblicazione online. 
+  Se il testo lancia un evento fornisci anche luogo e data, altrimenti lascia i due campi vuoti.
+  Se presenti, includi call to action, inviti a eventi o date principali nel sottotitolo.
+  Individua la parola chiave principale dell’articolo e usala in SEO_title e SEO_description.
+  Rispetta la lunghezza massima di 100 caratteri per SEO_description.
+  Mantieni fedeltà ai fatti: non aggiungere informazioni non presenti nell’articolo.
+
+  Scrivi i titoli come testo normale, senza formattazioni HTML o markdown.
+
+  Il JSON deve avere sempre le seguenti chiavi:
+
+  {
+    "titolo": "breve, formale, introduttivo al contenuto dell'articolo",
+    "sottotitolo": "brevissimo approfondimento con le 5W della notizia, ad esempio riferendo luogo, data o dichiarazioni",
+    "SEO_title": "titolo semplificato che inizi con la parola chiave",
+    "SEO_description": "breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave",
+    "pubblica_homepage": "SI"
+  }
+
+ Eventuali campi aggiuntivi:
+
+  {
+   "luogo": "luogo in cui si svolgerà l'evento"
+   "data": "data in cui si svolgerà l'evento"
+  }
+
+  

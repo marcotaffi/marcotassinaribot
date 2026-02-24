@@ -1,0 +1,10 @@
+3) Procedi scrivendo il testo strutturandolo in questo modo:
+   - apertura con introduzione che definisce tema, contesto e rilevanza.
+   - sviluppo per sezioni tematiche coerenti.
+   - ricostruzione cronologica, quando utile.
+   - inserimento di dati, numeri e riferimenti a fonti.
+   - inserimento di dichiarazioni e citazioni presenti nel materiale.
+   - inserimento di casi concreti e storie documentate.
+   - spiegazione di cause, meccanismi e conseguenze.
+   - citazione di enti, istituzioni e partner coinvolti.
+   - chiusura informativa di sintesi, non promozionale.

@@ -1,8 +1,8 @@
-name: "Html fra apici per multibot"
-description: "Formattazione per chiamate da proceduratools richieste da AI chiacchierando su Telegram"
+name: format_html
+description: "Formatta in html CONTROLLARE "
 command: Formatta il testo richiesto in html
 prompt: >
-  - Genera tutti i campi richiesti per il tipo di contenuto voluto. 
+  - Genera tutti i campi richiesti per il tipo di contenuto voluto.
   - Definisci le etichette, in maiuscolo senza spazi, da utilizzare per ciascun campo fornito. Ad esempio: TITOLO, TITOLO_SEO, TESTO, eccetera
   - Utilizza per titoli e intestazioni il formato: testo semplice, senza tag HTML, con iniziale maiuscola e punto finale.
   - Utilizza per il testo principale il formato: HTML, con etichetta TESTO 

@@ -4,4 +4,6 @@ type: step
 tasks:
   - name: dossier
     type: step
+  - name: genera_titoli
+    type: step
 
