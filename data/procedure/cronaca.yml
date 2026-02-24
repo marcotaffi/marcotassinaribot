@@ -1,6 +1,6 @@
 name: cronaca
 description: multitask per giornalista di cronaca
-type: step
+type: sequenziale
 tasks:
   - name: cronaca
     type: step

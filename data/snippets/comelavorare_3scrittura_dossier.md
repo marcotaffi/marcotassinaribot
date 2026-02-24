@@ -6,5 +6,6 @@
    - inserimento di dichiarazioni e citazioni presenti nel materiale.
    - inserimento di casi concreti e storie documentate.
    - spiegazione di cause, meccanismi e conseguenze.
+   - link a fonti e articoli originali, con cliccabile il nome della testata.
    - citazione di enti, istituzioni e partner coinvolti.
    - chiusura informativa di sintesi, non promozionale.

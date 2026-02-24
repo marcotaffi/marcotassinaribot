@@ -31,8 +31,9 @@ Domani sul pianeta Terra agricoltori in festa.
 Fra i presenti, il Presidente Fadda e Don Oreste Benzi.
 ```
 ```TESTO
-<strong>Questo</strong> è un testo di prova.
+<p><strong>Questo</strong> è un esempio di testo principale in formato html.</p><p>Il testo <em>html</em> è diviso in paragrafi.</p>
 ```
+
 
 
 

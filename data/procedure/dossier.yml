@@ -1,6 +1,6 @@
 name: dossier
 description: multitask per giornalista di dossier
-type: step
+type: sequenziale
 tasks:
   - name: dossier
     type: step

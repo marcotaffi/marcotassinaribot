@@ -1,5 +1,5 @@
-name: comunicatostampa
+name: ufficiostampa
 type: prompt
 description: "Scrivi un testo per l'ufficio stampa."
-prompt: format_html
+prompt: giornalista
 agentName: ufficiostampa

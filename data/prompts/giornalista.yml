@@ -1,0 +1,4 @@
+name: giornalista
+description: "Questo prompt viene unito a quello generato dall'AI nel chiamare un giornalista"
+prompt: >
+  Formatta il testo richiesto in html.

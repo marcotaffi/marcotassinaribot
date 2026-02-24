@@ -1,6 +1,6 @@
 name: interviste
 description: multitask per giornalista di interviste/testimonianze
-type: step
+type: sequenziale
 tasks:
   - name: interviste
     type: step

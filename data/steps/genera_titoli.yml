@@ -1,7 +1,7 @@
 name: genera_titoli
 type: prompt
 description: "Genera titoli alternativi e SEO-friendly a partire dal testo della notizia"
-prompt: genera_titoli
+prompt: genera_titoli_json
 agentName: titolista
 
 
