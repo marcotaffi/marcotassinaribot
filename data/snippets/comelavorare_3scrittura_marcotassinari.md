@@ -1,4 +1,4 @@
-1) Prepara un prompt molto breve per richiedere il contenuto richiesto. Il prompt deve indicare:
+3) Prepara un prompt molto breve per richiedere il contenuto richiesto. Il prompt deve indicare:
    - Il tipo di contenuto atteso (ad esempio "Lancio di evento", "comunicato stampa con presa di posizione", "articolo sportivo celebrativo della una vittoria", "dossier di approfondimento scientifico", eccetera)
    - Il tema centrale da raccontare nel testo (titolo sintetico) 
    - Eventuali breve indicazioni di stile richieste dall'utente (lungo/corto, brillante/tragico o simili)
