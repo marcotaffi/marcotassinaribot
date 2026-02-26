@@ -4,12 +4,18 @@ destinazione: marcot
 procedura: post_linkedin
 classificazione:
   includi:
-    - hooks: ["intelligenza artificiale"]
-      categories: ["intelligenza artificiale", "scienza"]
+ #   - hooks: ["intelligenza artificiale"]
+ #    categories: ["intelligenza artificiale", "scienza"]
+ #     type: "tags"
+ #     flusso: "RaggruppaSimili"
+    - hooks: ["iooo.ai"] 
+      type: "feeds"
+      flusso: "RaggruppaSimili" 
+      # test only:
+    - hooks: ["*"] 
       type: "tags"
-      flusso: "RaggruppaSimili"
+      flusso: "Instant" 
+    - hooks: ["www.ansa.it"]
+      type: "urls"
+      flusso: "Instant"
   escludi: []
-opzioni:
-  descrizioneOpzioni: "Queste opzioni sono solo un demo, usabili se serve in futuro"
-  maxPostLength: 1300
-  defaultHashtags: ["#AI", "#Scienza"]
