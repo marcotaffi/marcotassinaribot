@@ -25,18 +25,17 @@ prompt: >
   Inseriscili in una stringa JSON che deve avere sempre le seguenti chiavi:
 
   {
-    "TITOLO": "breve, formale, introduttivo al contenuto dell'articolo",
-    "SOTTOTITOLO": "brevissimo approfondimento con le 5W della notizia, ad esempio riferendo luogo, data o dichiarazioni",
-    "SEO_TITLE": "titolo semplificato che inizi con la parola chiave",
-    "SEO_DESCRIPTION": "breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave",
-    "PUBBLICA_HOMEPAGE": "SI"
+    "title": "breve, formale, introduttivo al contenuto dell'articolo",
+    "excerpt": "brevissimo approfondimento con le 5W della notizia, ad esempio riferendo luogo, data o dichiarazioni",
+    "yoast_title": "titolo SEO, semplificato che inizi con la parola chiave",
+    "yoast_metadesc": "breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave",
   }
 
   Eventuali campi aggiuntivi:
 
   {
-   "LUOGO": "luogo in cui si svolgerà l'evento"
-   "DATA": "data in cui si svolgerà l'evento"
+   "place": "luogo in cui si svolgerà l'evento"
+   "date": "data in cui si svolgerà l'evento"
   }
 
   

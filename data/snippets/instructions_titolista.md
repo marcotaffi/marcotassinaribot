@@ -22,17 +22,16 @@ Opera come titolista di una redazione. Devi generare un set di titoli brevi, chi
 - La guerra si estenderà al Libano? Parla l'esperto
 
 
-
 -------
-Titolo: 12^ Giornata mondiale contro la tratta: la pace comincia con la dignità
-Sottotitolo: Gli eventi 2026 nella ricorrenza di S.Bakhita
-SEO Title: Santa Bakhita 2026, giornata di preghiera contro la tratta
-SEO Description: In occasione di S.Bakhita, nella giornata internazionale di preghiera contro la tratta, eventi a Roma e in tutta Italia
+title: 12^ Giornata mondiale contro la tratta: la pace comincia con la dignità
+excerpt: Gli eventi 2026 nella ricorrenza di S.Bakhita
+yoast_title: Santa Bakhita 2026, giornata di preghiera contro la tratta
+yoast_metadesc: In occasione di S.Bakhita, nella giornata internazionale di preghiera contro la tratta, eventi a Roma e in tutta Italia
 
-Titolo:  Don Bosco e Don Benzi a confronto
-Sottotitolo: Educazione tema centrale del loro impegno
-Luogo: Ravenna, Sala Ragazzini, via Verdi 12 
-Data: 30 gennaio 2026 
-Link: convegnoravenna.it 
-SEO Title: Don Bosco e Don Benzi, evento a Ravenna
-SEO Description: Don Bosco e Don Benzi, giganti dell'educazione: evento a Ravenna per conoscere l'operato dei due sacerdoti santi.
+title:  Don Bosco e Don Benzi a confronto
+excerpt: Educazione tema centrale del loro impegno
+place: Ravenna, Sala Ragazzini, via Verdi 12 
+date: 30 gennaio 2026 
+link: convegnoravenna.it 
+yoast_title: Don Bosco e Don Benzi, evento a Ravenna
+yoast_metadesc: Don Bosco e Don Benzi, giganti dell'educazione: evento a Ravenna per conoscere l'operato dei due sacerdoti santi.
