@@ -12,10 +12,10 @@ classificazione:
       type: "feeds"
       flusso: "RaggruppaSimili" 
       # test only:
-    - hooks: ["*"] 
-      type: "tags"
-      flusso: "Instant" 
-    - hooks: ["www.ansa.it"]
-      type: "urls"
-      flusso: "Instant"
+  #  - hooks: ["*"] 
+  #    type: "tags"
+  #    flusso: "Instant" 
+  #  - hooks: ["www.ansa.it"]
+  #    type: "urls"
+  #    flusso: "Instant"
   escludi: []
