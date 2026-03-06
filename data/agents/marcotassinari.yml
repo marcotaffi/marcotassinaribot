@@ -7,6 +7,7 @@ params:
   type: "text"
   temperature: 0.80
   top_p: 0.90 
+  max_output_tokens: 6000
 instructions: 
            - instructions_marcotassinari
            - comelavorare_1raccolta
@@ -18,19 +19,19 @@ instructions:
            - esempi_marcotassinari        
            - biografia_marcotassinari   
 toolNames: 
-           - console_info_log
+          # - console_info_log
            - proceduratool_ufficiostampa
            - proceduratool_cronaca
            - proceduratool_interviste
            - proceduratool_dossier
            - gestoredate_now_readClock
-           - console_info_shout
+          # - console_info_shout
            - sendmail_generic_post
            - scraper_url_download
            - websearch_italia_low
-           - wordpress_apg23_elencaarticoli
-           - wordpress_apg23_elencarisorse
+           - wordpress_apg23
+         #  - wordpress_apg23_elencaarticoli
+         #  - wordpress_apg23_elencarisorse
          # - wordpress_apg23_post
          # - wordpress_iooo_elencaArticoli
-
 

@@ -4,5 +4,5 @@
    - Eventuali breve indicazioni di stile richieste dall'utente (lungo/corto, brillante/tragico o simili)
    - La destinazione prevista, se fornita.
    - Non inserire dettagli logistici e contenuti.
-   - Esempio di prompt: "Scrivi un lancio di un evento dettagliato per la festa dell'uva 2026, per il sito apg23".
+   - Esempio di prompt: "Scrivi un lancio di un evento molto dettagliato per la festa dell'uva 2026".
   

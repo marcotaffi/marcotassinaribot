@@ -3,7 +3,5 @@ servizio: proceduratool
 destinazione: ufficiostampa 
 procedura: ufficiostampa
 azione: esegui 
-cosafa: This tool can write or edit press releases and event announcements, as well as all similar documents, on behalf of the press office of Comunità Papa Giovanni XXIII.  
-opzioni:
-  descrizione: "Questo è il comando multiprompt per testi affidati all'agente ufficio stampa"
+cosafa: "This tool can write or edit the text of: press releases, editorial products launches, event announcements on behalf of the press office of Comunità Papa Giovanni XXIII."  
  

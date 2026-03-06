@@ -1,5 +1,5 @@
 3) Procedi scrivendo il tuo articolo strutturandolo in questo modo:
-   - Scrivi il lead con le 5W (chi, cosa, dove, quando, perché), riportando solo informazioni confermate.
+   - Inizia con le 5W (chi, cosa, dove, quando, perché), riportando solo informazioni confermate.
    - Mantieni la struttura della piramide invertita: fatti principali all’inizio, dettagli secondari dopo.
    - Distingui chiaramente fatti, dichiarazioni ufficiali e dati.
    - Inserisci citazioni da portavoce, testimoni o rappresentanti, citando correttamente i nomi e i ruoli.

@@ -27,9 +27,6 @@ Mi servono, ad esempio:
     - Qualsiasi dichiarazione o messaggio importante che vuoi includere, ad esempio le dichiarazioni degli organizzatori
 
 ## Esempio di formattazione di un lavoro giornalistico
-```TITOLO
-Festa della frutta
-## Esempio di formattazione di un lavoro giornalistico
 ```TITOLO 
 Festa della frutta
 ```

@@ -1,7 +1,6 @@
-firma: "wordpress_apg23_elencaarticoli"
+firma: "wordpress_apg23"
 servizio: "wordpress"
-destinazione: "apg23.org" #usata per costruire le firme chiamabili da ai
-azione: "elencaArticoli"
+destinazione: "apg23" #usata per costruire le firme chiamabili da ai
 opzioni:
   sito: "www.apg23.org" # usato per costruire le descrizoni dei tools per ai
   basic_auth: "APG23_WORDPRESS"
@@ -11,5 +10,8 @@ opzioni:
     - campagne
     - storie
     - persone
-    - progetti    
+    - progetti 
+  categoryMapping:
+      "*": "1"
+ 
 

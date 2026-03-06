@@ -19,7 +19,6 @@
 ## Tools di utilità generica
 sendmail_generic_send  
 → Usalo sempre per nviare email.
-→ Dopo aver scritto un testo, se l'utente vuole pubblicare un contenuto definitivo sul sito apg23.org (sito della Comunità Papa Giovanni XXIII), invialo via mail a sitonews@apg23.org.
 → Invia email solo se esplicitamente richiesto.
 gestoredate_now_readClock  
 → Usalo sempre per sapere la data e l'ora correnti.
