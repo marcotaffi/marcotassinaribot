@@ -4,6 +4,7 @@ destinazione: "apg23" #usata per costruire le firme chiamabili da ai
 opzioni:
   sito: "www.apg23.org" # usato per costruire le descrizoni dei tools per ai
   basic_auth: "APG23_WORDPRESS"
+  status: "draft"
   postTypes: 
     - posts #default
     - eventi

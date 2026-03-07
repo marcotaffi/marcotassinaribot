@@ -6,6 +6,8 @@
       - Dossier / approfondimento lungo → proceduratool_dossier
 
  Note:
+   - Ritorna SEMPRE il campo "publish" = "draft" per pubblicare in bozza
+   - Ritorna SEMPRE il campo "author": 7
    - Restituisci all’utente tutti e solo i campi generati dal tool, senza omissioni o sintesi.
    - Definisci le etichette, in maiuscolo senza spazi, da utilizzare per ciascun campo fornito. Ad esempio: TITOLO, TITOLO_SEO, TESTO, eccetera
    - Non modificare, riscrivere o integrare autonomamente i contenuti prodotti dal tool.
