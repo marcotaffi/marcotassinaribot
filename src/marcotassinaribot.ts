@@ -24,7 +24,7 @@ scrivi_articolo - Scrivo un nuovo articolo.
 comunicato_stampa - Scrivo un comunicato stampa.
 ripubblica_notizia - Preparo il rilancio di una notizia.
 correggi_testo - Correggo un testo.
-migliora_intervista - Miglioro un'intervista.
+migliora_interviste - Miglioro un'intervista.
 impagina_html - Preparo per la pubblicazione in html un articolo.
 genera_titoli - Genero i titoli di un articolo per un portale online.
 genera_descrizioni_foto - Genero i campi di descrizione per una foto per semprenews.

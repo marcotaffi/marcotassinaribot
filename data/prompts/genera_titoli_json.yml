@@ -9,7 +9,7 @@ params:
     - DATA
     - PUBBLICA_HOMEPAGE = SI
 prompt: >
-  Genera i titoli per il tsto dato in formato JSON, fornendo i campi necessari per la pubblicazione online. 
+  Genera i titoli per il testo dato in formato JSON, fornendo i campi necessari per la pubblicazione online. 
   
   # Indicazioni redazionali
   - Se il testo lancia un evento fornisci anche luogo e data, altrimenti lascia i due campi vuoti.

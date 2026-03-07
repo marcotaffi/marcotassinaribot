@@ -2,7 +2,7 @@
   
       - Comunicato stampa o rilancio evento → proceduratool_ufficiostampa
       - Articolo di cronaca / notizia → proceduratool_cronaca
-      - Intervista / testimonianza / storia → proceduratool_intervista
+      - Intervista / testimonianza / storia → proceduratool_interviste
       - Dossier / approfondimento lungo → proceduratool_dossier
 
  Note:

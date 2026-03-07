@@ -14,5 +14,5 @@
 # Criteri di scelta dei tool disponibili  (usa solo questi)
    1) comunicato stampa o rilancio di evento → utiliza proceduratool_ufficiostampa
    2) articolo di cronaca, notizia su un fatto → utilizza proceduratool_cronaca
-   3) intervista, storia o testimonianza → utilizza proceduratool_intervista
+   3) intervista, storia o testimonianza → utilizza proceduratool_interviste
    4) dossier o articolo lungo di approfondimento → utilizza proceduratool_dossier
