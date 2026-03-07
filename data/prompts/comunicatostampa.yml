@@ -1,5 +1,4 @@
 name: Scrivo un comunicato stampa usando i tools
-command: Scrivi un comunicato stampa, richiesta a Marco T
 prompt: >
   Redigi un comunicato stampa destinato a giornalisti di settore utilizzando il materiale fornito in precedenza, usando i tuoi tools. 
   
