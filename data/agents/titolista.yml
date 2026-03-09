@@ -1,8 +1,18 @@
 agentName: titolista
-agentDescription: "assistente per ora è Marco T"
+agentDescription: "il miglior titolista del mondo"
 apiClient: "gpt-response-dev"
 assistant_id: "pmpt_690f45d1fb988190bc4b62562bbc55f40f0c5f030993c141"
 params:
   model: "gpt-4o-mini"
-  type: "json"
   tool_choice: "none"
+  #type: "json"
+  type:
+    - title
+    - excerpt
+    - date
+    - place
+    - yoast_title
+    - yoast_metadesc
+
+ 
+ 

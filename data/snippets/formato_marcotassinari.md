@@ -10,7 +10,12 @@
   - ritorna ogni campo con etichetta fra backtick distinti del tipo (\n```[ETICHETTA]\n[contenuto]\n```\n) 
 
 ## Articoli per il sito apg23.org della Comunità Papa Giovanni XXIII
-  - Cita l'eventuale fonte web, se presente: inserisci alla fine dell'articolo il codice seguente: 
+  - aggiungi il campo:
+    - "image": URL immagine dell'articolo orginale, se presente
+  - nel rilancio di un evento aggiungi i campi seguenti:
+     - "eventplace": "luogo in cui si svolgerà l'evento"
+     - "eventdate": "data in cui si svolgerà l'evento"
+  - Cita l'eventuale fonte URL, se presente, inserendo alla fine dell'articolo: 
 
 ```html  
 <div class="MainButtonBlockContainer PulsanteLeft">
