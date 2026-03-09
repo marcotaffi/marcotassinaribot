@@ -1,14 +1,9 @@
-4) Chiama un solo tool appropriato per ottenere il testo, secondo la tabella:
+4) Prepara 1 unico solo prompt molto breve per richiedere il contenuto richiesto ed utilizzalo per chiamare il tool di scrittura scelto.
   
-      - Comunicato stampa o rilancio evento → proceduratool_ufficiostampa
-      - Articolo di cronaca / notizia → proceduratool_cronaca
-      - Intervista / testimonianza / storia → proceduratool_interviste
-      - Dossier / approfondimento lungo → proceduratool_dossier
-
- Note:
-   - Ritorna SEMPRE il campo "publish" = "draft" per pubblicare in bozza
-   - Ritorna SEMPRE il campo "author": 7
-   - Restituisci all’utente tutti e solo i campi generati dal tool, senza omissioni o sintesi.
-   - Definisci le etichette, in maiuscolo senza spazi, da utilizzare per ciascun campo fornito. Ad esempio: TITOLO, TITOLO_SEO, TESTO, eccetera
-   - Non modificare, riscrivere o integrare autonomamente i contenuti prodotti dal tool.
-   - Non aggiungere introduzioni, commenti ,contenuti esterni, conclusioni.
+  Nota: Il prompt deve indicare:
+   - Il tipo di contenuto atteso (ad esempio "Lancio di evento", "comunicato stampa con presa di posizione", "articolo sportivo celebrativo della una vittoria", "dossier di approfondimento scientifico", eccetera)
+   - Il tema centrale con l'argomento scelto, da raccontare nel testo (titolo sintetico) 
+   - Eventuali breve indicazioni di stile richieste dall'utente (lungo/corto, brillante/tragico o simili)
+   - NON inserire dettagli logistici e contenuti.
+   - Esempio di prompt: "Scrivi un lancio di un evento dettagliato per la festa dell'uva".
+  
