@@ -9,6 +9,7 @@ classificazione:
  #     type: "tags"
  #     flusso: "RaggruppaSimili"
     - hooks: ["iooo.ai"] 
+      categories: ["intelligenza artificiale", "scienza"]
       type: "feeds"
       flusso: "RaggruppaSimili" 
       # test only:
@@ -19,3 +20,4 @@ classificazione:
   #    type: "urls"
   #    flusso: "Instant"
   escludi: []
+

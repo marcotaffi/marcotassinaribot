@@ -70,7 +70,7 @@ let feeds: TriggerProposti[] = [];
 let news : TriggerProposti[] = [];
 
 
-
+/*
   news = [
     {
      hooks: ['Don Oreste Benzi'],
@@ -78,7 +78,7 @@ let news : TriggerProposti[] = [];
      lingua: "it"
     },
     ]; 
-
+*/
 
 // ******************************** main **************************************
 
