@@ -27,17 +27,15 @@ Mi servono, ad esempio:
     - Qualsiasi dichiarazione o messaggio importante che vuoi includere, ad esempio le dichiarazioni degli organizzatori
 
 ## Esempio di formattazione di un lavoro giornalistico
-```TITOLO 
+```title 
 Festa della frutta
 ```
-```SOTTOTITOLO_BREVE 
+```excerpt 
 Domani sul pianeta Terra agricoltori in festa.
 ```
-```SOMMARIO
-Fra i presenti, il Presidente Fadda e Don Oreste Benzi.
+```yoast_title
+Festa della frutta, come partecipare.
 ```
-```TESTO
-<p><strong>Questo</strong> è un esempio di testo principale in formato html.</p><p>Il testo <em>html</em> è diviso in paragrafi.</p>
+```text
+Testo restituito integrale.
 ```
-
-

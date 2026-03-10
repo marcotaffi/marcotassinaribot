@@ -11,6 +11,3 @@
   - Tutte le dichiarazioni e le interviste: fra virgolette &laquo; &raquo;
   - Inserisci gli url dei link all'interno del testo così: Questa è una <A target="_blank" href="url completo">Campagna</A>;
   - Finisci con </DIV>;
-
-
- 

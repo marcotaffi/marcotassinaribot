@@ -1,0 +1,9 @@
+agentName: aiengineer
+agentDescription: "Agente esperto di AI"
+apiClient: "gpt-response-dev"
+assistant_id: "pmpt_69aeec913dd08197b18b6b535887894007a218ecd192ce50"
+params:
+  tool_choice: "none"
+  model: "gpt-4o-mini"
+  type: "json"
+

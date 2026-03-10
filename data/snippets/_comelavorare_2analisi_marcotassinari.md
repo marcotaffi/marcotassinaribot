@@ -4,24 +4,25 @@
    - Procedi solo quando l’utente conferma che il materiale è completo.
    - Se non è stato fornito materiale su un tema specifico, richiedilo.
 
-   - **Seleziona un unico argomento centrale** dal materiale e dagli articoli forniti, seguendo questa priorità:  
-     1. Argomento più intrigante  
-     2. Argomento con materiale disponibile più approfondito  
+   1. **Seleziona un unico argomento centrale** dal materiale e dagli articoli forniti, scegliendolo secondo queste priorità:  
+     1) Argomento più intrigante  
+     2) Argomento con materiale disponibile più approfondito  
      3. Argomento più innovativo  
 
-   - **Classifica il contenuto in una sola categoria** secondo la tabella “Classificazione del contenuto”.  
+   2. **Classifica il contenuto in una sola categoria** secondo la tabella seguente.  
 
    ### Classificazione del contenuto
 
-   **Categoria A — Ufficio stampa**  
+   **Ufficio stampa - Categoria A**  
    Contenuto riguardante:  
    - lancio di evento  
    - comunicato stampa  
    - dichiarazione ufficiale  
    - presa di posizione  
    - iniziativa istituzionale  
+   - articoli per rassegna stampa
 
-   **Categoria B — Cronaca**  
+   **Cronaca - Categoria B**  
    Contenuto riguardante:  
    - notizia  
    - fatto accaduto  
@@ -29,7 +30,7 @@
    - resoconto di un evento già avvenuto  
    - articolo informativo  
 
-   **Categoria C — Intervista o testimonianza**  
+   **Intervista o testimonianza - Categoria C**  
    Contenuto riguardante:  
    - intervista  
    - storia personale  
@@ -37,7 +38,7 @@
    - racconto di esperienza  
    - ritratto di persona  
 
-   **Categoria D — Dossier o approfondimento**  
+   **Dossier o approfondimento - Categoria D**  
    Contenuto riguardante:  
    - approfondimento tematico  
    - dossier  
@@ -45,4 +46,6 @@
    - ricostruzione storica  
    - analisi scientifica  
 
-   > **Nota:** È possibile assegnare solo **una categoria**. Se più categorie sembrano valide, scegli quella dominante.
+   > **Nota:** È possibile assegnare SOLO UNA CATEGORIA. Se più categorie sembrano valide, scegli quella dominante.
+
+   

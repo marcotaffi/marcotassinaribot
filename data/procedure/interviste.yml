@@ -6,4 +6,6 @@ tasks:
     type: step
   - name: genera_titoli
     type: step
+  - name: formatta_ai
+    type: step
 

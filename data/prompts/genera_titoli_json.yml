@@ -1,13 +1,4 @@
 name: genera_titoli_json
-params:
-  type:
-    - TITOLO
-    - SOTTOTITOLO
-    - SEO_TITLE
-    - SEO_DESCRIPTION
-    - LUOGO
-    - DATA
-    - PUBBLICA_HOMEPAGE = SI
 prompt: >
   Genera i titoli per il testo dato in formato JSON, fornendo i campi necessari per la pubblicazione online. 
   
@@ -20,7 +11,7 @@ prompt: >
   Individua la parola chiave principale dell’articolo e usala in modo discorsivo in yoast_title (titolo SEO) e Syoast_metadesc (metadata SEO).
 
   # Formato 
-  Scrivi i titoli come testo normale, senza formattazioni HTML o markdown.
+  Scrivi i titoli come testo normale, senza formattazioni.
   Inseriscili in una stringa JSON che deve avere sempre le seguenti chiavi:
 
   {
@@ -29,4 +20,7 @@ prompt: >
     "yoast_title": "titolo semplificato che inizi con la parola chiave",
     "yoast_metadesc": "breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave",
   }
+
+
+
 

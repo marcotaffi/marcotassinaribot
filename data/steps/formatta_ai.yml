@@ -1,0 +1,5 @@
+name: formatta_ai
+type: prompt
+description: "Formatta nell'html previsto da apg23 con i blocchi"
+prompt: formatta_ai
+agentName: aiengineer
