@@ -12,7 +12,6 @@ instructions:
            - instructions_marcotassinari
            - comelavorare_marcotassinari
            - tools_marcotassinari
-           - formato_marcotassinari
            - esempi_marcotassinari        
            - biografia_marcotassinari   
 toolNames: 
