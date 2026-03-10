@@ -66,9 +66,15 @@ botToken: botToken as string,
 
 
 let tags : TagProposti[] = [];
-let feeds: TriggerProposti[] = [];
+
 let news : TriggerProposti[] = [];
 
+let feeds: TriggerProposti[] = [{
+  hooks: ["https://www.semprenews.it/tag/Comunita-Papa-Giovanni-XXIII.html"],
+  categories: ["apg23"],
+  lingua: "it"
+ },
+];
 
 /*
   news = [
@@ -92,7 +98,10 @@ let news : TriggerProposti[] = [];
 
 
     debug(3, "*Creo i canali*");
+ const NotizieApg23 = await ServiceFactory.create("ripubblicaconorchestratore") as CanaleExtendsServizio;
+    NotizieApg23.start(credenziali);
 
+ 
 
 //CARICAMENTO TRADIZIONALE
 
@@ -248,7 +257,7 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
     await bot.aggiungieInizializzaInterfaccePredefinite(credenziali); 
   
     debug(3, "*Aggiungo i canali al bot*"); 
-     bot.aggiungiCanali([socialMarcoLinkedin], credenziali); //sitoIooo
+     bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23], credenziali); //sitoIooo
      
     
     debug (3, "*Aggiungo le fonti e la conoscenza*");

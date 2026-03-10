@@ -8,9 +8,10 @@ params:
   #type: "json"
   type:
     - title
+    - text
     - excerpt
-    - date
-    - place
+    - eventDate
+    - eventPlace
     - yoast_title
     - yoast_metadesc
 

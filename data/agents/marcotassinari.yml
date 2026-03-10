@@ -10,9 +10,10 @@ params:
   max_output_tokens: 6000
 instructions: 
            - instructions_marcotassinari
-           - comelavorare_marcotassinari
+           - comelavorare_caporedattore
            - tools_marcotassinari
-           - esempi_marcotassinari        
+           - esempi_marcotassinari  
+           - esempi_caporedattore      
            - biografia_marcotassinari   
 toolNames: 
           # - console_info_log

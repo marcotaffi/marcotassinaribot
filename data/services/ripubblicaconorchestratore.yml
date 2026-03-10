@@ -1,0 +1,25 @@
+firma: ripubblicaconorchestratore
+servizio: wordpress
+opzioni:
+  sito: "www.apg23.org" # usato per costruire le descrizoni dei tools per ai
+  basic_auth: "APG23_WORDPRESS"
+  status: "draft"
+  postTypes: 
+    - posts #default
+    - eventi
+  #  - campagne
+  #  - storie
+  #  - persone
+  #  - progetti    
+procedura: orchestra  #eseguita dalla run
+classificazione:
+  includi:
+    - hooks: ["semprenews.it/tag/Comunita-Papa-Giovanni-XXIII"]
+      type: "feeds"
+      flusso: "Instant"
+ #   - hooks: ["*"] 
+ #     type: "tags"
+ #     flusso: "Instant" 
+ #   - hooks: ["www.ansa.it"] #TEST! DISABILITARE!
+ #     type: "urls"
+ #     flusso: "Instant"

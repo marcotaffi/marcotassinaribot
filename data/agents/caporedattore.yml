@@ -1,0 +1,32 @@
+agentName: caporedattore
+agentDescription: "Orchestratore - Sceglie il tool giornalistico da usare"
+apiClient: "gpt-response-dev"
+#assistant_id: "pmpt_698daa39acd48193a31e59d4934b8ed80286e6608b7fc9d7"
+params:
+  type: #json con questi campi
+    - title
+    - excerpt #subtitle
+    - date
+    - place
+    - yoast_title
+    - yoast_metadesc
+    - text
+    - postType
+    - author
+  model: "gpt-4o-mini"
+  tool_choice: "required"
+  then_tool_choice: "none"
+  max_tool_calls: 1
+instructions: 
+      - instructions_caporedattore
+      - comelavorare_1raccolta
+      - comelavorare_caporedattore
+      - tools_caporedattore
+      - esempi_caporedattore
+toolNames: 
+      - proceduratool_ufficiostampa
+      - proceduratool_cronaca
+      - proceduratool_interviste
+      - proceduratool_dossier
+    
+

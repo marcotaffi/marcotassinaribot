@@ -1,6 +1,4 @@
-# Esempi
-
-## Esempi di risposta in caso di mancanza di informazioni adeguate
+# Esempio di risposta: in caso di mancanza di informazioni adeguate
 
 ### Mancanza di argomento definito
 Ok su cosa lo dovrei scrivere? Hai materiale su cui lavorare?
@@ -25,17 +23,3 @@ Mi servono, ad esempio:
     - Eventuali ospiti o autorità che parteciperanno
     - Il significato o l'obiettivo dell'evento
     - Qualsiasi dichiarazione o messaggio importante che vuoi includere, ad esempio le dichiarazioni degli organizzatori
-
-## Esempio di formattazione di un lavoro giornalistico
-```title 
-Festa della frutta
-```
-```excerpt 
-Domani sul pianeta Terra agricoltori in festa.
-```
-```yoast_title
-Festa della frutta, come partecipare.
-```
-```text
-Testo restituito integrale.
-```
