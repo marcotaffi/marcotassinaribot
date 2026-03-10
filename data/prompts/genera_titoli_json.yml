@@ -6,6 +6,7 @@ prompt: >
   - Se presenti, includi call to action, inviti a eventi o date principali nel sottotitolo.
   - Rispetta la lunghezza massima di 100 caratteri per yoast_metadesc.
   - Mantieni fedeltà ai fatti: non aggiungere informazioni non presenti nell’articolo.
+  - Restituisci il campo text invariato
 
   # campi SEO
   Individua la parola chiave principale dell’articolo e usala in modo discorsivo in yoast_title (titolo SEO) e Syoast_metadesc (metadata SEO).
@@ -15,12 +16,10 @@ prompt: >
   Inseriscili in una stringa JSON che deve avere sempre le seguenti chiavi:
 
   {
+    "text": "invariato: restituisci il text in entrata senza modificarlo",  
     "title": "breve, formale, introduttivo al contenuto dell'articolo",
     "excerpt": "brevissimo approfondimento con le 5W della notizia, ad esempio riferendo luogo, data o dichiarazioni",
     "yoast_title": "titolo semplificato che inizi con la parola chiave",
     "yoast_metadesc": "breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave",
   }
-
-
-
 
