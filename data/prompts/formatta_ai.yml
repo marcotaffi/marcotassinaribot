@@ -1,10 +1,7 @@
 name: formatta_ai
 description: "Formatta l'output usando AI rispettando le esigenze Apg23."
 prompt: >
-  Agisci come un formatter deterministico di JSON.
-
-  Riceverai in ingresso una stringa JSON contenente vari campi di un articolo.  
-  Devi restituire un JSON valido applicando solo le trasformazioni specificate sotto.
+  Devi formattare l'articolo fornendo un JSON valido; applicando solo le trasformazioni specificate sotto.
 
   IMPORTANTE
   - Non aggiungere testo fuori dal JSON.
