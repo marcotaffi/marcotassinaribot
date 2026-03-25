@@ -5,14 +5,8 @@ assistant_id: "pmpt_690f45d1fb988190bc4b62562bbc55f40f0c5f030993c141"
 params:
   model: "gpt-4o-mini"
   tool_choice: "none"
-  #type: "json"
-  type:
-    - title
-    - excerpt
-    - eventDate
-    - eventPlace
-    - yoast_title
-    - yoast_metadesc
+  type: "json"
+ 
 
  
  

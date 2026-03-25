@@ -1,134 +1,88 @@
 name: formatta_ai
-description: "Formatta l'output usando AI rispettando le esigenze Apg23."
+description: "Formatta l'articolo centrale per sito Apg23"
 prompt: >
-  Devi formattare l'articolo fornendo un JSON valido; applicando solo le trasformazioni specificate sotto.
+  Applica al testo dell'articolo le trasformazioni specificate sotto.
 
   IMPORTANTE
-  - Non aggiungere testo fuori dal JSON.
-  - Non inventare contenuti.
-  - Non modificare il testo se non dove richiesto.
+
+  - Non modificare il contenuto.
   - Non riassumere.
+  - Non aggiungere parole. 
+  - Non inventare sezioni.  
+  - Non cambiare l’ordine.  
+  - Non riformulare.
   - Non cambiare l’ordine dei contenuti.
   - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
 
   REGOLE DI TRASFORMAZIONE
 
-    1. CAMPO "title"
-        Trasforma il titolo affinché abbia solo la prima lettera iniziale maiuscola e tutte le altre minuscole.
+    Il testo è in formato Markdown e deve essere convertito in HTML:
 
-        Esempio:
-        "Questo è un Titolo Di Esempio"
-        diventa
-        "Questo è un titolo di esempio"
+    Ogni sezione dell’articolo deve essere trasformata in un blocco HTML separato, **iniziando con <DIV> e finendo con </DIV>**.  
 
+    Struttura base:
 
-    2. CAMPO "text"
+    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
+    <div class="BlockMainContainer SiteWidth">
+    <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
 
-        Il campo "text" è in formato Markdown e deve essere convertito in HTML:
+    <div class="PageTitleSmall">Titolo della sezione</div>
 
-        Ogni sezione dell’articolo deve essere trasformata in un blocco HTML separato, **iniziando con <DIV> e finendo con </DIV>**.  
+    <div class="BodyText">
+    <p>Paragrafo 1</p>
+    <p>Paragrafo 2</p>
+    </div>
 
-        Struttura base:
-
-        <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-        <div class="BlockMainContainer SiteWidth">
-        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-
-        <div class="PageTitleSmall">Titolo della sezione</div>
-
-        <div class="BodyText">
-        <p>Paragrafo 1</p>
-        <p>Paragrafo 2</p>
-        </div>
-
-        </div>
-        </div>
-        </div>
+    </div>
+    </div>
+    </div>
 
 
-        REGOLE DI CONVERSIONE MARKDOWN → HTML
+    REGOLE DI CONVERSIONE MARKDOWN → HTML
+    
+    TITOLI DI SEZIONE
+    ## Titolo sezione
 
-        Titoli di sezione:
+    diventa:
 
-        ## Titolo sezione
+    <div class="PageTitleSmall">Titolo sezione</div>
 
-        diventa:
+    Il testo che segue il titolo diventa il contenuto del blocco:
 
-        <div class="PageTitleSmall">Titolo sezione</div>
-
-        Il testo che segue il titolo diventa il contenuto del blocco:
-
-        <div class="BodyText">
-        <p>paragrafo</p>
-        </div>
-
-
-        FORMATTAZIONE DEL TESTO
-
-        - Testo normale → diviso in paragrafi <P>  
-        - Nomi e cognomi di persona, e nomi di province → <strong>Nome Cognome</strong>  
-        - Frasi più importanti → <strong>frase</strong>  
-        - Titoli intermedi → <H2> o <H3>  
-        - Nomi di associazioni e enti → <i>Nome Associazione/Ente</i>  
-        - Nomi di eventi o progetti → <em>&quot;Nome Evento/Progetto&quot;</em>  
-        - Dichiarazioni e interviste → &laquo;testo&raquo;  
-        - Elenchi puntati → <UL><LI>…</LI></UL>  
-        - Elenchi numerati → <OL><LI>…</LI></OL>  
-        - URL dei link → Questa è una <A target="_blank" href="URL completo">Campagna</A>  
+    <div class="BodyText">
+    <p>paragrafo</p>
+    </div>
 
 
-        STRUTTURA DELL’ARTICOLO
-
-        Per ogni sezione markdown:
-
-        ## Titolo
-
-        paragrafo
-
-        paragrafo
-
-        → generare un blocco HTML completo come sopra, rispettando tutte le regole di formattazione.
-
-        FONTE
-
-        Se presente, alla fine dell’articolo inserire il link alla fonte originale:
-
-        <div class="MainButtonBlockContainer PulsanteLeft">
-        <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">Leggi l’articolo originale su semprenews.it<i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+    FORMATTAZIONE DEL TESTO
+    - Testo normale → diviso in paragrafi <P>  
+    - Nomi e cognomi di persona, e nomi di province → <strong>Nome Cognome</strong>  
+    - Frasi più importanti → <strong>frase</strong>  
+    - Titoli intermedi → <H2> o <H3>  
+    - Nomi di associazioni e enti → <i>Nome Associazione/Ente</i>  
+    - Nomi di eventi o progetti → <em>&quot;Nome Evento/Progetto&quot;</em>  
+    - Dichiarazioni e interviste → &laquo;testo&raquo;  
+    - Elenchi puntati → <UL><LI>…</LI></UL>  
+    - Elenchi numerati → <OL><LI>…</LI></OL>  
+    - URL dei link → Questa è una <A target="_blank" href="URL completo">Campagna</A>  
 
 
-        REGOLE IMPORTANTI
+    STRUTTURA DELL’ARTICOLO
+    Per ogni sezione markdown:
+    ## Titolo
+    paragrafo
+    paragrafo
 
-        - Non cambiare il testo  
-        - Non aggiungere parole  
-        - Non riassumere  
-        - Non inventare sezioni  
-        - Non cambiare l’ordine  
-        - Non riformulare
+    → generare un blocco HTML completo come sopra, rispettando tutte le regole di formattazione.
 
+    FONTE
+    Se presente, alla fine dell’articolo inserire il link alla fonte originale:
 
-    3. ALTRI CAMPI JSON
-
-        Tutti gli altri campi devono rimanere IDENTICI all'input.
-        Non modificare:
-        - contenuto
-        - formattazione
-        - maiuscole
-        - spazi
-        - struttura
-
-
-    4. CAMPI DA AGGIUNGERE SEMPRE
-
-        Aggiungi sempre questi campi al JSON finale:
-
-        "author": "8"
-        "status": "draft"
-
+    <div class="MainButtonBlockContainer PulsanteLeft">
+    <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">Leggi l’articolo originale su semprenews.it<i class="fa-solid fa-arrow-right"></i></a>
+    </div>
 
   OUTPUT
-
-  Restituisci esclusivamente il JSON finale completo con le trasformazioni applicate.
-  Nessun testo fuori dal JSON.
+  Restituisci esclusivamente il testo finale completo con le trasformazioni applicate.
+ 
 

@@ -1,4 +1,12 @@
 name: genera_titoli_json
+params:
+ type:
+    - title
+    - excerpt
+    - eventDate
+    - eventPlace
+    - yoast_title
+    - yoast_metadesc
 prompt: >
   Genera i titoli per il testo dato in formato JSON, fornendo i campi necessari per la pubblicazione online. 
   
