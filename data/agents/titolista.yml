@@ -8,7 +8,6 @@ params:
   #type: "json"
   type:
     - title
-    - text
     - excerpt
     - eventDate
     - eventPlace

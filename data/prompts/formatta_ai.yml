@@ -124,7 +124,7 @@ prompt: >
         Aggiungi sempre questi campi al JSON finale:
 
         "author": "8"
-        "publish": "draft"
+        "status": "draft"
 
 
   OUTPUT

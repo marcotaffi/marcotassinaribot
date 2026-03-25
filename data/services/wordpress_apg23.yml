@@ -1,6 +1,7 @@
 firma: "wordpress_apg23"
 servizio: "wordpress"
 destinazione: "apg23" #usata per costruire le firme chiamabili da ai
+procedura: "orchestra" #eseguita dalla run
 opzioni:
   sito: "www.apg23.org" # usato per costruire le descrizoni dei tools per ai
   basic_auth: "APG23_WORDPRESS"
@@ -8,11 +9,22 @@ opzioni:
   postTypes: 
     - posts #default
     - eventi
-    - campagne
-    - storie
-    - persone
-    - progetti 
+  #  - campagne
+  #  - storie
+  #  - persone
+  #  - progetti 
   categoryMapping:
       "*": "1"
+classificazione:
+  includi:
+    - hooks: ["semprenews.it/tag/Comunita-Papa-Giovanni-XXIII"]
+      type: "feeds"
+      flusso: "Instant"
+ #   - hooks: ["*"] 
+ #     type: "tags"
+ #     flusso: "Instant" 
+ #   - hooks: ["www.ansa.it"] #TEST! DISABILITARE!
+ #     type: "urls"
+ #     flusso: "Instant"
  
 

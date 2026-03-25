@@ -5,12 +5,12 @@ apiClient: "gpt-response-dev"
 params:
   type: #json con questi campi
     - title
+    - text
     - excerpt #subtitle
     - date
     - place
     - yoast_title
     - yoast_metadesc
-    - text
     - postType
     - author
   model: "gpt-4o-mini"
@@ -19,7 +19,6 @@ params:
   max_tool_calls: 1
 instructions: 
       - instructions_caporedattore
-      - comelavorare_1raccolta
       - comelavorare_caporedattore
       - tools_caporedattore
       - esempi_caporedattore

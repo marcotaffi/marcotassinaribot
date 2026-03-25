@@ -1,5 +1,5 @@
 name: scrivi
 type: prompt
-description: "Scrivi un contenuto giornalistico per il sito apg23 usando l'orchestratore"
+description: "Scrivi un contenuto giornalistico usando l'orchestratore"
 prompt: orchestra
 agentName: caporedattore

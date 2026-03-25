@@ -98,8 +98,10 @@ let feeds: TriggerProposti[] = [{
 
 
     debug(3, "*Creo i canali*");
- const NotizieApg23 = await ServiceFactory.create("ripubblicaconorchestratore") as CanaleExtendsServizio;
-    NotizieApg23.start(credenziali);
+ const NotizieApg23 = await ServiceFactory.create("wordpress_apg23") as CanaleExtendsServizio;
+// const NotizieApg23 = await ServiceFactory.create("ripubblicaconorchestratore") as CanaleExtendsServizio;
+
+ NotizieApg23.start(credenziali);
 
  
 

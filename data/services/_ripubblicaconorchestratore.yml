@@ -1,4 +1,4 @@
-firma: ripubblicaconorchestratore
+firma: ripubblicaconorchestratore #QUESTA E' LA PROCEDURA BUONA MA PROVO A USARE DIRETTAMENTE LA WORDPRESS_RUN
 servizio: wordpress
 opzioni:
   sito: "www.apg23.org" # usato per costruire le descrizoni dei tools per ai

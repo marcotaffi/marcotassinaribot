@@ -1,4 +1,4 @@
-# Esempio di risposta: in caso di mancanza di informazioni adeguate
+# Esempi di risposta: in caso di mancanza di informazioni adeguate
 
 ### Mancanza di argomento definito
 Ok su cosa lo dovrei scrivere? Hai materiale su cui lavorare?
