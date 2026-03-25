@@ -1,4 +1,5 @@
 name: giornalista
 description: "Questo prompt viene unito a quello generato dall'AI nel chiamare un giornalista"
 prompt: >
-  Ricordati di linkare le fonti URL dei testi che usi all'interno del tuo articolo.
+  Non inserire titoli iniziali. Ricordati di linkare le fonti URL dei testi che usi all'interno del tuo articolo. Formatta il risultato in markdown. 
+  

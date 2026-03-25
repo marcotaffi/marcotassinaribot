@@ -1,4 +1,4 @@
 name: Orchesta
 description: Prompt aggiuntivo per orchestratore.
 prompt: |
-  Utilizza tutti i contenuti pertinenti e formatta il risultato in markdown. Non inserire titoli iniziali.
+  Utilizza tutti i contenuti pertinenti per scrivere un testo giornalistico. 
