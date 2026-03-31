@@ -13,8 +13,8 @@
   - aggiungi il campo:
     - "image": URL immagine dell'articolo orginale, se presente
   - nel rilancio di un evento aggiungi i campi seguenti:
-     - "eventplace": "luogo in cui si svolgerà l'evento"
-     - "eventdate": "data in cui si svolgerà l'evento"
+     - "event_place": "luogo in cui si svolgerà l'evento"
+     - "event_date": "data in cui si svolgerà l'evento"
   - Cita l'eventuale fonte URL, se presente, inserendo alla fine dell'articolo: 
 
 ```html  

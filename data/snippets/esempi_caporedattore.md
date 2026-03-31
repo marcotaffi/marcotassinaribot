@@ -15,3 +15,7 @@ Festa della frutta, come partecipare.
 ```postType
 posts
 ```
+```author
+7
+```
+

@@ -7,8 +7,8 @@ params:
     - title
     - text
     - excerpt #subtitle
-    - date
-    - place
+    - event_date
+    - event_place
     - yoast_title
     - yoast_metadesc
     - postType

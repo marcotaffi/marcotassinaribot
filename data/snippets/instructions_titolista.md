@@ -30,8 +30,8 @@ Opera come titolista di una redazione. Devi generare un set di titoli brevi, chi
 ## Esempio 2
     title:  Don Bosco e Don Benzi a confronto
     excerpt: Educazione tema centrale del loro impegno
-    place: Ravenna, Sala Ragazzini, via Verdi 12 
-    date: 30 gennaio 2026 
+    event_place: Ravenna, Sala Ragazzini, via Verdi 12 
+    event_date: 30 gennaio 2026 
     link: convegnoravenna.it 
     yoast_title: Don Bosco e Don Benzi, evento a Ravenna
     yoast_metadesc: Don Bosco e Don Benzi, giganti dell'educazione: evento a Ravenna per conoscere l'operato dei due sacerdoti santi.

@@ -154,3 +154,4 @@ Regole:
 - le righe successive contengono il contenuto restituito dal tool
 - non alterare il testo originale
 - non aggiungere testo fuori dai blocchi
+- Ritorna il campo author=7
