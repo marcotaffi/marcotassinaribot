@@ -5,11 +5,11 @@ apiClient: "gpt-response-dev"
 instructions: 
   - instructions_dossier
   - fogliodistile
+  - tools_giornalista
   - comelavorare_1raccolta
   - comelavorare_2analisi_giornalista
   - comelavorare_3scrittura_dossier
   - comelavorare_4pubblicazione
-  - tools_giornalista
   - lunghezza_giornalista
 #  - formato_html
 params:

@@ -1,5 +1,5 @@
 name: giornalista
 description: "Questo prompt viene unito a quello generato dall'AI nel chiamare un giornalista"
 prompt: >
-  Non inserire titoli iniziali. Ricordati di linkare le fonti URL dei testi che usi all'interno del tuo articolo. Formatta il risultato in markdown. 
+  Per ogni URL utile inserito nei messaggi dell’utente, utilizza il tool scraper_url_download per scaricare il contenuto prima di procedere con la riscrittura. Ricordati di linkare le fonti URL dei testi che usi all'interno del tuo articolo. Non inserire titoli iniziali.  Formatta il risultato in markdown. 
   

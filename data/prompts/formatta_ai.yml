@@ -1,7 +1,7 @@
 name: formatta_ai
 description: "Formatta l'articolo centrale per sito Apg23"
 prompt: >
-  Applica al testo dell'articolo le trasformazioni specificate sotto.
+  Applica al testo dell'articolo le trasformazioni seguenti, per formattarlo in html.
 
   IMPORTANTE
 
