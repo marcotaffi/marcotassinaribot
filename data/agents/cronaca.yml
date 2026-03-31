@@ -18,7 +18,7 @@ params:
 vectoreStores: 
   - vs_7rCG39exRfvB9geL5N2hsWwY
 toolNames: 
-           - gestoredate_now_readClock
-           - scraper_url_download
-           - websearch_italia_low
+    - gestoredate_now_readClock
+    - scraper_url_download
+    - websearch_italia_low
          
