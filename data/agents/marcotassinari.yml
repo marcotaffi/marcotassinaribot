@@ -13,7 +13,7 @@ instructions:
           # - comelavorare_caporedattore
           # - tools_marcotassinari
            - esempi_marcotassinari  
-           - esempi_caporedattore      
+          # - esempi_caporedattore      
            - biografia_marcotassinari   
 toolNames: 
           # - console_info_log
