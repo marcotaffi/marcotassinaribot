@@ -1,4 +1,4 @@
 name: Orchesta
-description: Prompt aggiuntivo per la chiamata ad orchestratore.
 prompt: |
-  Utilizza tutti i contenuti pertinenti per scrivere un testo giornalistico. 
+  Agisci come caporedattore. 
+  Scrivi un unico articolo unendo tutto il materiale seguente. 
