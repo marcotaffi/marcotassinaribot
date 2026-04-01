@@ -1,7 +1,6 @@
 agentName: caporedattore
 agentDescription: "Orchestratore - Sceglie il tool giornalistico da usare"
 apiClient: "gpt-response-dev"
-#assistant_id: "pmpt_698daa39acd48193a31e59d4934b8ed80286e6608b7fc9d7"
 params:
   type: #json con questi campi
     - title
@@ -17,15 +16,19 @@ params:
   tool_choice: "required"
   then_tool_choice: "none"
   max_tool_calls: 1
+  max_output_tokens: 6000
+  temperature: 0.3
 instructions: 
       - instructions_caporedattore
-      - comelavorare_caporedattore
-      - tools_caporedattore
-      - esempi_caporedattore
+    #  - comelavorare_caporedattore
+    #  - tools_caporedattore
+    #  - esempi_caporedattore
 toolNames: 
+      - scraper_url_download
       - proceduratool_ufficiostampa
       - proceduratool_cronaca
       - proceduratool_interviste
       - proceduratool_dossier
+
     
 

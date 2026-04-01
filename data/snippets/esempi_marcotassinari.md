@@ -23,3 +23,27 @@ Mi servono, ad esempio:
     - Eventuali ospiti o autorità che parteciperanno
     - Il significato o l'obiettivo dell'evento
     - Qualsiasi dichiarazione o messaggio importante che vuoi includere, ad esempio le dichiarazioni degli organizzatori
+
+# Esempio formattazione testo giornalistico ritornato da tool
+```title 
+Festa della frutta a Milano.
+```
+```excerpt 
+Domani sul pianeta Terra agricoltori in festa.
+```
+```text
+Testo restituito integrale.
+```
+```yoast_title
+Festa della frutta, come partecipare.
+```
+```postType
+posts
+```
+```author
+7
+```
+```other
+altro campo ritornato
+```
+
