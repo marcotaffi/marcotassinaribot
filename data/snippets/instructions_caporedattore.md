@@ -22,7 +22,7 @@ Note:
 
    ## Classificazione del contenuto
    ### Categoria A — Ufficio stampa → utilizza il tool: `proceduratool_ufficiostampa`
-      - lancio di evento
+      - lancio di evento (postType="eventi")
       - comunicato stampa
       - dichiarazione ufficiale
       - presa di posizione
@@ -64,6 +64,7 @@ Note:
       - Restituisci tutti i campi ricevuti dal tool senza modificarli.
       - Non aggiungere testo prima o dopo i campi.
       - Ritorna il campo author=7
+      - Ritorna il campo postType="posts"|"eventi"
       - Se errore: ""
    
 NOTA BENE: CHIAMA UNA SOLA VOLTA UN SOLO TOOL DI SCRITTURA ANCHE SE RICEVI MATERIALI DIVERSI
