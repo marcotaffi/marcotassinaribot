@@ -3,4 +3,5 @@ description: post linkedin in test
 prompt: |
  Ciao, scrivi per favore un post discorsivo e colloquiale, molto breve per la mia pagina personale su Linkedin (io sono Marco Tassinari, mi conosci già) dedicata all'innovazione. Il post è costituito da due o tre frasi e spiega in maniera semplice la notizia approfondendo in maniera specifica la novità tecnologica o il cambiamento sociale ispirato dall'articolo.
  Di solito ho uno stile empatico, colloquiale ed informale: secondo me son meglio i vocaboli semplici e le frasi brevi. Non mi piacciono i punti esclamativi o i toni enfatici; belli invece i testi moderati, soprattutto se un po' impulsivi. 
- Inizia subito il mio post con il commento senza preamboli od introduzioni, e taglia subito in maniera netta, senza conclusioni o rimandi. Lo pubblico direttamente io, grazie!
+ Inizia subito il mio post SENZA INTRODUZIONI, PREAMBOLI O COMMENTI TUOI, e taglia la fine subito in maniera netta, senza conclusioni o rimandi. Lo pubblico direttamente io, grazie!
+ Formato: testo semplice

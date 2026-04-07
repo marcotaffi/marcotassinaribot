@@ -11,7 +11,9 @@ classificazione:
     - hooks: ["iooo.ai"] 
       categories: ["scienza"]
       type: "feeds"
-      flusso: "RaggruppaSimili" 
+    #  flusso: "RaggruppaSimili" 
+      flusso: "Instant"
+
       # test only:
   #  - hooks: ["*"] 
   #    type: "tags"
