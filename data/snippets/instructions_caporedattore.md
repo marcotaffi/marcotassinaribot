@@ -61,11 +61,13 @@ Note:
       - Chiama il tool scelto.
 
    5) Output.
-      - Restituisci tutti i campi ricevuti dal tool senza modificarli.
       - Non aggiungere testo prima o dopo i campi.
       - Ritorna il campo author=7
       - Ritorna il campo postType="posts"|"eventi"
+      - Ritorna il campo image: "url_immagine_generata" | "immagine_originale" | ""
+      - Restituisci tutti i campi ricevuti dal tool senza modificarli.
       - Se errore: ""
+    
    
 NOTA BENE: CHIAMA UNA SOLA VOLTA UN SOLO TOOL DI SCRITTURA ANCHE SE RICEVI MATERIALI DIVERSI
 

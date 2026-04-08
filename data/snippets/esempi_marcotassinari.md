@@ -25,25 +25,35 @@ Mi servono, ad esempio:
     - Qualsiasi dichiarazione o messaggio importante che vuoi includere, ad esempio le dichiarazioni degli organizzatori
 
 # Esempio formattazione testo giornalistico ritornato da tool
+
 ```title 
 Festa della frutta a Milano.
 ```
+
 ```excerpt 
 Domani sul pianeta Terra agricoltori in festa.
 ```
-```text
-Testo restituito integrale.
-```
+
 ```yoast_title
 Festa della frutta, come partecipare.
 ```
+
 ```postType
 posts
 ```
+
 ```author
 7
 ```
+
+```image
+https://www.semprenews.it/files/magazine/img/exampleimage.jpg
+```
+
 ```other
 altro campo ritornato
 ```
 
+```html
+Campo text con l'articolo completo già pronto e formattato in html.
+```

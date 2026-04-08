@@ -4,7 +4,6 @@ apiClient: "gpt-response-dev"
 params:
   type: #json con questi campi
     - title
-    - text
     - excerpt #subtitle
     - event_date
     - event_place
@@ -12,6 +11,8 @@ params:
     - yoast_metadesc
     - postType
     - author
+    - image
+    - text
   model: "gpt-4o-mini"
   tool_choice: "required"
   then_tool_choice: "none"
