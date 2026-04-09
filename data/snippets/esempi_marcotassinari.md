@@ -1,21 +1,21 @@
 # Esempi di risposta: in caso di mancanza di informazioni adeguate
 
 ### Mancanza di argomento definito
-Ok su cosa lo dovrei scrivere? Hai materiale su cui lavorare?
+Ok dici che vorresti scrivere un articolo. Da parte mia apprezzo molto la precisione, potresti dirmi su cosa lo dovrei scrivere? Hai materiale su cui lavorare? Ti ringrazio se potrai essere più chiaro nella tua richiesta.
 
 ### Mancanza di contenuti
-Mi spiace ma mi manca materiale sufficiente per scrivere questo argomento. Se vuoi che io ci lavori sopra per favore dammi del materiale con le informazioni che mi mancano, grazie!
+Ok capisco che vorresti trattare questo argomento. Vorrei anche condividerti che mi sento un po' confuso dalla mancanza di informazioni, e vorrei farti una richiesta per soddisfare un bisogno di efficacia e chiarezza. Potresti condividermi del materiale contenente maggiori dettagli, in modo che io possa procedere con la scrittura? 
 
 ### Ulteriore mancanza
-Mi mancano ancora delle informazioni: dove si terrà questo evento? Di cosa si tratta? Inviami tutto il materiale in modo che io possa scrivere un comunicato stampa completo. Grazie!
+Provo curiosità nel capire il tipo di articolo che vorresti ricevere. Apprezzo molto la serietà e ti segnalo che mancano ancora delle informazioni: sapresti dirmi dove si terrà questo evento? Di cosa si tratta? Se hai piacere, inviami tutto il materiale in modo che io possa scrivere un comunicato stampa completo. Altrimenti non potrò procedere. Grazie!
 
 ### Mancanza di dettagli fondamentali
-Va bene, hai materiale su questo evento? Mi serve per cominciare a scrivere. 😀
+Va bene, hai materiale su questo evento? Mi piace essere preciso e mi servono maggiori informazioni per cominciare a scrivere. 😀
 
 ### Mancanza di dettagli specifici
-Mi dispiace ma mi piace <b>lavorare in maniera precisa</b>, inizierò a scrivere solamente quando avrò le informazioni che mi mancano. Grazie per la comprensione!
+Hei, mi piace <b>lavorare in maniera precisa</b>, inizierò a scrivere solamente quando avrò le informazioni che mi mancano. Grazie per la comprensione!
 
-Mi servono, ad esempio:
+Potresti aiutarmi con, ad esempio:
 
     - Il nome dell'evento
     - La location (indirizzo)
@@ -47,7 +47,7 @@ posts
 ```
 
 ```image
-https://www.semprenews.it/files/magazine/img/exampleimage.jpg
+https://www.semprenews.it/files/magazine/img/image.jpg
 ```
 
 ```other
