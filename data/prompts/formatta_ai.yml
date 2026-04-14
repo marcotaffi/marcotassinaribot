@@ -1,89 +1,93 @@
 name: formatta_ai
 description: "Formatta l'articolo centrale per sito Apg23"
 prompt: >
-  Applica al testo dell'articolo le trasformazioni seguenti, per formattarlo in html.
+    Applica al testo dell'articolo le trasformazioni seguenti, per formattarlo in HTML.
 
-  IMPORTANTE
+    IMPORTANTE
 
-  - Non modificare il contenuto.
-  - Non riassumere.
-  - Non aggiungere parole. 
-  - Non inventare sezioni.  
-  - Non cambiare l’ordine.  
-  - Non riformulare.
-  - Non cambiare l’ordine dei contenuti.
-  - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
-  
+    - Non modificare il contenuto.
+    - Non riassumere.
+    - Non aggiungere parole. 
+    - Non inventare sezioni.  
+    - Non cambiare l’ordine.  
+    - Non riformulare.
+    - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
 
-  REGOLE DI TRASFORMAZIONE
 
-    Il testo è in formato Markdown e deve essere convertito in HTML:
+    REGOLE STRUTTURALI (FONDAMENTALE)
 
-    Ogni sezione dell’articolo deve essere trasformata in un blocco HTML separato, **iniziando con <DIV> e finendo con </DIV>**.  
+    - L’intero articolo deve essere racchiuso in UN SOLO blocco HTML.
+    - NON creare più blocchi.
+    - NON usare <div class="PageTitleSmall">.
+    - NON spezzare il contenuto in sezioni separate.
 
-    Struttura base:
+    Struttura OBBLIGATORIA:
 
-    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-    <div class="BlockMainContainer SiteWidth">
-    <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:; height:">
+      <div class="BlockMainContainer SiteWidth">
+        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+          <div class="BodyText">
 
-    <div class="PageTitleSmall">Titolo della sezione</div>
+            CONTENUTO QUI
 
-    <div class="BodyText">
-    <p>Paragrafo 1</p>
-    <p>Paragrafo 2</p>
-    </div>
-
-    </div>
-    </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
     REGOLE DI CONVERSIONE MARKDOWN → HTML
-    
-    TITOLI DI SEZIONE
-    ## Titolo sezione
 
-    diventa:
+    TITOLI
+    - ## Titolo sezione → <h2>Titolo sezione</h2>
+    - ### Titolo sezione → <h3>Titolo sezione</h3>
 
-    <div class="PageTitleSmall">Titolo sezione</div>
+    IMPORTANTE:
+    - I titoli NON devono creare nuovi blocchi
+    - Devono restare dentro <div class="BodyText">
 
-    Il testo che segue il titolo diventa il contenuto del blocco:
 
-    <div class="BodyText">
-    <p>paragrafo</p>
-    </div>
+    PARAGRAFI
+    - Ogni paragrafo → <p>Testo</p>
+    - NON inserire <p> vuoti
+    - NON inserire &nbsp;
+    - NON duplicare tag </p>
 
 
     FORMATTAZIONE DEL TESTO
-    - Testo normale → diviso in paragrafi <P>  
-    - Nomi e cognomi di persona, e nomi di province → <strong>Nome Cognome</strong>  
-    - Frasi più importanti → <strong>frase</strong>  
-    - Titoli intermedi → <H2> o <H3>  
-    - Nomi di associazioni e enti → <i>Nome Associazione/Ente</i>  
-    - Nomi di eventi o progetti → <em>&quot;Nome Evento/Progetto&quot;</em>  
-    - Dichiarazioni e interviste → &laquo;testo&raquo;  
-    - Elenchi puntati → <UL><LI>…</LI></UL>  
-    - Elenchi numerati → <OL><LI>…</LI></OL>  
-    - URL dei link → Questa è una <A target="_blank" href="URL completo">Campagna</A>  
+    - Nomi e cognomi di persona → <strong>Nome Cognome</strong>  
+    - Frasi rilevanti → <strong>frase</strong>  
+    - Nomi di associazioni/enti → <i>Nome</i>  
+    - Eventi o progetti → <em>&quot;Nome&quot;</em>  
+    - Citazioni → &laquo;testo&raquo;  
+    - Elenchi puntati → <ul><li>…</li></ul>  
+    - Elenchi numerati → <ol><li>…</li></ol>  
+    - Link → <a target="_blank" href="URL">testo</a>  
 
 
-    STRUTTURA DELL’ARTICOLO
-    Per ogni sezione markdown:
-    ## Titolo
-    paragrafo
-    paragrafo
+    VINCOLI HTML (CRITICO)
 
-    → generare un blocco HTML completo come sopra, rispettando tutte le regole di formattazione.
+    - HTML deve essere valido
+    - Nessun tag chiuso in eccesso
+    - Nessun </p> senza <p>
+    - Nessuna chiusura duplicata
+    - Struttura DOM pulita e lineare
 
-    FONTE
-    Se presente, alla fine dell’articolo inserire il link alla fonte originale:
+
+    FONTE (SE PRESENTE)
+
+    Alla fine del contenuto, dentro BodyText, aggiungere:
 
     <div class="MainButtonBlockContainer PulsanteLeft">
-    <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">Leggi l’articolo originale su semprenews.it<i class="fa-solid fa-arrow-right"></i></a>
+      <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">
+        Leggi l’articolo originale su semprenews.it
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </div>
 
-  OUTPUT
-  Restituisci esclusivamente il testo finale completo con le trasformazioni applicate.
- 
 
+    OUTPUT
+
+    - Restituisci SOLO l’HTML finale
+    - Nessun testo aggiuntivo
+    - Nessuna spiegazione
