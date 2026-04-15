@@ -1,7 +1,7 @@
 name: formatta_ai
 description: "Formatta l'articolo centrale per sito Apg23"
 prompt: >
-    Applica al testo dell'articolo le trasformazioni seguenti, per formattarlo in HTML.
+    Applica al testo dell'articolo le trasformazioni seguenti, per formattarlo in blocchi sucessivi di codice HTML.
 
     IMPORTANTE
 
@@ -14,49 +14,38 @@ prompt: >
     - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
 
 
-    REGOLE STRUTTURALI (FONDAMENTALE)
+    REGOLE STRUTTURALI
 
-    - L’intero articolo deve essere racchiuso in UN SOLO blocco HTML.
-    - NON creare più blocchi.
-    - NON usare <div class="PageTitleSmall">.
-    - NON spezzare il contenuto in sezioni separate.
+    - Ogni tiolo li livello 2 → un nuovo blocco  
+    - Ogni blocco va formattato così:
 
-    Struttura OBBLIGATORIA:
-
-    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:; height:">
+    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
       <div class="BlockMainContainer SiteWidth">
         <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-          <div class="BodyText">
-
-            CONTENUTO QUI
-
+          <div class="BodyText">           
+             <div class="PageTitleSmall">
+                TITOLO ARGOMENTO DI LIVELLO 2 QUI   
+             </div>
+             <div class="BodyText">
+               <p>
+                 ARGOMENTO TESTUALE QUI DIVISO IN P
+               </p>
+              
+             </div>
           </div>
         </div>
       </div>
     </div>
 
 
-    REGOLE DI CONVERSIONE MARKDOWN → HTML
 
-    TITOLI
-    - ## Titolo sezione → <h2>Titolo sezione</h2>
-    - ### Titolo sezione → <h3>Titolo sezione</h3>
+    REGOLE DI FORMATTAZIONE DEL TESTO
 
-    IMPORTANTE:
-    - I titoli NON devono creare nuovi blocchi
-    - Devono restare dentro <div class="BodyText">
-
-
-    PARAGRAFI
+    - Ogni titolo di livello 3 → <H3></H3>
     - Ogni paragrafo → <p>Testo</p>
-    - NON inserire <p> vuoti
-    - NON inserire &nbsp;
-    - NON duplicare tag </p>
-
-
-    FORMATTAZIONE DEL TESTO
+    - Frasi in grassetto → <strong>frase</strong>  
     - Nomi e cognomi di persona → <strong>Nome Cognome</strong>  
-    - Frasi rilevanti → <strong>frase</strong>  
+    - Frasi chiave per la comprensione del testo → <strong>frase</strong>  
     - Nomi di associazioni/enti → <i>Nome</i>  
     - Eventi o progetti → <em>&quot;Nome&quot;</em>  
     - Citazioni → &laquo;testo&raquo;  
@@ -65,29 +54,79 @@ prompt: >
     - Link → <a target="_blank" href="URL">testo</a>  
 
 
-    VINCOLI HTML (CRITICO)
-
-    - HTML deve essere valido
-    - Nessun tag chiuso in eccesso
-    - Nessun </p> senza <p>
-    - Nessuna chiusura duplicata
-    - Struttura DOM pulita e lineare
-
-
     FONTE (SE PRESENTE)
 
-    Alla fine del contenuto, dentro BodyText, aggiungere:
+    Solo se conosci la fonte dell'articolo originale, alla fine del contenuto aggiungi dentro l'ultimo BodyText :
 
-    <div class="MainButtonBlockContainer PulsanteLeft">
-      <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">
-        Leggi l’articolo originale su semprenews.it
-        <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
+      <div class="MainButtonBlockContainer PulsanteLeft">
+        <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">
+          Leggi l’articolo originale su NOME SITO
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
 
 
     OUTPUT
 
-    - Restituisci SOLO l’HTML finale
+    - Restituisci SOLO l’HTML finale, costituito da una serie di blocchi
     - Nessun testo aggiuntivo
     - Nessuna spiegazione
+
+
+    ESEMPIO
+
+    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
+      <div class="BlockMainContainer SiteWidth">
+        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+          <div class="BodyText">           
+             <div class="PageTitleSmall">
+                Primo argomento interessante di esempio   
+             </div>
+             <div class="BodyText">
+               <p>
+                 Questo è un argomento <strong>molto interessante</strong> che merita di essere approfondito.
+               </p>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
+      <div class="BlockMainContainer SiteWidth">
+        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+          <div class="BodyText">           
+             <div class="PageTitleSmall">
+                Secondo argomento interessante di esempio   
+             </div>
+             <div class="BodyText">
+               <p>
+                 Questo è un argomento poco interessante che non merita di essere approfondito.
+               </p>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
+      <div class="BlockMainContainer SiteWidth">
+        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+          <div class="BodyText">           
+             <div class="PageTitleSmall">
+                Terzo argomento interessante di esempio   
+             </div>
+             <div class="BodyText">
+               <p>
+                 Questo è un argomento aggiuntivo che serve come esempio. Tutto l'articolo proviene da un sito esterno.
+               </p>              
+             </div>
+             <div class="MainButtonBlockContainer PulsanteLeft">
+               <a class="MainButton MainButtonDark" href="http://www.example.it" target="_blank">
+                 Leggi l’articolo originale su Example.it
+                 <i class="fa-solid fa-arrow-right"></i>
+               </a>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
