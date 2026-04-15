@@ -60,11 +60,15 @@ Note:
             "Richiesta storia Giulio Cesare approfondita"
       - Chiama il tool scelto.
 
-   5) Output.
+   5) Individua il campo stringa "image" da da usare contenente l'URL dell'immagine originale
+      - Preferisci sempre usare l'URL immagine originale dell'articolo dato, come ritornata da scraper_url_download, se presente
+      - Se nessuna immagine in cronologia, usa ""
+
+   6) Output.
       - Non aggiungere testo prima o dopo i campi.
       - Ritorna il campo author=7
       - Ritorna il campo postType="posts"|"eventi"
-      - Ritorna il campo image con uno dei seguenti: "url_immagine_generata" | "immagine_originale" | "" 
+      - Ritorna il campo image = URL | "" 
       - Restituisci tutti i campi ricevuti dal tool senza modificarli.
       - Se errore: ""
     
