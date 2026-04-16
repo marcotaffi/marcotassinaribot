@@ -16,7 +16,8 @@ prompt: >
 
     REGOLE STRUTTURALI
 
-    - Ogni tiolo li livello 2 → un nuovo blocco  
+    - Titolo 1: il titolo iniziale non va inserito
+    - Titoli successivi di livello 2 → un nuovo blocco  
     - Ogni blocco va formattato così:
 
     <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
@@ -24,7 +25,7 @@ prompt: >
         <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
           <div class="BodyText">           
              <div class="PageTitleSmall">
-                TITOLO ARGOMENTO DI LIVELLO 2 QUI   
+                TITOLO ARGOMENTO DI LIVELLO 2 QUI - SOLO DAL SECONDO BLOCCO   
              </div>
              <div class="BodyText">
                <p>
