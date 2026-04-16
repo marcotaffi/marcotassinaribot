@@ -9,7 +9,7 @@ classificazione:
  #     type: "tags"
  #     flusso: "RaggruppaSimili"
     - hooks: ["iooo.ai"] 
-      categories: ["scienza"]
+      categories: ["nonviolenza"]
       type: "feeds"
     #  flusso: "RaggruppaSimili" 
       flusso: "Instant"
