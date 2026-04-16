@@ -1,10 +1,16 @@
 name: formatta_ai
 description: "Formatta l'articolo centrale per sito Apg23"
 prompt: >
-    Applica al testo dell'articolo le trasformazioni seguenti, per formattarlo in blocchi sucessivi di codice HTML.
+    Riscrivi il testo markdown fornito per formattarlo in blocchi HTML secondo le seguenti spedifiche. 
 
-    IMPORTANTE
-
+     ORGANIZZAZIONE DEL TESTO  
+     - Inserisci il testo formattato in blocchi
+     - Il primo blocco non ha il titolo.
+     - I blocchi seguono la struttura dell'articolo dato, suddivisi da titoli di livello2 indicati dai caratteri ## , se presenti.
+     - Per ogni eventuale titolo di livello 2 crea un nuovo blocco di testo titolato.
+     - Mantieni uniti in un unico blocco i paragrafi senza titolo.
+    
+     NOTE TECNICHE 
     - Non modificare il contenuto.
     - Non riassumere.
     - Non aggiungere parole. 
@@ -14,10 +20,8 @@ prompt: >
     - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
 
 
-    REGOLE STRUTTURALI
+    FORMATO BLOCCHI
 
-    - Titolo 1: il titolo iniziale non va inserito
-    - Titoli successivi di livello 2 → un nuovo blocco  
     - Ogni blocco va formattato così:
 
     <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
@@ -25,13 +29,15 @@ prompt: >
         <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
           <div class="BodyText">           
              <div class="PageTitleSmall">
-                TITOLO ARGOMENTO DI LIVELLO 2 QUI - SOLO DAL SECONDO BLOCCO   
+                EVENTUALE TITOLO    
              </div>
              <div class="BodyText">
                <p>
-                 ARGOMENTO TESTUALE QUI DIVISO IN P
+                 TESTO SUDDIVISO IN PARAGRAFI 
                </p>
-              
+               <p>
+                SECONDO PARAGRAFO
+               </p>            
              </div>
           </div>
         </div>
@@ -43,7 +49,7 @@ prompt: >
     REGOLE DI FORMATTAZIONE DEL TESTO
 
     - Ogni titolo di livello 3 → <H3></H3>
-    - Ogni paragrafo → <p>Testo</p>
+    - Ogni paragrafo → <p>Testo</p> nello stesso blocco
     - Frasi in grassetto → <strong>frase</strong>  
     - Nomi e cognomi di persona → <strong>Nome Cognome</strong>  
     - Frasi chiave per la comprensione del testo → <strong>frase</strong>  
@@ -87,6 +93,9 @@ prompt: >
                <p>
                  Questo è un argomento <strong>molto interessante</strong> che merita di essere approfondito.
                </p>
+               <p>
+                Aggiungi quanti paragrafi vuoi.
+               </p>
              </div>
           </div>
         </div>
@@ -103,6 +112,9 @@ prompt: >
                <p>
                  Questo è un argomento poco interessante che non merita di essere approfondito.
                </p>
+               <p> 
+               Il testo continua qui.
+               </p>
              </div>
           </div>
         </div>
@@ -118,6 +130,9 @@ prompt: >
              <div class="BodyText">
                <p>
                  Questo è un argomento aggiuntivo che serve come esempio. Tutto l'articolo proviene da un sito esterno.
+               </p>
+               <p>
+               Altro testo.
                </p>              
              </div>
              <div class="MainButtonBlockContainer PulsanteLeft">
