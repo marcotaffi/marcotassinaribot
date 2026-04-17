@@ -10,7 +10,8 @@ prompt: >
      - Per ogni eventuale titolo di livello 2 crea un nuovo blocco di testo titolato.
      - Mantieni in un unico blocco i testi senza titolo, suddivisi in paragrafi <p></p>.
      - Separa i paragrafi con un paragrafo vuoto <p>&nbsp;</p>
-    
+     - Inserisci al termine link alla fonte URL dell'articolo originale, se noto. 
+
      NOTE TECNICHE 
     - Non modificare il contenuto.
     - Non riassumere.
@@ -67,7 +68,7 @@ prompt: >
 
     FONTE (SE PRESENTE)
 
-    Solo se nella cronologia è nota la fonte URL dell'articolo originale, alla fine del contenuto aggiungi dentro l'ultimo BodyText :
+    Se è nota la fonte URL dell'articolo originale, alla fine del contenuto aggiungi dentro l'ultimo BodyText :
 
       <div class="MainButtonBlockContainer PulsanteLeft">
         <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">
@@ -112,7 +113,7 @@ prompt: >
              </div>
              <div class="BodyText">
                <p>
-                 Questo è un argomento poco interessante che non merita di essere approfondito.
+                 Questo è un argomento <em>poco interessante</em> che non merita di essere approfondito.
                </p>
                <p>&nbsp;</p>
                <p> 
