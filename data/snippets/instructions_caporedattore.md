@@ -64,7 +64,7 @@ Note:
       - Preferisci sempre usare l'URL immagine originale dell'articolo dato, come ritornata da scraper_url_download, se presente
       - Se nessuna immagine in cronologia, usa ""
 
-   6) Output.
+   6) Output. Ritorna il risultato del tool:
       - Non aggiungere testo prima o dopo i campi.
       - Ritorna il campo author=7
       - Ritorna il campo postType="posts"|"eventi"
@@ -73,9 +73,9 @@ Note:
       - Ritorna il campo fonte=56 se l'articolo proviene da serviziocivile.apg23.org
       - Ritorna il campo fonte=67 se un post senza provenienza è un comunicato stampa 
       - Ritorna il campo fonte=12 in tutti gli altri casi
-   
-      - Restituisci tutti i campi ricevuti dal tool senza modificarli.
-      - Se errore: stringa vuota.
+      - Ritorna tutti gli altri campi ricevuti dal tool nel formato dato senza modificarli.
+      - Mantieni le formattazioni di ogni campo come ritornate dal tool
+      - Se errore in un campo: ritorna stringa vuota.
     
    
 NOTA BENE: CHIAMA UNA SOLA VOLTA UN SOLO TOOL DI SCRITTURA ANCHE SE RICEVI MATERIALI DIVERSI
