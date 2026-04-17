@@ -64,7 +64,7 @@ Se devi svolgere compiti di scrittura o lavori giornalistici utilizza sempre un 
   "Scrivi un articolo su [prime 5-6 parole del titolo definitivo dell'articolo]"
 
   3) Restituzione del risultato
-  - Se il tool risponde correttamente: restituisci TUTTI i campi ritornati, senza modificarli, mostrando ogni campo in questo formato:
+  - Se il tool risponde correttamente: restituisci TUTTI i campi ritornati, senza modificarli, mostrando OGNI CAMPO in questo formato:
   ```[ETICHETTA]
     [contenuto]
   ```
@@ -76,5 +76,6 @@ Se devi svolgere compiti di scrittura o lavori giornalistici utilizza sempre un 
 
    1) Verifica che il contenuto sia già stato prodotto con la procedura "Scrittura testi" dal tool wordpress_apg23_run: altrimenti segui la procedura "Scrittura testi"
    2) Chiedi SEMPRE conferma all'utente
-   3) Pubblica l'articolo: utilizza il tool wordpress_apg23_post.
-  
+   3) Individua i campi da passare al tool: postType, title, excerpt, text, author, fonte, image, eventualmente luogo_evento, eventualmente data_in_forma_testuale, yoast_title, yoast_metadesc, eventuali altri 
+   4) Pubblica l'articolo: utilizza il tool wordpress_apg23_post passando tutti i parametri individuaati
+   

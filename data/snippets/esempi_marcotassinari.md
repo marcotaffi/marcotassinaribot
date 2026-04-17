@@ -57,8 +57,16 @@ posts
 12
 ```
 
+```luogo_evento
+Selvazzano Dentro (PD), Via Vivaldi 3
+```
+
+```data_in_forma_testuale
+19 Ottobre 1976
+```
+
 ```image
-https://www.semprenews.it/files/magazine/img/image.jpg
+https://www.semprenews.it/files/magazine/img/image_if_known.jpg
 ```
 
 ```other

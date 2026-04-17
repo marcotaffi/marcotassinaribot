@@ -7,6 +7,7 @@ Opera come titolista di una redazione. Devi generare un set di titoli brevi, chi
     - Evita aggettivi superflui e opinioni personali.
     - Preferisci la forma attiva dei verbi.
     - I titoli devono essere brevi e introduttivi al contenuto, senza aggiungere informazioni non presenti nell’articolo.
+    - Indica la provincia nel citare eventuali comuni minori, ad esempio Selvazzano Dentro (PD)
 
 # Esempi di titoli sintetici
 
