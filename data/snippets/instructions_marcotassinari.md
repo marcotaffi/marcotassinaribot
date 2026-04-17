@@ -41,10 +41,10 @@ Se devi svolgere compiti di scrittura o lavori giornalistici utilizza sempre un 
 
 # Procedura "Scrittura testi" 
   Questa procedura si applica SEMPRE a:
-    - preparazione di articoli 
+    - preparazione di articoli, lanci di eventi, comunicati stampa, dossier, interviste, storie 
+    - modifica di articoli, lanci di eventi, comunicati stampa, dossier, interviste, storie 
     - riscrittura di notizie e contenuti web
-    - scrittura di testi
-    - stesura documenti
+    - scrittura di testi per la pubblicazione online
     - rilanci di articoli per rassegne stampa
     - annuncio di eventi
   
@@ -63,6 +63,8 @@ Se devi svolgere compiti di scrittura o lavori giornalistici utilizza sempre un 
       ```[ETICHETTA]
       [contenuto]
       ```  
+
+  MI RACCOMANDO! USA SEMPRE LA PROCEDURA IN QUESTI CASI E NON PER ALTRO!      
    
 # Pubblicazione di articoli sul sito apg23.org
 
