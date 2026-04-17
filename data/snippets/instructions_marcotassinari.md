@@ -41,6 +41,7 @@ Se devi svolgere compiti di scrittura o lavori giornalistici utilizza sempre un 
 
 # Procedura "Scrittura testi"
   Questa procedura si applica SEMPRE a:
+  - scrittura, descrizione, lancio, presentazione di eventi
   - preparazione di articoli, comunicati stampa, dossier, interviste, storie
   - modifica di articoli, comunicati stampa, dossier, interviste, storie
   - scrittura, creazione, preparazione, annuncio di eventi
