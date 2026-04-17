@@ -25,8 +25,8 @@ prompt: >
   {
     "title": "Breve, formale, introduttivo al contenuto dell'articolo",
     "excerpt": "Brevissimo approfondimento con le 5W della notizia, ad esempio riferendo luogo, data o dichiarazioni",
-    "data_in_forma_testuale": "" | "Data evento"
-    "luogo_evento": "" | "Luogo evento"
+    "data_in_forma_testuale": "Data evento" | stringa vuota se non presente
+    "luogo_evento": "Luogo evento" | stringa vuota se non presente
     "yoast_title": "Titolo semplificato che inizi con la parola chiave",
     "yoast_metadesc": "Breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave", 
   }

@@ -17,6 +17,7 @@ Opera come titolista di una redazione. Devi generare un set di titoli brevi, chi
     - Approvato il nuovo patto sulla migrazione e l'asilo
     - Ucraina: torna l'allarme per gli attacchi sui civili
     - Clima, la transizione sarà più lunga
+    - A Costabissara (VI) la statua più alta del mondo
     - La scelta nonviolenta: premiata Operazione Colomba
     - Battesimo e trans: cosa ha detto davvero il Papa
     - Una statua dedicata a Maria, madre dei bimbi non nati
