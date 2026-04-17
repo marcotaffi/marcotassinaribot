@@ -11,6 +11,7 @@ params:
     - yoast_metadesc
     - postType
     - author
+    - fonte
     - image
     - text
   model: "gpt-4o-mini"

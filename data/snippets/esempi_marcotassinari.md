@@ -53,6 +53,10 @@ posts
 7
 ```
 
+```fonte
+12
+```
+
 ```image
 https://www.semprenews.it/files/magazine/img/image.jpg
 ```
