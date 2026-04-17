@@ -68,9 +68,14 @@ Note:
       - Non aggiungere testo prima o dopo i campi.
       - Ritorna il campo author=7
       - Ritorna il campo postType="posts"|"eventi"
-      - Ritorna il campo image = URL | "" 
+      - Ritorna il campo image = URL | ""
+      - Ritorna il campo fonte=13 se l'articolo proviene da semprenews.it 
+      - Ritorna il campo fonte=56 se l'articolo proviene da serviziocivile.apg23.org
+      - Ritorna il campo fonte=67 se un post senza provenienza è un comunicato stampa 
+      - Ritorna il campo fonte=12 in tutti gli altri casi
+   
       - Restituisci tutti i campi ricevuti dal tool senza modificarli.
-      - Se errore: ""
+      - Se errore: stringa vuota.
     
    
 NOTA BENE: CHIAMA UNA SOLA VOLTA UN SOLO TOOL DI SCRITTURA ANCHE SE RICEVI MATERIALI DIVERSI
