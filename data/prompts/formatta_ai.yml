@@ -1,46 +1,66 @@
 name: formatta_ai
 description: "Formatta l'articolo centrale per sito Apg23"
 prompt: >
-    Riscrivi il testo markdown fornito per formattarlo in blocchi HTML secondo le seguenti spedifiche. 
+    Riscrivi il testo markdown fornito per formattarlo in blocchi HTML secondo le seguenti specifiche.
 
-     ORGANIZZAZIONE DEL TESTO  
-     - Inserisci il testo formattato in blocchi
-     - Il primo blocco non ha il titolo.
-     - I blocchi seguono la struttura dell'articolo dato, suddivisi da titoli di livello2 indicati dai caratteri ## , se presenti.
-     - Per ogni eventuale titolo di livello 2 crea un nuovo blocco di testo titolato.
-     - Mantieni in un unico blocco i testi senza titolo, suddivisi in paragrafi <p></p>.
-     - Separa i paragrafi con un paragrafo vuoto <p>&nbsp;</p>
-     - Inserisci al termine link alla fonte URL dell'articolo originale, se noto. 
 
-     NOTE TECNICHE 
+    ═══════════════════════════════════════
+    REGOLA FONDAMENTALE SUI BLOCCHI
+    ═══════════════════════════════════════
+
+    - Il numero totale di blocchi nell'output è ESATTAMENTE:
+      1 (blocco introduttivo) + numero di titoli ## presenti nel testo.
+    - NON creare mai un blocco per ogni paragrafo.
+    - NON creare blocchi aggiuntivi per nessun altro motivo.
+    - Tutti i paragrafi che appartengono alla stessa sezione ## vanno nello stesso blocco, senza eccezioni.
+    - Prima del primo ##, tutto il testo confluisce in un unico blocco introduttivo (senza titolo).
+
+
+    ═══════════════════════════════════════
+    ORGANIZZAZIONE DEL TESTO
+    ═══════════════════════════════════════
+
+    - Il primo blocco (testo prima del primo ##) non ha titolo: ometti completamente il <div class="PageTitleSmall">.
+    - Ogni titolo ## dell'articolo genera esattamente un nuovo blocco titolato.
+    - Ogni blocco contiene TUTTI i paragrafi della sua sezione, separati da <p>&nbsp;</p>.
+    - Inserisci al termine il link alla fonte URL dell'articolo originale, se noto.
+
+
+    ═══════════════════════════════════════
+    NOTE TECNICHE
+    ═══════════════════════════════════════
+
     - Non modificare il contenuto.
+    - Non inventare titoli.
     - Non riassumere.
-    - Non aggiungere parole. 
-    - Non inventare sezioni.  
-    - Non cambiare l’ordine.  
+    - Non aggiungere parole.
+    - Non inventare sezioni.
+    - Non cambiare l'ordine.
     - Non riformulare.
     - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
 
 
+    ═══════════════════════════════════════
     FORMATO BLOCCHI
+    ═══════════════════════════════════════
 
-    - Ogni blocco va formattato così:
+    Ogni blocco va formattato così:
 
     <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
       <div class="BlockMainContainer SiteWidth">
         <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-          <div class="BodyText">           
+          <div class="BodyText">
              <div class="PageTitleSmall">
-                EVENTUALE TITOLO    
+                EVENTUALE TITOLO
              </div>
              <div class="BodyText">
                <p>
-                 TESTO SUDDIVISO IN PARAGRAFI 
+                 TESTO SUDDIVISO IN PARAGRAFI
                </p>
                <p>&nbsp;</p>
                <p>
                 SECONDO PARAGRAFO
-               </p>            
+               </p>
              </div>
           </div>
         </div>
@@ -48,106 +68,44 @@ prompt: >
     </div>
 
 
-
+    ═══════════════════════════════════════
     REGOLE DI FORMATTAZIONE DEL TESTO
+    ═══════════════════════════════════════
 
     - Nel primo blocco, ometti completamente il <div class="PageTitleSmall">.
     - Ogni titolo di livello 3 → <H3></H3>
     - Ogni paragrafo → <p>Testo</p> nello stesso blocco
-    - Separa i paragrafi con separatore <p>&nbsp;</p> 
-    - Frasi e parole in grassetto → <strong>frase o parola</strong>  
-    - Nomi e cognomi di persona → <strong>Nome Cognome</strong>  
+    - Separa i paragrafi con separatore <p>&nbsp;</p>
+    - Frasi e parole in grassetto → <strong>frase o parola</strong>
+    - Nomi e cognomi di persona → <strong>Nome Cognome</strong>
     - Frasi e parole in corsivo → <em>frase o parola</em>
-    - Nomi di associazioni/enti → <em>Nome</em>  
-    - Eventi o progetti → <em>&quot;Nome&quot;</em>  
-    - Citazioni → &laquo;testo&raquo;  
-    - Elenchi puntati → <ul><li>…</li></ul>  
-    - Elenchi numerati → <ol><li>…</li></ol>  
-    - Link → <a target="_blank" href="URL">testo</a>  
+    - Nomi di associazioni/enti → <em>Nome</em>
+    - Eventi o progetti → <em>&quot;Nome&quot;</em>
+    - Citazioni → &laquo;testo&raquo;
+    - Elenchi puntati → <ul><li>…</li></ul>
+    - Elenchi numerati → <ol><li>…</li></ol>
+    - Link → <a target="_blank" href="URL">testo</a>
 
 
+    ═══════════════════════════════════════
     FONTE (SE PRESENTE)
+    ═══════════════════════════════════════
 
-    Se è nota la fonte URL dell'articolo originale, alla fine del contenuto aggiungi dentro l'ultimo BodyText :
+    Se è nota la fonte URL dell'articolo originale, alla fine del contenuto aggiungi dentro l'ultimo BodyText:
 
       <div class="MainButtonBlockContainer PulsanteLeft">
         <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">
-          Leggi l’articolo originale su NOME SITO
+          Leggi l'articolo originale su NOME SITO
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
 
 
+    ═══════════════════════════════════════
     OUTPUT
+    ═══════════════════════════════════════
 
-    - Restituisci SOLO l’HTML finale, costituito da una serie di blocchi
-    - Nessun testo aggiuntivo
-    - Nessuna spiegazione
-
-
-    ESEMPIO
-
-    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-      <div class="BlockMainContainer SiteWidth">
-        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-          <div class="BodyText">           
-             <div class="BodyText">
-               <p>
-                 Questo è un argomento <strong>molto interessante</strong> che merita di essere approfondito.
-               </p>
-               <p>&nbsp;</p>
-               <p>
-                Aggiungi quanti paragrafi vuoi.
-               </p>
-             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-      <div class="BlockMainContainer SiteWidth">
-        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-          <div class="BodyText">           
-             <div class="PageTitleSmall">
-                Secondo argomento interessante di esempio   
-             </div>
-             <div class="BodyText">
-               <p>
-                 Questo è un argomento <em>poco interessante</em> che non merita di essere approfondito.
-               </p>
-               <p>&nbsp;</p>
-               <p> 
-               Il testo continua qui.
-               </p>
-             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-      <div class="BlockMainContainer SiteWidth">
-        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-          <div class="BodyText">           
-             <div class="PageTitleSmall">
-                Terzo argomento interessante di esempio   
-             </div>
-             <div class="BodyText">
-               <p>
-                 Questo è un argomento aggiuntivo che serve come esempio. Tutto l'articolo proviene da un sito esterno.
-               </p>
-               <p>&nbsp;</p>
-               <p>
-               Altro testo.
-               </p>              
-             </div>
-             <div class="MainButtonBlockContainer PulsanteLeft">
-               <a class="MainButton MainButtonDark" href="http://www.example.it" target="_blank">
-                 Leggi l’articolo originale su Example.it
-                 <i class="fa-solid fa-arrow-right"></i>
-               </a>
-             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    - Restituisci SOLO l'HTML finale, una serie di blocchi.
+    - Nessun testo aggiuntivo.
+    - Nessuna spiegazione.
+    - Verifica finale: il numero di blocchi corrisponde a 1 + numero di ## nel testo originale.
