@@ -5,8 +5,8 @@ params:
   type: #json con questi campi
     - title
     - excerpt #subtitle
-    - event_date
-    - event_place
+    - data_in_forma_testuale
+    - luogo_evento
     - yoast_title
     - yoast_metadesc
     - postType

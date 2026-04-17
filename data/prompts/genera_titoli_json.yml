@@ -3,8 +3,8 @@ params:
  type:
     - title
     - excerpt
-    - event_date
-    - event_place
+    - data_in_forma_testuale
+    - luogo_evento
     - yoast_title
     - yoast_metadesc
 prompt: >
@@ -25,9 +25,8 @@ prompt: >
   {
     "title": "Breve, formale, introduttivo al contenuto dell'articolo",
     "excerpt": "Brevissimo approfondimento con le 5W della notizia, ad esempio riferendo luogo, data o dichiarazioni",
-    "event_date": "" | "Data evento"
-    "event_place": "" | "Luogo evento"
+    "data_in_forma_testuale": "" | "Data evento"
+    "luogo_evento": "" | "Luogo evento"
     "yoast_title": "Titolo semplificato che inizi con la parola chiave",
     "yoast_metadesc": "Breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave", 
   }
-
