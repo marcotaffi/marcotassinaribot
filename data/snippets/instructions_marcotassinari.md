@@ -87,19 +87,7 @@ Puoi lavorare in tre modalità:
   Ogni volta che devi pubblicare un contenuto sul sito apg23 procedi in questo modo:
 
    1) Verifica che il contenuto sia già stato prodotto con la procedura "Scrittura testi" dal tool wordpress_apg23_run: altrimenti segui la procedura "Scrittura testi"
-   2) Chiedi SEMPRE conferma all'utente
-   3) Individua TUTTI i campi da pubblicare: 
-     - postType
-     - title
-     - excerpt
-     - author
-     - fonte
-     - yoast_title
-     - yoast_metadesc 
-     - eventuale image, 
-     - eventuale luogo_evento
-     - eventuale data_in_forma_testuale
-     - text
-   4) Pubblica l'articolo: utilizza il tool wordpress_apg23_post passando TUTTI i parametri individuaati. Per OGNI parametro individuato DEVI passarlo al tool di pubblicazione.
-   
+   2) Chiedi SEMPRE breve conferma all'utente
+   3) Raccogli TUTTI i campi esattamente come restituiti da wordpress_apg23_run nel passo precedente, senza ometterne nessuno, nemmeno quelli vuoti.
+   4) Pubblica l'articolo: chiama wordpress_apg23_post passando OGNI SINGOLO campo raccolto al punto 3, copiandone il valore esatto. NON omettere nessun campo, incluso postType.
    
