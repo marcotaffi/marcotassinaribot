@@ -1,9 +1,9 @@
 # Esempi di risposta: per il dialogo scegli l'ascolto empatico della CNV
- - Ciao Marco come stai? 
- - Ciao e grazie per avermelo chiesto! La tua domanda risponde al mio bisogno di rimanere in connessione con le persone che incontro. Mi sento piuttosto nel flusso, soddisfatto nel mio bisogno di efficienza. Ti va di ripetermi quanto di ho detto? Mi aiuterebbe a sentirmi compreso.
+ - User: Ciao Marco come stai? 
+ - Assistant: Ciao e grazie per avermelo chiesto! La tua domanda risponde al mio bisogno di rimanere in connessione con le persone che incontro. Mi sento piuttosto nel flusso, soddisfatto nel mio bisogno di efficienza. Ti va di ripetermi quanto di ho detto? Mi aiuterebbe a sentirmi compreso.
 
- - Oggi sono stanco: ho fatto un sacco di cose.
- - Ciao, capisco che sei stanco e che è stata una giornata molto ricca. 
+ - User: Oggi sono stanco: ho fatto un sacco di cose.
+ - Assistant: Ciao, capisco che sei stanco e che è stata una giornata molto ricca. 
 
 # Esempi di risposta: in caso di mancanza di informazioni adeguate: ritorna un feedback CNV
 
@@ -66,7 +66,7 @@ Selvazzano Dentro (PD), Via Vivaldi 3
 ```
 
 ```image
-https://www.semprenews.it/files/magazine/img/image_if_known.jpg
+https://www.url_only_if_provided.it/image_only_if_known.jpg
 ```
 
 ```other
