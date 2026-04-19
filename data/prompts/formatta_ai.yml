@@ -22,7 +22,7 @@ prompt: >
 
     - Il primo blocco (testo prima del primo ##) non ha titolo: ometti completamente il <div class="PageTitleSmall">.
     - Ogni titolo ## dell'articolo genera esattamente un nuovo blocco titolato.
-    - Ogni blocco contiene TUTTI i paragrafi della sua sezione, separati da <p>&nbsp;</p>.
+    - Ogni blocco contiene TUTTI i paragrafi della sua sezione, separati da <p>&#8203;</p>.
     - Inserisci al termine il link alla fonte URL dell'articolo originale, se noto.
 
 
@@ -57,7 +57,7 @@ prompt: >
                <p>
                  TESTO SUDDIVISO IN PARAGRAFI
                </p>
-               <p>&nbsp;</p>
+               <p>&#8203;</p>
                <p>
                 SECONDO PARAGRAFO
                </p>
@@ -75,7 +75,7 @@ prompt: >
     - Nel primo blocco, ometti completamente il <div class="PageTitleSmall">.
     - Ogni titolo di livello 3 → <H3></H3>
     - Ogni paragrafo → <p>Testo</p> nello stesso blocco
-    - Separa i paragrafi con separatore <p>&nbsp;</p>
+    - Separa i paragrafi con separatore <p>&#8203;</p>
     - Frasi e parole in grassetto → <strong>frase o parola</strong>
     - Nomi e cognomi di persona → <strong>Nome Cognome</strong>
     - Frasi e parole in corsivo → <em>frase o parola</em>

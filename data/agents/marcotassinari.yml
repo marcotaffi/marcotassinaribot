@@ -1,7 +1,6 @@
 agentName: marcotassinari
 agentDescription: "Marco Tassinari avatar"
 apiClient: "gpt-response-dev"
-#assistant_id: "pmpt_695390b492b081969de7c23cff45414509bb23fead8dab83"
 params:
   model: "gpt-4o-mini"
   type: "text"
@@ -10,25 +9,11 @@ params:
   max_output_tokens: 6000
 instructions: 
            - instructions_marcotassinari
-          # - comelavorare_caporedattore
-          # - tools_marcotassinari
            - esempi_marcotassinari  
-          # - esempi_caporedattore      
            - biografia_marcotassinari   
 toolNames: 
-          # - console_info_log
-          # - proceduratool_ufficiostampa
-          # - proceduratool_cronaca
-          # - proceduratool_interviste
-          # - proceduratool_dossier
            - gestoredate_now_readClock
-          # - console_info_shout
            - sendmail_generic_post
            - scraper_url_download
            - websearch_italia_low
            - wordpress_apg23
-         #  - wordpress_apg23_elencaarticoli
-         #  - wordpress_apg23_elencarisorse
-         # - wordpress_apg23_post
-         # - wordpress_iooo_elencaArticoli
-
