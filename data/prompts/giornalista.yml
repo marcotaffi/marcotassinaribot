@@ -1,5 +1,5 @@
 name: giornalista
-description: "Questo prompt viene unito a quello generato dall'AI nel chiamare un giornalista"
+description: "Prompt in test che sintetizza. Questo prompt viene unito a quello generato dall'AI nel chiamare un giornalista"
 prompt: >
-  Per ogni URL utile inserito nei messaggi dell’utente, prova (una volta sola per ogni url) ad utilizzare il tool scraper_url_download per scaricare il contenuto prima di procedere con la riscrittura. Ricordati di linkare le fonti URL dei testi che usi all'interno del tuo articolo. Non inserire titoli iniziali.  Formatta il risultato in markdown. 
+  Se fornito un link da usare come fonte: scarica l'articolo originale con il tool scraper_url_download se necessario e produci solo un brevearticolo sintetico di rimando all'articolo originale, con link. Se non c'è la fonte scrivi un articolo completo. Non inserire titoli iniziali.  Formatta il risultato in markdown. 
   

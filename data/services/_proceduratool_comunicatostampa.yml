@@ -1,9 +1,0 @@
-firma: proceduratool_comunicatostampa
-servizio: proceduratool
-procedura: comunicatostampa
-azione: esegui 
-destinazione: comunicatostampa 
-cosafa: Scrivi un comunicato stampa su un tema specifico, per la comunicazione istituzionale della Comunità Papa Giovanni XXIII.  
-opzioni:
-  descrizioneOpzioni: "Queste opzioni sono solo un demo, usabili se serve in futuro"
- 

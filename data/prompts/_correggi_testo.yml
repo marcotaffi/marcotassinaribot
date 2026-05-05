@@ -1,9 +1,0 @@
-name: Correggo un testo
-command: Correggi un testo
-assistant_id: asst_lQaLpnbVWv55mWbeGgrA2PO7
-chiediMateriale: true
-prompt: >
- Correggi errori di battitura o di grammatica; mantieni tutto il testo con lo stile e il tono di voce originali. 
- Usa le virgolette caporale per le dichiarazioni, ad esempio: «Questa è una dichiarazione». 
- Ritornami tutto il testo corretto, senza commenti. 
-
