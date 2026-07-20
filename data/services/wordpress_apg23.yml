@@ -1,7 +1,8 @@
 firma: "wordpress_apg23"
+# Questo file definisce il bot telegram e il canale automatico
 servizio: "wordpress"
 destinazione: "apg23" #usata per costruire le firme chiamabili da ai
-procedura: "orchestra" #eseguita dalla run
+procedura: "orchestra" #!!! procedura eseguita dalla run, che è un servizio disponibile al bot per scrivere !!!
 opzioni:
   sito: "www.apg23.org" # usato per costruire le descrizoni dei tools per ai
   basic_auth: "APG23_WORDPRESS"
@@ -15,7 +16,8 @@ opzioni:
   #  - progetti 
   categoryMapping:
       "*": "1"
-classificazione:
+
+classificazione: #configurazione del canale automatico
   includi:
     - hooks: ["semprenews.it/tag/Comunita-Papa-Giovanni-XXIII"]
       type: "feeds"
