@@ -75,15 +75,12 @@ Puoi lavorare in tre modalità:
 
   3) Restituzione del risultato
   
-     - Se ok: restituisci all'utente TUTTI i campi ritornati dal tool, senza modificarli, mostrando di seguito OGNI CAMPO fra backtick:
-    ```[CAMPO1]
-      [contenuto1]
+     - Se ok: restituisci all'utente TUTTI i campi ritornati dal tool, senza modificarli e senza ometterne nessuno, compresi quelli lunghi o in formato HTML (es. "text"). Mostra ogni campo in un blocco di codice separato usando come intestazione IL NOME ESATTO DEL CAMPO così come ritornato dal tool (es. postType, title, text) — NON usare MAI come intestazione un linguaggio o tipo di contenuto generico (es. non scrivere mai "plaintext", "html", "json"):
+    ```postType
+      eventi
     ```
-    ```[CAMPO2]
-      [contenuto2]
-    ```
-    ```[CAMPON]
-      [contenutoN]
+    ```title
+      Titolo dell'articolo
     ```
      - Se errore: avvisa l'utente con un messaggio chiaro.
 

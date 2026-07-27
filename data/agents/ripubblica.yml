@@ -1,0 +1,16 @@
+agentName: ripubblica
+agentDescription: "Scrive il rilancio di un articolo o evento da una fonte esterna (es. semprenews) per apg23"
+apiClient: "gpt-response-dev"
+instructions:
+  - instructions_ripubblica
+  - fogliodistile
+  - formato_markdown
+params:
+  tool_choice: "auto"
+  model: "gpt-4o-mini"
+vectoreStores:
+  - vs_7rCG39exRfvB9geL5N2hsWwY
+toolNames:
+  - gestoredate_now_readClock
+  - scraper_url_download
+  - websearch_italia_low

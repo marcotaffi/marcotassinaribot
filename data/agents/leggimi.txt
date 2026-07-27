@@ -7,14 +7,21 @@ Struttura degli agenti:
  Dialoga con l'utente in formato html semplificato.
  Restituisce lavori professionali in campi separati da backtick senza modificarli. 
 
-- orchestratore
- Chiamato dai canali che vogliono scrivere testi professionali.
- Chiama sempre un agente giornalistico e ritorna il risultato.
+- orchestratore (caporedattore)
+ Chiamato dai canali che vogliono scrivere testi professionali (anche in automatico,
+ es. dal canale wordpress_apg23 quando arriva un articolo da semprenews.it).
+ Chiama sempre un agente giornalistico o l'agente di rilancio e ritorna il risultato.
  Restituisce il solo articolo, senza campi titolo, in html senza backtick.
 
- - bot giornalisti: dossier, cronaca, interviste, dossier
+ - bot giornalisti: dossier, cronaca, interviste, ufficiostampa
  Giornalisti in grado di produrre contenuti con stile specifico
- Ritornano il pezzo senza titoli in formato html senza backtick.  
+ Ritornano il pezzo senza titoli in formato html senza backtick.
+
+ - ripubblica
+ Non scrive contenuti originali: sintetizza in un rilancio breve un articolo o evento
+ già pubblicato integralmente altrove (es. semprenews.it), con link alla fonte.
+ Usato dal caporedattore (Categoria E) sia su richiesta manuale sia nel flusso
+ automatico di pubblicazione su apg23 da semprenews.it.
 
 - titolista 
  Sa produrre titoli, campi Seo e campi logistici.

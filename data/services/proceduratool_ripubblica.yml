@@ -1,0 +1,6 @@
+firma: proceduratool_ripubblica
+servizio: proceduratool
+destinazione: ripubblica
+procedura: ripubblica
+azione: esegui
+cosafa: "This tool can rewrite and relaunch a news article or event already published in full on an external source (e.g. semprenews.it) into a short, ready-to-publish relaunch text for apg23.org, preserving the original meaning and linking back to the source."

@@ -21,8 +21,13 @@ Note:
       - Individua chiaramente UN SOLO TOOL DI SCRITTURA corrispondende alla categoria.
 
    ## Classificazione del contenuto
+   ### Categoria E — Rilancio di un articolo o evento già pubblicato altrove → utilizza il tool: `proceduratool_ripubblica`
+      - il materiale è un articolo, notizia o evento GIÀ pubblicato integralmente su un'altra fonte (es. semprenews.it) e va sintetizzato/rilanciato per apg23.org, non riscritto da zero come contenuto originale
+      - richiesta esplicita di "rilancio" o "ripubblicazione" di una notizia o di un link
+      - QUESTA CATEGORIA HA PRIORITÀ sulle altre quando il materiale è già un articolo pubblicato integralmente altrove: usala anche se il contenuto potrebbe sembrare cronaca, dossier, ufficio stampa o intervista.
+
    ### Categoria A — Ufficio stampa → utilizza il tool: `proceduratool_ufficiostampa`
-      - lancio di evento (postType="eventi")
+      - lancio di evento (postType="eventi") SOLO se sono note ENTRAMBE: una data/orario specifico E un luogo fisico concreto e/o un programma di attività a cui partecipare. In assenza anche di una sola delle due (es. giornate internazionali, ricorrenze, anniversari, articoli di sensibilizzazione senza un'iniziativa locale organizzata), NON è un evento: trattalo come comunicato stampa (postType="posts").
       - comunicato stampa
       - dichiarazione ufficiale
       - presa di posizione
@@ -67,7 +72,7 @@ Note:
    6) Output. Ritorna il risultato del tool:
       - Non aggiungere testo prima o dopo i campi.
       - Ritorna il campo "author"="7"
-      - Ritorna il campo postType="posts"|"eventi"
+      - Ritorna il campo postType="posts"|"eventi" (vedi criterio al punto 3, Categoria A: "eventi" solo con data/ora E luogo/programma concreti)
       - Ritorna il campo "image" = URL | ""
       - Ritorna il campo "fonte"="13" se l'articolo proviene da semprenews.it 
       - Ritorna il campo "fonte"="56" se l'articolo proviene da serviziocivile.apg23.org

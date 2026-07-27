@@ -25,8 +25,9 @@ instructions:
     #  - comelavorare_caporedattore
     #  - tools_caporedattore
     #  - esempi_caporedattore
-toolNames: 
+toolNames:
       - scraper_url_download
+      - proceduratool_ripubblica
       - proceduratool_ufficiostampa
       - proceduratool_cronaca
       - proceduratool_interviste

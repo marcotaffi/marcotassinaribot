@@ -17,16 +17,15 @@ opzioni:
   categoryMapping:
       "*": "1"
 
-classificazione: #configurazione del canale automatico
+# classificazione: canale automatico ATTIVO. La pubblicazione automatica su apg23 da
+# semprenews.it è migrata da semprebot a marcotassinaribot (semprebot va spento per
+# evitare pubblicazioni doppie). Il rilancio passa dalla procedura "orchestra" ->
+# caporedattore, che per contenuti già pubblicati su semprenews.it sceglie il tool
+# proceduratool_ripubblica (vedi instructions_caporedattore.md, Categoria E).
+classificazione:
   includi:
     - hooks: ["semprenews.it/tag/Comunita-Papa-Giovanni-XXIII"]
       type: "feeds"
       flusso: "Instant"
- #   - hooks: ["*"] 
- #     type: "tags"
- #     flusso: "Instant" 
- #   - hooks: ["www.ansa.it"] #TEST! DISABILITARE!
- #     type: "urls"
- #     flusso: "Instant"
- 
+
 

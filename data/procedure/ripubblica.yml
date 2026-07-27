@@ -1,0 +1,10 @@
+name: ripubblica
+description: ripubblica un articolo o evento da una fonte esterna (es. semprenews) su apg23, sintetizzandolo in un rilancio
+type: sequenziale
+tasks:
+  - name: ripubblica
+    type: step
+  - name: genera_titoli
+    type: step
+  - name: formatta_ai
+    type: step

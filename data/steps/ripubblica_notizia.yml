@@ -1,5 +1,0 @@
-name: ripubblica_notizia
-type: prompt
-description: "Recupera e ripubblica la notizia da una fonte predefinita"
-prompt: ripubblica_notizia
-agentName: cronaca

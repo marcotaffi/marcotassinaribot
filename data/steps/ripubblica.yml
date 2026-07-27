@@ -1,0 +1,5 @@
+name: ripubblica
+type: prompt
+description: "Scrivi un rilancio dell'articolo"
+prompt: ripubblica
+agentName: ripubblica

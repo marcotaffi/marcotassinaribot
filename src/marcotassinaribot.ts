@@ -22,7 +22,6 @@ start - chiacchiera con Marco
 help - Mi presento e ti spiego cosa so fare
 scrivi_articolo - Scrivo un nuovo articolo.
 comunicato_stampa - Scrivo un comunicato stampa.
-ripubblica_notizia - Preparo il rilancio di una notizia.
 correggi_testo - Correggo un testo.
 migliora_interviste - Miglioro un'intervista.
 impagina_html - Preparo per la pubblicazione in html un articolo.
