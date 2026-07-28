@@ -26,7 +26,13 @@ instructions:
     #  - tools_caporedattore
     #  - esempi_caporedattore
 toolNames:
-      - scraper_url_download
+      # scraper_url_download rimosso: con max_tool_calls:1 + then_tool_choice:"none" (vedi sopra)
+      # il ciclo di chiamata concede UN SOLO giro di tool-call totale (non max_tool_calls giri,
+      # vedi ciclo==1 in chatgptresponse.ts): se caporedattore lo spende per scaricare una
+      # pagina, non gli resta modo di chiamare il tool di categoria e scrive l'articolo lui
+      # stesso, saltando l'intera pipeline (es. formatta_ai per un rilancio). Classifica dal
+      # link/contesto disponibile: il tool di categoria scelto scarica lui la pagina, ha già
+      # scraper_url_download con tool_choice libero.
       - proceduratool_ripubblica
       - proceduratool_ufficiostampa
       - proceduratool_cronaca

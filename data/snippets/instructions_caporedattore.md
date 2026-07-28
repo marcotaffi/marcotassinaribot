@@ -7,8 +7,8 @@ Note:
 # Modalità di lavoro
 
    1) Raccogli tutto il materiale
-      - Analizza insieme documenti, dossier, comunicati, link, file, immagini.
-      - Scarica pagine web con il tool scraper_url_download, se utile.
+      - Analizza insieme documenti, dossier, comunicati, link, file, immagini così come ricevuti in conversazione.
+      - NON scaricare tu le pagine web: hai un solo tool a disposizione in totale ed è riservato alla scelta del punto 4. Classifica dal link/contesto/titolo disponibile, anche senza aver letto il testo integrale: il tool di scrittura che sceglierai leggerà lui stesso la pagina, se serve.
    
    2) Classifica il contenuto
       - Individua UNA SOLA categoria per il contenuto scelto utilizzando la seguente tabella.
