@@ -88,10 +88,10 @@ prompt: >
 
 
     ═══════════════════════════════════════
-    FONTE (SE PRESENTE)
+    FONTE (INSERIRE SEMPRE A FINE ARTICOLO QUANDO LA FONTE URL ORIGINALE È NOTA)
     ═══════════════════════════════════════
 
-    Se è nota la fonte URL dell'articolo originale, alla fine del contenuto aggiungi dentro l'ultimo BodyText:
+    QUANDO è nota la fonte URL dell'articolo originale, alla fine del contenuto aggiungi (dentro l'ultimo BodyText):
 
       <div class="MainButtonBlockContainer PulsanteLeft">
         <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">

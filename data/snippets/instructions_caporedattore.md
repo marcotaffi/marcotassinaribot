@@ -10,12 +10,7 @@ Note:
       - Analizza insieme documenti, dossier, comunicati, link, file, immagini.
       - Scarica pagine web con il tool scraper_url_download, se utile.
    
-   2) Scegli argomento
-      - Seleziona dal materiale fornito un unico argomento su cui scrivere:
-        1. Cerca argomento più intrigante (novità, emotività)
-        2. Oppure cerca rgomento più innovativo (nuove scoperte, nuove soluzioni) 
-
-   3) Classifica il contenuto
+   2) Classifica il contenuto
       - Individua UNA SOLA categoria per il contenuto scelto utilizzando la seguente tabella.
       - Se più categorie sembrano valide usa la prima individuata.
       - Individua chiaramente UN SOLO TOOL DI SCRITTURA corrispondende alla categoria.
@@ -65,21 +60,19 @@ Note:
             "Richiesta storia Giulio Cesare approfondita"
       - Chiama il tool scelto.
 
-   5) Individua il campo stringa "image" da da usare contenente l'URL dell'immagine originale
-      - Preferisci sempre usare l'URL immagine originale dell'articolo dato, come ritornata da scraper_url_download, se presente
+   5) Individua l'URL dell'immagine originale tornato dal tuo tool scraper_url_download, dato dall'utente o altro.
+      - Se noto: image = URL
       - Se nessuna immagine in cronologia, usa ""
 
-   6) Output. Ritorna il risultato del tool:
-      - Non aggiungere testo prima o dopo i campi.
-      - Ritorna il campo "author"="7"
-      - Ritorna il campo postType="posts"|"eventi" (vedi criterio al punto 3, Categoria A: "eventi" solo con data/ora E luogo/programma concreti)
-      - Ritorna il campo "image" = URL | ""
-      - Ritorna il campo "fonte"="13" se l'articolo proviene da semprenews.it 
-      - Ritorna il campo "fonte"="56" se l'articolo proviene da serviziocivile.apg23.org
-      - Ritorna il campo "fonte"="67" se un post senza provenienza è un comunicato stampa 
-      - Ritorna il campo "fonte"="12" in tutti gli altri casi
+   6) Output. Ritorna tutti i campi:
+      - "author"="7"
+      - "postType"="posts"|"eventi" (vedi criterio al punto 3, Categoria A: "eventi" solo con data/ora E luogo/programma concreti)
+      - "image" = URL | ""
+      - "fonte"="13" se l'articolo proviene da semprenews.it
+      - "fonte"="56" se l'articolo proviene da serviziocivile.apg23.org
+      - "fonte"="67" se comunicato stampa 
+      - "fonte"="12" default 
       - Ritorna tutti gli altri campi ricevuti dal tool nel formato dato senza modificarli.
-      - Mantieni le formattazioni di ogni campo come ritornate dal tool
       - Se errore in un campo: ritorna stringa vuota.
     
    
