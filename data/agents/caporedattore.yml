@@ -16,8 +16,11 @@ params:
     - text
   model: "gpt-5.4-mini-2026-03-17"
   tool_choice: "required"
+  # then_tool_choice (non max_tool_calls, rimosso: per l'API si applica solo ai built-in tool di
+  # OpenAI, non alle function tool custom come queste — vedi commento in chatgptresponse.ts) è
+  # quello che limita davvero a un solo giro di tool-call: dopo il primo, il ciclo forza
+  # tool_choice a questo valore, "none" qui.
   then_tool_choice: "none"
-  max_tool_calls: 1
   max_output_tokens: 6000
   temperature: 0.3
 instructions: 
@@ -26,13 +29,12 @@ instructions:
     #  - tools_caporedattore
     #  - esempi_caporedattore
 toolNames:
-      # scraper_url_download rimosso: con max_tool_calls:1 + then_tool_choice:"none" (vedi sopra)
-      # il ciclo di chiamata concede UN SOLO giro di tool-call totale (non max_tool_calls giri,
-      # vedi ciclo==1 in chatgptresponse.ts): se caporedattore lo spende per scaricare una
-      # pagina, non gli resta modo di chiamare il tool di categoria e scrive l'articolo lui
-      # stesso, saltando l'intera pipeline (es. formatta_ai per un rilancio). Classifica dal
-      # link/contesto disponibile: il tool di categoria scelto scarica lui la pagina, ha già
-      # scraper_url_download con tool_choice libero.
+      # scraper_url_download rimosso: con then_tool_choice:"none" (vedi sopra) il ciclo di
+      # chiamata concede UN SOLO giro di tool-call totale: se caporedattore lo spende per
+      # scaricare una pagina, non gli resta modo di chiamare il tool di categoria e scrive
+      # l'articolo lui stesso, saltando l'intera pipeline (es. formatta_ai per un rilancio).
+      # Classifica dal link/contesto disponibile: il tool di categoria scelto scarica lui la
+      # pagina, ha già scraper_url_download con tool_choice libero.
       - proceduratool_ripubblica
       - proceduratool_ufficiostampa
       - proceduratool_cronaca

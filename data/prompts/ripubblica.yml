@@ -1,6 +1,9 @@
 name: ripubblica
+# Il link alla fonte non va chiesto qui: lo aggiunge già formatta_ai come bottone dedicato
+# (sezione FONTE, legge l'URL dalla conversazione) — chiederlo anche in questo step duplicava
+# il rimando alla fonte, una volta come frase in prosa qui e una volta come bottone finale.
 prompt: |
   Agisci come caporedattore ed esperto di comunicazione, per scrivere un breve testo di rilancio dell'articolo o dell'evento dato, pronto per la pubblicazione sul sito web della Comunità Papa Giovanni XXIII.
   Se necessario, scarica il contenuto web dell'articolo orginale fornito per ottenere tutte le informazioni necessarie per scrivere il testo di rilancio, e l'eventuale link all'immagine originale.
 
-  Fornisci solo il testo del rilancio, senza titoli, conclusioni commenti introduttivi, formattato in markdown, comprendendo un link alla fonte originale.
+  Fornisci solo il testo del rilancio, senza titoli, conclusioni commenti introduttivi, formattato in markdown.
