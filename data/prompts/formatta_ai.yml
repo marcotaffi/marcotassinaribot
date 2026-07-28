@@ -20,10 +20,11 @@ prompt: >
     ORGANIZZAZIONE DEL TESTO
     ═══════════════════════════════════════
 
-    - Il primo blocco (testo prima del primo ##) non ha titolo: ometti completamente il <div class="PageTitleSmall">.
+    - Il primo blocco (testo prima del primo ##) non ha titolo.
     - Ogni titolo ## dell'articolo genera esattamente un nuovo blocco titolato.
     - Ogni blocco contiene TUTTI i paragrafi della sua sezione, separati da <p>&#8203;</p>.
-    - Inserisci al termine il link alla fonte URL dell'articolo originale, se noto.
+    - Inserisci al termine il link alla fonte URL dell'articolo originale, se noto (vedi sezione FONTE).
+    - Se il testo NON contiene alcun ##, l'intero articolo è UN SOLO blocco senza titolo: non dividerlo mai per argomento, paragrafo o cambio di tema.
 
 
     ═══════════════════════════════════════
@@ -34,24 +35,47 @@ prompt: >
     - Non inventare titoli.
     - Non riassumere.
     - Non aggiungere parole.
-    - Non inventare sezioni.
+    - Non inventare sezioni: se il testo non ha ## non creare sezioni, sottotitoli o blocchi "a tema" di tua iniziativa.
+    - Non duplicare paragrafi: ogni frase del testo originale compare in output UNA VOLTA SOLA, nel blocco a cui appartiene.
     - Non cambiare l'ordine.
     - Non riformulare.
     - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
 
 
     ═══════════════════════════════════════
-    FORMATO BLOCCHI
+    FORMATO BLOCCHI — DUE VARIANTI, NON MESCOLARLE
     ═══════════════════════════════════════
 
-    Ogni blocco va formattato così:
+    VARIANTE A — blocco SENZA titolo (il primo blocco, prima del primo ##):
+    il <div class="PageTitleSmall"> NON COMPARE PROPRIO nell'output, nemmeno vuoto.
+    ERRORE GRAVE E FREQUENTE da evitare: scrivere <div class="PageTitleSmall"></div> vuoto. Se non c'è titolo, quelle righe vanno saltate del tutto, non svuotate.
+
+    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
+      <div class="BlockMainContainer SiteWidth">
+        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+          <div class="BodyText">
+             <div class="BodyText">
+               <p>
+                 TESTO SUDDIVISO IN PARAGRAFI
+               </p>
+               <p>&#8203;</p>
+               <p>
+                SECONDO PARAGRAFO
+               </p>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    VARIANTE B — blocco titolato (generato da un ## del testo originale):
 
     <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
       <div class="BlockMainContainer SiteWidth">
         <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
           <div class="BodyText">
              <div class="PageTitleSmall">
-                EVENTUALE TITOLO
+                TITOLO DELLA SEZIONE (preso da un ## reale del testo, mai inventato)
              </div>
              <div class="BodyText">
                <p>
@@ -72,7 +96,7 @@ prompt: >
     REGOLE DI FORMATTAZIONE DEL TESTO
     ═══════════════════════════════════════
 
-    - Nel primo blocco, ometti completamente il <div class="PageTitleSmall">.
+    - Nel primo blocco, il <div class="PageTitleSmall"> non compare (vedi VARIANTE A sopra): non scriverlo vuoto.
     - Ogni titolo di livello 3 → <H3></H3>
     - Ogni paragrafo → <p>Testo</p> nello stesso blocco
     - Separa i paragrafi con separatore <p>&#8203;</p>
@@ -100,12 +124,17 @@ prompt: >
         </a>
       </div>
 
+    ERRORE GRAVE E FREQUENTE da evitare: NON creare un blocco titolato a parte (es. con titolo "Fonte") solo per questo bottone. Il bottone va incollato DENTRO il </div> di chiusura del BodyText dell'ULTIMO blocco già esistente (che sia VARIANTE A o VARIANTE B), non genera mai un nuovo blocco e non aumenta il conteggio dei blocchi.
+
 
     ═══════════════════════════════════════
     OUTPUT
     ═══════════════════════════════════════
 
-    - Restituisci SOLO l'HTML finale, una serie di blocchi.
+    - Restituisci SOLO l'HTML finale, una serie di blocchi, a partire direttamente da <div class="BlockWrapperContainer...
     - Nessun testo aggiuntivo.
     - Nessuna spiegazione.
+    - NON avvolgere l'output in un blocco di codice markdown (niente ```html iniziale né ``` finale): scrivi l'HTML puro e basta.
     - Verifica finale: il numero di blocchi corrisponde a 1 + numero di ## nel testo originale.
+    - Verifica finale: nessun <div class="PageTitleSmall"> è vuoto — se un blocco non ha titolo, quel div è del tutto assente.
+    - Verifica finale: non esiste un blocco dedicato solo alla fonte — il bottone fonte è dentro l'ultimo blocco di contenuto.

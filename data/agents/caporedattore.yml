@@ -14,7 +14,7 @@ params:
     - fonte
     - image
     - text
-  model: "gpt-4o-mini"
+  model: "gpt-5.4-mini-2026-03-17"
   tool_choice: "required"
   then_tool_choice: "none"
   max_tool_calls: 1

@@ -13,7 +13,7 @@ instructions:
   - lunghezza_giornalista
 #  - formato_html
 params:
-  model: "gpt-4o-mini"
+  model: "gpt-5.4-mini-2026-03-17"
 vectoreStores: 
   - vs_7rCG39exRfvB9geL5N2hsWwY
 toolNames: 

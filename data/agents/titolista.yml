@@ -3,7 +3,7 @@ agentDescription: "il miglior titolista del mondo"
 apiClient: "gpt-response-dev"
 assistant_id: "pmpt_690f45d1fb988190bc4b62562bbc55f40f0c5f030993c141"
 params:
-  model: "gpt-4o-mini"
+  model: "gpt-5.4-mini-2026-03-17"
   tool_choice: "none"
   type: "json"
  

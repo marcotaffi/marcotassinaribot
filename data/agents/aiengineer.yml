@@ -4,6 +4,6 @@ apiClient: "gpt-response-dev"
 assistant_id: "pmpt_69aeec913dd08197b18b6b535887894007a218ecd192ce50"
 params:
   tool_choice: "none"
-  model: "gpt-4o-mini"
+  model: "gpt-5.4-mini-2026-03-17"
   type: "text"
 
