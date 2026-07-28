@@ -1,0 +1,14 @@
+name: formatta_ai
+description: "Regole di validazione per i blocchi HTML dello step formatta_ai (apg23/WordPress)"
+
+estrazione:
+  campo: text
+
+regole:
+  - id: code_fence
+    vietato: '^```|```$'
+    messaggio: "L'output è avvolto in un blocco di codice markdown (```html ... ```): va restituito solo HTML puro, senza fence."
+
+  - id: titolo_vuoto
+    vietato: '<div\s+class="PageTitleSmall">\s*</div>'
+    messaggio: 'È presente un <div class="PageTitleSmall"></div> vuoto: quando il blocco non ha titolo, il div va omesso COMPLETAMENTE, non lasciato vuoto.'
