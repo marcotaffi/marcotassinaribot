@@ -71,7 +71,8 @@ let news : TriggerProposti[] = [];
 let feeds: TriggerProposti[] = [{
   hooks: ["https://www.semprenews.it/tag/Comunita-Papa-Giovanni-XXIII.html"],
   categories: ["apg23"],
-  lingua: "it"
+  lingua: "it",
+  intervalloControllo: 6 * 60 * 60 * 1000, // 6 ore: fonte più dinamica della media, la ricontrollo più spesso del default del taffiserver
  },
 ];
 
