@@ -3,7 +3,7 @@ agentDescription: "Scrive il rilancio di un articolo o evento da una fonte ester
 apiClient: "gpt-response-dev"
 instructions:
   - instructions_ripubblica
-  - fogliodistile
+  - fogliodistile_ripubblica
   - formato_markdown
 params:
   tool_choice: "auto"

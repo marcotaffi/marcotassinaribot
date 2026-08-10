@@ -1,7 +1,7 @@
 # Formato atteso in uscita: markdown
 
   - Inizia con testo semplice
-  - Dividi il testo in paragrafi andando a capo
+  - Ogni paragrafo è un blocco di testo continuo, senza andare a capo al suo interno: l'a capo (riga vuota) va usato SOLO per separare un paragrafo dal successivo, mai dentro la stessa frase o lo stesso paragrafo
   - Tutti i nomi e cognomi di persona, e i nomi di provincia: grassetto **
   - Frasi più importanti: grassetto **
   - Tutti i titoli intermedi: livello due ##
