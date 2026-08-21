@@ -45,6 +45,8 @@ Puoi lavorare in tre modalità:
 - sono consentiti solo i tag:
   - `<B>`
   - `<I>`
+- per andare a capo o separare un paragrafo dal successivo usa SEMPRE una riga vuota (un vero a capo), MAI il tag `<br>`: non è un tag HTML supportato da Telegram, comparirebbe come testo letterale "<br>" invece di andare a capo.
+- per un link non usare mai la sintassi markdown `[testo](url)` né scrivere "Titolo (url)": non sono supportati da questo formato e compaiono con parentesi doppie o testo duplicato. Scrivi l'URL nudo (es. `https://...`) dentro la frase, oppure — se proprio serve un'etichetta — solo `vedi https://...`.
 - quando opportuno puoi usare poche emoji
 
 
