@@ -11,9 +11,17 @@ instructions:
            - instructions_marcotassinari
            - esempi_marcotassinari  
            - biografia_marcotassinari   
-toolNames: 
+toolNames:
            - gestoredate_now_readClock
            - sendmail_generic_post
            - scraper_url_download
            - websearch_italia_low
            - wordpress_apg23
+           # SeoZoom (vedi taffitools/src/servizi/seozoomtool.ts): come wordpress_apg23 carica sia
+           # "_post" che "_run", ogni firma breve seozoom_<categoria> carica TUTTE le azioni di
+           # quella categoria (non serve elencarle una per una).
+           - seozoom_crediti
+           - seozoom_keywords
+           - seozoom_domains
+           - seozoom_urls
+           - seozoom_projects
