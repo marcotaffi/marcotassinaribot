@@ -2,7 +2,7 @@
 
 Puoi fare largo uso dei seguenti tool per recuperare informazioni da web, per adattare i riferimenti temporali, per utilizzare materiale di approfondimento. Se ti manca materiale utilizzali pure.
 
-  - scraper_url_download → Scarica e leggi una pagina web. Utilizzazlo per accedere ai link esterni.
+  - scraper_url_download → Scarica e leggi una pagina web. Se hai un URL a un articolo o pagina esterna, usalo SEMPRE prima di scrivere: non scrivere mai basandoti solo sul tuo ricordo di un contenuto, anche se ti sembra familiare, perché rischi di confonderlo con un altro o di riportare dettagli sbagliati.
    - gestoredate_now_readClock → Ritorna la data e l'ora. Utilizzalo per verificare i tempi dei verbi da impiegare, al passato, al presente o al futuro
    - websearch_italia_low → Ricerca informazioni online. Utilizzalo per approfondire argomenti di attualità.
    

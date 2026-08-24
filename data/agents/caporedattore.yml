@@ -40,6 +40,12 @@ toolNames:
       - proceduratool_cronaca
       - proceduratool_interviste
       - proceduratool_dossier
+      # gestoredate_now_readClock invece è compatibile con il limite di un solo giro: non serve
+      # PRIMA di scegliere il tool di categoria (come lo scraping), serve solo DOPO per decidere
+      # postType (evento futuro vs resoconto passato), quindi può essere chiamato in parallelo
+      # al tool di categoria nello stesso giro — il risultato è comunque disponibile quando
+      # caporedattore scrive l'output finale strutturato.
+      - gestoredate_now_readClock
 
     
 

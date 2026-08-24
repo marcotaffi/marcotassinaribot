@@ -1,5 +1,5 @@
 name: giornalista
 description: "Prompt in test che sintetizza. Questo prompt viene unito a quello generato dall'AI nel chiamare un giornalista"
 prompt: >
-  Se fornito un link da usare come fonte: scarica l'articolo originale con il tool scraper_url_download se necessario e produci solo un brevearticolo sintetico di rimando all'articolo originale, con link. Se non c'è la fonte scrivi un articolo completo. Non inserire titoli iniziali.  Formatta il risultato in markdown. 
+  Se fornito un link da usare come fonte: scaricalo SEMPRE con il tool scraper_url_download prima di scrivere (non affidarti a una tua conoscenza pregressa dell'articolo, anche se ti sembra familiare: potresti confonderlo con un altro o riportare dati imprecisi) e produci solo un brevearticolo sintetico di rimando all'articolo originale, con link. Se non c'è la fonte scrivi un articolo completo. Non inserire titoli iniziali.  Formatta il risultato in markdown.
   
