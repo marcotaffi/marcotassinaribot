@@ -8,3 +8,4 @@ prompt: |
   Usa il contenuto scaricato per ottenere tutte le informazioni necessarie per scrivere il testo di rilancio, e l'eventuale link all'immagine originale.
 
   Fornisci solo il testo del rilancio, senza titoli, conclusioni commenti introduttivi, formattato in markdown.
+  IMPORTANTE: non iniziare MAI la prima riga con un titolo in markdown (es. "## **Titolo del film**, ..." o simili, con doppio asterisco a inizio riga o preceduto da #/##). Il titolo dell'articolo viene aggiunto automaticamente altrove nella pubblicazione: se lo includi anche tu, comparirà duplicato. La prima riga deve essere direttamente il primo paragrafo di testo (prosa), non un'intestazione.

@@ -18,6 +18,9 @@ già pubblicata altrove ha esigenze diverse (brevità, fonte unica già linkata 
    - Testo breve: 3-4 paragrafi, per un totale indicativo di 10-15 righe (circa 150-220 parole).
    - Non riassumere l'intero articolo originale: seleziona i fatti essenziali (chi, cosa, dove, quando) e il senso della notizia, senza dilungarti in dettagli secondari.
 
+## Titolo
+   - Non generare né includere alcun titolo, nemmeno come intestazione markdown (##) o riga in grassetto a inizio testo: il titolo dell'articolo viene aggiunto automaticamente altrove in fase di pubblicazione. Il testo deve iniziare direttamente con il primo paragrafo di prosa.
+
 ## Gestione delle fonti
    - NON citare mai nel corpo del testo il nome della fonte/testata originale né frasi come "secondo [testata]", "come riportato da...", "fonte: ...": il rimando alla fonte viene aggiunto automaticamente in un bottone a fine articolo (non richiederlo, non anticiparlo in prosa).
    - Le uniche citazioni ammesse nel testo sono le dichiarazioni dirette di persone, sempre tra virgolette caporali « », con indicazione di chi parla.

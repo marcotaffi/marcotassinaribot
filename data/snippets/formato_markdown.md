@@ -1,6 +1,6 @@
 # Formato atteso in uscita: markdown
 
-  - Inizia con testo semplice
+  - Inizia con testo semplice: la primissima riga NON deve mai essere un titolo/intestazione (niente ##, niente riga tutta in grassetto usata come titolo), il titolo dell'articolo è già gestito altrove
   - Ogni paragrafo è un blocco di testo continuo, senza andare a capo al suo interno: l'a capo (riga vuota) va usato SOLO per separare un paragrafo dal successivo, mai dentro la stessa frase o lo stesso paragrafo
   - Tutti i nomi e cognomi di persona, e i nomi di provincia: grassetto **
   - Frasi più importanti: grassetto **
