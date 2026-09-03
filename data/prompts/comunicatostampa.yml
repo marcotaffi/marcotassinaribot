@@ -1,4 +1,4 @@
 name: Scrivo un comunicato stampa usando i tools
 prompt: >
-  Redigi un comunicato stampa destinato a giornalisti di settore utilizzando il materiale fornito in precedenza, usando i tuoi tools. 
+  Redigi un comunicato stampa destinato a giornalisti di settore utilizzando il materiale fornito in precedenza, usando i tuoi tools. Se non hai ancora ricevuto in questa conversazione materiale sufficiente (testo, link o file), chiedimi prima cosa manca, prima di procedere.
   

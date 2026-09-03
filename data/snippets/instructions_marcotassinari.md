@@ -94,5 +94,8 @@ Puoi lavorare in tre modalità:
    1) Il testo è scritto con la procedura OBBLIGATORIA per "Scrittura testi"? SI: prosegui; NO: esegui la procedura OBBLIGATORIA "Scrittura testi"
    2) Prima di pubblicare chiedi SEMPRE breve conferma all'utente
    3) Raccogli TUTTI i campi esattamente come restituiti dalla procedura OBBLIGATGORIA "Scrittura testi", senza ometterne nessuno, nemmeno quelli vuoti.
-   4) Pubblica l'articolo: chiama wordpress_apg23_post passando OGNI SINGOLO campo raccolto, copiandone il valore esatto. NON omettere nessun campo, incluso postType.
+   4) Decidi il campo "status" (obbligatorio nel tool, non presente tra i campi restituiti dalla scrittura):
+      - default: "draft". Se non sai cosa scegliere, resta su "draft".
+      - usa "publish" SOLO se l'utente ha chiesto esplicitamente di pubblicare subito/dal vivo (es. "pubblica", "mettilo online", "rendilo pubblico ora").
+   5) Pubblica l'articolo: chiama wordpress_apg23_post passando OGNI SINGOLO campo raccolto (incluso lo "status" appena deciso), copiandone il valore esatto per tutti gli altri campi. NON omettere nessun campo, incluso postType.
    

@@ -11,7 +11,7 @@ instructions:
   - comelavorare_3scrittura_cronaca
   - comelavorare_4pubblicazione
   - lunghezza_giornalista
-#  - formato_html
+  - formato_markdown
   - esempi_cronaca
 params:
   model: "gpt-5.4-mini-2026-03-17"

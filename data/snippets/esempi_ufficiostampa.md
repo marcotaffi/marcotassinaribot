@@ -19,8 +19,6 @@
     Per informazioni: [www.preghieracontrotratta.org](http://www.preghieracontrotratta.org)  
     Ufficio stampa: Luca Luccitelli, 340.5475343  
 
-    [Leggi l’articolo originale su semprenews.it](https://www.example.com/articolo-originale)
-
 
 ## Esempio di lancio di un evento
 
@@ -36,7 +34,5 @@
 
     L’evento è organizzato in collaborazione con la *Diocesi di Ravenna* ed è parte delle celebrazioni per il centenario di Don Oreste Benzi.  
 
-    L'ingresso è gratuito; seguirà buffet. 
-    [Scopri di più](https://www.example.com/articolo-originale)
-
+    L'ingresso è gratuito; seguirà buffet.
 

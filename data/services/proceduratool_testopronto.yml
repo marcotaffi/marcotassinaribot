@@ -1,0 +1,8 @@
+firma: proceduratool_testopronto
+servizio: proceduratool
+destinazione: testopronto
+# procedura con "_" iniziale: vedi commento in procedure/_testopronto.yml (esclude il file dalla
+# registrazione automatica come comando Telegram, il caricamento diretto per nome funziona comunque).
+procedura: _testopronto
+azione: esegui
+cosafa: "This tool takes an already finished, ready-to-publish text (the user explicitly said not to rewrite it) and formats it for apg23.org: generates SEO/title fields and HTML blocks, WITHOUT rewriting, rephrasing or altering the given content in any way."

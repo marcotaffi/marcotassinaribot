@@ -1,0 +1,3 @@
+name: Scrivo un testo per l'ufficio stampa
+prompt: >
+  Scrivi un testo per l'ufficio stampa (lancio di un evento, comunicato, presa di posizione o iniziativa istituzionale) utilizzando il materiale fornito in precedenza, usando i tuoi tools. Se non hai ancora ricevuto in questa conversazione materiale sufficiente (testo, link o file), chiedimi prima cosa manca, prima di procedere.

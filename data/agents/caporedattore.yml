@@ -40,6 +40,9 @@ toolNames:
       - proceduratool_cronaca
       - proceduratool_interviste
       - proceduratool_dossier
+      # Categoria P (testo già pronto, non riscrivere): salta lo step di riscrittura, esegue solo
+      # genera_titoli + formatta_ai (vedi procedure/_testopronto.yml e instructions_caporedattore.md).
+      - proceduratool_testopronto
       # gestoredate_now_readClock invece è compatibile con il limite di un solo giro: non serve
       # PRIMA di scegliere il tool di categoria (come lo scraping), serve solo DOPO per decidere
       # postType (evento futuro vs resoconto passato), quindi può essere chiamato in parallelo

@@ -1,0 +1,3 @@
+name: Scrivo un post LinkedIn
+prompt: >
+  Scrivi (in chat, senza chiamare wordpress_apg23_run o wordpress_apg23_post: questo non è un contenuto per apg23.org) un post breve, discorsivo e colloquiale per la mia pagina LinkedIn personale, a partire dal materiale fornito in precedenza in questa conversazione (articolo, link o testo). Stile empatico e informale, frasi brevi, niente punti esclamativi o toni enfatici. Se non hai ancora ricevuto materiale sufficiente, chiedimi prima cosa manca, prima di procedere.

@@ -1,0 +1,3 @@
+name: Scrivo un testo di cronaca
+prompt: >
+  Scrivi un testo di cronaca/notizia utilizzando il materiale fornito in precedenza, usando i tuoi tools. Se non hai ancora ricevuto in questa conversazione materiale sufficiente (testo, link o file), chiedimi prima cosa manca, prima di procedere.

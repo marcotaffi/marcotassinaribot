@@ -17,6 +17,12 @@ Note:
       - Individua chiaramente UN SOLO TOOL DI SCRITTURA corrispondende alla categoria.
 
    ## Classificazione del contenuto
+   ### Categoria P — Testo già pronto, non riscrivere → utilizza il tool: `proceduratool_testopronto`
+      - l'utente ha fornito un testo già completo e ha dichiarato ESPLICITAMENTE di non volerlo modificato/riscritto (es. "non riscrivere", "testo definitivo", "pubblica così com'è", "lascialo inalterato")
+      - QUESTA CATEGORIA HA PRIORITÀ su tutte le altre quando c'è una dichiarazione esplicita in tal senso: non riscrivere il materiale nemmeno se sembra incompleto o migliorabile stilisticamente.
+      - Se manca una dichiarazione esplicita in tal senso, NON usare questa categoria: classifica normalmente nelle categorie sottostanti (un testo "già ben scritto" ma senza richiesta esplicita di non modificarlo va comunque nella categoria di contenuto che gli compete).
+      - Per postType vale lo stesso criterio della Categoria A (vedi sotto): data/luogo concreti e non ancora passati rispetto a oggi.
+
    ### Categoria E — Rilancio di un articolo o evento già pubblicato altrove → utilizza il tool: `proceduratool_ripubblica`
       - il materiale è un articolo, notizia o evento GIÀ pubblicato integralmente su un'altra fonte (es. semprenews.it) e va sintetizzato/rilanciato per apg23.org, non riscritto da zero come contenuto originale
       - richiesta esplicita di "rilancio" o "ripubblicazione" di una notizia o di un link

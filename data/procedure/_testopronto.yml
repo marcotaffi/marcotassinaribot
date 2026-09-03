@@ -1,0 +1,19 @@
+# Nome file con "_" iniziale DI PROPOSITO: FolderManager.elencaFiles (usato per registrare i
+# comandi Telegram/WebChat da data/procedure/*.yml) esclude i file che iniziano per "_", quindi
+# questa procedura NON diventa un comando /testopronto (che sarebbe comunque rotto: non esiste un
+# data/prompts/testopronto.yml pensato per l'uso diretto da comando). Resta comunque caricabile
+# per nome esatto da chi la referenzia esplicitamente con procedura: "_testopronto"
+# (vedi services/proceduratool_testopronto.yml).
+name: testopronto
+description: >
+  Formatta per apg23 un testo già pronto/definitivo SENZA riscriverlo: salta lo step di scrittura
+  giornalistica e produce solo titoli/campi SEO (genera_titoli) e la formattazione HTML a blocchi
+  (formatta_ai, che di suo non modifica/riformula il contenuto). Usata dal caporedattore quando
+  l'utente dichiara esplicitamente di non voler modificato il testo (vedi instructions_caporedattore.md,
+  Categoria P).
+type: sequenziale
+tasks:
+  - name: genera_titoli
+    type: step
+  - name: formatta_ai
+    type: step
