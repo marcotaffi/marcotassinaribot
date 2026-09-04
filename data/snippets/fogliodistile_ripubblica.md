@@ -32,5 +32,6 @@ già pubblicata altrove ha esigenze diverse (brevità, fonte unica già linkata 
 ## Convenzioni tipografiche
    - Dichiarazioni dirette: sempre tra virgolette caporali « », con indicazione del parlante.
    - La parola Paese/Paesi con maiuscola quando indica una nazione.
-   - Quando citi un comune, indica SEMPRE la sigla della provincia tra parentesi subito dopo il nome, senza virgola né preposizione davanti alla sigla: "a Modica (RG)", MAI "a Modica, in (RG)" o la sigla staccata dal nome del comune. Vale per ogni comune citato, non solo per quelli minori: il testo ha diffusione nazionale.
+   - La PRIMA VOLTA che nomini nel testo un comune che NON è capoluogo di provincia, aggiungi subito dopo il nome la sigla della provincia tra parentesi, senza virgola né preposizione davanti alla sigla: "a Modica (RG)", MAI "a Modica, in (RG)" o la sigla staccata dal nome del comune. Non serve ripeterla alle menzioni successive dello stesso comune, e non serve per i comuni che sono già capoluogo di provincia.
    - Gli indirizzi (via, contrada, frazione, numero civico) vanno riportati per esteso e completi (es. "Via Roma 12, Modica (RG)") oppure omessi del tutto: mai un indirizzo parziale o un solo elemento isolato (es. mai la sola contrada/frazione senza il resto).
+   - Quando fornisci un riferimento di contatto nel testo (es. "Per informazioni:", "Ufficio stampa:"), cita SOLO il nome di battesimo, mai il cognome, per tutela della privacy: "Per informazioni: Marco, 329.4234323", non "Marco Rossi, 329...".

@@ -8,17 +8,23 @@ params:
     - yoast_title
     - yoast_metadesc
 prompt: >
-  Genera i titoli per il testo dato in formato JSON, fornendo i campi necessari per la pubblicazione online. 
-  
+  Genera i titoli per il testo dato in formato JSON, fornendo i campi necessari per la pubblicazione online.
+
   # Indicazioni redazionali
   - Se presenti, includi call to action, inviti a eventi o date principali nel sottotitolo.
   - Rispetta la lunghezza massima di 100 caratteri per yoast_metadesc.
-  - Mantieni fedeltà ai fatti: non aggiungere informazioni non presenti nell’articolo.
+  - Mantieni fedeltà ai fatti: non aggiungere informazioni non presenti nell'articolo.
+
+  # Comuni piccoli, province e privacy
+  - "title" e "yoast_title": il pubblico è nazionale, quasi nessuno conosce i piccoli comuni. NON nominare mai un comune che non è capoluogo di provincia: usa al suo posto il CAPOLUOGO della provincia in cui si trova (es. un evento a Selvazzano Dentro → nel titolo "Padova", non "Selvazzano Dentro"). Se il comune è già capoluogo, usalo direttamente.
+  - Per un evento con un luogo fisico, "title" segue SEMPRE lo schema "Capoluogo, nome o brevissima descrizione dell'evento" (es. "Padova, Messa per Don Oreste Benzi"). Il comune vero e l'indirizzo restano nel testo e nel campo "luogo_evento": nel titolo compare solo il capoluogo.
+  - "excerpt" e "luogo_evento": qui va il luogo VERO e completo (il comune reale, non il capoluogo). La prima volta che nomini un comune che non è capoluogo, aggiungi la sigla della provincia tra parentesi subito dopo il nome, senza virgola né preposizione: "Selvazzano Dentro (PD)", mai "Selvazzano Dentro, in (PD)" o la sigla staccata dal nome. Non serve per i comuni già capoluogo (es. "Padova" da solo basta).
+  - Se generi o riporti un riferimento di contatto (es. in excerpt), cita solo il nome di battesimo, mai il cognome, per tutela della privacy: "Marco, 329.4234323", non "Marco Rossi, 329...".
 
   # campi SEO
-  Individua la parola chiave principale dell’articolo e usala in modo discorsivo in yoast_title (titolo SEO) e Syoast_metadesc (metadata SEO).
+  Individua la parola chiave principale dell'articolo e usala in modo discorsivo in yoast_title (titolo SEO) e Syoast_metadesc (metadata SEO).
 
-  # Formato 
+  # Formato
   Scrivi i titoli come testo normale, senza formattazioni.
   Inseriscili in una stringa JSON che deve avere sempre le seguenti chiavi:
 
@@ -28,5 +34,5 @@ prompt: >
     "data_in_forma_testuale": "Data evento" | stringa vuota se non presente
     "luogo_evento": "Luogo evento" | stringa vuota se non presente
     "yoast_title": "Titolo semplificato che inizi con la parola chiave",
-    "yoast_metadesc": "Breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave", 
+    "yoast_metadesc": "Breve testo d'impatto, massimo 100 caratteri, contenente la parola chiave",
   }

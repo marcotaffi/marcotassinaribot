@@ -1,12 +1,15 @@
 agentName: titolista
 agentDescription: "il miglior titolista del mondo"
 apiClient: "gpt-response-dev"
-assistant_id: "pmpt_690f45d1fb988190bc4b62562bbc55f40f0c5f030993c141"
+# assistant_id disattivato (era l'unico agente rimasto così, tutti gli altri sono già migrati):
+# con assistant_id attivo, chatgptresponse.ts manda prompt:{id: assistant_id} e usa quel prompt
+# salvato lato OpenAI come istruzioni di sistema — un file locale "instructions:" qui sotto non
+# esisteva proprio, quindi instructions_titolista.md non aveva alcun effetto reale. Passo allo
+# stesso schema di cronaca/ufficiostampa/dossier/interviste: instructions locali, editabili qui.
+#assistant_id: "pmpt_690f45d1fb988190bc4b62562bbc55f40f0c5f030993c141"
+instructions:
+  - instructions_titolista
 params:
   model: "gpt-5.4-mini-2026-03-17"
   tool_choice: "none"
   type: "json"
- 
-
- 
- 
