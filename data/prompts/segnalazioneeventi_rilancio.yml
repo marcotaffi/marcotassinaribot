@@ -1,0 +1,15 @@
+name: segnalazioneeventi_rilancio
+params:
+  type:
+    - subject
+    - text
+prompt: >
+  Scrivi la mail di invito al rilancio per l'evento fornito nel materiale in precedenza (link e testo).
+
+  # Formato
+  Inserisci il risultato in una stringa JSON che deve avere sempre le seguenti chiavi:
+
+  {
+    "subject": "Oggetto breve, es. 'Rilancio: nome evento'",
+    "text": "Corpo della mail in HTML semplice (paragrafi con <br>, un <b> per l'eventuale titolo), pronta per l'invio così com'è"
+  }

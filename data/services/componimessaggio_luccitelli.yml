@@ -1,0 +1,11 @@
+firma: componimessaggio_luccitelli
+servizio: componimessaggio
+destinazione: luccitelli  # solo un'etichetta per questa istanza, non usata come indirizzo
+azione: componi
+opzioni:
+  subject: "Nuovo evento pubblicato: {{titolo}}"
+  text: >-
+    Ciao Luca,<br><br>
+    segnalo la pubblicazione di questo evento sul sito:<br><br>
+    <b>{{titolo}}</b><br>
+    {{link}}

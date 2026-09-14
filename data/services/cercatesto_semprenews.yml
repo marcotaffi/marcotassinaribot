@@ -1,0 +1,11 @@
+firma: cercatesto_semprenews
+servizio: cercatesto
+destinazione: semprenews  # solo un'etichetta per questa istanza, non usata come indirizzo
+azione: cerca
+opzioni:
+  campo: articolo            # campo prodotto da CanaleFlusso.preRun col testo grezzo dell'evento
+  modo: data                 # "articolo" vive in un blocco dati (preRun lo produce con type:"data"),
+                              # non come testo a sé stante: senza "modo: data" la ricerca non lo trova.
+  pattern: "semprenews"
+  ignoreCase: true
+  campoOutput: isSemprenews  # campo booleano prodotto, letto dalle ramificazioni della procedura

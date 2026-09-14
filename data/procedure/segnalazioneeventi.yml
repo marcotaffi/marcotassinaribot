@@ -1,0 +1,26 @@
+name: segnalazioneeventi
+description: "Segnala un evento apg23 a Luca; se non è già un rilancio di semprenews, invita anche i giornalisti a darne rilievo"
+type: sequenziale
+tasks:
+  - name: rileva_semprenews
+    type: step
+    ramificazioni:
+      - condizione:
+          campo: isSemprenews
+          operatore: equals
+          valore: true
+          modo: data
+        poi: notifica_luca   # è già un rilancio di semprenews: salta l'invito ai giornalisti
+      - poi: scrivi_rilancio # default: non è di semprenews, scrivi l'invito
+
+  - name: scrivi_rilancio
+    type: step
+
+  - name: invia_redattori
+    type: step
+
+  - name: notifica_luca
+    type: step
+
+  - name: invia_luca
+    type: step

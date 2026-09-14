@@ -83,6 +83,15 @@ let feeds: TriggerProposti[] = [{
   lingua: "it",
   intervalloControllo: 3 * 60 * 60 * 1000, // 3 ore: fonte più dinamica della media, la ricontrollo più spesso del default del taffiserver
  },
+ {
+  // Pagina eventi di apg23.org (HTML statico, verificato): i singoli eventi sono link sotto
+  // /eventi/, includiLink filtra via tutto il resto (paginazione, altre voci del menu).
+  hooks: ["https://www.apg23.org/news-ed-eventi/?type=eventi"],
+  categories: ["apg23"],
+  includiLink: ["/eventi/"],
+  lingua: "it",
+  intervalloControllo: 24 * 60 * 60 * 1000, // una volta al giorno, come richiesto
+ },
 ];
 
 /*
@@ -179,6 +188,28 @@ socialMarcoLinkedin.start(credenziali);
 // La classificazione e i contenuti già vengono caricati dalla factory
 
 
+//--------------
+// Canale generico (CanaleFlusso, vedi taffitools/src/canali/canaleflusso.ts): segue gli eventi
+// apg23 e manda le mail di segnalazione/rilancio (vedi data/procedure/segnalazioneeventi.yml).
+// I servizi "semplici" che il suo flusso chiama per firma (cercatesto, componimessaggio,
+// sendmail) non sono canali: vanno registrati a parte con bot.aggiungiServizi, non con
+// bot.aggiungiCanali, altrimenti uno step "servizio" della procedura non li troverebbe.
+const segnalazioneEventiApg23 = await ServiceFactory.create("segnalazioneeventi_apg23") as CanaleExtendsServizio;
+segnalazioneEventiApg23.start(credenziali);
+
+const cercaTestoSemprenews = await ServiceFactory.create("cercatesto_semprenews");
+cercaTestoSemprenews.start(credenziali);
+
+const componiMessaggioLuccitelli = await ServiceFactory.create("componimessaggio_luccitelli");
+componiMessaggioLuccitelli.start(credenziali);
+
+const sendmailLuccitelli = await ServiceFactory.create("sendmail_luccitelli");
+sendmailLuccitelli.start(credenziali);
+
+const sendmailRedattori = await ServiceFactory.create("sendmail_redattori");
+sendmailRedattori.start(credenziali);
+
+
 //-------------
    //tutto il resto
 
@@ -267,10 +298,13 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
 
     await bot.aggiungieInizializzaInterfaccePredefinite(credenziali); 
   
-    debug(3, "*Aggiungo i canali al bot*"); 
-     bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23], credenziali); //sitoIooo
-     
-    
+    debug(3, "*Aggiungo i canali al bot*");
+     bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,segnalazioneEventiApg23], credenziali); //sitoIooo
+
+     debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
+     bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori]);
+
+
     debug (3, "*Aggiungo le fonti e la conoscenza*");
     
       if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       

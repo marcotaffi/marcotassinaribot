@@ -1,0 +1,5 @@
+name: scrivi_rilancio
+type: prompt
+description: "Scrive l'invito ai giornalisti a rilanciare l'evento"
+prompt: segnalazioneeventi_rilancio
+agentName: segnalazioneeventi

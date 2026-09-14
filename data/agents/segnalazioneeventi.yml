@@ -1,0 +1,10 @@
+agentName: segnalazioneeventi
+agentDescription: "Scrive un invito ai giornalisti a rilanciare un evento apg23"
+apiClient: "gpt-response-dev"
+instructions:
+  - instructions_segnalazioneeventi
+  - fogliodistile
+params:
+  model: "gpt-5.4-mini-2026-03-17"
+  tool_choice: "none"
+  type: "json"

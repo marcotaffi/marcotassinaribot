@@ -1,0 +1,18 @@
+firma: segnalazioneeventi_apg23
+servizio: canaleflusso
+destinazione: apg23
+flussi:
+  principale: segnalazioneeventi
+opzioni:
+  lunghezzaMinima: 50  # soglia bassa: pagine evento spesso brevi, basta scartare scraping vuoti
+
+# classificazione: il canale si iscrive agli articoli/eventi che arrivano dalla fonte apg23
+# eventi dichiarata in src/marcotassinaribot.ts (feeds[]). Da verificare contro un'esecuzione
+# reale di taffiserver prima di andare in produzione: non ho potuto testare la corrispondenza
+# hook<->classificazione end-to-end in questa sessione (nessun bot live in ascolto).
+classificazione:
+  includi:
+    - hooks: ["apg23.org/news-ed-eventi"]
+      type: "feeds"
+      flusso: "Instant"
+  escludi: []
