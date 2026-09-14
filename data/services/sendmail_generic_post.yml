@@ -1,0 +1,10 @@
+firma: "sendmail_generic_post"
+servizio: "sendmail"
+destinazione: "generic" #usata per costruire le firme chiamabili da ai
+azione: "post"
+opzioni:
+  # Demo: invio mail via Gmail API (OAuth2) invece che via IFTTT. Richiede in credenziali
+  # googleClientId / googleClientSecret / googleRefreshToken (vedi taffitools/src/api/googleapi.ts
+  # e taffitools/src/servizi/mailservice.ts). Senza questo file il servizio userebbe IFTTT
+  # di default, come tutti gli altri sendmail_* non configurati esplicitamente.
+  provider: "gmail"

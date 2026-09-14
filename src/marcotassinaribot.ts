@@ -39,6 +39,12 @@ const iftttKey = process.env.IFTTT_WEBHOOKKEY||"";
 //const IOOO = process.env.IOOO_WORDPRESS||"";
 //const APG23 = process.env.APG23_WORDPRESS||"";
 
+// Demo invio mail via Gmail API (vedi taffitools/src/api/googleapi.ts e
+// taffitools/src/servizi/mailservice.ts, usate da data/services/sendmail_generic_post.yml).
+const googleClientId = process.env.GOOGLE_CLIENT_ID||"";
+const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET||"";
+const googleRefreshToken = process.env.GOOGLE_REFRESH_TOKEN||"";
+
 ProcessManager.getInstance().setDebugLevel(process.env.DEBUG_LEVEL);
 
 const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
@@ -51,7 +57,10 @@ const categoryMapping:  { [key: string]: string } = {
 */
 
 const credenziali : Credenziali = {  //sempre più inutili.... da rimuovere TODO. Usare i file di configurazione invece.
-iftttKey: iftttKey, 
+iftttKey: iftttKey,
+googleClientId: googleClientId,
+googleClientSecret: googleClientSecret,
+googleRefreshToken: googleRefreshToken,
 test_only:TEST_ONLY,
 botToken: botToken as string,
 //wordpress_sito: "https://iooo.ai",
