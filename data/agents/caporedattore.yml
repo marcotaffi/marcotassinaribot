@@ -15,12 +15,26 @@ params:
     - image
     - text
   model: "gpt-5.4-mini-2026-03-17"
+  # tool_choice:"required" solo al PRIMO giro (vedi then_tool_choice sotto): è la garanzia che
+  # caporedattore chiami SEMPRE almeno un tool prima di poter rispondere — senza, potrebbe
+  # rispondere direttamente al primo giro senza aver delegato a nessuno, inventando un articolo
+  # di sana pianta. Non garantisce da sola che sia il TOOL GIUSTO (vedi then_tool_choice sotto e
+  # instructions_caporedattore.md per quello), ma è comunque la prima barriera.
   tool_choice: "required"
   # then_tool_choice (non max_tool_calls, rimosso: per l'API si applica solo ai built-in tool di
-  # OpenAI, non alle function tool custom come queste — vedi commento in chatgptresponse.ts) è
-  # quello che limita davvero a un solo giro di tool-call: dopo il primo, il ciclo forza
-  # tool_choice a questo valore, "none" qui.
-  then_tool_choice: "none"
+  # OpenAI, non alle function tool custom come queste — vedi commento in chatgptresponse.ts) è il
+  # valore a cui passa tool_choice dal SECONDO giro in poi (soglia fissa nel motore, ciclo==1).
+  # "auto" (non "none"): dal secondo giro il modello PUÒ ancora chiamare un tool se gli serve, ma
+  # non è più obbligato — così, se il primo giro (tool_choice:"required") viene speso su un solo
+  # tool (es. solo gestoredate_now_readClock, dimenticando il tool di categoria — visto in
+  # produzione il 2026-09-15), il secondo giro resta un'occasione per chiamare quello mancante,
+  # invece di forzare una risposta immediata senza materiale vero. "none" bloccava questo
+  # recupero: costringeva a rispondere subito, comunque. Costo di "auto" rispetto a "none": nel
+  # caso normale (primo giro già completo) nessuno, il modello risponde comunque al secondo giro
+  # senza chiamare altro; nel caso di recupero, un giro AI in più — accettabile rispetto
+  # all'alternativa (articolo scritto senza materiale). Il tetto di sicurezza resta comunque
+  # ciclo>8 (vedi chatgptresponse.ts), qui non tocco quello.
+  then_tool_choice: "auto"
   max_output_tokens: 6000
   temperature: 0.3
 instructions: 
@@ -29,12 +43,9 @@ instructions:
     #  - tools_caporedattore
     #  - esempi_caporedattore
 toolNames:
-      # scraper_url_download rimosso: con then_tool_choice:"none" (vedi sopra) il ciclo di
-      # chiamata concede UN SOLO giro di tool-call totale: se caporedattore lo spende per
-      # scaricare una pagina, non gli resta modo di chiamare il tool di categoria e scrive
-      # l'articolo lui stesso, saltando l'intera pipeline (es. formatta_ai per un rilancio).
-      # Classifica dal link/contesto disponibile: il tool di categoria scelto scarica lui la
-      # pagina, ha già scraper_url_download con tool_choice libero.
+      # scraper_url_download rimosso: caporedattore non deve avere la scelta di scaricare pagine
+      # lui stesso — è il tool di categoria a doverlo fare (ha già scraper_url_download, libero di
+      # chiamarlo su più giri), classifica sempre dal link/contesto disponibile.
       - proceduratool_ripubblica
       - proceduratool_ufficiostampa
       - proceduratool_cronaca
@@ -43,11 +54,11 @@ toolNames:
       # Categoria P (testo già pronto, non riscrivere): salta lo step di riscrittura, esegue solo
       # genera_titoli + formatta_ai (vedi procedure/_testopronto.yml e instructions_caporedattore.md).
       - proceduratool_testopronto
-      # gestoredate_now_readClock invece è compatibile con il limite di un solo giro: non serve
-      # PRIMA di scegliere il tool di categoria (come lo scraping), serve solo DOPO per decidere
-      # postType (evento futuro vs resoconto passato), quindi può essere chiamato in parallelo
-      # al tool di categoria nello stesso giro — il risultato è comunque disponibile quando
-      # caporedattore scrive l'output finale strutturato.
+      # gestoredate_now_readClock: serve solo DOPO aver scelto il tool di categoria, per decidere
+      # postType (evento futuro vs resoconto passato) nell'output finale. Meglio chiamarlo in
+      # parallelo al tool di categoria nello stesso giro (più efficiente, un giro AI in meno), ma
+      # con then_tool_choice:"auto" (vedi sopra) non è più indispensabile: se il primo giro va
+      # speso solo su uno dei due, il secondo giro resta comunque un'occasione per chiamare l'altro.
       - gestoredate_now_readClock
 
     

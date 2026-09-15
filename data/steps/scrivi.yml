@@ -3,3 +3,9 @@ type: prompt
 description: "Scrivi un contenuto giornalistico usando l'orchestratore"
 prompt: orchestra
 agentName: caporedattore
+# Backstop deterministico: se il testo prodotto è vuoto o troppo corto per contenere davvero
+# 5W/contesto/citazioni, la procedura fallisce subito (niente retry, vedi stepvalidators.ts) invece
+# di proseguire verso prePost/post con un articolo scritto senza vero materiale. Non sostituisce le
+# istruzioni di caporedattore (che deve comunque provare a raccogliere materiale vero, non solo a
+# restare sopra soglia) — è la rete di sicurezza per quando quelle istruzioni non bastano.
+validate: materiale_sufficiente

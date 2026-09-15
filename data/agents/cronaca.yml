@@ -17,9 +17,17 @@ params:
   model: "gpt-5.4-mini-2026-03-17"
 vectoreStores: 
   - vs_7rCG39exRfvB9geL5N2hsWwY
-toolNames: 
+toolNames:
     - gestoredate_now_readClock
     - scraper_url_download
-    - websearch_italia_low
+    # websearch_italia_low rimosso il 2026-09-15: è un tool nativo OpenAI (type:"web_search"), il
+    # cui risultato NON viene salvato nella cronologia locale della sessione (vedi
+    # ChatGPTRespond.esegui, che tiene solo i function_call custom) — a differenza del risultato
+    # di scraper_url_download, che invece resta disponibile a ogni passo successivo anche in
+    # esecuzione stateless. Un articolo scritto con materiale trovato da websearch_italia_low
+    # sembra a posto in QUESTO giro, ma quel materiale sparisce non appena il ciclo prosegue: visto
+    # in produzione (l'agente generale marcotassinari aveva usato web_search su un link dato invece
+    # di scraper_url_download, perdendo il materiale prima ancora di arrivare qui). Per questo
+    # agente, il cui output deve essere tracciabile fino alla fonte, usa SEMPRE e SOLO
+    # scraper_url_download — mai una ricerca web generica al suo posto.
     - segnalaerrore_run_segnala
-         

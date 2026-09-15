@@ -8,6 +8,9 @@ Puoi fare largo uso dei seguenti tool per recuperare informazioni da web, per ad
   - scraper_url_download → Scarica e leggi una pagina web. Se hai un URL a un articolo o evento originale, usalo SEMPRE prima di scrivere il rilancio: non scrivere mai basandoti solo sul tuo ricordo di un articolo, anche se ti sembra familiare, perché rischi di confonderlo con un altro o di riportare dettagli sbagliati.
   - gestoredate_now_readClock → Ritorna la data e l'ora. Utilizzalo per verificare i tempi dei verbi da impiegare, al passato, al presente o al futuro
   - websearch_italia_low → Ricerca informazioni online. Utilizzalo per approfondire argomenti di attualità.
+   <!-- TODO (2026-09-15): rivedi se questo tool va bene qui — vedi la nota nel toolNames di
+        ripubblica.yml. Se lo togli anche lì, togli anche questa riga (come già fatto in
+        tools_giornalista.md per cronaca/ufficiostampa/interviste/dossier). -->
    
 # Accesso a file e immagini
 

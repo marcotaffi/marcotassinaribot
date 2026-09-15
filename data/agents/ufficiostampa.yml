@@ -17,9 +17,10 @@ params:
   model: "gpt-5.4-mini-2026-03-17"
 vectoreStores: 
   - vs_7rCG39exRfvB9geL5N2hsWwY
-toolNames: 
+toolNames:
            - gestoredate_now_readClock
            - scraper_url_download
-           - websearch_italia_low
+           # websearch_italia_low rimosso: vedi il commento nel toolNames di cronaca.yml, stesso
+           # motivo (risultato nativo non tracciato in sessione, materiale che sparisce prima di
+           # arrivare allo step di scrittura).
            - segnalaerrore_run_segnala
-         

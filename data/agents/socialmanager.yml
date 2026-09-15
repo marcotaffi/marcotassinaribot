@@ -2,7 +2,11 @@ agentName: socialmanager
 agentDescription: "assistente è Marco T perché voglio scriva da parte mia - fare un nuovo assistente socialmanager se serve"
 apiClient: "gpt-response-dev"
 assistant_id: "pmpt_695390b492b081969de7c23cff45414509bb23fead8dab83"
-toolNames-suspend: 
+# TODO (2026-09-15): se riattivi toolNames-suspend → toolNames, rivedi prima se websearch_italia_low
+# va bene qui — vedi il commento nel toolNames di cronaca.yml (taffitools): è un tool nativo il cui
+# risultato non resta disponibile ai giri successivi dello stesso agente, quindi rischioso per
+# qualunque agente che debba scrivere/pubblicare qualcosa basandosi su quel materiale.
+toolNames-suspend:
            - gestoredate_now_readClock
            - websearch_italia_low
 

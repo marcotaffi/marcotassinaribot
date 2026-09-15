@@ -4,7 +4,10 @@ Puoi fare largo uso dei seguenti tool per recuperare informazioni da web, per ad
 
   - scraper_url_download → Scarica e leggi una pagina web. Se hai un URL a un articolo o pagina esterna, usalo SEMPRE prima di scrivere: non scrivere mai basandoti solo sul tuo ricordo di un contenuto, anche se ti sembra familiare, perché rischi di confonderlo con un altro o di riportare dettagli sbagliati.
    - gestoredate_now_readClock → Ritorna la data e l'ora. Utilizzalo per verificare i tempi dei verbi da impiegare, al passato, al presente o al futuro
-   - websearch_italia_low → Ricerca informazioni online. Utilizzalo per approfondire argomenti di attualità.
+   <!-- websearch_italia_low rimosso da questi agenti il 2026-09-15: vedi il commento nel toolNames
+        di cronaca.yml. Se in futuro torna disponibile per un agente che include questo file,
+        aggiungi qui una riga che avvisi di non usarlo per leggere un link già dato (solo
+        scraper_url_download persiste il risultato per i passi successivi). -->
    
 # Accesso a file e immagini
 
