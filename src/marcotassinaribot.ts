@@ -78,7 +78,18 @@ let tags : TagProposti[] = [];
 let news : TriggerProposti[] = [];
 
 let feeds: TriggerProposti[] = [{
-  hooks: ["https://www.semprenews.it/tag/Comunita-Papa-Giovanni-XXIII.html"],
+  // FIX ALLA RADICE (2026-09-15, suggerito dall'utente): prima era la pagina tag HTML
+  // (…Comunita-Papa-Giovanni-XXIII.html), scansionata scartando i link non pertinenti — un
+  // rimedio fragile, sempre esposto a qualunque nuovo link "di contorno" la pagina aggiunga in
+  // futuro (privacy_policy.pdf, condizioni_d_uso.pdf, mailto:, tel:, social, voci di menu erano
+  // già finiti tutti nella Map dei candidati, vedi il bug corretto in questa stessa giornata).
+  // Il sito espone anche il feed RSS reale allo stesso tag (…Comunita-Papa-Giovanni-XXIII.xml,
+  // verificato: 60 <item> puliti, ciascuno con <link> a un vero articolo /news/<slug>.html).
+  // FeedsManager (taffiserver) riconosce ".xml" e lo instrada al parser RSS vero (rss-parser),
+  // un percorso strutturato e non alla scansione euristica dei tag <a> — niente più bisogno di
+  // includiLink qui, esattamente come gli altri hook reali già a feed RSS (annabassi.com/feed/,
+  // comunicazionenonviolenta.org/eventi/feed/, ecc., nessuno dei quali ha includiLink).
+  hooks: ["https://www.semprenews.it/tag/Comunita-Papa-Giovanni-XXIII.xml"],
   categories: ["apg23"],
   lingua: "it",
   intervalloControllo: 3 * 60 * 60 * 1000, // 3 ore: fonte più dinamica della media, la ricontrollo più spesso del default del taffiserver

@@ -8,3 +8,8 @@ agentName: cronaca
 # caporedattore tramite proceduratool_cronaca), mai dagli step successivi della catena. Stesso
 # schema, stessa protezione di scrivi_rilancio — vedi il suo commento in taffitools/src/procedure/step.ts.
 richiedeMateriale: true
+# Backstop sull'output (2026-09-15, stesso motivo di ripubblica.yml — vedi il suo commento):
+# senza questo controllo, se scraper_url_download fallisce l'agente potrebbe scrivere una scusa
+# conversazionale invece di chiamare segnalaerrore, e nessuno se ne accorgerebbe finché
+# formatta_ai non la impacchetta in HTML come se fosse un articolo vero.
+validate: materiale_sufficiente

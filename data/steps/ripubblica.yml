@@ -3,7 +3,14 @@ type: prompt
 description: "Scrivi un rilancio dell'articolo"
 prompt: ripubblica
 agentName: ripubblica
-validate: ripubblica
+# "ripubblica" (citazioni ripetute) da solo non bastava: bug reale osservato il 2026-09-15
+# (scraper_url_download fallito con HTTP 500 → l'agente ha scritto una scusa conversazionale
+# ("Mi manca il testo dell'evento...") come se fosse l'articolo, senza nessun link ripetuto da
+# segnalare, quindi invisibile a quel controllo — la scusa è arrivata intatta fino a formatta_ai,
+# che l'ha impacchettata in HTML come se fosse contenuto vero. "materiale_sufficiente" (lunghezza
+# minima, stesso usato da scrivi.yml) chiude il buco: sotto soglia, fallisce subito, niente
+# retry (vedi step.ts, eseguiValidatori — combina più validatori sullo stesso output).
+validate: [ripubblica, materiale_sufficiente]
 # Backstop deterministico (2026-09-15): primo step della propria procedura (ripubblica →
 # genera_titoli → formatta_ai) — riceve il materiale vero SOLO da qui (il "prompt" passato da
 # caporedattore tramite proceduratool_ripubblica, o "materialeIniziale" quando il canale gira in
