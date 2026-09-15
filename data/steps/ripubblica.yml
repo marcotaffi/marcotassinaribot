@@ -3,3 +3,4 @@ type: prompt
 description: "Scrivi un rilancio dell'articolo"
 prompt: ripubblica
 agentName: ripubblica
+validate: ripubblica
