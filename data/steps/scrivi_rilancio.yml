@@ -3,3 +3,10 @@ type: prompt
 description: "Scrive l'invito ai giornalisti a rilanciare l'evento"
 prompt: segnalazioneeventi_rilancio
 agentName: segnalazioneeventi
+# Backstop deterministico (2026-09-15): questo step non ha tool propri (tool_choice:"none" in
+# agents/segnalazioneeventi.yml) per andare a recuperare da solo link/testo dell'evento — dipende
+# interamente dal materiale che arriva dagli step precedenti (vedi materialeIniziale). Se per un bug a
+# monte (già capitato: vedi cercatesto.ts) quel materiale non arriva, richiedeMateriale:true fa
+# fallire subito la procedura invece di lasciare che il modello scriva una mail plausibile ma con
+# dati inventati (es. un link generico al posto di quello vero dell'evento).
+richiedeMateriale: true
