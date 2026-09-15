@@ -13,11 +13,13 @@ vectoreStores:
 toolNames:
   - gestoredate_now_readClock
   - scraper_url_download
-  # TODO (2026-09-15): rivedi se serve — rimosso da cronaca/ufficiostampa/interviste/dossier per
-  # lo stesso motivo strutturale (vedi commento nel toolNames di cronaca.yml): websearch_italia_low
-  # è un tool nativo il cui risultato non resta disponibile ai giri successivi dello stesso agente
-  # (verificato nel codice, non solo un'ipotesi), quindi materiale trovato così può sparire prima
-  # di finire nel testo scritto. Non ancora rivisto qui: questo agente scrive un rilancio (di
-  # solito da un link già dato), quindi il rischio concreto è probabilmente simile — non l'ho
-  # toccato oggi solo perché fuori dall'ambito della richiesta che ha portato agli altri fix.
-  - websearch_italia_low
+  # RIMOSSO il 2026-09-16 (era un TODO aperto dal 2026-09-15): stesso motivo strutturale di
+  # cronaca/ufficiostampa/interviste/dossier (vedi il commento nel toolNames di cronaca.yml) —
+  # websearch_italia_low è un tool nativo le cui citazioni auto-annotate dall'API (link con
+  # "?utm_source=openai") il validatore di allora non riconosceva. Non più solo un rischio
+  # teorico: pubblicato in produzione un articolo reale con la stessa citazione ripetuta 3 volte
+  # (una per paragrafo) — arrivato fino a wordpress_apg23_post con status "publish" perché anche
+  # il validatore di formatta_ai aveva un buco separato (vedi problemiCitazioniRipetute in
+  # taffitools, corretto lo stesso giorno). Le due correzioni insieme (tool rimosso qui +
+  # validatore esteso) chiudono il caso da entrambi i lati.
+  # - websearch_italia_low
