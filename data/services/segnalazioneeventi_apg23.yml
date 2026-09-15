@@ -3,6 +3,13 @@ servizio: canaleflusso
 destinazione: apg23
 flussi:
   principale: segnalazioneeventi
+  # NON aggiungere qui un alias chat-testabile ("prova: segnalazioneeventi") senza pensarci: un
+  # flusso non-"principale" invocato da chat salta preRun (vedi canaleflusso.ts, commento su
+  # preRun) — ma gli step di questa procedura (es. cercatesto_semprenews, campo: articolo)
+  # leggono campi che SOLO preRun produce. A differenza di ghost_giraffiamo (dove "scrivi"/"invia"
+  # funzionano da chat perché riusano Ghost.run/post, che gestiscono da soli il proprio argomento
+  # "prompt", indipendentemente da CanaleFlusso), qui un alias del genere girerebbe con materiale
+  # vuoto — non un vero test. Provato e scartato il 2026-09-15.
 opzioni:
   lunghezzaMinima: 50  # soglia bassa: pagine evento spesso brevi, basta scartare scraping vuoti
 
