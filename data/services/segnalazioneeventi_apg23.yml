@@ -3,15 +3,22 @@ servizio: canaleflusso
 destinazione: apg23
 flussi:
   principale: segnalazioneeventi
-  # NON aggiungere qui un alias chat-testabile ("prova: segnalazioneeventi") senza pensarci: un
-  # flusso non-"principale" invocato da chat salta preRun (vedi canaleflusso.ts, commento su
-  # preRun) — ma gli step di questa procedura (es. cercatesto_semprenews, campo: articolo)
-  # leggono campi che SOLO preRun produce. A differenza di ghost_giraffiamo (dove "scrivi"/"invia"
-  # funzionano da chat perché riusano Ghost.run/post, che gestiscono da soli il proprio argomento
-  # "prompt", indipendentemente da CanaleFlusso), qui un alias del genere girerebbe con materiale
-  # vuoto — non un vero test. Provato e scartato il 2026-09-15.
+  # (2026-09-15) Avevo provato ad aggiungere qui un secondo nome per la stessa procedura
+  # ("prova: segnalazioneeventi") per poterla richiamare da chat, e l'avevo scartato: un flusso
+  # diverso da "principale" richiamato da chat saltava completamente preRun (l'appiattimento del
+  # materiale in link/titolo/articolo/PrerunRequest), e gli step di questa procedura (es.
+  # cercatesto_semprenews, campo: articolo) leggono campi che SOLO preRun produceva. Non serve
+  # più: preRun ora normalizza anche il materiale di una chiamata diretta (vedi "ramo B" nel suo
+  # commento in canaleflusso.ts), e gira sempre, anche per "principale" da chat — risolto alla
+  # radice nel motore, non con un alias qui.
 opzioni:
   lunghezzaMinima: 50  # soglia bassa: pagine evento spesso brevi, basta scartare scraping vuoti
+  # "principale" chiamabile anche da chat (non solo dal feed), con lo stesso nome: utile per
+  # eseguire su richiesta la pipeline vera (rileva semprenews, scrive, manda le mail) su un link
+  # specifico, invece di aspettare che il feed lo trovi da solo — comodo per testare oggi, ma
+  # resta un'azione di produzione a tutti gli effetti: chiamandola da chat invia le mail per
+  # davvero (redirette in modalità test, vedi sendmail.ts), senza un passaggio di conferma.
+  esponiPrincipale: true
 
 # classificazione: il canale si iscrive agli articoli/eventi che arrivano dalla fonte apg23
 # eventi dichiarata in src/marcotassinaribot.ts (feeds[]). Da verificare contro un'esecuzione
