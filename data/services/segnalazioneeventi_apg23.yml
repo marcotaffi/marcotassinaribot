@@ -13,12 +13,13 @@ flussi:
   # radice nel motore, non con un alias qui.
 opzioni:
   lunghezzaMinima: 50  # soglia bassa: pagine evento spesso brevi, basta scartare scraping vuoti
-  # "principale" chiamabile anche da chat (non solo dal feed), con lo stesso nome: utile per
-  # eseguire su richiesta la pipeline vera (rileva semprenews, scrive, manda le mail) su un link
-  # specifico, invece di aspettare che il feed lo trovi da solo — comodo per testare oggi, ma
-  # resta un'azione di produzione a tutti gli effetti: chiamandola da chat invia le mail per
-  # davvero (redirette in modalità test, vedi sendmail.ts), senza un passaggio di conferma.
-  esponiPrincipale: true
+  # DISATTIVATO il 2026-09-16, a fine collaudo, prima del passaggio in produzione: un test da chat
+  # (canaleflusso_apg23_principale con solo "prompt":"<url>", senza "link"/"titolo" separati) ha
+  # prodotto una mail a Luca con oggetto e corpo vuoti — "riuscita" senza errori (vedi il fix in
+  # componimessaggio.ts, che ora blocca questo caso). "principale" resta un'azione di produzione
+  # a tutti gli effetti (invia mail vere, senza conferma): da qui in poi raggiungibile SOLO dal
+  # feed automatico, che passa link/titolo reali già estratti dall'articolo — mai da chat.
+  esponiPrincipale: false
 
 # classificazione: il canale si iscrive agli articoli/eventi che arrivano dalla fonte apg23
 # eventi dichiarata in src/marcotassinaribot.ts (feeds[]). Da verificare contro un'esecuzione

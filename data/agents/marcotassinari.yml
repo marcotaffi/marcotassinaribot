@@ -25,11 +25,11 @@ toolNames:
            - seozoom_domains
            - seozoom_urls
            - seozoom_projects
-           # segnalazioneeventi_apg23 (canale automatico apg23→mail, vedi data/services/): con
-           # opzioni.esponiPrincipale:true la sua pipeline "principale" (rileva se l'evento è di
-           # semprenews, scrive il rilancio o la notifica, manda le mail) diventa chiamabile anche
-           # da qui come azione "canaleflusso_apg23_principale" — non solo dal feed automatico.
-           # Senza questa riga il canale resta registrato (il feed continua a funzionare) ma
-           # nessun agente potrebbe raggiungerlo da chat: la stessa dimenticanza fatta la prima
-           # volta con prova_ghost_giraffiamo su giraffiamo.yml, qui evitata a monte.
+           # segnalazioneeventi_apg23 (canale automatico apg23→mail, vedi data/services/): tenuto
+           # qui per le azioni di lettura eventuali del canale, ma dal 2026-09-16
+           # opzioni.esponiPrincipale è false — "canaleflusso_apg23_principale" (rileva se
+           # l'evento è di semprenews, scrive il rilancio o la notifica, manda le mail) NON è più
+           # raggiungibile da chat, solo dal feed automatico. Motivo: un test da chat ha prodotto
+           # una mail vuota (link/titolo mancanti, mai passati come campi separati dall'AI) —
+           # vedi il commento in segnalazioneeventi_apg23.yml.
            - segnalazioneeventi_apg23
