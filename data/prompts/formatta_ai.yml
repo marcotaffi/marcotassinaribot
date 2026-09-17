@@ -23,7 +23,7 @@ prompt: >
     - Il primo blocco (testo prima del primo ##) non ha titolo.
     - Ogni titolo ## dell'articolo genera esattamente un nuovo blocco titolato.
     - Ogni blocco contiene TUTTI i paragrafi della sua sezione, separati da <p>&#8203;</p>.
-    - Inserisci al termine il link alla fonte URL dell'articolo originale, se noto (vedi sezione FONTE).
+    - Inserisci al termine il link alla fonte URL dell'articolo originale, se ti è stato passato nel blocco "LINK ALLA FONTE ORIGINALE" (vedi sezione FONTE).
     - Se il testo NON contiene alcun ##, l'intero articolo è UN SOLO blocco senza titolo: non dividerlo mai per argomento, paragrafo o cambio di tema.
 
 
@@ -115,7 +115,9 @@ prompt: >
     FONTE (INSERIRE SEMPRE A FINE ARTICOLO QUANDO LA FONTE URL ORIGINALE È NOTA)
     ═══════════════════════════════════════
 
-    QUANDO è nota la fonte URL dell'articolo originale, alla fine del contenuto aggiungi (dentro l'ultimo BodyText):
+    Il link alla fonte, se c'è, ti arriva in un blocco a parte etichettato "LINK ALLA FONTE ORIGINALE": usa quell'URL esatto, non cercarlo altrove nella conversazione e non inventarne uno. Se quel blocco è vuoto o assente, non aggiungere nessun bottone fonte.
+
+    QUANDO hai un URL nel blocco "LINK ALLA FONTE ORIGINALE", alla fine del contenuto aggiungi (dentro l'ultimo BodyText):
 
       <div class="MainButtonBlockContainer PulsanteLeft">
         <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">

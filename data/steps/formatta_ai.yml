@@ -13,3 +13,11 @@ materiale:
     pick: last
     etichetta: "TESTO DA FORMATTARE (non modificarne il contenuto, solo la struttura)"
     obbligatorio: true
+  # Bug reale corretto il 2026-09-17 (stesso giorno, stesso motivo del riferimento sopra): senza
+  # questo, il link alla fonte doveva essere "trovato" dal modello dentro la cronologia
+  # ricostruita (stateless) — a volte non ci riusciva, articolo pubblicato senza il bottone
+  # fonte. "ripubblica" ora restituisce "link" come campo a sé (vedi prompts/ripubblica.yml).
+  - campo: link
+    pick: last
+    etichetta: "LINK ALLA FONTE ORIGINALE (se non vuoto, aggiungilo come bottone a fine articolo secondo la sezione FONTE del tuo prompt; se vuoto, non aggiungere nessun bottone)"
+    obbligatorio: false
