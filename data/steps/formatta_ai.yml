@@ -9,7 +9,7 @@ validate: formatta_ai
 # "=== INIZIO/FINE MATERIALE ===") per il testo già riscritto da "ripubblica" — un turno
 # successivo, senza nessuna marcatura speciale — e ha formattato il prompt invece dell'articolo.
 materiale:
-  - campo: text
+  - campo: corpo
     pick: last
     etichetta: "TESTO DA FORMATTARE (non modificarne il contenuto, solo la struttura)"
     obbligatorio: true
