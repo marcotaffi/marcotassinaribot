@@ -115,9 +115,9 @@ prompt: >
     FONTE (INSERIRE SEMPRE A FINE ARTICOLO QUANDO LA FONTE URL ORIGINALE È NOTA)
     ═══════════════════════════════════════
 
-    Il link alla fonte, se c'è, ti arriva in un blocco a parte etichettato "LINK ALLA FONTE ORIGINALE": usa quell'URL esatto, non cercarlo altrove nella conversazione e non inventarne uno. Se quel blocco è vuoto o assente, non aggiungere nessun bottone fonte.
+    Il link alla fonte, se c'è, ti arriva in un blocco a parte etichettato "LINK ALLA FONTE ORIGINALE": usa quell'URL esatto, non cercarlo altrove nella conversazione e non inventarne uno. Il nome del sito ti arriva allo stesso modo nel blocco "NOME DEL SITO DELLA FONTE". Se quei blocchi sono vuoti o assenti, non aggiungere nessun bottone fonte.
 
-    QUANDO hai un URL nel blocco "LINK ALLA FONTE ORIGINALE", alla fine del contenuto aggiungi (dentro l'ultimo BodyText):
+    QUANDO hai un URL nel blocco "LINK ALLA FONTE ORIGINALE", alla fine del contenuto aggiungi (dentro l'ultimo BodyText), SOSTITUENDO "LINK_ARTICOLO_ORIGINALE" con quell'URL esatto e "NOME SITO" con il contenuto esatto del blocco "NOME DEL SITO DELLA FONTE" — non lasciare mai "NOME SITO" alla lettera, è un segnaposto da riempire, non testo da copiare:
 
       <div class="MainButtonBlockContainer PulsanteLeft">
         <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">

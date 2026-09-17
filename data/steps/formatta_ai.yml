@@ -21,3 +21,11 @@ materiale:
     pick: last
     etichetta: "LINK ALLA FONTE ORIGINALE (se non vuoto, aggiungilo come bottone a fine articolo secondo la sezione FONTE del tuo prompt; se vuoto, non aggiungere nessun bottone)"
     obbligatorio: false
+  # Bug reale corretto il 2026-09-17 (stesso giorno): senza questo, avendo solo l'URL nudo e non
+  # il nome del sito, il modello ha scritto "Leggi l'articolo originale su NOME SITO" alla
+  # lettera — ha preso il placeholder del template come se fosse testo vero, invece di sapere
+  # che andava sostituito. "ripubblica" ora restituisce anche "fonteNome" come campo a sé.
+  - campo: fonteNome
+    pick: last
+    etichetta: "NOME DEL SITO DELLA FONTE (sostituiscilo esattamente al posto di \"NOME SITO\" nel bottone fonte; se vuoto, non aggiungere nessun bottone)"
+    obbligatorio: false
