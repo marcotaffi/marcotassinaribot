@@ -1,0 +1,13 @@
+name: wordpress_apg23_pubblica
+description: >
+  Tappa della migrazione del canale wordpress_apg23 a CanaleFlusso (2026-09-18): stessi identici
+  due step di scrivi/invia usati separatamente dai flussi "scrivi"/"invia", incatenati qui uno
+  dopo l'altro per il percorso automatico dal feed (nessuna conferma, esattamente come faceva
+  prima wordpress_apg23 con processFeed a 4 fasi fisse — preRun/run/prePost/post). Usata come
+  flusso "principale" di ripubblica_apg23.yml.
+type: sequenziale
+tasks:
+  - name: wordpress_scrivi
+    type: step
+  - name: wordpress_pubblica
+    type: step

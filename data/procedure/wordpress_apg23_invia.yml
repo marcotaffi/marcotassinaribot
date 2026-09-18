@@ -1,0 +1,6 @@
+name: wordpress_apg23_invia
+description: "Pubblica su apg23.org (riusa wordpress_apg23_post) via CanaleFlusso"
+type: sequenziale
+tasks:
+  - name: wordpress_pubblica
+    type: step

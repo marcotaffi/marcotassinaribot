@@ -1,0 +1,6 @@
+name: wordpress_apg23_scrivi
+description: "Scrive una bozza per apg23.org (riusa wordpress_apg23_run) via CanaleFlusso"
+type: sequenziale
+tasks:
+  - name: wordpress_scrivi
+    type: step

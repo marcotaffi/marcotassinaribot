@@ -105,6 +105,14 @@ let feeds = [{
         const NotizieApg23 = await ServiceFactory.create("wordpress_apg23");
         // const NotizieApg23 = await ServiceFactory.create("ripubblicaconorchestratore") as CanaleExtendsServizio;
         NotizieApg23.start(credenziali);
+        // ripubblica_apg23 (CanaleFlusso): dal 2026-09-18 è l'unico percorso feed/chat per scrivere e
+        // pubblicare su apg23.org (vedi data/services/ripubblica_apg23.yml per lo storico completo
+        // della migrazione). NotizieApg23 (sopra) resta avviato e registrato: "run"/"post" restano
+        // metodi veri, richiamati internamente dagli step wordpress_scrivi/wordpress_pubblica, ma non
+        // più esposti come tool a sé in chat (vedi Wordpress.azioniNonEsposteAllAI in taffitools) — solo
+        // "elencaArticoli" resta raggiungibile direttamente da quell'istanza.
+        const ripubblicaApg23Flusso = await ServiceFactory.create("ripubblica_apg23");
+        ripubblicaApg23Flusso.start(credenziali);
         //CARICAMENTO TRADIZIONALE
         /*
             const procedureManager = new ProcedureManager();
@@ -235,7 +243,7 @@ let feeds = [{
         //però forse devo creare un nuovo tipo di step che non prenda in ingresso niente ma per toamdni telegram
         await bot.aggiungieInizializzaInterfaccePredefinite(credenziali);
         debug(3, "*Aggiungo i canali al bot*");
-        bot.aggiungiCanali([socialMarcoLinkedin, NotizieApg23, segnalazioneEventiApg23], credenziali); //sitoIooo
+        bot.aggiungiCanali([socialMarcoLinkedin, NotizieApg23, segnalazioneEventiApg23, ripubblicaApg23Flusso], credenziali); //sitoIooo
         debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
         bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori]);
         debug(3, "*Aggiungo le fonti e la conoscenza*");

@@ -17,15 +17,17 @@ opzioni:
   categoryMapping:
       "*": "1"
 
-# classificazione: canale automatico ATTIVO. La pubblicazione automatica su apg23 da
-# semprenews.it è migrata da semprebot a marcotassinaribot (semprebot va spento per
-# evitare pubblicazioni doppie). Il rilancio passa dalla procedura "orchestra" ->
-# caporedattore, che per contenuti già pubblicati su semprenews.it sceglie il tool
-# proceduratool_ripubblica (vedi instructions_caporedattore.md, Categoria E).
-classificazione:
-  includi:
-    - hooks: ["semprenews.it/tag/Comunita-Papa-Giovanni-XXIII"]
-      type: "feeds"
-      flusso: "Instant"
+# classificazione DISATTIVATA il 2026-09-18 (migrazione a CanaleFlusso, vedi
+# services/ripubblica_apg23.yml per la storia completa): questo canale (Wordpress diretto)
+# resta nel codice — "run"/"post" restano metodi veri, richiamati internamente dagli step
+# wordpress_scrivi/wordpress_pubblica — ma non riceve più traffico dal feed né chiamate dirette
+# dall'AI in chat (vedi Wordpress.azioniNonEsposteAllAI). L'ha preso in carico ripubblica_apg23,
+# con la stessa identica classificazione. Lasciare ENTRAMBI i blocchi "classificazione" attivi
+# pubblicherebbe ogni articolo due volte.
+# classificazione:
+#   includi:
+#     - hooks: ["semprenews.it/tag/Comunita-Papa-Giovanni-XXIII"]
+#       type: "feeds"
+#       flusso: "Instant"
 
 

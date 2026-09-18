@@ -1,0 +1,7 @@
+name: wordpress_pubblica
+type: servizio
+# Riusa direttamente l'azione "post" già esposta dal canale wordpress_apg23 esistente. Wordpress.post
+# legge titolo/corpo/blocchi SOLO dal contenuto che riceve in questa chiamata (materializzato
+# dalla sessione, vedi Step._esegui caso "servizio") — stesso schema di giraffiamo/data/steps/
+# ghost_pubblica.yml.
+firma: wordpress_apg23_post

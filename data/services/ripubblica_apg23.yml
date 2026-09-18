@@ -1,0 +1,27 @@
+# (2026-09-18) Migrazione di wordpress_apg23 a CanaleFlusso, stesso schema già usato per Ghost/
+# giraffiamo (vedi giraffiamo/data/services/ripubblica_giraffiamo.yml per lo storico completo di
+# quella migrazione). Il canale wordpress_apg23 esistente (data/services/wordpress_apg23.yml)
+# resta registrato e avviato: "run"/"post" restano metodi veri, richiamati internamente dagli
+# step wordpress_scrivi/wordpress_pubblica (vedi Wordpress.azioniNonEsposteAllAI in taffitools),
+# ma non più esposti come tool a sé in chat — ora l'unico percorso chat per scrivere/pubblicare
+# su questo sito è questo canale, coi flussi "scrivi"/"invia" sotto.
+firma: ripubblica_apg23
+servizio: canaleflusso
+destinazione: apg23
+flussi:
+  scrivi: wordpress_apg23_scrivi
+  invia: wordpress_apg23_invia
+  # "principale": stessi due step di "scrivi"/"invia" incatenati, eseguito automaticamente dal
+  # feed di semprenews.it (classificazione qui sotto) — nessuna conferma, come faceva già
+  # wordpress_apg23 con processFeed a 4 fasi fisse prima di questa migrazione.
+  principale: wordpress_apg23_pubblica
+
+# classificazione: spostata qui da wordpress_apg23.yml (che l'aveva prima di questa migrazione)
+# — stessa fonte, stesso flusso "Instant", nessun cambio editoriale. Lasciarla attiva ANCHE su
+# wordpress_apg23.yml pubblicherebbe ogni articolo due volte (stesso motivo per cui
+# ghost_giraffiamo.yml l'ha disattivata quando ripubblica_giraffiamo l'ha presa in carico).
+classificazione:
+  includi:
+    - hooks: ["semprenews.it/tag/Comunita-Papa-Giovanni-XXIII"]
+      type: "feeds"
+      flusso: "Instant"

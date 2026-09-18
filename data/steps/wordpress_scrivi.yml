@@ -1,0 +1,7 @@
+name: wordpress_scrivi
+type: servizio
+# Riusa direttamente l'azione "run" già esposta dal canale wordpress_apg23 esistente (Wordpress
+# extends Writer): non duplica nessuna logica, chiama lo stesso metodo che gira già in
+# produzione (esegue la procedura "orchestra", dispatch di caporedattore) — stesso schema di
+# giraffiamo/data/steps/ghost_scrivi.yml.
+firma: wordpress_apg23_run

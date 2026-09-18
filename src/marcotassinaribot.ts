@@ -132,6 +132,15 @@ let feeds: TriggerProposti[] = [{
 
  NotizieApg23.start(credenziali);
 
+// ripubblica_apg23 (CanaleFlusso): dal 2026-09-18 è l'unico percorso feed/chat per scrivere e
+// pubblicare su apg23.org (vedi data/services/ripubblica_apg23.yml per lo storico completo
+// della migrazione). NotizieApg23 (sopra) resta avviato e registrato: "run"/"post" restano
+// metodi veri, richiamati internamente dagli step wordpress_scrivi/wordpress_pubblica, ma non
+// più esposti come tool a sé in chat (vedi Wordpress.azioniNonEsposteAllAI in taffitools) — solo
+// "elencaArticoli" resta raggiungibile direttamente da quell'istanza.
+ const ripubblicaApg23Flusso = await ServiceFactory.create("ripubblica_apg23") as CanaleExtendsServizio;
+ ripubblicaApg23Flusso.start(credenziali);
+
  
 
 //CARICAMENTO TRADIZIONALE
@@ -310,7 +319,7 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
     await bot.aggiungieInizializzaInterfaccePredefinite(credenziali); 
   
     debug(3, "*Aggiungo i canali al bot*");
-     bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,segnalazioneEventiApg23], credenziali); //sitoIooo
+     bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,segnalazioneEventiApg23,ripubblicaApg23Flusso], credenziali); //sitoIooo
 
      debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
      bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori]);
