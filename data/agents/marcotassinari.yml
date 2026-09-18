@@ -17,6 +17,12 @@ toolNames:
            - scraper_url_download
            - websearch_italia_low
            - wordpress_apg23
+           # ripubblica_apg23 (CanaleFlusso, vedi data/services/ripubblica_apg23.yml): dal
+           # 2026-09-18 è l'UNICO percorso chat per scrivere/pubblicare su apg23.org — espone
+           # canaleflusso_apg23_scrivi/_invia. wordpress_apg23 resta qui solo per
+           # elencaArticoli/elencaRisorse: run/post sono nascosti da chat (vedi
+           # Wordpress.azioniNonEsposteAllAI) e passano ora sempre da qui.
+           - ripubblica_apg23
            # SeoZoom (vedi taffitools/src/servizi/seozoomtool.ts): come wordpress_apg23 carica sia
            # "_post" che "_run", ogni firma breve seozoom_<categoria> carica TUTTE le azioni di
            # quella categoria (non serve elencarle una per una).
