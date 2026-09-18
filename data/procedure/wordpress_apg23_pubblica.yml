@@ -11,3 +11,11 @@ tasks:
     type: step
   - name: wordpress_pubblica
     type: step
+  # Notifica a chi revisiona davvero le bozze su apg23.org (Mattia): questo canale pubblica
+  # sempre in stato "draft" (vedi opzioni.status in services/wordpress_apg23.yml). Qui, a
+  # differenza del percorso chat, nessuno ha già visto la bozza prima che venga caricata — la
+  # mail è l'unico modo con cui Mattia scopre che c'è qualcosa da rivedere.
+  - name: componi_notifica_sitonews
+    type: step
+  - name: invia_notifica_sitonews
+    type: step

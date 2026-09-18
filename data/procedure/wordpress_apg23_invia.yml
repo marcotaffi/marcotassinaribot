@@ -4,3 +4,7 @@ type: sequenziale
 tasks:
   - name: wordpress_pubblica
     type: step
+  # NESSUNA notifica a Mattia qui di proposito (a differenza di wordpress_apg23_pubblica.yml):
+  # quando "invia" parte da chat è Marco stesso ad averlo confermato, e preferisce occuparsene
+  # lui direttamente con Mattia invece di una mail automatica — la notifica resta riservata al
+  # solo percorso automatico dal feed, dove nessun altro ha visto la bozza prima.

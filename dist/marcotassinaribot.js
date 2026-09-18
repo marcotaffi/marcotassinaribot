@@ -185,6 +185,14 @@ let feeds = [{
         sendmailLuccitelli.start(credenziali);
         const sendmailRedattori = await ServiceFactory.create("sendmail_redattori");
         sendmailRedattori.start(credenziali);
+        // Notifica a Mattia (sitonews@apg23.org, cc marco@taffi.it) quando wordpress_apg23_pubblica
+        // (step invia_notifica_sitonews, vedi data/procedure/wordpress_apg23_invia.yml e
+        // wordpress_apg23_pubblica.yml) carica un articolo in bozza su apg23.org — stesso schema di
+        // componiMessaggioLuccitelli/sendmailLuccitelli qui sopra.
+        const componiMessaggioNotificaSitonews = await ServiceFactory.create("componimessaggio_notificasitonews");
+        componiMessaggioNotificaSitonews.start(credenziali);
+        const sendmailSitonews = await ServiceFactory.create("sendmail_sitonews");
+        sendmailSitonews.start(credenziali);
         //-------------
         //tutto il resto
         debug(3, "*Definisco le classi AI*");
@@ -245,7 +253,7 @@ let feeds = [{
         debug(3, "*Aggiungo i canali al bot*");
         bot.aggiungiCanali([socialMarcoLinkedin, NotizieApg23, segnalazioneEventiApg23, ripubblicaApg23Flusso], credenziali); //sitoIooo
         debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
-        bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori]);
+        bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews]);
         debug(3, "*Aggiungo le fonti e la conoscenza*");
         if (feeds.length > 0)
             bot.addFeeds(feeds); //invia le fonti       

@@ -1,0 +1,7 @@
+firma: "sendmail_sitonews@apg23.org_send"
+servizio: "sendmail"
+destinazione: "sitonews@apg23.org"
+azione: "send"
+opzioni:
+  provider: "gmail"  # serve per il CC vero, IFTTT (non attivo) non lo supporta
+  cc: "marco@taffi.it"  # sempre in copia, indipendente da cosa manda l'AI

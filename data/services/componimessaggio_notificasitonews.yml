@@ -1,0 +1,17 @@
+firma: componimessaggio_notificasitonews
+servizio: componimessaggio
+destinazione: notificasitonews  # solo un'etichetta per questa istanza, non un indirizzo
+azione: componi
+opzioni:
+  # {{postType}} è il valore configurato in services/wordpress_apg23.yml (opzioni.postTypes:
+  # "posts"/"eventi") deciso dalla scrittura — lo mostro così com'è (senza forzare un
+  # singolare/plurale con l'articolo) apposta: Mattia deve sapere subito se sta rivedendo un
+  # evento o un post, senza doverlo dedurre aprendo la bozza.
+  subject: "Nuova bozza su apg23.org ({{postType}}): {{title}}"
+  text: >-
+    Caro Mattia,<br><br>
+    ho caricato una bozza su apg23.org, tipo <b>{{postType}}</b>:<br>
+    <b>{{title}}</b><br>
+    {{link}}<br><br>
+    Se ci sono cose da sistemare avvertimi, grazie!<br>
+    Marco
