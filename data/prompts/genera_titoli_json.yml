@@ -16,13 +16,20 @@ prompt: >
   - Mantieni fedeltà ai fatti: non aggiungere informazioni non presenti nell'articolo.
 
   # Comuni piccoli, province e privacy
-  - "title" e "yoast_title": il pubblico è nazionale, quasi nessuno conosce i piccoli comuni. NON nominare mai un comune che non è capoluogo di provincia: usa al suo posto il CAPOLUOGO della provincia in cui si trova (es. un evento a Selvazzano Dentro → nel titolo "Padova", non "Selvazzano Dentro"). Se il comune è già capoluogo, usalo direttamente.
-  - Per un evento con un luogo fisico, "title" segue SEMPRE lo schema "Capoluogo, nome o brevissima descrizione dell'evento" (es. "Padova, Messa per Don Oreste Benzi"). Il comune vero e l'indirizzo restano nel testo e nel campo "luogo_evento": nel titolo compare solo il capoluogo.
+  - "title" e "yoast_title": il pubblico è nazionale, quasi nessuno conosce i piccoli comuni né le sigle di provincia. Per un comune che NON è capoluogo di provincia, scegli UNA di queste due forme (mai altre, mai mescolate):
+      (a) il CAPOLUOGO della provincia al posto del comune — es. un evento a Selvazzano Dentro (provincia PD) → nel titolo "Padova", non "Selvazzano Dentro";
+      (b) il comune vero seguito dalla sigla della provincia tra parentesi — es. "Fossano (CN)", non "Fossano" da solo (il pubblico nazionale non sa dov'è) e non "CN" da solo (vedi sotto).
+    Se il comune è già capoluogo, usa solo il suo nome, senza sigla: "Cuneo", non "Cuneo (CN)".
+    ERRORE GRAVE E FREQUENTE da evitare: la sigla di provincia NON è mai, da sola, il nome di un luogo. "Evento a CN" è SEMPRE sbagliato — è un'abbreviazione, non un posto che il lettore riconosce. Scrivi per intero uno tra "Cuneo" (capoluogo) o "Fossano (CN)" (comune reale + sigla), mai la sola sigla isolata.
+  - Per un evento con un luogo fisico, "title" segue SEMPRE lo schema "<Capoluogo oppure Comune (SIGLA)>, nome o brevissima descrizione dell'evento" — usando una delle due forme (a)/(b) sopra, mai la sigla da sola. Esempi corretti: "Padova, Messa per Don Oreste Benzi" (forma a) oppure "Fossano (CN), torneo sportivo Don Oreste Benzi" (forma b). Esempio SBAGLIATO: "CN, torneo sportivo Don Oreste Benzi".
   - "excerpt" e "luogo_evento": qui va il luogo VERO e completo (il comune reale, non il capoluogo). La prima volta che nomini un comune che non è capoluogo, aggiungi la sigla della provincia tra parentesi subito dopo il nome, senza virgola né preposizione: "Selvazzano Dentro (PD)", mai "Selvazzano Dentro, in (PD)" o la sigla staccata dal nome. Non serve per i comuni già capoluogo (es. "Padova" da solo basta).
   - Se generi o riporti un riferimento di contatto (es. in excerpt), cita solo il nome di battesimo, mai il cognome, per tutela della privacy: "Marco, 329.4234323", non "Marco Rossi, 329...".
 
   # campi SEO
   Individua la parola chiave principale dell'articolo e usala in modo discorsivo in yoast_title (titolo SEO) e Syoast_metadesc (metadata SEO).
+
+  # Verifica finale su "title"/"yoast_title" (2026-09-18: bug reale in produzione — un evento a Fossano (CN) è finito in titolo come solo "Fossano", senza capoluogo né sigla, e il pubblico nazionale non sa dov'è)
+  Prima di restituire il risultato, ricontrolla il luogo che hai messo in "title"/"yoast_title": è nella forma (a) "Capoluogo" da solo, o (b) "Comune (SIGLA)"? Se hai scritto un comune piccolo senza sigla (es. solo "Fossano"), o la sola sigla senza nome (es. solo "CN"), correggilo in una delle due forme corrette prima di rispondere. Se il materiale riporta una sigla di provincia, usala per riconoscere il capoluogo: CN → Cuneo, TO → Torino, PD → Padova, e così via per ogni sigla italiana.
 
   # Formato
   Scrivi i titoli come testo normale, senza formattazioni.

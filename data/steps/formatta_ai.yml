@@ -1,6 +1,6 @@
 name: formatta_ai
 type: prompt
-description: "Formatta nell'html previsto da apg23 con i blocchi"
+description: "Converte il markdown dell'articolo in HTML semantico (senza impaginazione: vedi impagina_apg23, lo step successivo)"
 prompt: formatta_ai
 agentName: aiengineer
 validate: formatta_ai
@@ -11,21 +11,5 @@ validate: formatta_ai
 materiale:
   - campo: corpo
     pick: last
-    etichetta: "TESTO DA FORMATTARE (non modificarne il contenuto, solo la struttura)"
+    etichetta: "TESTO DA FORMATTARE (non modificarne il contenuto, solo la sintassi)"
     obbligatorio: true
-  # Bug reale corretto il 2026-09-17 (stesso giorno, stesso motivo del riferimento sopra): senza
-  # questo, il link alla fonte doveva essere "trovato" dal modello dentro la cronologia
-  # ricostruita (stateless) — a volte non ci riusciva, articolo pubblicato senza il bottone
-  # fonte. "ripubblica" ora restituisce "link" come campo a sé (vedi prompts/ripubblica.yml).
-  - campo: link
-    pick: last
-    etichetta: "LINK ALLA FONTE ORIGINALE (se non vuoto, aggiungilo come bottone a fine articolo secondo la sezione FONTE del tuo prompt; se vuoto, non aggiungere nessun bottone)"
-    obbligatorio: false
-  # Bug reale corretto il 2026-09-17 (stesso giorno): senza questo, avendo solo l'URL nudo e non
-  # il nome del sito, il modello ha scritto "Leggi l'articolo originale su NOME SITO" alla
-  # lettera — ha preso il placeholder del template come se fosse testo vero, invece di sapere
-  # che andava sostituito. "ripubblica" ora restituisce anche "fonteNome" come campo a sé.
-  - campo: fonteNome
-    pick: last
-    etichetta: "NOME DEL SITO DELLA FONTE (sostituiscilo esattamente al posto di \"NOME SITO\" nel bottone fonte; se vuoto, non aggiungere nessun bottone)"
-    obbligatorio: false

@@ -1,0 +1,111 @@
+name: impagina_apg23
+description: "Impagina l'HTML già pronto (prodotto da formatta_ai) nel blocco unico del tema apg23/WordPress. Passaggio specifico di QUESTO sito: un WordPress generico avrebbe bisogno di un'impaginazione diversa (vedi TODO in fondo al file)."
+prompt: >
+    Prendi l'HTML già pronto (nel blocco "HTML DA IMPAGINARE" qui sotto) e incollalo, SENZA
+    MODIFICARLO, dentro il contenitore del tema apg23 qui sotto. Il tuo unico compito è
+    l'impaginazione: non toccare in nessun modo il contenuto che ricevi.
+
+
+    ═══════════════════════════════════════
+    STRUTTURA DA USARE (sempre e solo questa, un blocco unico)
+    ═══════════════════════════════════════
+
+    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
+      <div class="BlockMainContainer SiteWidth">
+        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+          <div class="BodyText">
+             <div class="BodyText">
+               (qui dentro, esattamente com'è, l'HTML DA IMPAGINARE)
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    ═══════════════════════════════════════
+    FONTE (INSERIRE SEMPRE A FINE ARTICOLO QUANDO LA FONTE URL ORIGINALE È NOTA)
+    ═══════════════════════════════════════
+
+    Il link alla fonte, se c'è, ti arriva in un blocco a parte etichettato "LINK ALLA FONTE ORIGINALE": usa quell'URL esatto, non cercarlo altrove nella conversazione e non inventarne uno. Il nome del sito ti arriva allo stesso modo nel blocco "NOME DEL SITO DELLA FONTE". Se quei blocchi sono vuoti o assenti, non aggiungere nessun bottone fonte.
+
+    QUANDO hai un URL nel blocco "LINK ALLA FONTE ORIGINALE", aggiungi PRIMA della chiusura del BodyText interno, SOSTITUENDO "LINK_ARTICOLO_ORIGINALE" con quell'URL esatto e "NOME SITO" con il contenuto esatto del blocco "NOME DEL SITO DELLA FONTE" — non lasciare mai "NOME SITO" alla lettera, è un segnaposto da riempire, non testo da copiare:
+
+      <div class="MainButtonBlockContainer PulsanteLeft">
+        <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">
+          Leggi l'articolo originale su NOME SITO
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    ERRORE GRAVE E FREQUENTE da evitare: NON creare un blocco a parte (es. con titolo "Fonte") solo per questo bottone. Resta un solo blocco in tutto l'output, il bottone va incollato dentro il BodyText già esistente.
+
+
+    ═══════════════════════════════════════
+    OUTPUT
+    ═══════════════════════════════════════
+
+    - Restituisci SOLO il blocco HTML completo, a partire da <div class="BlockWrapperContainer...
+    - Non modificare in alcun modo il contenuto HTML che hai ricevuto: nessuna riformulazione, nessuna correzione, nessuna aggiunta o rimozione di testo — copialo esattamente com'è, incluso ogni tag <h2>/<h3>/<strong>/<em> già presente.
+    - Nessun testo aggiuntivo.
+    - Nessuna spiegazione.
+    - NON avvolgere l'output in un blocco di codice markdown (niente ```html iniziale né ``` finale).
+    - Verifica finale: è presente UN SOLO <div class="BlockWrapperContainer...">, nessuno di più.
+    - Verifica finale: non esiste un blocco dedicato solo alla fonte — il bottone fonte è dentro l'unico blocco di contenuto.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# STRUTTURA PRECEDENTE A PIÙ BLOCCHI (2026-09-17, sostituita il 2026-09-18 su richiesta
+# esplicita — apg23 vuole sempre un blocco unico) — tenuta qui commentata (non fa parte del
+# prompt, non viene mai inviata all'AI) in caso serva ripristinarla in futuro:
+#
+# REGOLA: il numero totale di blocchi era ESATTAMENTE 1 (blocco introduttivo) + numero di
+# titoli ## presenti nel testo. Ogni titolo ## generava un nuovo blocco titolato; il primo
+# blocco (testo prima del primo ##) non aveva titolo.
+#
+# VARIANTE A — blocco SENZA titolo (il primo blocco, prima del primo ##):
+# il <div class="PageTitleSmall"> non compariva affatto (mai vuoto).
+#
+# <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
+#   <div class="BlockMainContainer SiteWidth">
+#     <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+#       <div class="BodyText">
+#          <div class="BodyText">
+#            (testo del blocco)
+#          </div>
+#       </div>
+#     </div>
+#   </div>
+# </div>
+#
+# VARIANTE B — blocco titolato (uno per ogni ## del testo originale):
+#
+# <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
+#   <div class="BlockMainContainer SiteWidth">
+#     <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
+#       <div class="BodyText">
+#          <div class="PageTitleSmall">
+#             TITOLO DELLA SEZIONE (da un ## reale del testo)
+#          </div>
+#          <div class="BodyText">
+#            (testo della sezione)
+#          </div>
+#       </div>
+#     </div>
+#   </div>
+# </div>
+#
+# TODO (2026-09-18, segnalato da Marco): questa impaginazione a blocco unico è specifica del
+# tema apg23 — un sito WordPress generico (non apg23) avrebbe bisogno di un'impaginazione
+# diversa (probabilmente HTML semplice, senza questi div/classi specifici del tema). Se in
+# futuro un altro progetto userà lo stesso step "formatta_ai" (conversione markdown→html) su un
+# WordPress diverso, andrà scritto un impagina_<sito>.yml diverso invece di riusare questo, o
+# reso configurabile il template di impaginazione.
+#
+# TODO (2026-09-18): questa impaginazione è pura sostituzione di template (incolla l'HTML dentro
+# un contenitore fisso + eventuale bottone fonte) — non richiede nessun giudizio editoriale.
+# Potrebbe diventare un passo deterministico (un "servizio" TypeScript, non una chiamata AI):
+# più veloce, a costo zero di token, e per costruzione non può mai "dimenticare" l'impaginazione
+# o alterare il contenuto. Valutazione di design completa nel TODO su taffitools/src/servizi/
+# servizio.ts (getHandler) — proposta di un servizio condiviso "TextEdit" con più metodi
+# deterministici (markdownToHtml, wrapInTemplate...), invece di un servizio dedicato per ognuno.
+# Non implementato ora per restare su una modifica semplice.

@@ -1,108 +1,35 @@
 name: formatta_ai
-description: "Formatta l'articolo centrale per sito Apg23"
+description: "Converte il markdown dell'articolo in HTML semantico pulito — solo sintassi, nessuna impaginazione: quella è un secondo step separato (vedi impagina_apg23), specifico del sito di destinazione."
+# TODO (2026-09-18): questo step è una chiamata AI per un compito che potrebbe diventare
+# deterministico (nessun giudizio editoriale, solo sintassi markdown→html) — vedi il TODO
+# completo in taffitools/src/servizi/servizio.ts (getHandler), proposta di un servizio condiviso
+# "TextEdit". Non implementato ora.
+# (2026-09-18) Prima questo stesso step faceva ANCHE l'impaginazione a blocchi per apg23 nello
+# stesso giro: conversione markdown→html E riorganizzazione in blocchi HTML del tema, nello
+# stesso prompt. Bug reale osservato in produzione: markdown non convertito del tutto (asterischi
+# rimasti alla lettera) proprio negli articoli più lunghi/con più titoli — cioè quelli che
+# richiedevano anche più lavoro di riorganizzazione in blocchi. Diviso in due step più semplici,
+# ciascuno con un solo compito: qui solo conversione di sintassi (markdown → html), la
+# riorganizzazione/impaginazione specifica del sito è un secondo step (impagina_apg23) che
+# riceve l'HTML già pronto e si limita a incollarlo nel contenitore giusto.
 prompt: >
-    Riscrivi il testo markdown fornito per formattarlo in blocchi HTML secondo le seguenti specifiche.
+    Converti il testo markdown fornito in HTML semantico pulito. Solo conversione di sintassi:
+    NON riorganizzare la struttura, NON dividere in blocchi, NON avvolgere in contenitori — un
+    altro step si occupa dell'impaginazione dopo di te. Restituisci un unico frammento HTML
+    lineare, dall'inizio alla fine del testo, nello stesso ordine dell'originale.
 
 
     ═══════════════════════════════════════
-    REGOLA FONDAMENTALE SUI BLOCCHI
+    REGOLE DI CONVERSIONE
     ═══════════════════════════════════════
 
-    - Il numero totale di blocchi nell'output è ESATTAMENTE:
-      1 (blocco introduttivo) + numero di titoli ## presenti nel testo.
-    - NON creare mai un blocco per ogni paragrafo.
-    - NON creare blocchi aggiuntivi per nessun altro motivo.
-    - Tutti i paragrafi che appartengono alla stessa sezione ## vanno nello stesso blocco, senza eccezioni.
-    - Prima del primo ##, tutto il testo confluisce in un unico blocco introduttivo (senza titolo).
-
-
-    ═══════════════════════════════════════
-    ORGANIZZAZIONE DEL TESTO
-    ═══════════════════════════════════════
-
-    - Il primo blocco (testo prima del primo ##) non ha titolo.
-    - Ogni titolo ## dell'articolo genera esattamente un nuovo blocco titolato.
-    - Ogni blocco contiene TUTTI i paragrafi della sua sezione, separati da <p>&#8203;</p>.
-    - Inserisci al termine il link alla fonte URL dell'articolo originale, se ti è stato passato nel blocco "LINK ALLA FONTE ORIGINALE" (vedi sezione FONTE).
-    - Se il testo NON contiene alcun ##, l'intero articolo è UN SOLO blocco senza titolo: non dividerlo mai per argomento, paragrafo o cambio di tema.
-
-
-    ═══════════════════════════════════════
-    NOTE TECNICHE
-    ═══════════════════════════════════════
-
-    - Non modificare il contenuto.
-    - Non inventare titoli.
-    - Non riassumere.
-    - Non aggiungere parole.
-    - Non inventare sezioni: se il testo non ha ## non creare sezioni, sottotitoli o blocchi "a tema" di tua iniziativa.
-    - Non duplicare paragrafi: ogni frase del testo originale compare in output UNA VOLTA SOLA, nel blocco a cui appartiene.
-    - Non cambiare l'ordine.
-    - Non riformulare.
-    - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
-
-
-    ═══════════════════════════════════════
-    FORMATO BLOCCHI — DUE VARIANTI, NON MESCOLARLE
-    ═══════════════════════════════════════
-
-    VARIANTE A — blocco SENZA titolo (il primo blocco, prima del primo ##):
-    il <div class="PageTitleSmall"> NON COMPARE PROPRIO nell'output, nemmeno vuoto.
-    ERRORE GRAVE E FREQUENTE da evitare: scrivere <div class="PageTitleSmall"></div> vuoto. Se non c'è titolo, quelle righe vanno saltate del tutto, non svuotate.
-
-    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-      <div class="BlockMainContainer SiteWidth">
-        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-          <div class="BodyText">
-             <div class="BodyText">
-               <p>
-                 TESTO SUDDIVISO IN PARAGRAFI
-               </p>
-               <p>&#8203;</p>
-               <p>
-                SECONDO PARAGRAFO
-               </p>
-             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    VARIANTE B — blocco titolato (generato da un ## del testo originale):
-
-    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-      <div class="BlockMainContainer SiteWidth">
-        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-          <div class="BodyText">
-             <div class="PageTitleSmall">
-                TITOLO DELLA SEZIONE (preso da un ## reale del testo, mai inventato)
-             </div>
-             <div class="BodyText">
-               <p>
-                 TESTO SUDDIVISO IN PARAGRAFI
-               </p>
-               <p>&#8203;</p>
-               <p>
-                SECONDO PARAGRAFO
-               </p>
-             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    ═══════════════════════════════════════
-    REGOLE DI FORMATTAZIONE DEL TESTO
-    ═══════════════════════════════════════
-
-    - Nel primo blocco, il <div class="PageTitleSmall"> non compare (vedi VARIANTE A sopra): non scriverlo vuoto.
-    - Ogni titolo di livello 3 → <H3></H3>
-    - Ogni paragrafo → <p>Testo</p> nello stesso blocco
-    - Separa i paragrafi con separatore <p>&#8203;</p>
-    - Frasi e parole in grassetto → <strong>frase o parola</strong>
+    - Ogni titolo di livello 2 (##) del markdown → <h2>Titolo</h2>, nel punto esatto in cui compare.
+    - Ogni titolo di livello 3 (###) del markdown → <h3>Titolo</h3>, nel punto esatto in cui compare.
+    - Ogni paragrafo → <p>Testo</p>
+    - Separa i paragrafi (anche a cavallo di un titolo) con un separatore <p>&#8203;</p>
+    - Frasi e parole in grassetto (**testo** nel markdown originale) → SEMPRE <strong>frase o parola</strong>: non deve MAI restare un doppio asterisco letterale nell'HTML finale, in nessun punto del testo.
     - Nomi e cognomi di persona → <strong>Nome Cognome</strong>
-    - Frasi e parole in corsivo → <em>frase o parola</em>
+    - Frasi e parole in corsivo (*testo* nel markdown originale) → SEMPRE <em>frase o parola</em>: non deve MAI restare un singolo asterisco letterale nell'HTML finale, in nessun punto del testo.
     - Nomi di associazioni/enti → <em>Nome</em>
     - Eventi o progetti → <em>&quot;Nome&quot;</em>
     - Citazioni → &laquo;testo&raquo;
@@ -112,31 +39,25 @@ prompt: >
 
 
     ═══════════════════════════════════════
-    FONTE (INSERIRE SEMPRE A FINE ARTICOLO QUANDO LA FONTE URL ORIGINALE È NOTA)
+    NOTE TECNICHE
     ═══════════════════════════════════════
 
-    Il link alla fonte, se c'è, ti arriva in un blocco a parte etichettato "LINK ALLA FONTE ORIGINALE": usa quell'URL esatto, non cercarlo altrove nella conversazione e non inventarne uno. Il nome del sito ti arriva allo stesso modo nel blocco "NOME DEL SITO DELLA FONTE". Se quei blocchi sono vuoti o assenti, non aggiungere nessun bottone fonte.
-
-    QUANDO hai un URL nel blocco "LINK ALLA FONTE ORIGINALE", alla fine del contenuto aggiungi (dentro l'ultimo BodyText), SOSTITUENDO "LINK_ARTICOLO_ORIGINALE" con quell'URL esatto e "NOME SITO" con il contenuto esatto del blocco "NOME DEL SITO DELLA FONTE" — non lasciare mai "NOME SITO" alla lettera, è un segnaposto da riempire, non testo da copiare:
-
-      <div class="MainButtonBlockContainer PulsanteLeft">
-        <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">
-          Leggi l'articolo originale su NOME SITO
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-    ERRORE GRAVE E FREQUENTE da evitare: NON creare un blocco titolato a parte (es. con titolo "Fonte") solo per questo bottone. Il bottone va incollato DENTRO il </div> di chiusura del BodyText dell'ULTIMO blocco già esistente (che sia VARIANTE A o VARIANTE B), non genera mai un nuovo blocco e non aumenta il conteggio dei blocchi.
+    - Non modificare il contenuto.
+    - Non inventare titoli h2/h3 che non esistono nel markdown originale.
+    - Non riassumere.
+    - Non aggiungere parole.
+    - Non duplicare paragrafi: ogni frase del testo originale compare in output UNA VOLTA SOLA.
+    - Non cambiare l'ordine.
+    - Non riformulare.
+    - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
 
 
     ═══════════════════════════════════════
     OUTPUT
     ═══════════════════════════════════════
 
-    - Restituisci SOLO l'HTML finale, una serie di blocchi, a partire direttamente da <div class="BlockWrapperContainer...
+    - Restituisci SOLO l'HTML convertito: nessun <div>, nessun contenitore, nessun wrapper — solo h2/h3/p/strong/em/a/ul/ol/li, come da regole sopra.
     - Nessun testo aggiuntivo.
     - Nessuna spiegazione.
     - NON avvolgere l'output in un blocco di codice markdown (niente ```html iniziale né ``` finale): scrivi l'HTML puro e basta.
-    - Verifica finale: il numero di blocchi corrisponde a 1 + numero di ## nel testo originale.
-    - Verifica finale: nessun <div class="PageTitleSmall"> è vuoto — se un blocco non ha titolo, quel div è del tutto assente.
-    - Verifica finale: non esiste un blocco dedicato solo alla fonte — il bottone fonte è dentro l'ultimo blocco di contenuto.
+    - Verifica finale: non c'è nessun asterisco letterale (* o **) rimasto nell'HTML — se ne trovi uno, è markdown non convertito: sostituiscilo con <strong>/<em> prima di restituire l'output.

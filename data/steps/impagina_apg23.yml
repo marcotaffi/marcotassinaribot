@@ -1,0 +1,23 @@
+name: impagina_apg23
+type: prompt
+description: "Impagina l'HTML già pronto (da formatta_ai) nel blocco unico del tema apg23/WordPress"
+prompt: impagina_apg23
+agentName: aiengineer
+# (2026-09-18) Separato da formatta_ai: prima un solo step faceva insieme conversione
+# markdown→html E impaginazione a blocchi, e a volte non convertiva tutto il markdown negli
+# articoli più lunghi/con più titoli. Diviso in due step più semplici — qui SOLO impaginazione,
+# l'HTML in ingresso è già pronto e non va modificato nel contenuto, solo incollato nel
+# contenitore giusto (vedi prompts/impagina_apg23.yml).
+materiale:
+  - campo: corpo
+    pick: last
+    etichetta: "HTML DA IMPAGINARE (non modificarne il contenuto, solo l'impaginazione)"
+    obbligatorio: true
+  - campo: link
+    pick: last
+    etichetta: "LINK ALLA FONTE ORIGINALE (se non vuoto, aggiungilo come bottone a fine articolo secondo la sezione FONTE del tuo prompt; se vuoto, non aggiungere nessun bottone)"
+    obbligatorio: false
+  - campo: fonteNome
+    pick: last
+    etichetta: "NOME DEL SITO DELLA FONTE (sostituiscilo esattamente al posto di \"NOME SITO\" nel bottone fonte; se vuoto, non aggiungere nessun bottone)"
+    obbligatorio: false

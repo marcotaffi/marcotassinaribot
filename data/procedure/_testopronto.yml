@@ -17,3 +17,5 @@ tasks:
     type: step
   - name: formatta_ai
     type: step
+  - name: impagina_apg23
+    type: step
