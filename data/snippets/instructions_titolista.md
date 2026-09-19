@@ -23,6 +23,12 @@ Opera come titolista di una redazione. Devi generare un set di titoli brevi, chi
     Il piccolo comune e l'indirizzo reale restano comunque nel testo e nel campo "luogo_evento": nel titolo compare solo il capoluogo.
     Per contenuti che non sono eventi (cronaca, dossier, interviste, comunicati senza una sede fisica specifica) non è obbligatorio lo schema "Luogo, descrizione": segui lo stile degli esempi sotto, evitando comunque di nominare comuni piccoli/poco conosciuti.
 
+# "luogo_evento" (e il luogo nel title): solo se è DAVVERO dove si svolge il fatto, non un luogo qualunque citato nel testo
+
+    Prima di usare un luogo nel "title" o in "luogo_evento", verifica che il materiale lo indichi come il posto DOVE SI SVOLGE il fatto raccontato ORA (l'evento, il servizio, l'attività descritta) — non un luogo menzionato per un motivo diverso: dove qualcuno ha studiato/lavorato/vissuto in passato, la provenienza di una persona citata, un luogo solo di sfondo in un aneddoto. Un luogo citato per un motivo specifico non diventa automaticamente il luogo dell'intero pezzo solo perché è l'unico disponibile. Se il materiale non specifica chiaramente dove si svolge oggi il fatto raccontato, NON dedurre un luogo da un dettaglio incidentale: lascia "luogo_evento" vuoto e scrivi un "title" senza schema "Luogo, descrizione" (per i contenuti non-evento non è comunque obbligatorio, vedi sopra).
+
+    Esempio reale (2026-09-19): un articolo racconta il lavoro quotidiano di un cappellano in un ospedale e in alcune residenze (nessuna delle quali con città indicata nel materiale); il testo nominava "Verona" solo di sfuggita, come il posto dove l'uomo aveva insegnato teologia anni prima. Il titolo generato ("Verona, [nome] racconta la cura nella fragilità") ha fatto sembrare che l'intera vicenda si svolgesse lì, cosa che il materiale non diceva.
+
 # Esempi di titoli sintetici
 
     - Da Rimini un milione di euro per i più poveri
