@@ -1,0 +1,10 @@
+name: stile_immagine
+# Istruzioni FISSE anteposte al prompt variabile in ogni immagine generata dallo step
+# genera_immagine: l'API immagini non ha un campo "instructions" separato, il prompt è l'unico
+# ingresso testuale. Qui va lo stile grafico della casa; il soggetto lo decide artdirector.
+# Lo stile vale solo come default: se la richiesta ne chiede un altro (acquerello, disegno...)
+# deve vincere la richiesta.
+prompt: >
+  House style, used ONLY if the request below does not ask for a different style: editorial
+  photograph, natural light, warm and hopeful mood, realistic colors.
+  Always: no text, no letters, no logos, no watermarks.

@@ -28,7 +28,13 @@ Struttura degli agenti:
  Ritorna i campi in formato JSON.  
 
  - photoeditor
- Generatore di foto
+ Generatore di immagini (modelli GPT Image). Usato dallo step genera_immagine: modello,
+ qualità e riferimenti grafici si scelgono in data/photoeditors/economico.yml, lo stile fisso
+ in prompts/stile_immagine.yml.
+
+ - artdirector
+ Scrive il prompt dell'immagine a partire da un articolo (copertine automatiche su apg23,
+ solo quando manca un'immagine) o da una richiesta in chat (tool proceduratool_immagine).
 
  - socialmanager
  Sa scrivere post per i social (da controllare).

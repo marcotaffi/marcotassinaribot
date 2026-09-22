@@ -1,0 +1,5 @@
+clientName: gpt-image
+clientDescription: Generatore immagini OpenAI (modelli GPT Image, Images API)
+apiType: gpt-image
+apiKeyEnvVar: OPENAI_API_KEY
+providerType: openai

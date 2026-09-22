@@ -1,5 +1,8 @@
 name: genera_immagine
-description: "Genera l'immagine a partire dal prompt creato"
+description: "Genera l'immagine dal prompt di genera_prompt_immagine (o dalla richiesta diretta)"
 type: photoeditor
-agentName: "nonloso"
-photoEditor: dall-e2
+agentName: photoeditor
+# Parametri tecnici (modello, qualità, formato, esempi grafici): cambia file per cambiare costo/stile.
+photoEditor: economico
+# Istruzioni di stile fisse, anteposte al prompt variabile (vedi prompts/stile_immagine.yml).
+prompt: stile_immagine

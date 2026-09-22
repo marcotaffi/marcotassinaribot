@@ -1,5 +1,0 @@
-clientName: dall-e
-clientDescription: Generatore immagini DALL·E
-apiType: dall-e
-apiKeyEnvVar: OPENAI_API_KEY
-providerType: openai

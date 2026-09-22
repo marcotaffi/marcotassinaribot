@@ -1,0 +1,10 @@
+# "_" iniziale: esclude la procedura dalla registrazione automatica come comando Telegram (vedi
+# _testopronto.yml); da chat si raggiunge col tool proceduratool_immagine.
+name: _immagine
+description: genera un'immagine a partire da una richiesta in chat e la mostra all'utente
+type: sequenziale
+tasks:
+  - name: genera_prompt_immagine_chat
+    type: step
+  - name: genera_immagine
+    type: step

@@ -9,6 +9,23 @@ type: sequenziale
 tasks:
   - name: wordpress_scrivi
     type: step
+  # Copertina generata SOLO se manca: né un URL in "image" (immagine originale dell'articolo,
+  # riportata da caporedattore, o data in chat) né un'immagine passata come Multimedia dal tool
+  # "invia" (sorgente "image"). Wordpress.post usa l'immagine generata come ultimo ripiego.
+  - name: genera_prompt_immagine
+    type: step
+    condizione: &senzaCopertina
+      non:
+        una:
+          - campo: image
+            operatore: truthy
+          - campo: image
+            modo: multimedia
+            sorgente: image
+            operatore: exists
+  - name: genera_immagine
+    type: step
+    condizione: *senzaCopertina
   - name: wordpress_pubblica
     type: step
   # Notifica a chi revisiona davvero le bozze su apg23.org (Mattia): questo canale pubblica

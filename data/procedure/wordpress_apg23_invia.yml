@@ -2,6 +2,23 @@ name: wordpress_apg23_invia
 description: "Pubblica su apg23.org (riusa wordpress_apg23_post) via CanaleFlusso"
 type: sequenziale
 tasks:
+  # Copertina generata SOLO se manca: né un URL in "image" (immagine originale dell'articolo,
+  # riportata da caporedattore, o data in chat) né un'immagine passata come Multimedia dal tool
+  # "invia" (sorgente "image"). Wordpress.post usa l'immagine generata come ultimo ripiego.
+  - name: genera_prompt_immagine
+    type: step
+    condizione: &senzaCopertina
+      non:
+        una:
+          - campo: image
+            operatore: truthy
+          - campo: image
+            modo: multimedia
+            sorgente: image
+            operatore: exists
+  - name: genera_immagine
+    type: step
+    condizione: *senzaCopertina
   - name: wordpress_pubblica
     type: step
   # NESSUNA notifica a Mattia qui di proposito (a differenza di wordpress_apg23_pubblica.yml):

@@ -23,6 +23,9 @@ toolNames:
            # elencaArticoli/elencaRisorse: run/post sono nascosti da chat (vedi
            # Wordpress.azioniNonEsposteAllAI) e passano ora sempre da qui.
            - ripubblica_apg23
+           # Genera un'immagine da una descrizione e la mostra in chat (procedure/_immagine.yml).
+           # Le copertine per apg23 NON passano da qui: "invia" le genera da solo se mancano.
+           - proceduratool_immagine
            # SeoZoom (vedi taffitools/src/servizi/seozoomtool.ts): come wordpress_apg23 carica sia
            # "_post" che "_run", ogni firma breve seozoom_<categoria> carica TUTTE le azioni di
            # quella categoria (non serve elencarle una per una).

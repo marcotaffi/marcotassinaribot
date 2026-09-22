@@ -1,5 +1,8 @@
 agentName: photoeditor
-agentDescription: "provo a far così per generare le foto anche se forse sarà meglio farlo diventare un servizio"
-apiClient: "dall-e"
+agentDescription: "Genera immagini con i modelli GPT Image (usato dagli step di tipo photoeditor)"
+apiClient: "gpt-image"
+# Valori di ripiego: lo step di tipo photoeditor li sovrascrive con quelli del suo file in
+# data/photoeditors/ (vedi steps/genera_immagine.yml). Il modello si cambia lì.
 params:
-  model: "dall-e-2"
+  model: "gpt-image-2.5-flare"
+  quality: "low"

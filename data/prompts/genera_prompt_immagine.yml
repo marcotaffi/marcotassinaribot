@@ -1,0 +1,8 @@
+name: genera_prompt_immagine
+params:
+  type:
+    - promptImmagine
+prompt: >
+  Scrivi il prompt per il generatore di immagini a partire dal materiale qui sotto (un articolo
+  da illustrare con una copertina, oppure una richiesta diretta dell'utente). Rispondi in JSON
+  con il solo campo "promptImmagine".

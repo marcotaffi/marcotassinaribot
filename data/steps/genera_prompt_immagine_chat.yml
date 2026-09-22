@@ -1,0 +1,9 @@
+name: genera_prompt_immagine_chat
+description: "Scrive il prompt per l'immagine a partire dalla sola richiesta arrivata dalla chat"
+type: prompt
+prompt: genera_prompt_immagine
+agentName: artdirector
+# Nessun "materiale": da chat conta solo la richiesta ("prompt", letto da solo dallo step). Il
+# title/text di un articolo scritto in un turno precedente potrebbe essere ancora in sessione e
+# sviare l'immagine — per questo non uso qui genera_prompt_immagine.
+richiedeMateriale: true

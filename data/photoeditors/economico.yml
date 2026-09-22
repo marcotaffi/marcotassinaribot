@@ -1,0 +1,22 @@
+name: economico
+description: "Copertine e immagini da chat al costo più basso (circa $0,006 a immagine 1024x1024 in qualità low)"
+# Modelli disponibili (settembre 2026):
+#  - gpt-image-2.5-flare     veloce, per l'uso quotidiano (default)
+#  - gpt-image-2.5-sunburst  più preciso, per modifiche di foto esistenti; stesso prezzo a token
+#  - gpt-image-1-mini        il più economico in assoluto, ma SPENTO dal 01/12/2026
+model: "gpt-image-2.5-flare"
+# low | medium | high | xhigh | max | auto — è la voce che pesa di più sul costo
+quality: "low"
+# orizzontale, adatta alle copertine di WordPress (altre: 1024x1024, 1024x1536, auto)
+size: "1536x1024"
+# jpeg: file molto più leggeri del png per il web
+output_format: "jpeg"
+# Se true, usa come riferimento anche le immagini arrivate nella richiesta (es. foto mandate
+# in chat da modificare). Per le copertine automatiche resta false.
+useReferences: false
+# Esempi grafici di stile, SEMPRE passati al modello: URL, file o cartelle sotto data/ (una
+# cartella vale per tutte le immagini .png/.jpg/.webp che contiene, max 16 in totale).
+# Attenzione: ogni riferimento costa token in ingresso e sposta il modello verso "modifica"
+# invece di "genera da zero" — attivalo solo quando ci sono esempi davvero rappresentativi.
+# referenceImages:
+#   - referenceimages/apg23
