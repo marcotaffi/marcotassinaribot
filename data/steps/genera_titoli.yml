@@ -3,5 +3,21 @@ type: prompt
 description: "Genera titoli alternativi e SEO-friendly a partire dal testo della notizia"
 prompt: genera_titoli_json
 agentName: titolista
+# Aggiunto il 2026-09-22 verificando la Categoria P (proceduratool_testopronto, testo già pronto
+# non riscritto — vedi _testopronto.yml, che salta lo step di scrittura e passa direttamente da
+# qui): senza un riferimento esplicito a "corpo", questo step (come formatta_ai PRIMA del fix del
+# 2026-09-17 — stesso identico rischio, vedi il commento in steps/formatta_ai.yml) si affida al
+# modello per individuare da solo, nella cronologia intera della sessione, quale sia "il testo
+# della notizia" — con una sessione che non si svuota mai fra una richiesta e l'altra (vedi le
+# altre note di oggi sulla stessa causa), può confondersi con materiale di un articolo precedente
+# non ancora del tutto scaduto dal contesto. Con "corpo" esplicito, il testo arriva sempre
+# delimitato e senza ambiguità, sia che venga da uno step di scrittura (ripubblica/cronaca/
+# ufficiostampa/dossier/interviste) sia — Categoria P — direttamente dal testo incollato
+# dall'utente.
+materiale:
+  - campo: corpo
+    pick: last
+    etichetta: "TESTO DELLA NOTIZIA (genera i titoli per questo testo)"
+    obbligatorio: true
 
 

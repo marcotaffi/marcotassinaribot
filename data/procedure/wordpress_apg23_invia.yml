@@ -19,6 +19,22 @@ tasks:
   - name: genera_immagine
     type: step
     condizione: *senzaCopertina
+  # Campi di archiviazione della copertina (nome file, titolo, alt, parole chiave): serve sia per
+  # l'immagine originale dell'articolo sia per quella generata qui sopra, quindi gira ogni volta
+  # che una copertina c'è.
+  - name: metadati_copertina
+    type: step
+    condizione:
+      una:
+        - campo: image
+          operatore: truthy
+        - campo: immagineGenerata
+          modo: multimedia
+          operatore: exists
+        - campo: image
+          modo: multimedia
+          sorgente: image
+          operatore: exists
   - name: wordpress_pubblica
     type: step
   # NESSUNA notifica a Mattia qui di proposito (a differenza di wordpress_apg23_pubblica.yml):

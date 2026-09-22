@@ -1,0 +1,13 @@
+name: metadati_immagine
+params:
+  type:
+    - immagine_nomefile
+    - immagine_titolo
+    - immagine_alt
+    - immagine_soggetto
+    - immagine_luogo
+    - immagine_parolechiave
+prompt: >
+  Guarda l'immagine allegata e prepara i campi per archiviarla. Il materiale qui sotto (titolo e
+  sommario dell'articolo, contesto della fonte se presente) serve solo come sfondo: i campi
+  devono descrivere l'immagine, non l'articolo. Rispondi in JSON con i campi richiesti.

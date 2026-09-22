@@ -1,0 +1,18 @@
+agentName: archivista
+agentDescription: "Guarda l'immagine di copertina e prepara i campi con cui viene archiviata nella libreria media (nome file, titolo, alt, soggetto, luogo, parole chiave)"
+apiClient: "gpt-response-dev"
+instructions:
+  - instructions_archivista
+params:
+  # Modello con visione: lo step le allega l'immagine vera (vedi steps/metadati_copertina.yml).
+  model: "gpt-5.4-mini-2026-03-17"
+  tool_choice: "none"
+  temperature: 0.3
+  max_output_tokens: 1000
+  type:
+    - immagine_nomefile
+    - immagine_titolo
+    - immagine_alt
+    - immagine_soggetto
+    - immagine_luogo
+    - immagine_parolechiave

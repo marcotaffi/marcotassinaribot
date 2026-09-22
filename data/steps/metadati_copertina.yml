@@ -1,0 +1,25 @@
+name: metadati_copertina
+description: "Guarda la copertina e prepara i campi con cui archiviarla nella libreria media"
+type: prompt
+prompt: metadati_immagine
+agentName: archivista
+# Immagine ALLEGATA al prompt, perché l'agente la guardi davvero (vedi "immagini" in step.ts).
+# È una scala di priorità e vince il primo campo disponibile: stesso ordine con cui Wordpress.post
+# sceglie la copertina (prima quella indicata, poi quella generata qui), così l'agente descrive
+# esattamente l'immagine che verrà pubblicata.
+immagini:
+  - image
+  - immagineGenerata
+materiale:
+  - campo: title
+    etichetta: TITOLO ARTICOLO
+    obbligatorio: false
+  - campo: excerpt
+    etichetta: SOMMARIO ARTICOLO
+    obbligatorio: false
+  # Didascalia originale pubblicata dalla fonte: è l'UNICA informazione attendibile sul contesto
+  # (una foto d'archivio può ritrarre un altro fatto). Quasi sempre assente, vedi la mail a
+  # semprenews del 2026-09-22.
+  - campo: imageCaption
+    etichetta: CONTESTO DALLA FONTE
+    obbligatorio: false

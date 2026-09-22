@@ -13,11 +13,27 @@ materiale:
     pick: last
     etichetta: "HTML DA IMPAGINARE (non modificarne il contenuto, solo l'impaginazione)"
     obbligatorio: true
+  # daStep: ripubblica — bug reale in produzione (2026-09-22, marcotassinaribot): senza questo
+  # vincolo, "link"/"fonteNome" vengono cercati con leggiCampo pick:"last" su TUTTA la sessione
+  # (che non si svuota mai fra una richiesta e l'altra, vedi le altre note di oggi sulla stessa
+  # causa) — e "link" non è un nome usato solo qui: è anche il campo con cui canaleflusso_*_invia
+  # conferma l'URL di un articolo APPENA PUBBLICATO (vedi Wordpress.post/output del tool). Le due
+  # cose non hanno nulla in comune (l'URL della fonte esterna di un rilancio vs l'URL del NOSTRO
+  # articolo appena creato) ma condividono lo stesso nome di campo, quindi senza scoping un
+  # articolo senza fonte esterna può riprendere l'ULTIMO "link" trovato in sessione, di qualunque
+  # tipo esso sia. Capitato davvero: l'articolo su un evento a Cerea è uscito con un bottone
+  # "Leggi l'articolo originale" che puntava all'articolo di un evento a Bologna pubblicato prima
+  # nella stessa chat, perché la conferma di pubblicazione di quell'articolo aveva anch'essa un
+  # campo "link". Solo lo step "ripubblica" (Categoria E) scrive un vero URL di fonte esterna: con
+  # daStep, il campo si trova SOLO lì — mai da un altro step né dalla conferma di un "invia" — per
+  # tutte le altre categorie risulta sempre vuoto, come deve essere.
   - campo: link
     pick: last
+    daStep: ripubblica
     etichetta: "LINK ALLA FONTE ORIGINALE (se non vuoto, aggiungilo come bottone a fine articolo secondo la sezione FONTE del tuo prompt; se vuoto, non aggiungere nessun bottone)"
     obbligatorio: false
   - campo: fonteNome
     pick: last
+    daStep: ripubblica
     etichetta: "NOME DEL SITO DELLA FONTE (sostituiscilo esattamente al posto di \"NOME SITO\" nel bottone fonte; se vuoto, non aggiungere nessun bottone)"
     obbligatorio: false

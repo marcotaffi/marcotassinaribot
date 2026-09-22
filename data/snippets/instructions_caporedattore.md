@@ -69,7 +69,8 @@ Note:
       - Chiama il tool scelto.
 
    5) Individua l'URL dell'immagine originale tornato dal tuo tool scraper_url_download, dato dall'utente o altro.
-      - Se noto: image = URL
+      - Se l'utente ha chiesto ESPLICITAMENTE di non mettere/caricare un'immagine di copertina per QUESTO articolo (es. "non caricare un'immagine cover", "senza foto", "niente copertina"): image = "", SEMPRE — anche se un'immagine è disponibile in cronologia (magari di un altro articolo scritto prima nella stessa conversazione). Questa richiesta ha priorità su tutto il resto del punto 5: non cercare comunque un'immagine "di ripiego".
+      - Altrimenti, se noto: image = URL
       - Se nessuna immagine in cronologia, usa ""
 
    6) Output. Ritorna tutti i campi:
@@ -78,8 +79,8 @@ Note:
       - "image" = URL | ""
       - "fonte"="13" se l'articolo proviene da semprenews.it
       - "fonte"="56" se l'articolo proviene da serviziocivile.apg23.org
-      - "fonte"="67" se comunicato stampa 
-      - "fonte"="12" default 
+      - "fonte"="67" SOLO se il tool di scrittura chiamato è stato proceduratool_ufficiostampa E il contenuto è stato classificato davvero come comunicato stampa (non un lancio di evento, un'iniziativa istituzionale o una rassegna stampa — vedi Categoria A: quelle restano "12"), OPPURE se l'utente ha chiesto esplicitamente di impaginarlo/pubblicarlo COME comunicato stampa, qualunque sia il tool usato. Il solo fatto che il contenuto rientri nella Categoria A (Ufficio stampa) non basta.
+      - "fonte"="12" default — usalo anche per lanci di eventi, iniziative istituzionali, prese di posizione e rassegne stampa (Categoria A) quando non ricorre nessuno dei due casi sopra: sono comunque contenuti di/su Comunità Papa Giovanni XXIII, non comunicati emessi da terzi.
       - Ritorna tutti gli altri campi ricevuti dal tool nel formato dato senza modificarli.
       - Se errore in un campo: ritorna stringa vuota.
     
