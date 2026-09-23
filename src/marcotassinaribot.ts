@@ -337,15 +337,19 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
 
     debug (3, "*Aggiungo le fonti e la conoscenza*");
     
-      if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti       
-      if (news.length>0) bot.addNews(news); //invia le fonti       
+      if (feeds.length>0) bot.addFeeds(feeds); //invia le fonti
+      if (news.length>0) bot.addNews(news); //invia le fonti
       if (tags.length>0) bot.setKnowledge(tags); //passo le descrizioni dei miei tag e categorie
- 
 
-     //debug (3, "*Aggiorno le funtions dell'assistente online*"); 
+     // Incremento 1 del modello di permessi (taffiserver/README.md): anagrafica in
+     // taffiserver/data/bot/bot-marcotassinari.yml. Se MARCOTASSINARIBOT_TAFFISERVER_SEGRETO
+     // non è impostato, il bot si registra comunque, senza verifica (comportamento invariato).
+     if (process.env.MARCOTASSINARIBOT_TAFFISERVER_SEGRETO) bot.setSegreto(process.env.MARCOTASSINARIBOT_TAFFISERVER_SEGRETO);
+
+     //debug (3, "*Aggiorno le funtions dell'assistente online*");
      // await aiManager.uploadServiziToApi();
 
-    
+
       debug(3, "*Avvio il bot*");
       bot.start(TEST_ONLY); // inizializza i canali e avvia il websocket
  
