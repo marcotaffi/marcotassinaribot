@@ -1,0 +1,17 @@
+name: genera_prompt_cover_apg23
+params:
+  type:
+    - promptImmagine
+prompt: >
+  Leggi e analizza l'articolo qui sotto e descrivi il SOGGETTO della sua illustrazione di
+  copertina.
+
+  L'immagine deve rappresentare il tema centrale dell'articolo, non illustrare alla lettera il
+  titolo: individua nel testo le persone, le situazioni, i luoghi, le relazioni e i concetti
+  sociali più significativi e trasformali in UNA scena visiva immediatamente comprensibile.
+  Decidi anche quanto la scena debba essere stilizzata o dettagliata, in base al contenuto
+  dell'articolo.
+
+  Non descrivere lo stile grafico, la palette o il formato: vengono aggiunti dopo.
+
+  Rispondi in JSON con il solo campo "promptImmagine".

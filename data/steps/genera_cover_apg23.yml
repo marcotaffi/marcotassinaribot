@@ -1,0 +1,8 @@
+name: genera_cover_apg23
+description: "Genera l'illustrazione di copertina per apg23.org nello stile del sito"
+type: photoeditor
+agentName: photoeditor
+# Modello, misure (1216x608, rapporto 2:1) e provini di stile.
+photoEditor: cover_apg23
+# Stile della casa, anteposto al soggetto scelto dall'art director.
+prompt: stile_cover_apg23

@@ -1,0 +1,18 @@
+name: genera_prompt_cover_apg23
+description: "Analizza l'articolo e descrive il soggetto della copertina per apg23.org"
+type: prompt
+prompt: genera_prompt_cover_apg23
+agentName: artdirector
+# "prompt" (richiesta dalla chat) e "materialeIniziale" (articolo dal feed) entrano da soli nel
+# prompt; qui aggiungo l'articolo già scritto, che nei flussi di pubblicazione è il materiale
+# più affidabile. Tutti facoltativi: basta che ce ne sia uno.
+materiale:
+  - campo: title
+    etichetta: TITOLO
+    obbligatorio: false
+  - campo: excerpt
+    etichetta: SOMMARIO
+    obbligatorio: false
+  - campo: text
+    etichetta: ARTICOLO
+    obbligatorio: false

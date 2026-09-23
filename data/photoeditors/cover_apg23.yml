@@ -1,0 +1,22 @@
+name: cover_apg23
+description: "Copertine degli articoli di apg23.org: illustrazione editoriale contemporanea, panoramica 2:1"
+
+model: gpt-image-2.5-flare   # gpt-image-2.5-flare (economico) | gpt-image-2.5-sunburst (più preciso)
+
+# 1216x608 e non 1200x600: l'API accetta solo misure multiple di 16. 1216x608 è il valore più
+# vicino che mantiene ESATTAMENTE il rapporto 2:1 richiesto (1200x600 non è ottenibile).
+size: 1216x608
+
+# low tiene il costo intorno al centesimo a immagine. Se le illustrazioni risultassero povere
+# di dettaglio, il primo parametro da alzare è questo (medium costa circa 4 volte tanto).
+quality: low
+output_format: jpeg
+
+# false: la copertina deve seguire lo stile del sito, non somigliare alla foto dell'articolo.
+useReferences: false
+
+# Provini di stile: tutta la cartella (vedi il README in referenceimages). ATTENZIONE: i due
+# file attuali sono GRIGLIE di illustrazioni, non singole immagini — il prompt di stile dice
+# esplicitamente di prenderne solo il tratto e di produrre UNA scena sola.
+referenceImages:
+  - referenceimages/apg23

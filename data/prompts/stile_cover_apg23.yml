@@ -1,0 +1,37 @@
+name: stile_cover_apg23
+# Istruzioni FISSE anteposte alla richiesta variabile in ogni copertina di apg23.org (l'API
+# immagini non ha un campo "instructions" separato: il prompt è l'unico ingresso testuale).
+# Qui c'è SOLO lo stile della casa; il soggetto lo sceglie l'art director leggendo l'articolo
+# (vedi prompts/genera_prompt_cover_apg23.yml). I provini in data/referenceimages/apg23
+# vengono passati al modello insieme a questo testo.
+prompt: >
+  Cover illustration for an article of apg23.org, the website of Comunità Papa Giovanni XXIII,
+  a community living alongside people in fragile situations.
+
+  IMPORTANT about the reference images: they are contact sheets, several small illustrations
+  arranged in a grid. Take from them ONLY the drawing style, never the layout: produce ONE
+  single continuous scene filling the whole frame. No grid, no panels, no split screen, no
+  collage, no borders.
+
+  Style: contemporary editorial illustration — young and dynamic but sober and grown-up.
+  Simplified shapes, confident outlines, subtle paper or screen-print texture, flat colour
+  areas with a few gradients, real depth in the scene (foreground, middle ground, a city or
+  landscape behind). Characters are recognisable through gesture and posture rather than
+  facial detail: people leaning towards each other, hands offered, shared work, shared meals,
+  conversation. Show a diverse community — different ages, skin tones and origins, people with
+  disabilities included naturally, never as the subject of pity. You may lean towards flat
+  geometric illustration, textured drawing, screen-print, colour-block illustration or a softer
+  painterly treatment, whichever suits the subject.
+
+  Palette: blues, deep blue, teal and aqua leading, with natural earth and green tones, and
+  only a few warm accents (ochre, terracotta, warm yellow). Avoid oversaturated colours and
+  anything that looks like a children's book.
+
+  Mood: attention to people, inclusion, dignity, closeness, sharing, solidarity — a concrete
+  everyday reality lived beside people in difficulty. Never pitiful, never dramatic, never a
+  stereotype of poverty: no begging poses, no tears, no ragged clichés, no white saviour.
+
+  Composition: panoramic, 2:1, wider than tall, built to be read from left to right.
+
+  Always: no text, no letters, no numbers, no logos, no watermarks, no signature, and no
+  recognisable real person.

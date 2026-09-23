@@ -9,11 +9,17 @@ type: sequenziale
 tasks:
   - name: wordpress_scrivi
     type: step
-  # Copertina generata SOLO se manca: né un URL in "image" (immagine originale dell'articolo,
-  # riportata da caporedattore, o data in chat) né un'immagine passata come Multimedia dal tool
-  # "invia" (sorgente "image"). Wordpress.post usa l'immagine generata come ultimo ripiego.
-  - name: genera_prompt_immagine
+  # Copertina generata SOLO se manca (e i campi con cui archiviarla). Tutti "opzionale: true":
+  # se la generazione o la descrizione falliscono, l'articolo esce comunque — senza copertina o
+  # coi campi di ripiego — invece di restare non pubblicato.
+  # La copertina manca quando: non c'è un URL in "image" (immagine originale trovata dal
+  # link, oppure indicata o generata in chat, che arriva qui come riferimento testuale) e non
+  # c'è un'immagine passata come Multimedia dal tool "invia" (sorgente "image").
+  # Vale sia per gli articoli sia per gli eventi. Wordpress.post usa l'immagine generata come
+  # ultimo ripiego.
+  - name: genera_prompt_cover_apg23
     type: step
+    opzionale: true
     condizione: &senzaCopertina
       non:
         una:
@@ -23,14 +29,16 @@ tasks:
             modo: multimedia
             sorgente: image
             operatore: exists
-  - name: genera_immagine
+  - name: genera_cover_apg23
     type: step
+    opzionale: true
     condizione: *senzaCopertina
   # Campi di archiviazione della copertina (nome file, titolo, alt, parole chiave): serve sia per
   # l'immagine originale dell'articolo sia per quella generata qui sopra, quindi gira ogni volta
   # che una copertina c'è.
   - name: metadati_copertina
     type: step
+    opzionale: true
     condizione:
       una:
         - campo: image
