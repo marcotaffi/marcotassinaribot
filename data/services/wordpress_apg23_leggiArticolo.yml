@@ -1,0 +1,18 @@
+# Istanza SEPARATA del canale wordpress_apg23, con "azione" fissa: Servizio.getFunzioni()
+# (taffitools/src/servizi/servizio.ts) filtra generaDescrizione() a questa sola azione quando
+# "azione" è presente in configurazione — è così che "revisore" vede SOLO leggiArticolo (lettura),
+# non elencaArticoli/elencaRisorse/aggiornaArticolo/aggiornaMedia della voce "wordpress_apg23"
+# usata da marcotassinari. "destinazione" deve restare "apg23" (non "apg23.org", a differenza di
+# wordpress_apg23_elencaarticoli.yml) perché la firma generata a runtime
+# (wordpress_${destinazione}_leggiArticolo) deve combaciare esattamente con quella dichiarata nel
+# toolNames di revisore.yml.
+firma: "wordpress_apg23_leggiArticolo"
+servizio: "wordpress"
+destinazione: "apg23"
+azione: "leggiArticolo"
+opzioni:
+  sito: "www.apg23.org"
+  basic_auth: "APG23_WORDPRESS"
+  postTypes:
+    - posts #default
+    - eventi

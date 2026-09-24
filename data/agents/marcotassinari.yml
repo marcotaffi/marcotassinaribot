@@ -19,9 +19,13 @@ toolNames:
            - wordpress_apg23
            # ripubblica_apg23 (CanaleFlusso, vedi data/services/ripubblica_apg23.yml): dal
            # 2026-09-18 è l'UNICO percorso chat per scrivere/pubblicare su apg23.org — espone
-           # canaleflusso_apg23_scrivi/_invia. wordpress_apg23 resta qui solo per
-           # elencaArticoli/elencaRisorse: run/post sono nascosti da chat (vedi
-           # Wordpress.azioniNonEsposteAllAI) e passano ora sempre da qui.
+           # canaleflusso_apg23_scrivi/_invia. wordpress_apg23 (firma breve, come seozoom_* sotto:
+           # UNA voce carica TUTTE le azioni non nascoste del canale, non serve elencarle una per
+           # una) espone quindi elencaArticoli/elencaRisorse/leggiArticolo/aggiornaArticolo/
+           # aggiornaMedia — run/post restano nascosti da chat (vedi Wordpress.azioniNonEsposteAllAI)
+           # e passano sempre da ripubblica_apg23. aggiornaArticolo/aggiornaMedia scrivono per
+           # davvero: MAI senza conferma esplicita dell'utente, vedi "Modalità Modifica" in
+           # instructions_marcotassinari.md.
            - ripubblica_apg23
            # Genera un'immagine da una descrizione e la mostra in chat (procedure/_immagine.yml).
            # Le copertine per apg23 NON passano da qui: "invia" le genera da solo se mancano.
@@ -52,13 +56,7 @@ toolNames:
            - proceduratool_impaginaapg23
            - proceduratool_formattasemprenews
            # --- Modifica di articoli già pubblicati (2026-09-24) ---
-           # wordpress_apg23_leggiArticolo: lettura diretta (id/slug/url) di UN articolo già noto,
-           # più precisa di wordpress_apg23_elencaarticoli per un "dimmi cosa dice l'articolo X".
+           # leggiArticolo/aggiornaArticolo/aggiornaMedia arrivano già dalla voce "wordpress_apg23"
+           # sopra (firma breve, non serve ripeterle qui — vedi il suo commento). Qui serve solo
            # proceduratool_revisiona: propone una modifica (agente "revisore", non scrive nulla).
-           # wordpress_apg23_aggiornaArticolo/aggiornaMedia: scrivono per davvero — MAI senza
-           # conferma esplicita dell'utente, vedi "Modalità Modifica" in
-           # instructions_marcotassinari.md.
-           - wordpress_apg23_leggiArticolo
            - proceduratool_revisiona
-           - wordpress_apg23_aggiornaArticolo
-           - wordpress_apg23_aggiornaMedia
