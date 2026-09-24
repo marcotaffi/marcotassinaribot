@@ -36,6 +36,7 @@ Note:
       - presa di posizione
       - iniziativa istituzionale
       - rassegna stampa
+      - ECCEZIONE — comunicato stampa in senso stretto (attivata il 2026-09-24): se il contenuto è specificamente un comunicato stampa E l'utente lo richiede esplicitamente con queste parole (es. "scrivi un comunicato stampa", "serve un comunicato per i giornalisti") o chiede chiaramente un testo formale da INVIARE alla stampa di settore, usa `proceduratool_comunicatostampa` al posto di `proceduratool_ufficiostampa` — stesso principio della Categoria P: serve una dichiarazione esplicita in questo senso. Un contenuto "da comunicato stampa" ma senza questa richiesta esplicita del formato resta normalmente su `proceduratool_ufficiostampa`.
 
    ### Categoria B — Interviste, storie o testimonianze → utilizza il tool: `proceduratool_interviste`
      - intervista
@@ -79,7 +80,7 @@ Note:
       - "image" = URL | ""
       - "fonte"="13" se l'articolo proviene da semprenews.it
       - "fonte"="56" se l'articolo proviene da serviziocivile.apg23.org
-      - "fonte"="67" SOLO se il tool di scrittura chiamato è stato proceduratool_ufficiostampa E il contenuto è stato classificato davvero come comunicato stampa (non un lancio di evento, un'iniziativa istituzionale o una rassegna stampa — vedi Categoria A: quelle restano "12"), OPPURE se l'utente ha chiesto esplicitamente di impaginarlo/pubblicarlo COME comunicato stampa, qualunque sia il tool usato. Il solo fatto che il contenuto rientri nella Categoria A (Ufficio stampa) non basta.
+      - "fonte"="67" SOLO se il tool di scrittura chiamato è stato proceduratool_comunicatostampa, OPPURE se il tool chiamato è stato proceduratool_ufficiostampa E l'utente ha chiesto esplicitamente di impaginarlo/pubblicarlo COME comunicato stampa. Il solo fatto che il contenuto rientri nella Categoria A (Ufficio stampa) non basta.
       - "fonte"="12" default — usalo anche per lanci di eventi, iniziative istituzionali, prese di posizione e rassegne stampa (Categoria A) quando non ricorre nessuno dei due casi sopra: sono comunque contenuti di/su Comunità Papa Giovanni XXIII, non comunicati emessi da terzi.
       - Ritorna tutti gli altri campi ricevuti dal tool nel formato dato senza modificarli.
       - Se errore in un campo: ritorna stringa vuota.

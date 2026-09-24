@@ -48,6 +48,10 @@ toolNames:
       # chiamarlo su più giri), classifica sempre dal link/contesto disponibile.
       - proceduratool_ripubblica
       - proceduratool_ufficiostampa
+      # Comunicato stampa (attivata il 2026-09-24): testo specifico per giornalisti di settore,
+      # distinto dagli altri contenuti di Categoria A (lancio evento, presa di posizione,
+      # iniziativa istituzionale, rassegna stampa) che restano su proceduratool_ufficiostampa.
+      - proceduratool_comunicatostampa
       - proceduratool_cronaca
       - proceduratool_interviste
       - proceduratool_dossier

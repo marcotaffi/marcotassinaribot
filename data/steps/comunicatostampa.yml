@@ -3,13 +3,11 @@ type: prompt
 description: "Scrivi un comunicato stampa."
 prompt: comunicatostampa
 agentName: ufficiostampa
-# Backstop deterministico (2026-09-15): primo step della propria procedura (comunicatostampa →
-# genera_titoli → formatta_ai) — riceverebbe il materiale vero SOLO da qui (un "prompt" passato
-# da chi chiama la procedura), mai dagli step successivi della catena. Nota: al momento nessun
-# agente/servizio richiama questa procedura (nessuna corrispondenza in data/services o
-# data/agents) — il flag non cambia nulla finché resta così, ma è corretto tenerlo pronto per
-# quando/se verrà agganciata, stesso schema di scrivi_rilancio — vedi il suo commento in
-# taffitools/src/procedure/step.ts.
+# Backstop deterministico: primo step della propria procedura (comunicatostampa → genera_titoli →
+# formatta_ai → impagina_apg23) — riceve il materiale vero SOLO da qui (il "prompt" passato da
+# caporedattore tramite proceduratool_comunicatostampa, attivata il 2026-09-24), mai dagli step
+# successivi della catena. Stesso schema, stessa protezione di scrivi_rilancio — vedi il suo
+# commento in taffitools/src/procedure/step.ts.
 richiedeMateriale: true
 # Backstop sull'output (2026-09-15, stesso motivo di ripubblica.yml — vedi il suo commento):
 # senza questo controllo, se lo scraping fallisce l'agente potrebbe scrivere una scusa

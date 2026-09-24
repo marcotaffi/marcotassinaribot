@@ -1,11 +1,19 @@
 name: comunicatostampa
-description: per fare un comando del bot telegram
+description: scrive un comunicato stampa destinato a giornalisti di settore, distinto dagli altri contenuti di ufficio stampa (Categoria A)
 type: sequenziale
 tasks:
   - name: comunicatostampa
     type: step
   - name: genera_titoli
     type: step
+    # soloTesto (2026-09-24): vedi il commento in procedure/ripubblica.yml, stesso schema.
+    ramificazioni:
+      - condizione:
+          campo: soloTesto
+          operatore: truthy
+          modo: data
+        poi: fine
+      - poi: formatta_ai
   - name: formatta_ai
     type: step
   - name: impagina_apg23

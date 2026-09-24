@@ -1,0 +1,6 @@
+firma: proceduratool_scrivi
+servizio: proceduratool
+destinazione: scrivi
+procedura: orchestra
+azione: esegui
+cosafa: "This tool writes a complete, ready-to-publish article (title, excerpt, full HTML formatted for apg23.org) from provided material, classifying it into the right category and applying the right journalistic style — the full writing pipeline, equivalent to what used to be canaleflusso_apg23_scrivi."

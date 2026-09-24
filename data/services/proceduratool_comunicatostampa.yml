@@ -1,0 +1,13 @@
+firma: proceduratool_comunicatostampa
+servizio: proceduratool
+destinazione: comunicatostampa
+procedura: comunicatostampa
+azione: esegui
+cosafa: "This tool writes a press release specifically intended for trade/sector journalists, on behalf of Comunità Papa Giovanni XXIII — use this specifically for actual press releases, not for event launches, institutional statements or press reviews (those use proceduratool_ufficiostampa instead)."
+# soloTesto (2026-09-24, specifico di marcotassinaribot — vedi proceduratool.ts, opzioni.parametriExtra):
+# se true, la procedura si ferma dopo il titolo, senza formattare per apg23 (vedi procedure/comunicatostampa.yml).
+opzioni:
+  parametriExtra:
+    soloTesto:
+      type: ["boolean", "null"]
+      description: "If true, stop after writing the title/excerpt — skip HTML formatting and apg23 page layout. Use null for the normal full pipeline."

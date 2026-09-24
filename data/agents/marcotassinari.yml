@@ -17,15 +17,15 @@ toolNames:
            - scraper_url_download
            - websearch_italia_low
            - wordpress_apg23
-           # ripubblica_apg23 (CanaleFlusso, vedi data/services/ripubblica_apg23.yml): dal
-           # 2026-09-18 è l'UNICO percorso chat per scrivere/pubblicare su apg23.org — espone
-           # canaleflusso_apg23_scrivi/_invia. wordpress_apg23 (firma breve, come seozoom_* sotto:
-           # UNA voce carica TUTTE le azioni non nascoste del canale, non serve elencarle una per
-           # una) espone quindi elencaArticoli/elencaRisorse/leggiArticolo/aggiornaArticolo/
-           # aggiornaMedia — run/post restano nascosti da chat (vedi Wordpress.azioniNonEsposteAllAI)
-           # e passano sempre da ripubblica_apg23. aggiornaArticolo/aggiornaMedia scrivono per
-           # davvero: MAI senza conferma esplicita dell'utente, vedi "Modalità Modifica" in
-           # instructions_marcotassinari.md.
+           # ripubblica_apg23 (CanaleFlusso, vedi data/services/ripubblica_apg23.yml): espone
+           # canaleflusso_apg23_invia — l'UNICO modo per pubblicare per davvero su apg23.org.
+           # "scrivi" NON passa più da qui dal 2026-09-24 (vedi proceduratool_scrivi sotto): non
+           # ne ha mai avuto bisogno. wordpress_apg23 (firma breve, come seozoom_* sotto: UNA voce
+           # carica TUTTE le azioni non nascoste del canale, non serve elencarle una per una)
+           # espone elencaArticoli/elencaRisorse/leggiArticolo/aggiornaArticolo/aggiornaMedia —
+           # post resta nascosto da chat (vedi Wordpress.azioniNonEsposteAllAI) e passa sempre da
+           # ripubblica_apg23. aggiornaArticolo/aggiornaMedia scrivono per davvero: MAI senza
+           # conferma esplicita dell'utente, vedi "Modalità Modifica" in instructions_marcotassinari.md.
            - ripubblica_apg23
            # Genera un'immagine da una descrizione e la mostra in chat (procedure/_immagine.yml).
            # Le copertine per apg23 NON passano da qui: "invia" le genera da solo se mancano.
@@ -46,10 +46,16 @@ toolNames:
            # una mail vuota (link/titolo mancanti, mai passati come campi separati dall'AI) —
            # vedi il commento in segnalazioneeventi_apg23.yml.
            - segnalazioneeventi_apg23
+           # proceduratool_scrivi (2026-09-24): esegue direttamente la procedura "orchestra" —
+           # stessa scrittura completa (classificazione di caporedattore, titolo, HTML impaginato
+           # per apg23) che prima si raggiungeva solo tramite canaleflusso_apg23_scrivi, ma senza
+           # passare dal canale WordPress (la scrittura non ne ha mai avuto bisogno). È il tool da
+           # chiamare per la "Modalità scrittura" in instructions_marcotassinari.md.
+           - proceduratool_scrivi
            # --- Percorsi laterali di scrittura/formattazione (2026-09-24) ---
-           # Alternative più leggere a ripubblica_apg23 (scrivi/invia): utili quando l'utente non
-           # vuole subito il testo pronto per apg23, ma vuole prima vedere/editare il testo grezzo,
-           # o formattarlo per una destinazione diversa. Vedi "Percorsi alternativi di scrittura" in
+           # Alternative più leggere a proceduratool_scrivi: utili quando l'utente non vuole subito
+           # il testo pronto per apg23, ma vuole prima vedere/editare il testo grezzo, o formattarlo
+           # per una destinazione diversa. Vedi "Percorsi alternativi di scrittura" in
            # instructions_marcotassinari.md.
            - proceduratool_scrivitesto
            - proceduratool_formattahtml

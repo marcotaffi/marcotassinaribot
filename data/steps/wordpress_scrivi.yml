@@ -1,7 +1,8 @@
 name: wordpress_scrivi
 type: servizio
-# Riusa direttamente l'azione "run" già esposta dal canale wordpress_apg23 esistente (Wordpress
-# extends Writer): non duplica nessuna logica, chiama lo stesso metodo che gira già in
-# produzione (esegue la procedura "orchestra", dispatch di caporedattore) — stesso schema di
-# giraffiamo/data/steps/ghost_scrivi.yml.
-firma: wordpress_apg23_run
+# (2026-09-24) Prima chiamava wordpress_apg23_run (il canale eseguiva "orchestra" per conto
+# suo). Ora chiama direttamente proceduratool_scrivi, che esegue la stessa identica procedura
+# "orchestra" senza bisogno del canale — la scrittura non ne ha mai avuto davvero bisogno (vedi
+# proceduratool_scrivi.yml). Usato dalla procedura "principale" (wordpress_apg23_pubblica.yml):
+# scrive, poi il resto della procedura pubblica con Wordpress.post, quello sì specifico del sito.
+firma: proceduratool_scrivi

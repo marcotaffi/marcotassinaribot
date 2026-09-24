@@ -3,4 +3,9 @@ type: sequenziale
 tasks:
   - name: scrivi
     type: step
-    
+# Contratto di uscita (2026-09-24): la scrittura deve produrre almeno titolo e corpo, altrimenti
+# la procedura fallisce subito qui, con un errore che nomina il campo mancante — invece di un
+# errore più tardo e meno chiaro (es. in Wordpress.prePost al momento della pubblicazione).
+campiRichiesti:
+  - title
+  - [corpo, text]
