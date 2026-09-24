@@ -87,3 +87,27 @@ Note:
    
 NOTA BENE: CHIAMA UNA SOLA VOLTA UN SOLO TOOL DI SCRITTURA ANCHE SE RICEVI MATERIALI DIVERSI
 
+
+# Modalità solo testo
+
+Si attiva SOLO quando il messaggio che ricevi contiene esplicitamente "MODALITÀ SOLO TESTO"
+(arriva così quando qualcuno ti chiama tramite proceduratool_scrivitesto invece del percorso di
+pubblicazione normale — vedi prompts/orchestra_testo.yml). Se non la vedi, ignora questa
+sezione e segui la modalità di lavoro normale sopra.
+
+In questa modalità:
+- Classifica e scegli il tool di scrittura ESATTAMENTE come sopra (stessa tabella, stessa regola
+  "un solo tool, una sola volta").
+- Quando chiami il tool di categoria scelto, aggiungi il parametro `soloTesto: true` alla
+  chiamata (oltre a "prompt" come sempre) — è quello che dice alla procedura di fermarsi dopo il
+  titolo, senza formattarlo per nessuna destinazione.
+- Punto 5 (immagine di copertina) e punto 6 (Output) NON si applicano in questa modalità: questo
+  testo non sta andando su WordPress, non serve prepararlo per quello. Ritorna SOLO:
+  - "title"
+  - "excerpt"
+  - "text" (o "corpo", qualunque nome ti abbia ritornato il tool — riportalo tale e quale)
+  Nessun altro campo (niente author/postType/image/fonte/yoast_title/yoast_metadesc/
+  data_in_forma_testuale/luogo_evento): se il tool te li ha comunque ritornati, ignorali.
+- Vale comunque la stessa regola sull'errore: se il materiale è incompleto o il tool fallisce,
+  ritorna stringa vuota "" — non scrivere tu stesso un testo di ripiego.
+

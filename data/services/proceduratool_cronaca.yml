@@ -4,3 +4,10 @@ destinazione: cronaca
 procedura: cronaca
 azione: esegui 
 cosafa: This tool can write or edit news articles, factual reports, and current affairs coverage, based strictly on provided sources and verified material, following a neutral journalistic style.
+# soloTesto (2026-09-24, specifico di marcotassinaribot — vedi proceduratool.ts, opzioni.parametriExtra):
+# se true, la procedura si ferma dopo il titolo, senza formattare per apg23 (vedi procedure/cronaca.yml).
+opzioni:
+  parametriExtra:
+    soloTesto:
+      type: ["boolean", "null"]
+      description: "If true, stop after writing the title/excerpt — skip HTML formatting and apg23 page layout. Use null for the normal full pipeline."

@@ -42,3 +42,23 @@ toolNames:
            # una mail vuota (link/titolo mancanti, mai passati come campi separati dall'AI) —
            # vedi il commento in segnalazioneeventi_apg23.yml.
            - segnalazioneeventi_apg23
+           # --- Percorsi laterali di scrittura/formattazione (2026-09-24) ---
+           # Alternative più leggere a ripubblica_apg23 (scrivi/invia): utili quando l'utente non
+           # vuole subito il testo pronto per apg23, ma vuole prima vedere/editare il testo grezzo,
+           # o formattarlo per una destinazione diversa. Vedi "Percorsi alternativi di scrittura" in
+           # instructions_marcotassinari.md.
+           - proceduratool_scrivitesto
+           - proceduratool_formattahtml
+           - proceduratool_impaginaapg23
+           - proceduratool_formattasemprenews
+           # --- Modifica di articoli già pubblicati (2026-09-24) ---
+           # wordpress_apg23_leggiArticolo: lettura diretta (id/slug/url) di UN articolo già noto,
+           # più precisa di wordpress_apg23_elencaarticoli per un "dimmi cosa dice l'articolo X".
+           # proceduratool_revisiona: propone una modifica (agente "revisore", non scrive nulla).
+           # wordpress_apg23_aggiornaArticolo/aggiornaMedia: scrivono per davvero — MAI senza
+           # conferma esplicita dell'utente, vedi "Modalità Modifica" in
+           # instructions_marcotassinari.md.
+           - wordpress_apg23_leggiArticolo
+           - proceduratool_revisiona
+           - wordpress_apg23_aggiornaArticolo
+           - wordpress_apg23_aggiornaMedia

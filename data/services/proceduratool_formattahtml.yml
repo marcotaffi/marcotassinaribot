@@ -1,0 +1,6 @@
+firma: proceduratool_formattahtml
+servizio: proceduratool
+destinazione: formattahtml
+procedura: _formattahtml
+azione: esegui
+cosafa: "This tool converts an already-written text into clean semantic HTML (headings, bold, italics, links, lists) — plain, portable markup with no site-specific page layout. Pass the full text to format in 'prompt'. Use this when the user wants a simple HTML version of a text, NOT specifically the apg23.org page layout (for that, use proceduratool_impaginaapg23 afterwards)."

@@ -1,0 +1,8 @@
+name: revisiona
+type: prompt
+description: "Legge un articolo pubblicato su apg23.org e propone la modifica richiesta, senza scriverla"
+prompt: revisiona
+agentName: revisore
+# Backstop deterministico, stesso schema di scrivi_rilancio/cronaca/ecc: senza una richiesta vera
+# (arrivata come "prompt"), il modello non deve inventare un articolo o una modifica plausibile.
+richiedeMateriale: true

@@ -1,0 +1,8 @@
+# "_" iniziale: esclude la procedura dalla registrazione automatica come comando Telegram (vedi
+# _testopronto.yml); da chat si raggiunge col tool proceduratool_formattasemprenews.
+name: _formattasemprenews
+description: formatta un testo già scritto secondo le convenzioni di semprenews.it
+type: sequenziale
+tasks:
+  - name: formatta_semprenews
+    type: step

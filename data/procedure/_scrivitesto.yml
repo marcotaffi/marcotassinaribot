@@ -1,0 +1,8 @@
+# "_" iniziale: esclude la procedura dalla registrazione automatica come comando Telegram (vedi
+# _testopronto.yml); da chat si raggiunge col tool proceduratool_scrivitesto.
+name: _scrivitesto
+description: scrive un contenuto giornalistico grezzo (titolo+testo), classificato e scritto come sempre da caporedattore, ma senza formattarlo per nessuna destinazione
+type: sequenziale
+tasks:
+  - name: scrivi_testo
+    type: step

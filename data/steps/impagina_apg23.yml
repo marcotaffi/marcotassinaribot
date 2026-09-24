@@ -8,8 +8,11 @@ agentName: aiengineer
 # articoli più lunghi/con più titoli. Diviso in due step più semplici — qui SOLO impaginazione,
 # l'HTML in ingresso è già pronto e non va modificato nel contenuto, solo incollato nel
 # contenitore giusto (vedi prompts/impagina_apg23.yml).
+# "corpo" quando incatenato dopo formatta_ai nella stessa procedura, "prompt" come ripiego
+# (2026-09-24) quando questo step è chiamato da solo come tool a sé (proceduratool_impaginaapg23)
+# — vedi il commento su RiferimentoMateriale.campo in taffitools/procedure/types.ts.
 materiale:
-  - campo: corpo
+  - campo: [corpo, prompt]
     pick: last
     etichetta: "HTML DA IMPAGINARE (non modificarne il contenuto, solo l'impaginazione)"
     obbligatorio: true

@@ -1,0 +1,6 @@
+firma: proceduratool_formattasemprenews
+servizio: proceduratool
+destinazione: formattasemprenews
+procedura: _formattasemprenews
+azione: esegui
+cosafa: "This tool formats an already-written text according to semprenews.it's markup conventions (bold/italic rules, direct-speech format, h2/h3 structure, image/quote/CTA shortcodes with sequential placeholder image IDs to be completed manually). Pass the full text to format in 'prompt'. The output is text to paste manually into semprenews.it's own publishing tool — this does NOT publish or upload anything."

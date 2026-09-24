@@ -1,0 +1,8 @@
+# "_" iniziale: esclude la procedura dalla registrazione automatica come comando Telegram (vedi
+# _testopronto.yml); da chat si raggiunge col tool proceduratool_formattahtml.
+name: _formattahtml
+description: converte un testo già scritto in HTML semantico semplice, senza impaginazione specifica di un sito
+type: sequenziale
+tasks:
+  - name: formatta_ai
+    type: step

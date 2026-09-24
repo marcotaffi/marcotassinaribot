@@ -1,0 +1,10 @@
+firma: proceduratool_scrivitesto
+servizio: proceduratool
+destinazione: scrivitesto
+procedura: _scrivitesto
+azione: esegui
+cosafa: "This tool writes a piece of journalistic content (title, excerpt, and body text) from provided material, classifying it into the right category and applying the right journalistic style — WITHOUT formatting it for any specific destination (no HTML conversion, no page layout). Use this when the user wants to review or edit the raw text first, before deciding how/where to format and publish it (e.g. proceduratool_impaginaapg23 for apg23.org, proceduratool_formattasemprenews for semprenews.it, or proceduratool_formattahtml for plain HTML)."
+# Nessun parametro extra qui: questo tool implica sempre "solo testo" per intero (lo decide
+# caporedattore internamente, passando soloTesto:true al tool di categoria che sceglie — vedi
+# opzioni.parametriExtra su proceduratool_cronaca.yml e affini). Chi chiama proceduratool_scrivitesto
+# non deve impostare nulla in più.

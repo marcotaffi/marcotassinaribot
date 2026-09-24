@@ -1,0 +1,6 @@
+firma: proceduratool_revisiona
+servizio: proceduratool
+destinazione: revisiona
+procedura: _revisiona
+azione: esegui
+cosafa: "This tool reads an article already published on apg23.org and PROPOSES a change to it, without writing anything — pass in 'prompt' which article (link, slug or id) and what to change. Returns a clear before/after summary of what would change, for you to show the user and get explicit confirmation before actually applying it with wordpress_apg23_aggiornaArticolo / wordpress_apg23_aggiornaMedia."

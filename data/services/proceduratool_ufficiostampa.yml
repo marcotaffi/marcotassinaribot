@@ -3,5 +3,12 @@ servizio: proceduratool
 destinazione: ufficiostampa 
 procedura: ufficiostampa
 azione: esegui 
-cosafa: "This tool can write or edit the text of: press releases, editorial products launches, event announcements on behalf of the press office of Comunità Papa Giovanni XXIII."  
+cosafa: "This tool can write or edit the text of: press releases, editorial products launches, event announcements on behalf of the press office of Comunità Papa Giovanni XXIII."
+# soloTesto (2026-09-24, specifico di marcotassinaribot — vedi proceduratool.ts, opzioni.parametriExtra):
+# se true, la procedura si ferma dopo il titolo, senza formattare per apg23 (vedi procedure/ufficiostampa.yml).
+opzioni:
+  parametriExtra:
+    soloTesto:
+      type: ["boolean", "null"]
+      description: "If true, stop after writing the title/excerpt — skip HTML formatting and apg23 page layout. Use null for the normal full pipeline."
  

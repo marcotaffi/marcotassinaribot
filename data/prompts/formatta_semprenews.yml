@@ -1,0 +1,77 @@
+name: formatta_semprenews
+description: "Converte il testo dell'articolo nelle convenzioni di marcatura di semprenews.it (non impaginazione: il caricamento vero e proprio, comprese le immagini, resta un passaggio manuale)"
+prompt: >
+    Converti il testo fornito nelle convenzioni di marcatura di semprenews.it. Non riscrivere,
+    non riassumere, non aggiungere o togliere contenuto: solo formattazione/marcatura.
+
+
+    ═══════════════════════════════════════
+    STRUTTURA
+    ═══════════════════════════════════════
+
+    - Il PRIMO paragrafo NON va avvolto in <p></p>: resta testo semplice, in cima all'output.
+    - Tutti i paragrafi SUCCESSIVI al primo vanno avvolti in <p>...</p>.
+    - Suddividi il testo con titoli <h2> e, se serve un livello in più, <h3> — nei punti in cui
+      l'articolo cambia argomento/sezione, non uno per paragrafo.
+
+
+    ═══════════════════════════════════════
+    GRASSETTO E CORSIVO
+    ═══════════════════════════════════════
+
+    - Nomi e cognomi di persona → <strong>Nome Cognome</strong>
+    - Nomi di enti, associazioni, organizzazioni → <em>Nome dell'ente</em>
+    - Titoli di progetti o di eventi → <em>&quot;Nome del progetto/evento&quot;</em>
+    - Frasi importanti, emotive, o che racchiudono il senso della notizia (con giudizio: solo
+      quelle che meritano davvero risalto, non tutte) → <strong>frase</strong>
+
+
+    ═══════════════════════════════════════
+    MAIUSCOLE
+    ═══════════════════════════════════════
+
+    - "Paese" con la P maiuscola quando si riferisce a uno stato/nazione (es. "il Paese ha
+      approvato la legge"). "paese" minuscolo quando indica un piccolo centro abitato (es. "il
+      paese di duemila abitanti").
+
+
+    ═══════════════════════════════════════
+    DISCORSO DIRETTO
+    ═══════════════════════════════════════
+
+    Formato fisso: "Dice [Ruolo] [Nome Cognome]: «[frase]»." Un eventuale inciso/didascalia
+    d'azione dentro la citazione va tra due trattini lunghi, minuscolo, senza punteggiatura
+    propria: «[frase] — [inciso] —. [continuazione]».
+
+    Esempio: Dice Il Presidente Matteo Fadda: «Oggi, come ho visto fuori dalla finestra, piove —
+    mentre si gratta il naso —. E domani no».
+
+
+    ═══════════════════════════════════════
+    IMMAGINI, CITAZIONI E BOTTONI (shortcode)
+    ═══════════════════════════════════════
+
+    La copertina è sempre l'immagine 1 e non si inserisce nel testo: le immagini nel corpo
+    partono dal numero 2. Non sai quali immagini reali verranno usate: inserisci gli shortcode
+    con ID progressivi (2, 3, 4...) nei punti del testo dove un'immagine ci starebbe bene, con
+    parsimonia (poche immagini, non una per paragrafo) — non descrivere cosa dovrebbe esserci,
+    sceglierà una persona quali foto caricare in ogni punto.
+
+    - Immagine singola: [img id="2"]
+    - Più immagini a scorrimento (slide), nell'ordine in cui vanno mostrate: [img id="2;3;4" type="slide"]
+    - Immagine a sinistra col testo che continua a destra: [img id="2" type="aside"]
+    - Immagine con una citazione alla sua destra: [abstract id="2" type="quote"]Testo della citazione[/abstract]
+    - Citazione senza immagine, con autore facoltativo: [abstract author="Nome Autore"]testo della citazione[/abstract]
+    - Bottone (CTA) in mezzo al testo: [CTA title="titolo bottone" label="etichetta bottone" url="url bottone" posizione="centro" tracking=""]
+      (posizione è SEMPRE "centro", tracking è SEMPRE vuoto — non modificare questi due valori)
+
+
+    ═══════════════════════════════════════
+    OUTPUT
+    ═══════════════════════════════════════
+
+    - Restituisci SOLO il testo marcato: nessun <div>, nessun contenitore, nessun wrapper.
+    - Nessun testo aggiuntivo, nessuna spiegazione.
+    - NON avvolgere l'output in un blocco di codice markdown (niente ```html iniziale né ``` finale).
+    - Non inventare contenuto: se un'informazione (es. il ruolo di chi parla) non è nel testo
+      originale, non aggiungerla.

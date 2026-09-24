@@ -8,8 +8,11 @@ validate: formatta_ai
 # il materiale grezzo originale (rimasto più in alto nella cronologia, con marcatori vistosi
 # "=== INIZIO/FINE MATERIALE ===") per il testo già riscritto da "ripubblica" — un turno
 # successivo, senza nessuna marcatura speciale — e ha formattato il prompt invece dell'articolo.
+# "corpo" quando incatenato dopo uno step di scrittura nella stessa procedura, "prompt" come
+# ripiego (2026-09-24) quando questo step è chiamato da solo come tool a sé (proceduratool_
+# formattahtml) — vedi il commento su RiferimentoMateriale.campo in taffitools/procedure/types.ts.
 materiale:
-  - campo: corpo
+  - campo: [corpo, prompt]
     pick: last
     etichetta: "TESTO DA FORMATTARE (non modificarne il contenuto, solo la sintassi)"
     obbligatorio: true

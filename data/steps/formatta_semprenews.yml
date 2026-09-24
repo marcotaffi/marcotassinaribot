@@ -1,0 +1,13 @@
+name: formatta_semprenews
+type: prompt
+description: "Converte il testo nelle convenzioni di marcatura di semprenews.it (grassetti/corsivi, discorso diretto, shortcode immagini/citazioni/CTA)"
+prompt: formatta_semprenews
+agentName: aiengineer
+# "corpo" quando incatenato dopo uno step di scrittura nella stessa procedura, "prompt" quando
+# chiamato da solo come tool a sé (proceduratool_formattasemprenews) — vedi il commento su
+# RiferimentoMateriale.campo in taffitools/procedure/types.ts.
+materiale:
+  - campo: [corpo, prompt]
+    pick: last
+    etichetta: "TESTO DA FORMATTARE (non modificarne il contenuto, solo la marcatura)"
+    obbligatorio: true

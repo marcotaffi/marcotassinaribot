@@ -1,0 +1,8 @@
+# "_" iniziale: esclude la procedura dalla registrazione automatica come comando Telegram (vedi
+# _testopronto.yml); da chat si raggiunge col tool proceduratool_revisiona.
+name: _revisiona
+description: legge un articolo già pubblicato su apg23.org e propone una modifica, su richiesta — non scrive nulla
+type: sequenziale
+tasks:
+  - name: revisiona
+    type: step

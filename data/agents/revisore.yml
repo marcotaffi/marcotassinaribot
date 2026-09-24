@@ -1,0 +1,12 @@
+agentName: revisore
+agentDescription: "Legge un articolo già pubblicato su apg23.org e propone una modifica, su richiesta — non scrive mai nulla da solo"
+apiClient: "gpt-response-dev"
+instructions:
+  - instructions_revisore
+params:
+  model: "gpt-5.4-mini-2026-03-17"
+  tool_choice: "auto"
+toolNames:
+  - wordpress_apg23_leggiArticolo
+  - scraper_url_download
+  - gestoredate_now_readClock

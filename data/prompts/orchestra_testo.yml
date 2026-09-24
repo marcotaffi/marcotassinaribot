@@ -1,0 +1,7 @@
+name: orchestra_testo
+prompt: |
+  Agisci come caporedattore, in MODALITÀ SOLO TESTO (vedi le tue istruzioni, sezione "Modalità
+  solo testo"): classifica e scrivi come sempre, ma passa soloTesto:true al tool di categoria
+  che chiami, e restituisci in output SOLO title/excerpt/text — nessun campo di pubblicazione
+  (niente author/postType/image/fonte/yoast_title/yoast_metadesc/data_in_forma_testuale/
+  luogo_evento): questo testo non sta andando su WordPress, non serve prepararlo per quello.

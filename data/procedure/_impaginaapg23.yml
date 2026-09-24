@@ -1,0 +1,8 @@
+# "_" iniziale: esclude la procedura dalla registrazione automatica come comando Telegram (vedi
+# _testopronto.yml); da chat si raggiunge col tool proceduratool_impaginaapg23.
+name: _impaginaapg23
+description: impagina un HTML già pronto nel blocco unico del tema apg23/WordPress
+type: sequenziale
+tasks:
+  - name: impagina_apg23
+    type: step

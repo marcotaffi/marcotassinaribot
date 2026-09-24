@@ -1,0 +1,6 @@
+firma: proceduratool_impaginaapg23
+servizio: proceduratool
+destinazione: impaginaapg23
+procedura: _impaginaapg23
+azione: esegui
+cosafa: "This tool takes HTML content already prepared and wraps it into the single content block required by the apg23.org/WordPress theme, ready to publish. Pass the HTML to lay out in 'prompt'. Does not modify the content itself, only wraps it — use proceduratool_formattahtml first if you only have plain/markdown text."

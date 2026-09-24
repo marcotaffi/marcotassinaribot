@@ -1,0 +1,4 @@
+name: revisiona
+prompt: |
+  Agisci come revisore. Leggi l'articolo indicato con leggiArticolo e prepara la modifica
+  richiesta, seguendo le tue istruzioni. Non scrivere nulla: proponi solo cosa cambierebbe.

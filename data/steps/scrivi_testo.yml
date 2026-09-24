@@ -1,0 +1,9 @@
+name: scrivi_testo
+type: prompt
+description: "Scrive un contenuto giornalistico grezzo (titolo+testo) usando l'orchestratore, senza formattarlo per nessuna destinazione"
+prompt: orchestra_testo
+agentName: caporedattore
+# Backstop deterministico, stesso motivo e stesso schema di steps/scrivi.yml: se il testo
+# prodotto è vuoto o troppo corto, la procedura fallisce subito invece di proseguire con un
+# risultato senza vero materiale.
+validate: materiale_sufficiente

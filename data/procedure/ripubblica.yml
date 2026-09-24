@@ -6,6 +6,16 @@ tasks:
     type: step
   - name: genera_titoli
     type: step
+    # soloTesto (2026-09-24): se il chiamante l'ha passato true (vedi proceduratool_ripubblica.yml,
+    # opzioni.parametriExtra), ci si ferma qui col titolo già pronto — niente formattazione HTML
+    # né impaginazione apg23, che sono passaggi specifici di una destinazione non ancora scelta.
+    ramificazioni:
+      - condizione:
+          campo: soloTesto
+          operatore: truthy
+          modo: data
+        poi: fine
+      - poi: formatta_ai
   - name: formatta_ai
     type: step
   - name: impagina_apg23
