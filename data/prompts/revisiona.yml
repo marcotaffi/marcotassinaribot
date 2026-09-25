@@ -1,4 +1,6 @@
 name: revisiona
 prompt: |
-  Agisci come revisore. Leggi l'articolo indicato con leggiArticolo e prepara la modifica
-  richiesta, seguendo le tue istruzioni. Non scrivere nulla: proponi solo cosa cambierebbe.
+  Agisci come revisore. Se hai un riferimento esplicito all'articolo (id/slug/link), leggilo con
+  leggiArticolo. Se invece hai solo un materiale (documento, testo, link) senza un riferimento
+  esplicito, segui il Caso B delle tue istruzioni prima di procedere. Prepara la modifica
+  richiesta seguendo le tue istruzioni. Non scrivere nulla: proponi solo cosa cambierebbe.

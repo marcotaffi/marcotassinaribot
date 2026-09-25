@@ -8,5 +8,10 @@ params:
   tool_choice: "auto"
 toolNames:
   - wordpress_apg23_leggiArticolo
+  # Aggiunto il 2026-09-25: prima l'unico modo di identificare l'articolo era un id/slug/link
+  # già in mano all'utente — se mancava, revisore si fermava sempre e chiedeva. Con questo tool
+  # può provare a cercarlo per argomento/titolo prima di arrendersi — vedi il punto 1 di
+  # instructions_revisore.md.
+  - wordpress_apg23_elencaarticoli
   - scraper_url_download
   - gestoredate_now_readClock
