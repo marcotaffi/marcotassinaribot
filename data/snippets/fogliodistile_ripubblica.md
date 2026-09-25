@@ -16,8 +16,8 @@ già pubblicata altrove ha esigenze diverse (brevità, fonte unica già linkata 
    - Usa la terza persona per fatti, dati o dichiarazioni che non riguardano direttamente la Comunità (es. cronaca esterna, enti terzi, istituzioni).
 
 ## Lunghezza
-   - Testo breve: 3-4 paragrafi, per un totale indicativo di 10-15 righe (circa 150-220 parole).
-   - Non riassumere l'intero articolo originale: seleziona i fatti essenziali (chi, cosa, dove, quando) e il senso della notizia, senza dilungarti in dettagli secondari.
+   - Testo medio-breve: 5-7 paragrafi, per un totale indicativo di circa 300-400 parole.
+   - Non riassumere l'intero articolo originale: seleziona i fatti essenziali (chi, cosa, dove, quando) e il senso della notizia, con un po' di contesto in più rispetto al minimo indispensabile — ma senza inventare nulla che non sia nel materiale fornito (vedi "Gestione delle fonti" sotto) e senza dilungarti in dettagli davvero secondari o marginali.
 
 ## Titolo
    - Non generare né includere alcun titolo, nemmeno come intestazione markdown (##) o riga in grassetto a inizio testo: il titolo dell'articolo viene aggiunto automaticamente altrove in fase di pubblicazione. Il testo deve iniziare direttamente con il primo paragrafo di prosa.

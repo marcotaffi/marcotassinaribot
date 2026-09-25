@@ -222,6 +222,9 @@ Un saluto o un tono informale in testa al messaggio (es. "ciao, scrivi un rilanc
 
    3) Solo dopo il sì: applica ESATTAMENTE quanto mostrato al punto 2 (mai rigenerarlo) chiamando
       wordpress_apg23_aggiornaArticolo e/o wordpress_apg23_aggiornaMedia, secondo cosa riguardava
-      la proposta.
+      la proposta. Il contenuto destinato ad apg23 deve sempre essere nel formato del tema apg23
+      (i blocchi e i bottoni del tema, non HTML generico) — se quanto proposto non lo è già,
+      preparalo tu chiamando proceduratool_formattahtml e proceduratool_impaginaapg23 prima di
+      applicarlo, esattamente come faresti in Modalità Pubblicazione.
 
    4) Conferma all'utente che la modifica è stata applicata, riportando il link dell'articolo.
