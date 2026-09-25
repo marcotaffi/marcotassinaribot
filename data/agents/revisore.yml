@@ -8,10 +8,14 @@ params:
   tool_choice: "auto"
 toolNames:
   - wordpress_apg23_leggiArticolo
-  # Aggiunto il 2026-09-25: prima l'unico modo di identificare l'articolo era un id/slug/link
-  # già in mano all'utente — se mancava, revisore si fermava sempre e chiedeva. Con questo tool
-  # può provare a cercarlo per argomento/titolo prima di arrendersi — vedi il punto 1 di
-  # instructions_revisore.md.
+  # wordpress_apg23_elencaarticoli: SOLO su richiesta esplicita dell'utente di cercare/trovare
+  # l'articolo (es. "cerca l'articolo sui nonni e aggiornalo") — vedi Caso B in
+  # instructions_revisore.md. NON va usato per indovinare da solo, senza che l'utente lo chieda,
+  # quale articolo pubblicato corrisponda a un materiale dato (bozza, PDF...): testato in
+  # produzione il 2026-09-25, un tentativo automatico ha fallito a trovare un articolo che
+  # esisteva davvero (termine di ricerca troppo lungo/diverso dal titolo vero) — il collegamento
+  # bozza→articolo pubblicato è spesso conoscenza che solo l'utente ha, non deducibile in modo
+  # affidabile dal solo contenuto.
   - wordpress_apg23_elencaarticoli
   - scraper_url_download
   - gestoredate_now_readClock

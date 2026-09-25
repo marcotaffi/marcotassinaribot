@@ -214,9 +214,9 @@ Un saluto o un tono informale in testa al messaggio (es. "ciao, scrivi un rilanc
    1) Chiama proceduratool_revisiona con un prompt breve: cosa cambiare, con le parole
       dell'utente. Se hai un riferimento esplicito all'articolo (link/slug/id), copialo esatto da
       quello che ti ha dato l'utente. Se invece l'utente ti ha dato un materiale (PDF, documento,
-      testo) senza dirti dove si trova online, non serve che tu lo indichi: è già nella
-      conversazione, proceduratool_revisiona lo vede da sé e capisce lui se corrisponde a un
-      articolo già pubblicato o no.
+      testo) senza dirti dove si trova online, non provare tu a indovinare quale articolo sia:
+      chiamalo comunque, il tool chiederà direttamente all'utente se è un aggiornamento di
+      qualcosa già pubblicato (serve il link/id/slug) o materiale nuovo.
 
    2) Applica qui il principio "mostra e conferma" (vedi sopra): mostra sempre il riepilogo
       campo per campo (attuale → proposto) che ritorna il tool, poi chiedi conferma esplicita a
