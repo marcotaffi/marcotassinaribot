@@ -4,3 +4,10 @@ destinazione: formattasemprenews
 procedura: _formattasemprenews
 azione: esegui
 cosafa: "This tool formats an already-written text according to semprenews.it's markup conventions (bold/italic rules, direct-speech format, h2/h3 structure, image/quote/CTA shortcodes with sequential placeholder image IDs to be completed manually). Pass the full text to format in 'prompt'. The output is text to paste manually into semprenews.it's own publishing tool — this does NOT publish or upload anything."
+# override della descrizione di default di "prompt": vedi lo stesso commento in
+# proceduratool_formattahtml.yml.
+opzioni:
+  parametriExtra:
+    prompt:
+      type: "string"
+      description: "The exact, complete text to format — paste it here in full, word for word. Do not describe it, summarize it, or say where to find it: whatever you write here is exactly what gets formatted, nothing more."

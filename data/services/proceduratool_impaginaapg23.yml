@@ -4,3 +4,10 @@ destinazione: impaginaapg23
 procedura: _impaginaapg23
 azione: esegui
 cosafa: "This tool takes HTML content already prepared and wraps it into the single content block required by the apg23.org/WordPress theme, ready to publish. Pass the HTML to lay out in 'prompt'. Does not modify the content itself, only wraps it — use proceduratool_formattahtml first if you only have plain/markdown text."
+# override della descrizione di default di "prompt": vedi lo stesso commento in
+# proceduratool_formattahtml.yml.
+opzioni:
+  parametriExtra:
+    prompt:
+      type: "string"
+      description: "The exact, complete HTML to lay out — paste it here in full, word for word. Do not describe it, summarize it, or say where to find it: whatever you write here is exactly what gets wrapped, nothing more."

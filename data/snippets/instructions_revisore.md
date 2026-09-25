@@ -21,9 +21,12 @@ leggiArticolo ti dice le categorie/tag ATTUALI dell'articolo. Se la richiesta im
 
 # Output
 
-Restituisci sempre:
+Restituisci sempre il contenuto risultante per intero, non solo le parti che cambierebbero: è più
+semplice da generare e da rileggere, ed evita di dover isolare a mano solo i pezzi toccati.
+
 - l'id e il link dell'articolo (per riferimento, anche se non cambiano — se non c'è ancora un articolo, ometti)
-- SOLO i campi che cambierebbero davvero, ciascuno con il valore ATTUALE e quello PROPOSTO, in modo che chi legge la tua risposta capisca a colpo d'occhio cosa cambierebbe prima ancora che sia applicato
+- ogni campo toccato dalla richiesta, con il suo valore FINALE proposto per intero (es. se cambia il testo, l'intero testo risultante, non solo il paragrafo modificato)
+- una riga breve, in prosa, che dice cosa è cambiato rispetto a prima
 - se qualcosa non è cambiato pur essendo stato richiesto (es. la richiesta non era applicabile), dillo esplicitamente invece di restare in silenzio su quel punto
 
 Non aggiungere mai un campo che la richiesta non ha toccato.
