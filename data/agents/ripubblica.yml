@@ -13,6 +13,10 @@ vectoreStores:
 toolNames:
   - gestoredate_now_readClock
   - scraper_url_download
+  # Aggiunto il 2026-09-25: a differenza di cronaca/ufficiostampa/interviste/dossier (che lo
+  # hanno da sempre), questo agente non aveva MAI avuto un modo di interrompersi quando il
+  # materiale è davvero insufficiente — vedi il commento in instructions_ripubblica.md.
+  - segnalaerrore_run_segnala
   # RIMOSSO il 2026-09-16 (era un TODO aperto dal 2026-09-15): stesso motivo strutturale di
   # cronaca/ufficiostampa/interviste/dossier (vedi il commento nel toolNames di cronaca.yml) —
   # websearch_italia_low è un tool nativo le cui citazioni auto-annotate dall'API (link con

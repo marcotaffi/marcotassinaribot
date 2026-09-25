@@ -233,8 +233,17 @@ let feeds = [{
         // Creazione di AIManager con sessione, servizi e API
         //const apiManager = await AIApiConfigManager.creaApiManagerDaCartelleLocali(aiManager);
         const aiManager = new AIManager(credenziali);
-        // socialMarcoLinkedin.setManagerAI(aiManager); 
-        // sitoIooo.setManagerAI(aiManager); 
+        // socialMarcoLinkedin.setManagerAI(aiManager);
+        // sitoIooo.setManagerAI(aiManager);
+        // scriviApg23 (proceduratool_scrivi, vedi il commento alla sua creazione più sopra): a
+        // differenza dei canali (collegati da bot.aggiungiCanali, che passa aiManager da solo — vedi
+        // CanaliExtendsServizi.aggiungiElenco), bot.aggiungiServizi() NON collega mai l'aiManager ai
+        // "servizi semplici" (fa solo push nell'elenco, vedi Servizi.aggiungiServizio) — innocuo per
+        // gli altri servizi qui sotto (mail, ricerca testo: non usano l'AI), ma scriviApg23 esegue una
+        // vera procedura AI (ProcedureManager) e senza questo va in errore "aiManager non definito"
+        // (bug reale osservato in produzione il 2026-09-25, introdotto registrando scriviApg23 a
+        // livello bot senza agganciare l'aiManager, che qui sopra non esisteva ancora nello scope).
+        scriviApg23.setManagerAI(aiManager);
         await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli agenti
         // Creazione dei servizi aggiuntivi 
         //LO SOSPENDO PERCHE' LO FACCIO NEL FILE DELL'AGENT

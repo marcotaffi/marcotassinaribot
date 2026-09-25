@@ -1,6 +1,11 @@
 agentName: marcotassinari
 agentDescription: "Marco Tassinari avatar"
 apiClient: "gpt-response-dev"
+# Persona conversazionale del bot (2026-09-25): la sua risposta finale parla all'utente, non è
+# materiale per altri step. Vedi il commento su questo campo in taffitools/src/ai/types.ts —
+# senza, una chiusura discorsiva rischia di essere scambiata per il "corpo" vero scritto da uno
+# step di contenuto (bug reale osservato in produzione lo stesso giorno).
+agenteConversazionale: true
 params:
   model: "gpt-5.4-mini-2026-03-17"
   type: "text"
