@@ -105,14 +105,25 @@ let feeds = [{
         const NotizieApg23 = await ServiceFactory.create("wordpress_apg23");
         // const NotizieApg23 = await ServiceFactory.create("ripubblicaconorchestratore") as CanaleExtendsServizio;
         NotizieApg23.start(credenziali);
-        // ripubblica_apg23 (CanaleFlusso): dal 2026-09-18 è l'unico percorso feed/chat per scrivere e
-        // pubblicare su apg23.org (vedi data/services/ripubblica_apg23.yml per lo storico completo
-        // della migrazione). NotizieApg23 (sopra) resta avviato e registrato: "run"/"post" restano
-        // metodi veri, richiamati internamente dagli step wordpress_scrivi/wordpress_pubblica, ma non
-        // più esposti come tool a sé in chat (vedi Wordpress.azioniNonEsposteAllAI in taffitools) — solo
-        // "elencaArticoli" resta raggiungibile direttamente da quell'istanza.
+        // ripubblica_apg23 (CanaleFlusso): dal 2026-09-18 è l'unico percorso feed/chat per pubblicare su
+        // apg23.org (vedi data/services/ripubblica_apg23.yml per lo storico completo della migrazione).
+        // NotizieApg23 (sopra) resta avviato e registrato: "post" resta un metodo vero, richiamato
+        // internamente dallo step wordpress_pubblica, ma non più esposto come tool a sé in chat (vedi
+        // Wordpress.azioniNonEsposteAllAI in taffitools) — "elencaArticoli"/"leggiArticolo"/
+        // "aggiornaArticolo"/"aggiornaMedia" restano raggiungibili direttamente da quell'istanza.
+        // "run" non esiste più su Wordpress dal 2026-09-24 (non è mai stato specifico della piattaforma,
+        // vedi proceduratool_scrivi qui sotto): "scrivere" non passa più da questo canale.
         const ripubblicaApg23Flusso = await ServiceFactory.create("ripubblica_apg23");
         ripubblicaApg23Flusso.start(credenziali);
+        // proceduratool_scrivi (2026-09-24): esegue direttamente la procedura "orchestra" — nessun
+        // canale coinvolto, la scrittura non ne ha mai avuto bisogno. Va registrato QUI (bot.aggiungiServizi
+        // sotto), non solo nel toolNames di un agente: lo step "servizio" wordpress_scrivi (usato dal
+        // flusso automatico "principale" di ripubblica_apg23Flusso, vedi data/steps/wordpress_scrivi.yml)
+        // lo risolve per firma tramite bot.canali/aiManager.serviceRegistry, un registro DIVERSO e
+        // separato dal pool di servizi per-agente costruito dal toolNames (vedi il commento sopra su
+        // cercaTestoSemprenews e affini, stesso motivo) — senza questa riga il flusso automatico fallirebbe.
+        const scriviApg23 = await ServiceFactory.create("proceduratool_scrivi");
+        scriviApg23.start(credenziali);
         //CARICAMENTO TRADIZIONALE
         /*
             const procedureManager = new ProcedureManager();
@@ -253,7 +264,7 @@ let feeds = [{
         debug(3, "*Aggiungo i canali al bot*");
         bot.aggiungiCanali([socialMarcoLinkedin, NotizieApg23, segnalazioneEventiApg23, ripubblicaApg23Flusso], credenziali); //sitoIooo
         debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
-        bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews]);
+        bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, scriviApg23]);
         debug(3, "*Aggiungo le fonti e la conoscenza*");
         if (feeds.length > 0)
             bot.addFeeds(feeds); //invia le fonti
