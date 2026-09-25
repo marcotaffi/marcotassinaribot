@@ -19,8 +19,8 @@ toolNames:
            - wordpress_apg23
            # ripubblica_apg23 (CanaleFlusso, vedi data/services/ripubblica_apg23.yml): espone
            # canaleflusso_apg23_invia — l'UNICO modo per pubblicare per davvero su apg23.org.
-           # "scrivi" NON passa più da qui dal 2026-09-24 (vedi proceduratool_scrivi sotto): non
-           # ne ha mai avuto bisogno. wordpress_apg23 (firma breve, come seozoom_* sotto: UNA voce
+           # "scrivi" NON passa più da qui dal 2026-09-24 (vedi proceduratool_scrivitesto sotto):
+           # non ne ha mai avuto bisogno. wordpress_apg23 (firma breve, come seozoom_* sotto: UNA voce
            # carica TUTTE le azioni non nascoste del canale, non serve elencarle una per una)
            # espone elencaArticoli/elencaRisorse/leggiArticolo/aggiornaArticolo/aggiornaMedia —
            # post resta nascosto da chat (vedi Wordpress.azioniNonEsposteAllAI) e passa sempre da
@@ -46,17 +46,19 @@ toolNames:
            # una mail vuota (link/titolo mancanti, mai passati come campi separati dall'AI) —
            # vedi il commento in segnalazioneeventi_apg23.yml.
            - segnalazioneeventi_apg23
-           # proceduratool_scrivi (2026-09-24): esegue direttamente la procedura "orchestra" —
-           # stessa scrittura completa (classificazione di caporedattore, titolo, HTML impaginato
-           # per apg23) che prima si raggiungeva solo tramite canaleflusso_apg23_scrivi, ma senza
-           # passare dal canale WordPress (la scrittura non ne ha mai avuto bisogno). È il tool da
-           # chiamare per la "Modalità scrittura" in instructions_marcotassinari.md.
-           - proceduratool_scrivi
-           # --- Percorsi laterali di scrittura/formattazione (2026-09-24) ---
-           # Alternative più leggere a proceduratool_scrivi: utili quando l'utente non vuole subito
-           # il testo pronto per apg23, ma vuole prima vedere/editare il testo grezzo, o formattarlo
-           # per una destinazione diversa. Vedi "Percorsi alternativi di scrittura" in
-           # instructions_marcotassinari.md.
+           # proceduratool_scrivi (esiste, procedura "orchestra" completa) NON è qui di proposito
+           # dal 2026-09-25: Marco lo vuole irraggiungibile per marcotassinari, non solo
+           # sconsigliato nelle istruzioni — il default ora è mostrare il testo grezzo prima di
+           # formattare (vedi Modalità scrittura), e questo tool salterebbe quel passaggio.
+           # Registrato invece direttamente in marcotassinaribot.ts (bot.aggiungiServizi): resta
+           # raggiungibile dallo step "servizio" wordpress_scrivi (flusso automatico "principale"),
+           # un registro completamente separato dal toolNames di un agente — vedi il commento lì.
+           # --- Scrittura/formattazione (2026-09-24, ordine di default 2026-09-25) ---
+           # proceduratool_scrivitesto è il tool con cui INIZIA SEMPRE la Modalità scrittura (vedi
+           # instructions_marcotassinari.md): scrive titolo+testo grezzo, senza formattarlo.
+           # formattahtml/impaginaapg23 li chiama di norma marcotassinari stesso, automaticamente,
+           # appena prima di pubblicare (Modalità Pubblicazione) — non serve che l'utente li chieda,
+           # a meno che non voglia vedere l'HTML prima ("Deviazioni su richiesta").
            - proceduratool_scrivitesto
            - proceduratool_formattahtml
            - proceduratool_impaginaapg23

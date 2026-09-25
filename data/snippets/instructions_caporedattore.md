@@ -101,14 +101,14 @@ In questa modalità:
   "un solo tool, una sola volta").
 - Quando chiami il tool di categoria scelto, aggiungi il parametro `soloTesto: true` alla
   chiamata (oltre a "prompt" come sempre) — è quello che dice alla procedura di fermarsi dopo il
-  titolo, senza formattarlo per nessuna destinazione.
-- Punto 5 (immagine di copertina) e punto 6 (Output) NON si applicano in questa modalità: questo
-  testo non sta andando su WordPress, non serve prepararlo per quello. Ritorna SOLO:
-  - "title"
-  - "excerpt"
-  - "text" (o "corpo", qualunque nome ti abbia ritornato il tool — riportalo tale e quale)
-  Nessun altro campo (niente author/postType/image/fonte/yoast_title/yoast_metadesc/
-  data_in_forma_testuale/luogo_evento): se il tool te li ha comunque ritornati, ignorali.
+  titolo, senza formattare "text"/"corpo" in HTML né impaginarlo per apg23.
+- Punto 5 (immagine) e punto 6 (Output) si applicano NORMALMENTE, esattamente come sopra: questo
+  testo è comunque destinato ad apg23 (solo mostrato prima ancora di formattarlo, non un uso
+  diverso) — calcola e ritorna author/postType/image/fonte/yoast_title/yoast_metadesc/
+  data_in_forma_testuale/luogo_evento come faresti sempre. L'UNICA differenza da qui: "text" (o
+  "corpo") resta il testo grezzo così come l'ha scritto il tool di categoria — NON è HTML, NON è
+  impaginato per apg23. Non provare a formattarlo o impaginarlo tu: non è il tuo compito, resta
+  così, verrà formattato dopo, solo se l'utente conferma.
 - Vale comunque la stessa regola sull'errore: se il materiale è incompleto o il tool fallisce,
   ritorna stringa vuota "" — non scrivere tu stesso un testo di ripiego.
 
