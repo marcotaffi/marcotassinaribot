@@ -1,0 +1,11 @@
+firma: "searchconsole_apg23_org_query"
+servizio: "searchconsole"
+destinazione: "apg23_org"
+azione: "query"
+opzioni:
+  # Proprietà Search Console da interrogare, nello stesso formato con cui è registrata lì
+  # (proprietà Dominio, non prefisso URL: vedi taffitools/src/servizi/searchconsoletool.ts).
+  # Richiede in credenziali googleClientId/googleClientSecret/googleRefreshToken con anche lo
+  # scope https://www.googleapis.com/auth/webmasters.readonly (oltre a gmail.send, già in uso
+  # per sendmail_generic_post.yml) — stesso refresh token, rigenerato il 2026-09-26.
+  siteUrl: "sc-domain:apg23.org"

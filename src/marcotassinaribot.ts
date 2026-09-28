@@ -251,6 +251,12 @@ componiMessaggioNotificaSitonews.start(credenziali);
 const sendmailSitonews = await ServiceFactory.create("sendmail_sitonews");
 sendmailSitonews.start(credenziali);
 
+// Lettura dati di rendimento Search Console per apg23.org (vedi
+// taffitools/src/servizi/searchconsoletool.ts): stesso refresh token di sendmail_generic_post,
+// rigenerato il 2026-09-26 per includere anche lo scope webmasters.readonly.
+const searchConsoleApg23 = await ServiceFactory.create("searchconsole_apg23_org_query");
+searchConsoleApg23.start(credenziali);
+
 
 //-------------
    //tutto il resto
@@ -353,7 +359,7 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
      bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,segnalazioneEventiApg23,ripubblicaApg23Flusso], credenziali); //sitoIooo
 
      debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
-     bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, scriviApg23]);
+     bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, scriviApg23, searchConsoleApg23]);
 
 
     debug (3, "*Aggiungo le fonti e la conoscenza*");

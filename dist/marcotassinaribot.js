@@ -204,6 +204,11 @@ let feeds = [{
         componiMessaggioNotificaSitonews.start(credenziali);
         const sendmailSitonews = await ServiceFactory.create("sendmail_sitonews");
         sendmailSitonews.start(credenziali);
+        // Lettura dati di rendimento Search Console per apg23.org (vedi
+        // taffitools/src/servizi/searchconsoletool.ts): stesso refresh token di sendmail_generic_post,
+        // rigenerato il 2026-09-26 per includere anche lo scope webmasters.readonly.
+        const searchConsoleApg23 = await ServiceFactory.create("searchconsole_apg23_org_query");
+        searchConsoleApg23.start(credenziali);
         //-------------
         //tutto il resto
         debug(3, "*Definisco le classi AI*");
@@ -273,7 +278,7 @@ let feeds = [{
         debug(3, "*Aggiungo i canali al bot*");
         bot.aggiungiCanali([socialMarcoLinkedin, NotizieApg23, segnalazioneEventiApg23, ripubblicaApg23Flusso], credenziali); //sitoIooo
         debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
-        bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, scriviApg23]);
+        bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, scriviApg23, searchConsoleApg23]);
         debug(3, "*Aggiungo le fonti e la conoscenza*");
         if (feeds.length > 0)
             bot.addFeeds(feeds); //invia le fonti
