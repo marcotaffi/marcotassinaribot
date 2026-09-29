@@ -1,127 +1,98 @@
 name: impagina_apg23
-description: "Impagina l'HTML semplice (convertito dal markdown dal codice, step converti_html) nel blocco unico del tema apg23/WordPress, con i dettagli propri di questo sito. Passaggio specifico di QUESTO sito: un WordPress generico avrebbe bisogno di un'impaginazione diversa (vedi TODO in fondo al file)."
-# (2026-09-29) Da quando la conversione markdown→HTML è codice (HTML semplice e standard), i
-# dettagli propri di apg23 che prima aggiungeva formatta_ai stanno qui: separatori fra i blocchi,
-# link in una nuova pagina, virgolette caporali. Scelta di Marco: tenere all'agente di questo sito
-# tutto ciò che è specifico del sito.
+description: "Impagina l'HTML semplice (convertito dal markdown dal codice, step converti_html) nei blocchi dell'editor di apg23.org: una sezione acf/titolo-paragrafo-pulsante per ogni titoletto, bottone nell'ultima."
+# (2026-09-29, deciso con Marco) Gli articoli si salvano sul sito nello stesso formato di quelli
+# scritti con l'editor del sito (es. l'articolo su Lourdes, id 24248): blocchi ACF
+# "titolo-paragrafo-pulsante", uno per sezione, e non più un blocco HTML unico del tema. Così un
+# articolo del bot si modifica dal sito come tutti gli altri, e il bot può riaprirlo e modificarlo.
+# La scrittura dei blocchi la fa questo agente (scelta di Marco); il validatore blocchi_wordpress
+# (dati del modello in data/validators/blocchi_wordpress.yml) controlla testo, titoli, link,
+# bottone e codici dei campi, e se qualcosa non va chiede una correzione.
+# Il contenuto (parole, grassetti, corsivi, titoletti) lo decide chi scrive, nel markdown: qui si
+# cambia solo la forma.
 prompt: >
-    Prendi l'HTML già pronto (nel blocco "HTML DA IMPAGINARE" qui sotto) e incollalo dentro il
-    contenitore del tema apg23 qui sotto, applicando SOLO i dettagli del tema elencati nella sezione
-    "DETTAGLI DEL TEMA APG23". Il contenuto (parole, ordine, titoletti, grassetti, corsivi, elenchi)
-    non va toccato in nessun modo.
+    Trasforma l'HTML già pronto (nel blocco "HTML DA IMPAGINARE" qui sotto) nei blocchi dell'editor
+    di WordPress usati da apg23.org. Il contenuto — parole, ordine, titoletti, grassetti, corsivi,
+    elenchi, link — non va toccato in nessun modo: cambia solo la forma, secondo queste regole.
 
 
     ═══════════════════════════════════════
-    DETTAGLI DEL TEMA APG23 (le UNICHE modifiche ammesse all'HTML ricevuto)
+    1. LE SEZIONI
     ═══════════════════════════════════════
 
-    - Fra un blocco e il successivo (paragrafi <p>, titoletti <h2>/<h3>, elenchi <ul>/<ol>,
-      citazioni <blockquote>) inserisci un paragrafo separatore <p>&#8203;</p>. Non prima del primo
-      blocco, non dopo l'ultimo, mai due di fila.
-    - Ogni link <a ...> deve avere target="_blank": se manca, aggiungilo.
-    - Le virgolette caporali « e » vanno scritte come &laquo; e &raquo;.
-
-
-    ═══════════════════════════════════════
-    STRUTTURA DA USARE (sempre e solo questa, un blocco unico)
-    ═══════════════════════════════════════
-
-    <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-      <div class="BlockMainContainer SiteWidth">
-        <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-          <div class="BodyText">
-             <div class="BodyText">
-               (qui dentro l'HTML DA IMPAGINARE, con i soli dettagli del tema)
-             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    - Ogni titoletto <h2> apre una nuova sezione, e il suo testo (senza tag) va nel campo "titolo"
+      di quella sezione.
+    - Il testo prima del primo <h2>, se c'è, è una prima sezione con "titolo": "".
+    - Tutto il resto fino al <h2> successivo va nel campo "paragrafo" della sezione.
+    - Una riga [[blocco …]] (un carosello, un banner... che qui non si modifica) NON va dentro
+      nessuna sezione: chiudi la sezione in corso, scrivi la riga identica, da sola, e riprendi con
+      una nuova sezione con "titolo": "" se dopo c'è altro testo prima del prossimo <h2>.
+    - Una riga [[bottone: SCRITTA | INDIRIZZO]] è il bottone della sezione in cui si trova: metti
+      SCRITTA in "testo_pulsante" e INDIRIZZO nell'"url" di "link_pulsante" di quella sezione, e non
+      scrivere la riga nel paragrafo. Se dopo c'è altro testo prima del prossimo <h2>, continua in
+      una nuova sezione con "titolo": "". Nell'indirizzo di un bottone "&amp;" diventa "&": non è
+      HTML, è l'indirizzo così com'è.
 
 
     ═══════════════════════════════════════
-    BOTTONE A FINE ARTICOLO (SOLO SE IL LINK DEL BOTTONE NON È VUOTO)
+    2. IL CAMPO "paragrafo"
     ═══════════════════════════════════════
 
-    Il bottone, se c'è, ti arriva in due blocchi a parte: "LINK DEL BOTTONE" (l'indirizzo) e "TESTO DEL BOTTONE" (la scritta). Può portare all'articolo originale di un rilancio o a una pagina d'azione (iscrizione, programma, donazione...): per te non cambia nulla. Usa quell'indirizzo e quella scritta esatti: non cercarli altrove nella conversazione, non inventarli, non riformulare la scritta. Se il blocco del link è vuoto o assente, non aggiungere nessun bottone. Se c'è il link ma la scritta è vuota, usa "Scopri di più".
+    - I paragrafi <p> si scrivono SENZA i tag <p> e </p>: solo il loro contenuto, uno dopo l'altro,
+      separati esattamente da \r\n\r\n&nbsp;\r\n\r\n (così li separa l'editor del sito).
+    - <strong>, <em>, <h3>, <ul>/<ol>/<li> e <blockquote> restano come sono. Un <h3>, un elenco o una
+      citazione sono separati da ciò che sta prima e dopo con lo stesso separatore dei paragrafi.
+    - Ogni link <a> ha target="_blank": se manca, aggiungilo. L'indirizzo resta identico.
+    - Le virgolette caporali « e » si scrivono &laquo; e &raquo;.
+    - Il campo è una stringa JSON: le virgolette " dentro l'HTML si scrivono \" e gli a capo solo
+      come \r\n. Mai due trattini consecutivi (--) dentro il blocco: chiuderebbero il commento.
 
-    QUANDO hai un link, aggiungi PRIMA della chiusura del BodyText interno, SOSTITUENDO "LINK_BOTTONE" con l'indirizzo esatto e "TESTO_BOTTONE" con la scritta esatta — sono segnaposto da riempire, non testo da copiare:
 
-      <div class="MainButtonBlockContainer PulsanteLeft">
-        <a class="MainButton MainButtonDark" href="LINK_BOTTONE" target="_blank">
-          TESTO_BOTTONE
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
+    ═══════════════════════════════════════
+    3. IL BOTTONE A FINE ARTICOLO
+    ═══════════════════════════════════════
 
-    ERRORE GRAVE E FREQUENTE da evitare: NON creare un blocco a parte (es. con titolo "Fonte") solo per il bottone. Resta un solo blocco in tutto l'output, il bottone va incollato dentro il BodyText già esistente.
+    Il bottone dell'ultima sezione ti arriva in due blocchi a parte: "LINK DEL BOTTONE" (l'indirizzo)
+    e "TESTO DEL BOTTONE" (la scritta). Usa quell'indirizzo e quella scritta esatti: non cercarli
+    altrove, non inventarli, non riformulare la scritta. Se c'è il link ma la scritta è vuota, usa
+    "Scopri di più". Se il link è vuoto o assente, l'ultima sezione non ha bottone: "testo_pulsante":
+    "" e "link_pulsante": "". Mai una sezione in più solo per il bottone.
+
+    Le sezioni senza bottone hanno "testo_pulsante": "" e "link_pulsante": "". Un bottone si scrive
+    così: "link_pulsante":{"title":"","url":"INDIRIZZO","target":"_blank"}
+
+
+    ═══════════════════════════════════════
+    4. IL FORMATO DI OGNI SEZIONE
+    ═══════════════════════════════════════
+
+    Una riga per sezione, sempre con tutti questi campi, in quest'ordine e con questi valori fissi;
+    cambiano solo TITOLO, PARAGRAFO, SCRITTA, il link del bottone e il margin-bottom ("3%" solo
+    nell'ultima sezione, "" in tutte le altre):
+
+    <!-- wp:acf/titolo-paragrafo-pulsante {"name":"acf/titolo-paragrafo-pulsante","data":{"titolo":"TITOLO","_titolo":"field_656a040e20f94","paragrafo":"PARAGRAFO","_paragrafo":"field_656a041d20f95","testo_pulsante":"SCRITTA","_testo_pulsante":"field_656a042920f96","link_pulsante":"","_link_pulsante":"field_656a043c20f97","allineamento_pulsante":"PulsanteLeft","_allineamento_pulsante":"field_656a044920f98","altezza":"","_altezza":"field_6564528ff236d","colore_sfondo":"#FFFFFF","_colore_sfondo":"field_65645262f236c","margin-top":"","_margin-top":"field_656452c0a404d","margin-bottom":"","_margin-bottom":"field_656452daa404e","larghezza":"SiteWidth","_larghezza":"field_6564592f93a06","ultimo_blocco":"0","_ultimo_blocco":"field_658c335e98322"},"mode":"edit"} /-->
+
+    Esempio. Da questo HTML (con LINK DEL BOTTONE https://esempio.it/iscriviti e TESTO DEL BOTTONE
+    "Iscriviti"):
+
+    <p>Primo paragrafo con <strong>grassetto</strong>.</p>
+    <p>Secondo paragrafo con un <a href="https://esempio.it">link</a>.</p>
+    <h2>Come partecipare</h2>
+    <p>Terzo paragrafo.</p>
+
+    si ottiene:
+
+    <!-- wp:acf/titolo-paragrafo-pulsante {"name":"acf/titolo-paragrafo-pulsante","data":{"titolo":"","_titolo":"field_656a040e20f94","paragrafo":"Primo paragrafo con <strong>grassetto</strong>.\r\n\r\n&nbsp;\r\n\r\nSecondo paragrafo con un <a href=\"https://esempio.it\" target=\"_blank\">link</a>.","_paragrafo":"field_656a041d20f95","testo_pulsante":"","_testo_pulsante":"field_656a042920f96","link_pulsante":"","_link_pulsante":"field_656a043c20f97","allineamento_pulsante":"PulsanteLeft","_allineamento_pulsante":"field_656a044920f98","altezza":"","_altezza":"field_6564528ff236d","colore_sfondo":"#FFFFFF","_colore_sfondo":"field_65645262f236c","margin-top":"","_margin-top":"field_656452c0a404d","margin-bottom":"","_margin-bottom":"field_656452daa404e","larghezza":"SiteWidth","_larghezza":"field_6564592f93a06","ultimo_blocco":"0","_ultimo_blocco":"field_658c335e98322"},"mode":"edit"} /-->
+
+    <!-- wp:acf/titolo-paragrafo-pulsante {"name":"acf/titolo-paragrafo-pulsante","data":{"titolo":"Come partecipare","_titolo":"field_656a040e20f94","paragrafo":"Terzo paragrafo.","_paragrafo":"field_656a041d20f95","testo_pulsante":"Iscriviti","_testo_pulsante":"field_656a042920f96","link_pulsante":{"title":"","url":"https://esempio.it/iscriviti","target":"_blank"},"_link_pulsante":"field_656a043c20f97","allineamento_pulsante":"PulsanteLeft","_allineamento_pulsante":"field_656a044920f98","altezza":"","_altezza":"field_6564528ff236d","colore_sfondo":"#FFFFFF","_colore_sfondo":"field_65645262f236c","margin-top":"","_margin-top":"field_656452c0a404d","margin-bottom":"3%","_margin-bottom":"field_656452daa404e","larghezza":"SiteWidth","_larghezza":"field_6564592f93a06","ultimo_blocco":"0","_ultimo_blocco":"field_658c335e98322"},"mode":"edit"} /-->
 
 
     ═══════════════════════════════════════
     OUTPUT
     ═══════════════════════════════════════
 
-    - Restituisci SOLO il blocco HTML completo, a partire da <div class="BlockWrapperContainer...
-    - Non modificare in alcun modo il contenuto HTML che hai ricevuto, a parte i dettagli del tema: nessuna riformulazione, nessuna correzione, nessuna aggiunta o rimozione di testo — ogni tag <h2>/<h3>/<strong>/<em> già presente resta com'è.
-    - Nessun testo aggiuntivo.
-    - Nessuna spiegazione.
-    - NON avvolgere l'output in un blocco di codice markdown (niente ```html iniziale né ``` finale).
-    - Verifica finale: è presente UN SOLO <div class="BlockWrapperContainer...">, nessuno di più.
-    - Verifica finale: non esiste un blocco dedicato solo al bottone — il bottone è dentro l'unico blocco di contenuto.
-
-# ═══════════════════════════════════════════════════════════════════════════
-# STRUTTURA PRECEDENTE A PIÙ BLOCCHI (2026-09-17, sostituita il 2026-09-18 su richiesta
-# esplicita — apg23 vuole sempre un blocco unico) — tenuta qui commentata (non fa parte del
-# prompt, non viene mai inviata all'AI) in caso serva ripristinarla in futuro:
-#
-# REGOLA: il numero totale di blocchi era ESATTAMENTE 1 (blocco introduttivo) + numero di
-# titoli ## presenti nel testo. Ogni titolo ## generava un nuovo blocco titolato; il primo
-# blocco (testo prima del primo ##) non aveva titolo.
-#
-# VARIANTE A — blocco SENZA titolo (il primo blocco, prima del primo ##):
-# il <div class="PageTitleSmall"> non compariva affatto (mai vuoto).
-#
-# <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-#   <div class="BlockMainContainer SiteWidth">
-#     <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-#       <div class="BodyText">
-#          <div class="BodyText">
-#            (testo del blocco)
-#          </div>
-#       </div>
-#     </div>
-#   </div>
-# </div>
-#
-# VARIANTE B — blocco titolato (uno per ogni ## del testo originale):
-#
-# <div class="BlockWrapperContainer  Block-titolo-paragrafo-pulsante" style="background-color:#FFFFFF; margin-top:; margin-bottom:2%; height:">
-#   <div class="BlockMainContainer SiteWidth">
-#     <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
-#       <div class="BodyText">
-#          <div class="PageTitleSmall">
-#             TITOLO DELLA SEZIONE (da un ## reale del testo)
-#          </div>
-#          <div class="BodyText">
-#            (testo della sezione)
-#          </div>
-#       </div>
-#     </div>
-#   </div>
-# </div>
-#
-# TODO (2026-09-18, segnalato da Marco): questa impaginazione a blocco unico è specifica del
-# tema apg23 — un sito WordPress generico (non apg23) avrebbe bisogno di un'impaginazione
-# diversa (probabilmente HTML semplice, senza questi div/classi specifici del tema). Se in
-# futuro un altro progetto userà lo stesso step "formatta_ai" (conversione markdown→html) su un
-# WordPress diverso, andrà scritto un impagina_<sito>.yml diverso invece di riusare questo, o
-# reso configurabile il template di impaginazione.
-#
-# TODO (2026-09-18): questa impaginazione è pura sostituzione di template (incolla l'HTML dentro
-# un contenitore fisso + eventuale bottone fonte) — non richiede nessun giudizio editoriale.
-# Potrebbe diventare un passo deterministico (un "servizio" TypeScript, non una chiamata AI):
-# più veloce, a costo zero di token, e per costruzione non può mai "dimenticare" l'impaginazione
-# o alterare il contenuto. Valutazione di design completa nel TODO su taffitools/src/servizi/
-# servizio.ts (getHandler) — proposta di un servizio condiviso "TextEdit" con più metodi
-# deterministici (markdownToHtml, wrapInTemplate...), invece di un servizio dedicato per ognuno.
-# Non implementato ora per restare su una modifica semplice.
+    - Solo le sezioni (e le eventuali righe [[blocco …]]), una per riga, con una riga vuota fra
+      l'una e l'altra. Nient'altro: nessun testo fuori dai blocchi, nessuna spiegazione.
+    - NON avvolgere l'output in un blocco di codice markdown (niente ``` all'inizio o alla fine).
+    - Verifica finale: tutte le parole dell'HTML ricevuto ci sono, identiche e nello stesso ordine;
+      una sezione per ogni <h2>; il bottone del LINK DEL BOTTONE solo nell'ultima sezione;
+      "margin-bottom":"3%" solo nell'ultima sezione.

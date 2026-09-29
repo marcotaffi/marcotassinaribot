@@ -1,21 +1,14 @@
 agentName: revisore
-agentDescription: "Legge un articolo già pubblicato su apg23.org e propone una modifica, su richiesta — non scrive mai nulla da solo"
+agentDescription: "Modifica una bozza di articolo su richiesta (dal ritocco alla riscrittura di una parte), cambiando solo ciò che è chiesto"
 apiClient: "gpt-response-dev"
 instructions:
   - instructions_revisore
 params:
   model: "gpt-5.4-mini-2026-03-17"
   tool_choice: "auto"
+# (2026-09-29) Lavora solo sulla bozza che riceve: niente più lettura degli articoli del sito
+# (leggiArticolo/elencaarticoli), che apre il servizio bozze_apg23 (azione "apri") convertendo
+# i blocchi del sito in markdown. Lo scraper serve per il materiale nuovo che l'utente indica.
 toolNames:
-  - wordpress_apg23_leggiArticolo
-  # wordpress_apg23_elencaarticoli: SOLO su richiesta esplicita dell'utente di cercare/trovare
-  # l'articolo (es. "cerca l'articolo sui nonni e aggiornalo") — vedi Caso B in
-  # instructions_revisore.md. NON va usato per indovinare da solo, senza che l'utente lo chieda,
-  # quale articolo pubblicato corrisponda a un materiale dato (bozza, PDF...): testato in
-  # produzione il 2026-09-25, un tentativo automatico ha fallito a trovare un articolo che
-  # esisteva davvero (termine di ricerca troppo lungo/diverso dal titolo vero) — il collegamento
-  # bozza→articolo pubblicato è spesso conoscenza che solo l'utente ha, non deducibile in modo
-  # affidabile dal solo contenuto.
-  - wordpress_apg23_elencaarticoli
   - scraper_url_download
   - gestoredate_now_readClock

@@ -1,8 +1,10 @@
 # Bozze di articoli per apg23.org (2026-09-29, revisione strutturale): il servizio con cui la chat
 # scrive, ritocca, vede in anteprima e pubblica — lavorando sulla "bozza n. X", senza mai ricopiare
-# testi o campi da un passaggio all'altro. Le stesse azioni coprono le modifiche agli articoli GIÀ
-# pubblicati (proposta numerata del revisore, applicata esattamente com'è stata mostrata).
-# Vedi taffitools/src/servizi/bozze.ts.
+# testi o campi da un passaggio all'altro. Un articolo GIÀ pubblicato si modifica aprendolo come
+# bozza collegata (azione "apri": i blocchi del sito diventano markdown); salvarla lo aggiorna.
+# Sul sito il testo va nei blocchi dell'editor (sezioni acf/titolo-paragrafo-pulsante), scritti
+# dall'agente di impaginazione e controllati dal validatore blocchi_wordpress (_anteprima_apg23).
+# Vedi taffitools/src/servizi/bozze.ts e utils/blocchiwp.ts.
 firma: bozze_apg23
 servizio: bozze
 destinazione: apg23
@@ -11,7 +13,10 @@ opzioni:
   revisione: _revisiona
   anteprima: _anteprima_apg23
   pubblicazione: canaleflusso_apg23_invia
+  lettura: wordpress_apg23_leggiArticolo
   aggiornamento: wordpress_apg23_aggiornaArticolo
+  # Dove cercare un articolo da aprire, in ordine (di solito non si sa se è un articolo o un evento).
+  tipiArticolo: [posts, eventi]
   esportazioni:
     semprenews: _formattasemprenews
   # Copertina su richiesta, con i provini del sito (stessa procedura della copertina automatica).

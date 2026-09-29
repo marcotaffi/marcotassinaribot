@@ -2,8 +2,9 @@ Struttura degli agenti (aggiornata il 2026-09-29, revisione strutturale)
 
  - marcotassinari
  Chiamato via Telegram. Avatar di Marco Tassinari: chiacchiera, e lavora sugli articoli di
- apg23.org con il servizio bozze_apg23 (scrivi, ritocca, anteprima, pubblica, rivedi un articolo
- pubblicato). Non ricopia testi fra uno strumento e l'altro: lavora sulla "bozza n. X".
+ apg23.org con il servizio bozze_apg23 (scrivi o apri un articolo pubblicato, ritocca, anteprima,
+ salva sul sito). Non ricopia testi fra uno strumento e l'altro: lavora sulla "bozza n. X", in
+ markdown; sul sito va nei blocchi dell'editor.
  Istruzioni: persona_marcotassinari (chi è, tono, formato) + operativa_marcotassinari (cosa fa).
 
  - caporedattore
@@ -22,12 +23,15 @@ Struttura degli agenti (aggiornata il 2026-09-29, revisione strutturale)
  Ritorna i campi in formato JSON.
 
  - revisore
- Modifiche su richiesta: ritocchi alle bozze (applicati subito) e proposte di modifica di articoli
- già pubblicati (applicate solo dopo conferma). Uscita per campi.
+ Modifiche al testo di una bozza su richiesta, dal ritocco alla riscrittura di una parte (applicate
+ subito, come nuova versione). Un articolo già pubblicato gli arriva come bozza aperta dal sito.
+ Uscita per campi.
 
  - aiengineer
- Impaginazione nel tema di apg23 (impagina_apg23) e formattazione per semprenews. La conversione
- markdown → HTML semplice invece è codice (step converti_html), niente AI.
+ Impaginazione nei blocchi dell'editor di apg23 (impagina_apg23: una sezione
+ acf/titolo-paragrafo-pulsante per titoletto, controllata dal validatore blocchi_wordpress) e
+ formattazione per semprenews. La conversione markdown → HTML semplice invece è codice (step
+ converti_html), niente AI.
 
  - photoeditor
  Generatore di immagini (modelli GPT Image). Usato dagli step genera_immagine / genera_cover_apg23:

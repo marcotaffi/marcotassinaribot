@@ -1,6 +1,9 @@
 name: impagina_apg23
 type: prompt
-description: "Impagina l'HTML semplice (da converti_html) nel blocco unico del tema apg23/WordPress, con separatori, link e virgolette del tema"
+description: "Impagina l'HTML semplice (da converti_html) nei blocchi dell'editor di apg23.org (sezioni acf/titolo-paragrafo-pulsante)"
+# (2026-09-29) Blocchi dell'editor invece del blocco HTML unico del tema: vedi prompts/impagina_apg23.yml.
+# Il validatore controlla testo, titoli, link, bottone e codici dei campi (data/validators/).
+validate: blocchi_wordpress
 prompt: impagina_apg23
 agentName: aiengineer
 # (2026-09-18) Separato da formatta_ai: prima un solo step faceva insieme conversione

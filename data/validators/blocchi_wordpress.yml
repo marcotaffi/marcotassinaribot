@@ -1,0 +1,29 @@
+# Modello delle sezioni "acf/titolo-paragrafo-pulsante" di apg23.org (2026-09-29), usato dal
+# validatore blocchi_wordpress (taffitools/src/procedure/stepvalidators.ts) per controllare i
+# blocchi scritti dall'agente di impaginazione (prompts/impagina_apg23.yml). Ricavato dagli articoli
+# salvati dall'editor del sito (es. l'articolo su Lourdes, id 24248): se il tema cambia i suoi
+# campi ACF, vanno aggiornati qui E nel prompt.
+modello:
+  # campo → codice tecnico ACF (nel blocco: "_campo": "codice")
+  chiavi:
+    titolo: field_656a040e20f94
+    paragrafo: field_656a041d20f95
+    testo_pulsante: field_656a042920f96
+    link_pulsante: field_656a043c20f97
+    allineamento_pulsante: field_656a044920f98
+    altezza: field_6564528ff236d
+    colore_sfondo: field_65645262f236c
+    margin-top: field_656452c0a404d
+    margin-bottom: field_656452daa404e
+    larghezza: field_6564592f93a06
+    ultimo_blocco: field_658c335e98322
+  # impostazioni grafiche uguali in ogni sezione
+  fissi:
+    allineamento_pulsante: PulsanteLeft
+    altezza: ""
+    colore_sfondo: "#FFFFFF"
+    margin-top: ""
+    larghezza: SiteWidth
+    ultimo_blocco: "0"
+  # spazio sotto l'ultima sezione (le altre: "")
+  marginBottomUltimo: "3%"

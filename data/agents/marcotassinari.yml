@@ -27,13 +27,13 @@ toolNames:
            - sendmail_generic_post
            - scraper_url_download
            - websearch_italia_low
-           # Bozze e modifiche di articoli apg23: scrivi, modifica, ritocca, ripristina, mostra,
-           # elenca, anteprima, copertina, pubblica, esporta, rivediArticolo, applicaProposta.
+           # Bozze di articoli apg23, nuovi o già pubblicati: scrivi, apri, modifica, ritocca,
+           # ripristina, mostra, elenca, anteprima, copertina, pubblica, esporta.
            - bozze_apg23
-           # Sola lettura del sito. L'aggiornamento diretto (aggiornaArticolo/aggiornaMedia) non è
-           # più raggiungibile dalla chat: passa da bozze_apg23_applicaProposta, che applica solo
-           # una proposta del revisore già mostrata (il 25/09 era stato usato senza proposta).
-           - wordpress_apg23_leggiArticolo
+           # Ricerca sul sito, in sola lettura. Leggere un articolo per intero = aprirlo come bozza
+           # (bozze_apg23_apri, testo in markdown): leggiArticolo restituiva il contenuto grezzo
+           # dei blocchi dell'editor, su cui la chat si perdeva (dev, 29/09). L'aggiornamento
+           # diretto non è raggiungibile dalla chat: passa da bozze_apg23_pubblica, dopo conferma.
            - wordpress_apg23_elencaarticoli
            - wordpress_apg23_elencarisorse
            # Genera un'immagine da una descrizione e la mostra in chat (procedure/_immagine.yml).

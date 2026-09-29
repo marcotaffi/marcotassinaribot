@@ -13,9 +13,11 @@ materiale:
   - campo: excerpt
     etichetta: SOMMARIO
     obbligatorio: false
-  # "text" quando arriva dalla pubblicazione di una bozza, "corpo" nel flusso automatico (l'HTML
-  # impaginato, 2026-09-29: prima c'era il "text" del caporedattore, che non esiste più).
-  - campo: [text, corpo]
+  # Il testo dell'articolo, non l'impaginazione: "corpo" è il markdown della bozza (pubblicazione
+  # da chat) o l'HTML semplice di converti_html (flusso automatico); "text" è il ripiego, per la
+  # copertina chiesta in chat (_copertina_apg23, che riceve il testo della bozza in "text"). Da
+  # quando "text" contiene i blocchi dell'editor (2026-09-29) non va preferito a "corpo".
+  - campo: [corpo, text]
     etichetta: ARTICOLO
     obbligatorio: false
 # Cronologia (2026-09-29): questo step lavora solo sul proprio input esplicito (prompt +

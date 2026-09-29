@@ -10,6 +10,8 @@ tasks:
   # c'è un'immagine passata come Multimedia dal tool "invia" (sorgente "image").
   # Vale sia per gli articoli sia per gli eventi. Wordpress.post usa l'immagine generata come
   # ultimo ripiego.
+  # generaCopertina = false (2026-09-29): l'utente non vuole una copertina generata (servizio
+  # bozze_apg23, azione pubblica): l'articolo esce con la sua immagine, se ce l'ha, o senza.
   - name: genera_prompt_cover_apg23
     type: step
     opzionale: true
@@ -22,6 +24,9 @@ tasks:
             modo: multimedia
             sorgente: image
             operatore: exists
+          - campo: generaCopertina
+            operatore: equals
+            valore: false
   - name: genera_cover_apg23
     type: step
     opzionale: true
