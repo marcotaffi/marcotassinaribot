@@ -5,6 +5,10 @@ name: revisiona
 # l'HTML da pubblicare. Vedi la sezione "Output" in snippets/instructions_revisore.md.
 # (2026-09-29, sera) Un solo caso: la bozza. Anche un articolo già pubblicato si modifica
 # aprendolo come bozza (bozze_apg23_apri), quindi il revisore non legge più il sito.
+# Istruzioni tenute corte apposta (snippets/instructions_revisore.md, decisione di Marco: modello
+# mini, istruzioni semplici): nelle prove dal vivo del 29/09 una versione lunga, più un blocco col
+# messaggio originale dell'utente che doppiava la cronologia, faceva mettere il paragrafo nuovo nel
+# posto sbagliato; la versione corta, senza doppioni, 6 prove su 6 giuste.
 params:
   type:
     - title

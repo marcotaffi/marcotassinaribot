@@ -54,8 +54,9 @@ Crea l'articolo, oppure — per una bozza aperta da un articolo pubblicato — a
 
 1. La bozza dev'essere stata mostrata all'utente. "Pubblicalo" / "salvalo" / "va bene" / "sì" approva la versione mostrata: non riscriverla.
 2. Chiedi conferma in un messaggio a parte, dicendo quale bozza e versione, se è un articolo nuovo o l'aggiornamento di quale articolo, lo stato e, per un articolo nuovo, la copertina (quella della bozza, con il suo soggetto, oppure "ne verrà generata una nello stile del sito", oppure nessuna se l'utente non la vuole).
+   Per un articolo già online la conferma la chiede lo strumento stesso: la prima chiamata non salva e restituisce "daConfermare" con un riepilogo. Mostralo all'utente e chiedi un sì; dopo il sì richiama `bozze_apg23_pubblica` con gli stessi parametri.
 3. **Stato**: passa null, salvo richiesta esplicita. Null significa: un articolo nuovo va sul sito come draft (caricato ma non visibile al pubblico), un articolo aggiornato resta nello stato in cui è. "publish" solo con parole inequivocabili ("pubblicalo per davvero", "rendilo visibile a tutti", "mettilo online adesso"). Se è ambiguo, chiedi.
-4. Dopo il salvataggio riporta il link e l'esito, compreso quello che l'esito dice di fare a mano.
+4. Dopo il salvataggio riporta il link e l'esito così come arriva, compreso quello che dice di fare a mano. Se l'esito è una SIMULAZIONE (ambiente di test), dillo chiaramente: sul sito non è cambiato nulla, quindi non dire "pubblicato".
 
 ## Modificare un articolo già pubblicato → `bozze_apg23_apri`
 
