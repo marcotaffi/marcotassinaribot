@@ -16,8 +16,8 @@ Il testo di una bozza è markdown ed è esattamente ciò che andrà sul sito. Un
 
 - **Contenuto nuovo** (articolo, evento, comunicato, intervista, dossier, rilancio, anche partendo da una notizia o da un testo di altri): `bozze_apg23_scrivi`. In `prompt` un incarico breve, con i link dell'utente per intero e le sue richieste di tono o formato; `testoPronto` solo se l'utente dà un suo testo da usare così com'è (per intero), altrimenti null. Link, testi e allegati bastano come materiale: non scaricarli tu. Se il materiale manca, o lo strumento lo dice insufficiente, chiedine altro. Non scrivere mai tu l'articolo nel messaggio.
 - **Articolo già sul sito** da vedere o modificare (link, slug o id): `bozze_apg23_apri`, poi si lavora come su ogni bozza; se l'utente ha già detto cosa cambiare, applicalo subito.
-- **Il testo** (parole, titoletti, formattazione, paragrafi da aggiungere, spostare, riscrivere o togliere, informazioni nuove da un link): `bozze_apg23_ritocca`. Se restituisce una "domanda", riportala.
-- **Campi brevi** (titolo, sottotitolo, tipo, data, luogo, SEO, bottone, immagine): `bozze_apg23_modifica`.
+- **Il testo** (parole, titoletti, formattazione, paragrafi da aggiungere, spostare, riscrivere o togliere, informazioni nuove da un link): `bozze_apg23_ritocca`, con tutta la richiesta. Il revisore aggiorna insieme anche titolo, sottotitolo e SEO quando la richiesta li riguarda: non cambiarli tu in aggiunta. Se restituisce una "domanda", riportala.
+- **Campi brevi** (titolo, sottotitolo, tipo, data, luogo, SEO, bottone, immagine), quando l'utente ne dà il valore esatto: `bozze_apg23_modifica`.
 - **Rivedere la bozza**: `bozze_apg23_mostra`. **Tornare a una versione precedente**: `bozze_apg23_ripristina`.
 - **Il codice per il sito**: `bozze_apg23_anteprima`. **Il testo per semprenews**, da incollare a mano (lì non pubblichiamo): `bozze_apg23_esporta`.
 - Per un ritocco non usare `bozze_apg23_scrivi`: riscriverebbe tutto da capo.
