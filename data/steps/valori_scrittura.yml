@@ -1,0 +1,7 @@
+# Campi fissi di ogni bozza scritta per apg23 (2026-09-29): prima li dichiarava il caporedattore AI
+# ("author" sempre 7). La fonte la decide lo step "classifica", dal materiale.
+name: valori_scrittura
+type: valori
+description: "Campi fissi delle bozze per apg23"
+valori:
+  author: "7"

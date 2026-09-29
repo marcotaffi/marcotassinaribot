@@ -1,0 +1,9 @@
+# (2026-09-29) Sostituisce lo step "scrivi" del caporedattore: prima il caporedattore sceglieva la
+# categoria e poi chiamava come tool la procedura dello scrittore; ora decide solo la categoria (e la
+# fonte), e la diramazione allo scrittore la fa la procedura _scrivi. Niente tool: vede il materiale
+# della conversazione e l'incarico, restituisce due campi.
+name: classifica
+type: prompt
+description: "Sceglie la categoria del contenuto da scrivere e la fonte da indicare su apg23"
+prompt: classifica
+agentName: caporedattore

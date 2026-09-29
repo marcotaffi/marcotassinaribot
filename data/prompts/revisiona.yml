@@ -15,7 +15,8 @@ params:
     - yoast_metadesc
     - linkBottone
     - testoBottone
-    - indicazioniFormattazione
+    - categories
+    - tags
     - altreModifiche
     - cosaCambia
     - domanda

@@ -5,5 +5,6 @@ params:
     - corpo
     - linkBottone
     - testoBottone
+    - image
 prompt: >
-  Redigi un comunicato stampa destinato a giornalisti di settore utilizzando il materiale fornito in precedenza, usando i tuoi tools. Le scelte editoriali (taglio, cosa tenere, cosa tralasciare) spettano a te: falle senza chiedere conferme. Interrompi con segnalaerrore_run_segnala solo se manca davvero il materiale di base (nessun testo, link o file sull'argomento). Restituisci il testo del comunicato, in markdown, nel campo "corpo"; nei campi "linkBottone" e "testoBottone" il bottone a fine articolo, secondo le tue istruzioni ("Il bottone a fine articolo").
+  Redigi un comunicato stampa destinato a giornalisti di settore utilizzando il materiale fornito in precedenza, usando i tuoi tools. Le scelte editoriali (taglio, cosa tenere, cosa tralasciare) spettano a te: falle senza chiedere conferme. Interrompi con segnalaerrore_run_segnala solo se manca davvero il materiale di base (nessun testo, link o file sull'argomento). Restituisci il testo del comunicato, in markdown, nel campo "corpo"; nei campi "linkBottone" e "testoBottone" il bottone a fine articolo, secondo le tue istruzioni ("Il bottone a fine articolo"). Nel campo "image": l'URL dell'immagine principale dell'articolo o della pagina originale (quella che la pagina scaricata indica come sua immagine, o la riga "Immagine originale:" del materiale), oppure l'URL di una foto allegata dall'utente se è la foto del contenuto; "" se non ce n'è nessuna. Mai inventato.

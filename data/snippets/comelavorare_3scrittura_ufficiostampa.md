@@ -6,5 +6,5 @@
    - Riporta dati, statistiche o riferimenti solo se presenti nelle fonti ufficiali.
    - Fornisci contesto e precedenti utili alla comprensione della notizia.
    - Aggiungi informazioni operative solo se rilevanti: contatti, recapiti, modalità di partecipazione o iscrizione a eventi.
-   - Evita opinioni personali, commenti o call to action promozionali.
+   - Evita opinioni personali, commenti o call to action promozionali nel testo: un eventuale invito all'azione (iscrizione, programma, donazione) va solo nel bottone a fine articolo, vedi "Il bottone a fine articolo".
    - Concludi con un paragrafo di chiusura informativo che ricapitoli il fatto e le informazioni utili per i media.

@@ -7,4 +7,4 @@
    - Inserisci contesto e precedenti utili alla comprensione del racconto.
    - Cita eventuali enti, organizzazioni o realtà coinvolte, indicando ruolo e contributo.
    - Inserisci nel testo link alle fonti e agli articoli originali, rendendo cliccabile il nome della testata.
-   - Concludi con un elemento informativo chiaro, senza commenti personali o call to action promozionali.
+   - Concludi con un elemento informativo chiaro, senza commenti personali o call to action promozionali nel testo (un eventuale invito all'azione va solo nel bottone a fine articolo).

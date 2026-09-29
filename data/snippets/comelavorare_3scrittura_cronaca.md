@@ -7,4 +7,4 @@
    - Aggiungi approfondimenti narrativi, esempi o storie solo se forniti e pertinenti.
    - NON citare mai la fonte/testata nel corpo del testo (niente "secondo [testata]", niente link alle fonti in prosa): il link all'articolo originale viene aggiunto automaticamente in un bottone a fine pagina. Le uniche citazioni testuali ammesse sono le dichiarazioni dirette delle persone, tra virgolette caporali «», con indicazione di chi parla.
    - Cita partner o soggetti coinvolti, indicando ruoli e responsabilità.
-   - Concludi in modo informativo, senza call to action promozionali; includi eventuali informazioni di contatto, modalità di iscrizione o coinvolgimento solo se pertinenti.
+   - Concludi in modo informativo, senza call to action promozionali nel testo (un eventuale invito all'azione va solo nel bottone a fine articolo); includi eventuali informazioni di contatto, modalità di iscrizione o coinvolgimento solo se pertinenti.

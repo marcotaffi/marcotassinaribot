@@ -12,64 +12,35 @@ params:
   temperature: 0.80
   top_p: 0.90 
   max_output_tokens: 6000
-instructions: 
-           - instructions_marcotassinari
-           - esempi_marcotassinari  
-           - biografia_marcotassinari   
+# (2026-09-29, revisione strutturale) Istruzioni divise in persona (chi è, tono, formato dei
+# messaggi) e operativa (cosa fa sugli articoli). La cronaca dei bug che stava nelle istruzioni è
+# stata tolta: resta nei commenti dei file e nel log git. Gli strumenti di scrittura, formattazione,
+# impaginazione, pubblicazione e aggiornamento diretto non sono più qui: passano tutti dal servizio
+# bozze_apg23, che lavora sulla bozza per numero (vedi data/services/bozze_apg23.yml).
+instructions:
+           - persona_marcotassinari
+           - operativa_marcotassinari
+           - esempi_marcotassinari
+           - biografia_marcotassinari
 toolNames:
            - gestoredate_now_readClock
            - sendmail_generic_post
            - scraper_url_download
            - websearch_italia_low
-           - wordpress_apg23
-           # ripubblica_apg23 (CanaleFlusso, vedi data/services/ripubblica_apg23.yml): espone
-           # canaleflusso_apg23_invia — l'UNICO modo per pubblicare per davvero su apg23.org.
-           # "scrivi" NON passa più da qui dal 2026-09-24 (vedi proceduratool_scrivitesto sotto):
-           # non ne ha mai avuto bisogno. wordpress_apg23 (firma breve, come seozoom_* sotto: UNA voce
-           # carica TUTTE le azioni non nascoste del canale, non serve elencarle una per una)
-           # espone elencaArticoli/elencaRisorse/leggiArticolo/aggiornaArticolo/aggiornaMedia —
-           # post resta nascosto da chat (vedi Wordpress.azioniNonEsposteAllAI) e passa sempre da
-           # ripubblica_apg23. aggiornaArticolo/aggiornaMedia scrivono per davvero: MAI senza
-           # conferma esplicita dell'utente, vedi "Modalità Modifica" in instructions_marcotassinari.md.
-           - ripubblica_apg23
+           # Bozze e modifiche di articoli apg23: scrivi, modifica, ritocca, ripristina, mostra,
+           # elenca, anteprima, copertina, pubblica, esporta, rivediArticolo, applicaProposta.
+           - bozze_apg23
+           # Sola lettura del sito. L'aggiornamento diretto (aggiornaArticolo/aggiornaMedia) non è
+           # più raggiungibile dalla chat: passa da bozze_apg23_applicaProposta, che applica solo
+           # una proposta del revisore già mostrata (il 25/09 era stato usato senza proposta).
+           - wordpress_apg23_leggiArticolo
+           - wordpress_apg23_elencaarticoli
+           - wordpress_apg23_elencarisorse
            # Genera un'immagine da una descrizione e la mostra in chat (procedure/_immagine.yml).
-           # Le copertine per apg23 NON passano da qui: "invia" le genera da solo se mancano.
            - proceduratool_immagine
-           # SeoZoom (vedi taffitools/src/servizi/seozoomtool.ts): come wordpress_apg23 carica sia
-           # "_post" che "_run", ogni firma breve seozoom_<categoria> carica TUTTE le azioni di
-           # quella categoria (non serve elencarle una per una).
+           # SeoZoom: ogni firma breve seozoom_<categoria> carica tutte le azioni di quella categoria.
            - seozoom_crediti
            - seozoom_keywords
            - seozoom_domains
            - seozoom_urls
            - seozoom_projects
-           # segnalazioneeventi_apg23 (canale automatico apg23→mail, vedi data/services/): tenuto
-           # qui per le azioni di lettura eventuali del canale, ma dal 2026-09-16
-           # opzioni.esponiPrincipale è false — "canaleflusso_apg23_principale" (rileva se
-           # l'evento è di semprenews, scrive il rilancio o la notifica, manda le mail) NON è più
-           # raggiungibile da chat, solo dal feed automatico. Motivo: un test da chat ha prodotto
-           # una mail vuota (link/titolo mancanti, mai passati come campi separati dall'AI) —
-           # vedi il commento in segnalazioneeventi_apg23.yml.
-           - segnalazioneeventi_apg23
-           # proceduratool_scrivi (esiste, procedura "orchestra" completa) NON è qui di proposito
-           # dal 2026-09-25: Marco lo vuole irraggiungibile per marcotassinari, non solo
-           # sconsigliato nelle istruzioni — il default ora è mostrare il testo grezzo prima di
-           # formattare (vedi Modalità scrittura), e questo tool salterebbe quel passaggio.
-           # Registrato invece direttamente in marcotassinaribot.ts (bot.aggiungiServizi): resta
-           # raggiungibile dallo step "servizio" wordpress_scrivi (flusso automatico "principale"),
-           # un registro completamente separato dal toolNames di un agente — vedi il commento lì.
-           # --- Scrittura/formattazione (2026-09-24, ordine di default 2026-09-25) ---
-           # proceduratool_scrivitesto è il tool con cui INIZIA SEMPRE la Modalità scrittura (vedi
-           # instructions_marcotassinari.md): scrive titolo+testo grezzo, senza formattarlo.
-           # formattahtml/impaginaapg23 li chiama di norma marcotassinari stesso, automaticamente,
-           # appena prima di pubblicare (Modalità Pubblicazione) — non serve che l'utente li chieda,
-           # a meno che non voglia vedere l'HTML prima ("Deviazioni su richiesta").
-           - proceduratool_scrivitesto
-           - proceduratool_formattahtml
-           - proceduratool_impaginaapg23
-           - proceduratool_formattasemprenews
-           # --- Modifica di articoli già pubblicati (2026-09-24) ---
-           # leggiArticolo/aggiornaArticolo/aggiornaMedia arrivano già dalla voce "wordpress_apg23"
-           # sopra (firma breve, non serve ripeterle qui — vedi il suo commento). Qui serve solo
-           # proceduratool_revisiona: propone una modifica (agente "revisore", non scrive nulla).
-           - proceduratool_revisiona

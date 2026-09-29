@@ -1,0 +1,55 @@
+# Scrittura di una bozza (2026-09-29, revisione strutturale): sostituisce orchestra/_scrivitesto e le
+# procedure per categoria. Prima c'era un caporedattore AI che sceglieva la categoria e poi CHIAMAVA
+# come tool la procedura dello scrittore (un livello AI e una copia della sessione in più, e la
+# fonte della fuga di istruzioni del 28-29/09). Ora la classificazione è un passo di questa stessa
+# procedura, e la diramazione allo scrittore giusto la fa il motore.
+#
+# Lanciata dal servizio bozze_apg23 (azione "scrivi"). Con un testo già pronto (testoPronto, il
+# servizio lo mette in "corpo") si salta solo la scrittura: classificazione (per la fonte), titoli e campi.
+# Ordine dei task: classifica → [scrittore] → genera_titoli → valori_scrittura → fine. I task degli
+# scrittori stanno dopo "fine" e si raggiungono solo con la diramazione.
+name: _scrivi
+description: scrive una bozza per apg23 dal materiale della conversazione, scegliendo la categoria giusta
+type: sequenziale
+tasks:
+  - name: classifica
+    type: step
+    ramificazioni:
+      # testo già pronto (testoPronto, il servizio l'ha messo in "corpo"): niente scrittore, ma la
+      # classificazione serve comunque per la fonte.
+      - condizione: { campo: testoPronto, operatore: truthy }
+        poi: genera_titoli
+      - condizione: { campo: categoria, operatore: equals, valore: ripubblica }
+        poi: ripubblica
+      - condizione: { campo: categoria, operatore: equals, valore: ufficiostampa }
+        poi: ufficiostampa
+      - condizione: { campo: categoria, operatore: equals, valore: comunicatostampa }
+        poi: comunicatostampa
+      - condizione: { campo: categoria, operatore: equals, valore: interviste }
+        poi: interviste
+      - condizione: { campo: categoria, operatore: equals, valore: dossier }
+        poi: dossier
+      - poi: cronaca   # cronaca, o categoria non riconosciuta
+  - name: genera_titoli
+    type: step
+  - name: valori_scrittura
+    type: step
+    poi: fine
+  - name: ripubblica
+    type: step
+    poi: genera_titoli
+  - name: ufficiostampa
+    type: step
+    poi: genera_titoli
+  - name: comunicatostampa
+    type: step
+    poi: genera_titoli
+  - name: interviste
+    type: step
+    poi: genera_titoli
+  - name: dossier
+    type: step
+    poi: genera_titoli
+  - name: cronaca
+    type: step
+    poi: genera_titoli

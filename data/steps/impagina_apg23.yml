@@ -1,6 +1,6 @@
 name: impagina_apg23
 type: prompt
-description: "Impagina l'HTML già pronto (da formatta_ai) nel blocco unico del tema apg23/WordPress"
+description: "Impagina l'HTML semplice (da converti_html) nel blocco unico del tema apg23/WordPress, con separatori, link e virgolette del tema"
 prompt: impagina_apg23
 agentName: aiengineer
 # (2026-09-18) Separato da formatta_ai: prima un solo step faceva insieme conversione
@@ -8,7 +8,7 @@ agentName: aiengineer
 # articoli più lunghi/con più titoli. Diviso in due step più semplici — qui SOLO impaginazione,
 # l'HTML in ingresso è già pronto e non va modificato nel contenuto, solo incollato nel
 # contenitore giusto (vedi prompts/impagina_apg23.yml).
-# "corpo" quando incatenato dopo formatta_ai nella stessa procedura, "prompt" come ripiego
+# "corpo" quando incatenato dopo converti_html (prima formatta_ai) nella stessa procedura, "prompt" come ripiego
 # (2026-09-24) quando questo step è chiamato da solo come tool a sé (proceduratool_impaginaapg23)
 # — vedi il commento su RiferimentoMateriale.campo in taffitools/procedure/types.ts.
 materiale:

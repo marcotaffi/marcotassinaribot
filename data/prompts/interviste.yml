@@ -1,3 +1,0 @@
-name: Scrivo un'intervista
-prompt: >
-  Scrivi un'intervista, una storia o una testimonianza utilizzando il materiale fornito in precedenza, usando i tuoi tools. Le scelte editoriali (taglio, cosa tenere, cosa tralasciare) spettano a te: falle senza chiedere conferme. Interrompi con segnalaerrore_run_segnala solo se manca davvero il materiale di base (nessun testo, link o file sull'argomento).

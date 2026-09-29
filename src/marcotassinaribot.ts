@@ -11,26 +11,12 @@ import { CanaleExtendsServizio } from '../../libraries/taffitools/types/canali/c
  */
 
 /** descrizioni comandi per botfather
- * 
+ *
+ * (2026-09-29) Restano solo questi due: tutto il resto passa dalla chat con marcotassinari e dalle
+ * sue conferme. Le altre procedure hanno il nome che inizia con "_" e non diventano comandi.
+ *
 start - Chiacchiero con te
 help - Mi presento e ti spiego cosa so fare
-comunicatostampa - Scrivo un comunicato stampa
-crea_evento - Creo un evento per il sito apg23
-
-
-start - chiacchiera con Marco 
-help - Mi presento e ti spiego cosa so fare
-scrivi_articolo - Scrivo un nuovo articolo.
-comunicato_stampa - Scrivo un comunicato stampa.
-correggi_testo - Correggo un testo.
-migliora_interviste - Miglioro un'intervista.
-impagina_html - Preparo per la pubblicazione in html un articolo.
-genera_titoli - Genero i titoli di un articolo per un portale online.
-genera_descrizioni_foto - Genero i campi di descrizione per una foto per semprenews.
-crea_evento - Creo un evento da pubblicare su semprenews.
-genera_articolo_completo - genera un articolo per apg23
-post_linkedin - scrivi un post sulla pagina linkedin di Marco T
-
  */
   
 const botToken = process.env.TELEGRAM_TOKEN||"";
@@ -143,15 +129,9 @@ let feeds: TriggerProposti[] = [{
  const ripubblicaApg23Flusso = await ServiceFactory.create("ripubblica_apg23") as CanaleExtendsServizio;
  ripubblicaApg23Flusso.start(credenziali);
 
-// proceduratool_scrivi (2026-09-24): esegue direttamente la procedura "orchestra" — nessun
-// canale coinvolto, la scrittura non ne ha mai avuto bisogno. Va registrato QUI (bot.aggiungiServizi
-// sotto), non solo nel toolNames di un agente: lo step "servizio" wordpress_scrivi (usato dal
-// flusso automatico "principale" di ripubblica_apg23Flusso, vedi data/steps/wordpress_scrivi.yml)
-// lo risolve per firma tramite bot.canali/aiManager.serviceRegistry, un registro DIVERSO e
-// separato dal pool di servizi per-agente costruito dal toolNames (vedi il commento sopra su
-// cercaTestoSemprenews e affini, stesso motivo) — senza questa riga il flusso automatico fallirebbe.
-const scriviApg23 = await ServiceFactory.create("proceduratool_scrivi");
-scriviApg23.start(credenziali);
+// (2026-09-29) proceduratool_scrivi non esiste più: il flusso automatico "principale" va diretto
+// allo scrittore di rilanci (procedure/_wordpress_apg23_pubblica.yml) e la chat scrive tramite il
+// servizio bozze_apg23 (nel toolNames dell'agente marcotassinari).
 
  
 
@@ -294,16 +274,6 @@ debug (3, "*Definisco le classi AI*");
 const aiManager = new AIManager(credenziali);
     // socialMarcoLinkedin.setManagerAI(aiManager);
     // sitoIooo.setManagerAI(aiManager);
-    // scriviApg23 (proceduratool_scrivi, vedi il commento alla sua creazione più sopra): a
-    // differenza dei canali (collegati da bot.aggiungiCanali, che passa aiManager da solo — vedi
-    // CanaliExtendsServizi.aggiungiElenco), bot.aggiungiServizi() NON collega mai l'aiManager ai
-    // "servizi semplici" (fa solo push nell'elenco, vedi Servizi.aggiungiServizio) — innocuo per
-    // gli altri servizi qui sotto (mail, ricerca testo: non usano l'AI), ma scriviApg23 esegue una
-    // vera procedura AI (ProcedureManager) e senza questo va in errore "aiManager non definito"
-    // (bug reale osservato in produzione il 2026-09-25, introdotto registrando scriviApg23 a
-    // livello bot senza agganciare l'aiManager, che qui sopra non esisteva ancora nello scope).
-    scriviApg23.setManagerAI(aiManager);
-
 await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli agenti
 
 
@@ -359,7 +329,7 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
      bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,segnalazioneEventiApg23,ripubblicaApg23Flusso], credenziali); //sitoIooo
 
      debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
-     bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, scriviApg23, searchConsoleApg23]);
+     bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, searchConsoleApg23]);
 
 
     debug (3, "*Aggiungo le fonti e la conoscenza*");

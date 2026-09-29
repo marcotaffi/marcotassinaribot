@@ -1,0 +1,34 @@
+# Bozze di articoli per apg23.org (2026-09-29, revisione strutturale): il servizio con cui la chat
+# scrive, ritocca, vede in anteprima e pubblica — lavorando sulla "bozza n. X", senza mai ricopiare
+# testi o campi da un passaggio all'altro. Le stesse azioni coprono le modifiche agli articoli GIÀ
+# pubblicati (proposta numerata del revisore, applicata esattamente com'è stata mostrata).
+# Vedi taffitools/src/servizi/bozze.ts.
+firma: bozze_apg23
+servizio: bozze
+destinazione: apg23
+opzioni:
+  scrittura: _scrivi
+  revisione: _revisiona
+  anteprima: _anteprima_apg23
+  pubblicazione: canaleflusso_apg23_invia
+  aggiornamento: wordpress_apg23_aggiornaArticolo
+  esportazioni:
+    semprenews: _formattasemprenews
+  # Copertina su richiesta, con i provini del sito (stessa procedura della copertina automatica).
+  copertina: _copertina_apg23
+  stati: [draft, publish]
+  # Campi che la chat può cambiare direttamente (azione "modifica"), senza passare dal revisore.
+  campiBrevi:
+    - title
+    - excerpt
+    - postType
+    - image
+    - imageCredit
+    - data_in_forma_testuale
+    - luogo_evento
+    - yoast_title
+    - yoast_metadesc
+    - linkBottone
+    - testoBottone
+    - fonte
+    - author

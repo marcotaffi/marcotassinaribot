@@ -13,12 +13,12 @@ firma: ripubblica_apg23
 servizio: canaleflusso
 destinazione: apg23
 flussi:
-  invia: wordpress_apg23_invia
+  invia: _wordpress_apg23_invia
   # "principale": scrivi (via wordpress_scrivi, ora proceduratool_scrivi) + invia incatenati,
   # eseguito automaticamente dal feed di semprenews.it (classificazione qui sotto) — nessuna
   # conferma, come faceva già wordpress_apg23 con processFeed a 4 fasi fisse prima di questa
   # migrazione.
-  principale: wordpress_apg23_pubblica
+  principale: _wordpress_apg23_pubblica
 
 # classificazione: spostata qui da wordpress_apg23.yml (che l'aveva prima di questa migrazione)
 # — stessa fonte, stesso flusso "Instant", nessun cambio editoriale. Lasciarla attiva ANCHE su

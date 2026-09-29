@@ -1,0 +1,12 @@
+# Dal testo della bozza (markdown) all'HTML da pubblicare su apg23.org (2026-09-29): la conversione
+# markdown→HTML semplice è codice (step di tipo markdownhtml, niente AI), l'impaginazione nel tema
+# apg23 resta a un agente (impagina_apg23: contenitore, separatori, bottone). Usata dal servizio
+# bozze_apg23 per l'anteprima e prima di pubblicare, e dal flusso automatico.
+name: _anteprima_apg23
+description: converte il testo di una bozza in HTML e lo impagina per il tema di apg23.org
+type: sequenziale
+tasks:
+  - name: converti_html
+    type: step
+  - name: impagina_apg23
+    type: step

@@ -1,9 +1,25 @@
 name: impagina_apg23
-description: "Impagina l'HTML già pronto (prodotto da formatta_ai) nel blocco unico del tema apg23/WordPress. Passaggio specifico di QUESTO sito: un WordPress generico avrebbe bisogno di un'impaginazione diversa (vedi TODO in fondo al file)."
+description: "Impagina l'HTML semplice (convertito dal markdown dal codice, step converti_html) nel blocco unico del tema apg23/WordPress, con i dettagli propri di questo sito. Passaggio specifico di QUESTO sito: un WordPress generico avrebbe bisogno di un'impaginazione diversa (vedi TODO in fondo al file)."
+# (2026-09-29) Da quando la conversione markdown→HTML è codice (HTML semplice e standard), i
+# dettagli propri di apg23 che prima aggiungeva formatta_ai stanno qui: separatori fra i blocchi,
+# link in una nuova pagina, virgolette caporali. Scelta di Marco: tenere all'agente di questo sito
+# tutto ciò che è specifico del sito.
 prompt: >
-    Prendi l'HTML già pronto (nel blocco "HTML DA IMPAGINARE" qui sotto) e incollalo, SENZA
-    MODIFICARLO, dentro il contenitore del tema apg23 qui sotto. Il tuo unico compito è
-    l'impaginazione: non toccare in nessun modo il contenuto che ricevi.
+    Prendi l'HTML già pronto (nel blocco "HTML DA IMPAGINARE" qui sotto) e incollalo dentro il
+    contenitore del tema apg23 qui sotto, applicando SOLO i dettagli del tema elencati nella sezione
+    "DETTAGLI DEL TEMA APG23". Il contenuto (parole, ordine, titoletti, grassetti, corsivi, elenchi)
+    non va toccato in nessun modo.
+
+
+    ═══════════════════════════════════════
+    DETTAGLI DEL TEMA APG23 (le UNICHE modifiche ammesse all'HTML ricevuto)
+    ═══════════════════════════════════════
+
+    - Fra un blocco e il successivo (paragrafi <p>, titoletti <h2>/<h3>, elenchi <ul>/<ol>,
+      citazioni <blockquote>) inserisci un paragrafo separatore <p>&#8203;</p>. Non prima del primo
+      blocco, non dopo l'ultimo, mai due di fila.
+    - Ogni link <a ...> deve avere target="_blank": se manca, aggiungilo.
+    - Le virgolette caporali « e » vanno scritte come &laquo; e &raquo;.
 
 
     ═══════════════════════════════════════
@@ -15,7 +31,7 @@ prompt: >
         <div class="BlockWrapper BlockTitoloParagrafoPulsante SiteWidth">
           <div class="BodyText">
              <div class="BodyText">
-               (qui dentro, esattamente com'è, l'HTML DA IMPAGINARE)
+               (qui dentro l'HTML DA IMPAGINARE, con i soli dettagli del tema)
              </div>
           </div>
         </div>
@@ -46,7 +62,7 @@ prompt: >
     ═══════════════════════════════════════
 
     - Restituisci SOLO il blocco HTML completo, a partire da <div class="BlockWrapperContainer...
-    - Non modificare in alcun modo il contenuto HTML che hai ricevuto: nessuna riformulazione, nessuna correzione, nessuna aggiunta o rimozione di testo — copialo esattamente com'è, incluso ogni tag <h2>/<h3>/<strong>/<em> già presente.
+    - Non modificare in alcun modo il contenuto HTML che hai ricevuto, a parte i dettagli del tema: nessuna riformulazione, nessuna correzione, nessuna aggiunta o rimozione di testo — ogni tag <h2>/<h3>/<strong>/<em> già presente resta com'è.
     - Nessun testo aggiuntivo.
     - Nessuna spiegazione.
     - NON avvolgere l'output in un blocco di codice markdown (niente ```html iniziale né ``` finale).

@@ -1,42 +1,49 @@
-
-Struttura degli agenti:
+Struttura degli agenti (aggiornata il 2026-09-29, revisione strutturale)
 
  - marcotassinari
- Chiamato via Telegram. Avatar di Marco Tassinari. 
- È un orchestratore: per scrivere testi professionali chiama gli agenti giornalisti.
- Dialoga con l'utente in formato html semplificato.
- Restituisce lavori professionali in campi separati da backtick senza modificarli. 
+ Chiamato via Telegram. Avatar di Marco Tassinari: chiacchiera, e lavora sugli articoli di
+ apg23.org con il servizio bozze_apg23 (scrivi, ritocca, anteprima, pubblica, rivedi un articolo
+ pubblicato). Non ricopia testi fra uno strumento e l'altro: lavora sulla "bozza n. X".
+ Istruzioni: persona_marcotassinari (chi è, tono, formato) + operativa_marcotassinari (cosa fa).
 
-- orchestratore (caporedattore)
- Chiamato dai canali che vogliono scrivere testi professionali (anche in automatico,
- es. dal canale wordpress_apg23 quando arriva un articolo da semprenews.it).
- Chiama sempre un agente giornalistico o l'agente di rilancio e ritorna il risultato.
- Restituisce il solo articolo, senza campi titolo, in html senza backtick.
+ - caporedattore
+ Classificatore: nella procedura _scrivi sceglie la categoria (ripubblica, comunicatostampa,
+ ufficiostampa, interviste, dossier, cronaca) e la fonte. Non ha tool e non scrive: la
+ diramazione allo scrittore giusto la fa la procedura.
 
- - bot giornalisti: dossier, cronaca, interviste, ufficiostampa
- Giornalisti in grado di produrre contenuti con stile specifico
- Ritornano il pezzo senza titoli in formato html senza backtick.
+ - scrittori: ripubblica, ufficiostampa (anche comunicati stampa), cronaca, interviste, dossier
+ Scrivono il testo in markdown (campo "corpo"), propongono il bottone a fine articolo
+ (linkBottone/testoBottone) e riportano l'immagine originale (image). Grassetti e corsivi li
+ decidono loro: la conversione in HTML non ne aggiunge. "ripubblica" rilancia contenuti già
+ pubblicati altrove (es. semprenews.it) ed è l'unico scrittore del flusso automatico.
 
- - ripubblica
- Non scrive contenuti originali: sintetizza in un rilancio breve un articolo o evento
- già pubblicato integralmente altrove (es. semprenews.it), con link alla fonte.
- Usato dal caporedattore (Categoria E) sia su richiesta manuale sia nel flusso
- automatico di pubblicazione su apg23 da semprenews.it.
+ - titolista
+ Titoli, sottotitolo, campi SEO e logistici (data, luogo) e il tipo evento/articolo (postType).
+ Ritorna i campi in formato JSON.
 
-- titolista 
- Sa produrre titoli, campi Seo e campi logistici.
- Ritorna i campi in formato JSON.  
+ - revisore
+ Modifiche su richiesta: ritocchi alle bozze (applicati subito) e proposte di modifica di articoli
+ già pubblicati (applicate solo dopo conferma). Uscita per campi.
+
+ - aiengineer
+ Impaginazione nel tema di apg23 (impagina_apg23) e formattazione per semprenews. La conversione
+ markdown → HTML semplice invece è codice (step converti_html), niente AI.
 
  - photoeditor
- Generatore di immagini (modelli GPT Image). Usato dallo step genera_immagine: modello,
- qualità e riferimenti grafici si scelgono in data/photoeditors/economico.yml, lo stile fisso
- in prompts/stile_immagine.yml.
+ Generatore di immagini (modelli GPT Image). Usato dagli step genera_immagine / genera_cover_apg23:
+ modello, qualità e riferimenti grafici in data/photoeditors/, lo stile in prompts/stile_*.yml.
 
  - artdirector
- Scrive il prompt dell'immagine a partire da un articolo (copertine automatiche su apg23,
- solo quando manca un'immagine) o da una richiesta in chat (tool proceduratool_immagine).
+ Scrive il prompt dell'immagine a partire da un articolo (copertine: generate su richiesta con
+ bozze_apg23_copertina, o da sole alla pubblicazione quando manca un'immagine — stesso stile e
+ stessi provini, photoeditor cover_apg23) o da una richiesta di immagine libera in chat
+ (proceduratool_immagine, photoeditor economico, senza provini).
+
+ - archivista
+ Guarda la copertina e prepara i campi con cui archiviarla nella libreria media.
+
+ - segnalazioneeventi
+ Scrive l'invito ai giornalisti a rilanciare un evento (canale automatico segnalazioneeventi_apg23).
 
  - socialmanager
  Sa scrivere post per i social (da controllare).
-
-  

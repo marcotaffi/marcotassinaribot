@@ -13,7 +13,9 @@ materiale:
   - campo: excerpt
     etichetta: SOMMARIO
     obbligatorio: false
-  - campo: text
+  # "text" quando arriva dalla pubblicazione di una bozza, "corpo" nel flusso automatico (l'HTML
+  # impaginato, 2026-09-29: prima c'era il "text" del caporedattore, che non esiste più).
+  - campo: [text, corpo]
     etichetta: ARTICOLO
     obbligatorio: false
 # Cronologia (2026-09-29): questo step lavora solo sul proprio input esplicito (prompt +

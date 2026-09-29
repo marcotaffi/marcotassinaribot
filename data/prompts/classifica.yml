@@ -1,0 +1,5 @@
+name: classifica
+# (2026-09-29) Vedi steps/classifica.yml: il caporedattore decide solo categoria e fonte.
+prompt: |
+  Leggi l'incarico qui sopra e il materiale della conversazione, e scegli la categoria del contenuto
+  da scrivere e la fonte, secondo le tue istruzioni. Non scrivere il contenuto.

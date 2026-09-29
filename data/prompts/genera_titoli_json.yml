@@ -3,6 +3,7 @@ params:
  type:
     - title
     - excerpt
+    - postType
     - data_in_forma_testuale
     - luogo_evento
     - yoast_title
@@ -12,6 +13,7 @@ prompt: >
 
   # Indicazioni redazionali
   - Se presenti, includi call to action, inviti a eventi o date principali nel sottotitolo.
+  - "postType": "eventi" oppure "posts", secondo le tue istruzioni ("Evento o articolo"). Prima di decidere leggi la data di oggi con gestoredate_now_readClock.
   - Rispetta la lunghezza massima di 100 caratteri per yoast_metadesc.
   - Mantieni fedeltà ai fatti: non aggiungere informazioni non presenti nell'articolo.
 

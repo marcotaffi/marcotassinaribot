@@ -17,6 +17,8 @@ params:
     # fonte, e servono anche altrove (es. provenienza della foto nei metadati dell'immagine).
     - linkBottone
     - testoBottone
+    # (2026-09-29) prima l'immagine originale la cercava il caporedattore, che non esiste più.
+    - image
 prompt: |
   Agisci come caporedattore ed esperto di comunicazione, per scrivere un breve testo di rilancio dell'articolo o dell'evento dato, pronto per la pubblicazione sul sito web della Comunità Papa Giovanni XXIII.
   Le scelte editoriali (quale storia o aspetto mettere al centro, cosa tenere, cosa tralasciare) spettano a te: falle senza chiedere conferme — spesso nessuno può risponderti. Interrompi con segnalaerrore_run_segnala solo se manca davvero il materiale di base (nessun testo, link o file sull'argomento, oppure un link che non si riesce a scaricare).
@@ -28,4 +30,5 @@ prompt: |
   - "corpo": solo il testo del rilancio, senza titoli, conclusioni o commenti introduttivi, formattato in markdown. IMPORTANTE: non iniziare MAI la prima riga con un titolo in markdown (es. "## **Titolo del film**, ..." o simili, con doppio asterisco a inizio riga o preceduto da #/##). Il titolo dell'articolo viene aggiunto automaticamente altrove nella pubblicazione: se lo includi anche tu, comparirà duplicato. La prima riga deve essere direttamente il primo paragrafo di testo (prosa), non un'intestazione. Non inserire mai qui il link alla fonte: va SOLO nel campo "link" qui sotto.
   - "link": l'URL della pagina originale dell'articolo o dell'evento, quello vero che hai ricevuto o scaricato — mai inventato. Stringa vuota se non hai nessun link originale a disposizione (es. materiale arrivato solo come testo o volantino).
   - "fonteNome": il nome del sito o della testata da cui viene l'articolo (es. "SempreNews", "ANSA"), da usare anche nella scritta del bottone a fine articolo. Deducilo dal nome della pubblicazione/testata se compare nella pagina scaricata (es. nel titolo, nel logo testuale o nel footer); altrimenti usa il nome del dominio del link, con l'iniziale maiuscola (es. "semprenews.it" → "SempreNews"). Stringa vuota se "link" è vuoto.
+  - "image": l'URL dell'immagine principale dell'articolo o della pagina originale (quella che la pagina scaricata indica come sua immagine, o la riga "Immagine originale:" del materiale), oppure l'URL di una foto allegata dall'utente se è la foto del contenuto; "" se non ce n'è nessuna. Mai inventato.
   - "linkBottone" e "testoBottone": il bottone a fine articolo, secondo le tue istruzioni ("Il bottone a fine articolo"). Per un rilancio con un link originale: "linkBottone" = lo stesso indirizzo di "link", "testoBottone" = "Leggi l'articolo originale su " + fonteNome.

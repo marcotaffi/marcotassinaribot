@@ -1,0 +1,8 @@
+# Campi fissi del rilancio automatico dal feed di semprenews.it (2026-09-29): autore 7, fonte 13
+# (SempreNews). Prima li calcolava ogni volta il caporedattore AI.
+name: valori_rilancio_semprenews
+type: valori
+description: "Autore e fonte fissi per i rilanci automatici da semprenews.it"
+valori:
+  author: "7"
+  fonte: "13"

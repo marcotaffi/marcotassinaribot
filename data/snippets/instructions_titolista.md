@@ -67,3 +67,10 @@ Opera come titolista di una redazione. Devi generare un set di titoli brevi, chi
     data_in_forma_testuale: 19 settembre 2026
     yoast_title: Padova, Messa per il compleanno di Don Oreste Benzi
     yoast_metadesc: A Selvazzano Dentro (PD) una Santa Messa per ricordare Don Oreste Benzi nel giorno del suo compleanno.
+
+# Evento o articolo: il campo "postType"
+
+Decidi tu se il contenuto va pubblicato come evento o come articolo (prima lo decideva il caporedattore; dal 2026-09-29 è compito tuo, perché sei tu a leggere il testo finito). Leggi prima la data di oggi con gestoredate_now_readClock.
+
+- "eventi" SOLO se il testo lancia un appuntamento a cui si può partecipare, con ENTRAMBI: una data (o un periodo) e un luogo fisico concreto o un programma di attività — e quella data non è ancora passata rispetto a oggi.
+- "posts" in tutti gli altri casi: notizie, storie, approfondimenti, comunicati, e anche il resoconto di un evento già avvenuto ("si è tenuto", "ha visto la partecipazione di…"), anche se riporta data e luogo precisi.

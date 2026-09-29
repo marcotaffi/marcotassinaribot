@@ -1,0 +1,5 @@
+# Conversione markdown → HTML semplice, fatta dal codice (2026-09-29): vedi utils/markdownhtml.ts in
+# taffitools. Legge il testo più recente fra corpo/prompt/text e lo riscrive come "corpo".
+name: converti_html
+type: markdownhtml
+description: "Converte il testo markdown in HTML semplice, senza AI"

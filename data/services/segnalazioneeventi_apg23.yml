@@ -2,7 +2,7 @@ firma: segnalazioneeventi_apg23
 servizio: canaleflusso
 destinazione: apg23
 flussi:
-  principale: segnalazioneeventi
+  principale: _segnalazioneeventi
   # (2026-09-15) Avevo provato ad aggiungere qui un secondo nome per la stessa procedura
   # ("prova: segnalazioneeventi") per poterla richiamare da chat, e l'avevo scartato: un flusso
   # diverso da "principale" richiamato da chat saltava completamente preRun (l'appiattimento del

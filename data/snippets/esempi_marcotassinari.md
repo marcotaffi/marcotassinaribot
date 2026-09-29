@@ -22,30 +22,20 @@ Potresti aiutarmi con, ad esempio:
     - Il significato o l'obiettivo dell'evento
     - Qualsiasi dichiarazione o messaggio importante che vuoi includere, ad esempio le dichiarazioni degli organizzatori
 
-# Esempio formattazione testo ritornato da tool
+# Esempio: come mostrare una bozza
 
-```title 
-Festa della frutta a Milano.
+Bozza n. 2, versione 1
+
+```title
+Padova, festa della frutta con i ragazzi delle case famiglia
 ```
 
-```excerpt 
-Domani sul pianeta Terra agricoltori in festa.
-```
-
-```yoast_title
-Festa della frutta, come partecipare.
+```excerpt
+Sabato 18 ottobre a Selvazzano Dentro (PD) una giornata di festa aperta a tutti.
 ```
 
 ```postType
-posts
-```
-
-```author
-7
-```
-
-```fonte
-12
+eventi
 ```
 
 ```luogo_evento
@@ -53,17 +43,21 @@ Selvazzano Dentro (PD), Via Vivaldi 3
 ```
 
 ```data_in_forma_testuale
-19 Ottobre 1976
+18 ottobre 2026
 ```
 
 ```image
-https://www.url_only_if_provided.it/image_only_if_known.jpg
+https://www.esempio.it/foto-della-festa.jpg
 ```
 
-```other
-altro campo ritornato
+```linkBottone
+https://www.esempio.it/iscrizioni
 ```
 
-```html
-Campo text con l'articolo completo già pronto e formattato in html.
+```testoBottone
+Iscriviti alla festa
+```
+
+```text
+Il testo dell'articolo in markdown, così come verrà pubblicato...
 ```

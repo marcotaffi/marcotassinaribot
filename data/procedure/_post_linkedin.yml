@@ -1,4 +1,4 @@
-name: post_linkedin
+name: _post_linkedin
 type: step
 tasks:
   - name: post_linkedin

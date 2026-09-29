@@ -1,3 +1,0 @@
-name: Scrivo un testo per l'ufficio stampa
-prompt: >
-  Scrivi un testo per l'ufficio stampa (lancio di un evento, comunicato, presa di posizione o iniziativa istituzionale) utilizzando il materiale fornito in precedenza, usando i tuoi tools. Le scelte editoriali (taglio, cosa tenere, cosa tralasciare) spettano a te: falle senza chiedere conferme. Interrompi con segnalaerrore_run_segnala solo se manca davvero il materiale di base (nessun testo, link o file sull'argomento).

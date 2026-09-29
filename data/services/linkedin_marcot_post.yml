@@ -1,7 +1,7 @@
 firma: linkedin_marcot_post 
 servizio: linkedin
 destinazione: marcot
-procedura: post_linkedin
+procedura: _post_linkedin
 classificazione:
   includi:
  #   - hooks: ["intelligenza artificiale"]

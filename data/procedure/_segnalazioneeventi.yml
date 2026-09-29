@@ -1,4 +1,4 @@
-name: segnalazioneeventi
+name: _segnalazioneeventi
 description: "Segnala un evento apg23 a Luca; se non è già un rilancio di semprenews, invita anche i giornalisti a darne rilievo"
 type: sequenziale
 tasks:
