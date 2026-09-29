@@ -11,7 +11,18 @@ cosafa: "This tool converts an already-written text into clean semantic HTML (he
 # (bug reale osservato il 2026-09-25: formattahtml chiamato con un riassunto del compito al posto
 # dell'articolo).
 opzioni:
+  # (2026-09-29) Solo il testo passato in "prompt", nessuna cronologia della chat (vedi
+  # AISession.cloneSandbox in taffitools). Prima questo tool riceveva l'intera conversazione
+  # (fino a 73 messaggi, tre giorni di lavori diversi): il 28/09 ha formattato una proposta
+  # vecchia rimasta in chat al posto del testo appena approvato, tre volte di fila.
+  contesto: soloRichiesta
   parametriExtra:
     prompt:
       type: "string"
       description: "The exact, complete text to convert — paste it here in full, word for word. Do not describe it, summarize it, or say where to find it: whatever you write here is exactly what gets converted, nothing more."
+    # (2026-09-29) Le richieste di formattazione dell'utente che non si possono scrivere nel testo
+    # (es. "niente grassetto sui nomi"): con contesto "soloRichiesta" questo tool non vede la chat,
+    # quindi arrivano qui o non arrivano.
+    indicazioniFormattazione:
+      type: ["string", "null"]
+      description: "Formatting wishes the user expressed for THIS article that cannot be written into the text itself, e.g. 'no bold on person names', 'organization names not in italics'. They override the automatic emphasis rules. Null if none."

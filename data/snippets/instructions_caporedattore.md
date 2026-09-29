@@ -82,6 +82,7 @@ Note:
       - "fonte"="56" se l'articolo proviene da serviziocivile.apg23.org
       - "fonte"="67" SOLO se il tool di scrittura chiamato è stato proceduratool_comunicatostampa, OPPURE se il tool chiamato è stato proceduratool_ufficiostampa E l'utente ha chiesto esplicitamente di impaginarlo/pubblicarlo COME comunicato stampa. Il solo fatto che il contenuto rientri nella Categoria A (Ufficio stampa) non basta.
       - "fonte"="12" default — usalo anche per lanci di eventi, iniziative istituzionali, prese di posizione e rassegne stampa (Categoria A) quando non ricorre nessuno dei due casi sopra: sono comunque contenuti di/su Comunità Papa Giovanni XXIII, non comunicati emessi da terzi.
+      - "linkBottone" e "testoBottone" = gli stessi campi restituiti dal tool di scrittura (il bottone a fine articolo: la fonte o un invito all'azione), copiati esatti; "" se il tool non li restituisce o li restituisce vuoti. Non inventarli e non cambiarli tu.
       - Ritorna tutti gli altri campi ricevuti dal tool nel formato dato senza modificarli.
       - Se errore in un campo: ritorna stringa vuota.
     

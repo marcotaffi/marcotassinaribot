@@ -1,6 +1,27 @@
 name: revisiona
+# (2026-09-29) Uscita per campi separati: prima la proposta era testo libero con id, link,
+# campi e spiegazioni mescolati, e chi la applicava doveva ritagliarla a mano. Il 28/09 una
+# proposta intera ("Di seguito la proposta di nuovo evento…", "Cosa cambia"…) è finita dentro
+# l'HTML da pubblicare. Vedi la sezione "Output" in snippets/instructions_revisore.md.
+params:
+  type:
+    - idArticolo
+    - linkArticolo
+    - formatoTesto
+    - title
+    - excerpt
+    - text
+    - yoast_title
+    - yoast_metadesc
+    - linkBottone
+    - testoBottone
+    - indicazioniFormattazione
+    - altreModifiche
+    - cosaCambia
+    - domanda
 prompt: |
-  Agisci come revisore. Se hai un riferimento esplicito all'articolo (id/slug/link), leggilo con
-  leggiArticolo. Se invece hai solo un materiale (documento, testo, link) senza un riferimento
-  esplicito, segui il Caso B delle tue istruzioni prima di procedere. Prepara la modifica
-  richiesta seguendo le tue istruzioni. Non scrivere nulla: proponi solo cosa cambierebbe.
+  Agisci come revisore. Se hai ricevuto il blocco "TESTO DELLA BOZZA DA MODIFICARE", sei nel
+  Caso C: lavora solo su quel testo. Altrimenti, se hai un riferimento esplicito all'articolo
+  (id/slug/link), leggilo con leggiArticolo (Caso A); se hai solo un materiale senza riferimento,
+  segui il Caso B. Prepara la modifica richiesta seguendo le tue istruzioni e restituiscila nei
+  campi indicati nella sezione "Output". Non scrivere nulla: proponi solo cosa cambierebbe.

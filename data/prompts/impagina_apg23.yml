@@ -24,21 +24,21 @@ prompt: >
 
 
     ═══════════════════════════════════════
-    FONTE (INSERIRE SEMPRE A FINE ARTICOLO QUANDO LA FONTE URL ORIGINALE È NOTA)
+    BOTTONE A FINE ARTICOLO (SOLO SE IL LINK DEL BOTTONE NON È VUOTO)
     ═══════════════════════════════════════
 
-    Il link alla fonte, se c'è, ti arriva in un blocco a parte etichettato "LINK ALLA FONTE ORIGINALE": usa quell'URL esatto, non cercarlo altrove nella conversazione e non inventarne uno. Il nome del sito ti arriva allo stesso modo nel blocco "NOME DEL SITO DELLA FONTE". Se quei blocchi sono vuoti o assenti, non aggiungere nessun bottone fonte.
+    Il bottone, se c'è, ti arriva in due blocchi a parte: "LINK DEL BOTTONE" (l'indirizzo) e "TESTO DEL BOTTONE" (la scritta). Può portare all'articolo originale di un rilancio o a una pagina d'azione (iscrizione, programma, donazione...): per te non cambia nulla. Usa quell'indirizzo e quella scritta esatti: non cercarli altrove nella conversazione, non inventarli, non riformulare la scritta. Se il blocco del link è vuoto o assente, non aggiungere nessun bottone. Se c'è il link ma la scritta è vuota, usa "Scopri di più".
 
-    QUANDO hai un URL nel blocco "LINK ALLA FONTE ORIGINALE", aggiungi PRIMA della chiusura del BodyText interno, SOSTITUENDO "LINK_ARTICOLO_ORIGINALE" con quell'URL esatto e "NOME SITO" con il contenuto esatto del blocco "NOME DEL SITO DELLA FONTE" — non lasciare mai "NOME SITO" alla lettera, è un segnaposto da riempire, non testo da copiare:
+    QUANDO hai un link, aggiungi PRIMA della chiusura del BodyText interno, SOSTITUENDO "LINK_BOTTONE" con l'indirizzo esatto e "TESTO_BOTTONE" con la scritta esatta — sono segnaposto da riempire, non testo da copiare:
 
       <div class="MainButtonBlockContainer PulsanteLeft">
-        <a class="MainButton MainButtonDark" href="LINK_ARTICOLO_ORIGINALE" target="_blank">
-          Leggi l'articolo originale su NOME SITO
+        <a class="MainButton MainButtonDark" href="LINK_BOTTONE" target="_blank">
+          TESTO_BOTTONE
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
 
-    ERRORE GRAVE E FREQUENTE da evitare: NON creare un blocco a parte (es. con titolo "Fonte") solo per questo bottone. Resta un solo blocco in tutto l'output, il bottone va incollato dentro il BodyText già esistente.
+    ERRORE GRAVE E FREQUENTE da evitare: NON creare un blocco a parte (es. con titolo "Fonte") solo per il bottone. Resta un solo blocco in tutto l'output, il bottone va incollato dentro il BodyText già esistente.
 
 
     ═══════════════════════════════════════
@@ -51,7 +51,7 @@ prompt: >
     - Nessuna spiegazione.
     - NON avvolgere l'output in un blocco di codice markdown (niente ```html iniziale né ``` finale).
     - Verifica finale: è presente UN SOLO <div class="BlockWrapperContainer...">, nessuno di più.
-    - Verifica finale: non esiste un blocco dedicato solo alla fonte — il bottone fonte è dentro l'unico blocco di contenuto.
+    - Verifica finale: non esiste un blocco dedicato solo al bottone — il bottone è dentro l'unico blocco di contenuto.
 
 # ═══════════════════════════════════════════════════════════════════════════
 # STRUTTURA PRECEDENTE A PIÙ BLOCCHI (2026-09-17, sostituita il 2026-09-18 su richiesta

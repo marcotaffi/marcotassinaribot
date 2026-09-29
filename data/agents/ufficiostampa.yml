@@ -4,6 +4,8 @@ apiClient: "gpt-response-dev"
 #assistant_id: "pmpt_68b5644c2a78819697416265500c0e140d91da731c8c6b2c" 
 instructions: 
   - instructions_ufficiostampa
+  - regole_autonomia_scrittura
+  - regole_bottone
   - fogliodistile
   - tools_giornalista
   - comelavorare_1raccolta

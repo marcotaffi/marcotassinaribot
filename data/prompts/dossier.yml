@@ -1,3 +1,3 @@
 name: Scrivo un dossier
 prompt: >
-  Scrivi un dossier o approfondimento tematico utilizzando il materiale fornito in precedenza, usando i tuoi tools. Se non hai ancora ricevuto in questa conversazione materiale sufficiente (testo, link o file), chiedimi prima cosa manca, prima di procedere.
+  Scrivi un dossier o approfondimento tematico utilizzando il materiale fornito in precedenza, usando i tuoi tools. Le scelte editoriali (taglio, cosa tenere, cosa tralasciare) spettano a te: falle senza chiedere conferme. Interrompi con segnalaerrore_run_segnala solo se manca davvero il materiale di base (nessun testo, link o file sull'argomento).

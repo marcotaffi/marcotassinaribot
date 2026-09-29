@@ -16,27 +16,23 @@ materiale:
     pick: last
     etichetta: "HTML DA IMPAGINARE (non modificarne il contenuto, solo l'impaginazione)"
     obbligatorio: true
-  # daStep: ripubblica — bug reale in produzione (2026-09-22, marcotassinaribot): senza questo
-  # vincolo, "link"/"fonteNome" vengono cercati con leggiCampo pick:"last" su TUTTA la sessione
-  # (che non si svuota mai fra una richiesta e l'altra, vedi le altre note di oggi sulla stessa
-  # causa) — e "link" non è un nome usato solo qui: è anche il campo con cui canaleflusso_*_invia
-  # conferma l'URL di un articolo APPENA PUBBLICATO (vedi Wordpress.post/output del tool). Le due
-  # cose non hanno nulla in comune (l'URL della fonte esterna di un rilancio vs l'URL del NOSTRO
-  # articolo appena creato) ma condividono lo stesso nome di campo, quindi senza scoping un
-  # articolo senza fonte esterna può riprendere l'ULTIMO "link" trovato in sessione, di qualunque
-  # tipo esso sia. Capitato davvero: l'articolo su un evento a Cerea è uscito con un bottone
-  # "Leggi l'articolo originale" che puntava all'articolo di un evento a Bologna pubblicato prima
-  # nella stessa chat, perché la conferma di pubblicazione di quell'articolo aveva anch'essa un
-  # campo "link". Solo lo step "ripubblica" (Categoria E) scrive un vero URL di fonte esterna: con
-  # daStep, il campo si trova SOLO lì — mai da un altro step né dalla conferma di un "invia" — per
-  # tutte le altre categorie risulta sempre vuoto, come deve essere.
-  - campo: link
+  # Il bottone a fine articolo (2026-09-29): fonte o invito all'azione, deciso dallo step che scrive
+  # (vedi snippets/regole_bottone.md) o cambiato dall'utente in chat. Arriva con due nomi usati solo
+  # per questo — linkBottone/testoBottone — sia in catena (dallo step di scrittura) sia da chat
+  # (parametri di proceduratool_impaginaapg23). Prima si leggevano "link"/"fonteNome" SOLO dallo
+  # step ripubblica (daStep): "link" è anche l'indirizzo del NOSTRO articolo appena pubblicato, e
+  # senza quel vincolo un articolo su Cerea è uscito col bottone verso un articolo su Bologna
+  # (2026-09-22). Con nomi propri il vincolo non serve più, e il bottone vale per ogni categoria.
+  - campo: linkBottone
     pick: last
-    daStep: ripubblica
-    etichetta: "LINK ALLA FONTE ORIGINALE (se non vuoto, aggiungilo come bottone a fine articolo secondo la sezione FONTE del tuo prompt; se vuoto, non aggiungere nessun bottone)"
+    etichetta: "LINK DEL BOTTONE (se non vuoto, aggiungi il bottone a fine articolo secondo la sezione BOTTONE del tuo prompt; se vuoto, nessun bottone)"
     obbligatorio: false
-  - campo: fonteNome
+  - campo: testoBottone
     pick: last
-    daStep: ripubblica
-    etichetta: "NOME DEL SITO DELLA FONTE (sostituiscilo esattamente al posto di \"NOME SITO\" nel bottone fonte; se vuoto, non aggiungere nessun bottone)"
+    etichetta: "TESTO DEL BOTTONE (la scritta esatta sul bottone)"
     obbligatorio: false
+# Cronologia (2026-09-29): questo step lavora solo sul proprio input esplicito (prompt +
+# materiale dichiarato qui). Il resto della conversazione per lui è rumore e rischia di mescolare
+# lavori diversi: dalla chat arrivavano fino a 73 messaggi di tre giorni (log di produzione del
+# 28/09). Vedi CronologiaChiamata in taffitools/src/ai/types.ts.
+cronologia: nessuna

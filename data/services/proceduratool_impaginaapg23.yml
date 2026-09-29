@@ -7,7 +7,20 @@ cosafa: "This tool takes HTML content already prepared and wraps it into the sin
 # override della descrizione di default di "prompt": vedi lo stesso commento in
 # proceduratool_formattahtml.yml.
 opzioni:
+  # (2026-09-29) Solo il testo passato in "prompt", nessuna cronologia della chat (vedi
+  # AISession.cloneSandbox in taffitools). Prima questo tool riceveva l'intera conversazione
+  # (fino a 73 messaggi, tre giorni di lavori diversi): il 28/09 ha formattato una proposta
+  # vecchia rimasta in chat al posto del testo appena approvato, tre volte di fila.
+  contesto: soloRichiesta
   parametriExtra:
     prompt:
       type: "string"
       description: "The exact, complete HTML to lay out — paste it here in full, word for word. Do not describe it, summarize it, or say where to find it: whatever you write here is exactly what gets wrapped, nothing more."
+    # (2026-09-29) Il bottone a fine articolo: con contesto "soloRichiesta" questo tool non vede più
+    # la chat, quindi link e testo del bottone devono arrivare qui, dai campi della bozza.
+    linkBottone:
+      type: ["string", "null"]
+      description: "Where the button at the end of the article points to (the original article of a relaunch, or a call-to-action page such as a registration form), exactly as in the draft's 'linkBottone' field. Null or empty for no button."
+    testoBottone:
+      type: ["string", "null"]
+      description: "The button label, exactly as in the draft's 'testoBottone' field (e.g. 'Leggi l'articolo originale su SempreNews', 'Iscriviti al corso'). Null or empty if there is no button."

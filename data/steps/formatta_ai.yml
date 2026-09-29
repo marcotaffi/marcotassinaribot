@@ -16,3 +16,14 @@ materiale:
     pick: last
     etichetta: "TESTO DA FORMATTARE (non modificarne il contenuto, solo la sintassi)"
     obbligatorio: true
+  # (2026-09-29) Richieste di formattazione dell'utente che il testo non può esprimere (vedi
+  # proceduratool_formattahtml.yml): prevalgono sulle regole automatiche di enfasi del prompt.
+  - campo: indicazioniFormattazione
+    pick: last
+    etichetta: "INDICAZIONI DI FORMATTAZIONE DELL'UTENTE (prevalgono sulle regole automatiche di grassetto/corsivo; non cambiano mai il contenuto)"
+    obbligatorio: false
+# Cronologia (2026-09-29): questo step lavora solo sul proprio input esplicito (prompt +
+# materiale dichiarato qui). Il resto della conversazione per lui è rumore e rischia di mescolare
+# lavori diversi: dalla chat arrivavano fino a 73 messaggi di tre giorni (log di produzione del
+# 28/09). Vedi CronologiaChiamata in taffitools/src/ai/types.ts.
+cronologia: nessuna

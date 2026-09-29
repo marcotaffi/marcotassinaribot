@@ -29,3 +29,12 @@ classificazione:
     - hooks: ["semprenews.it/tag/Comunita-Papa-Giovanni-XXIII"]
       type: "feeds"
       flusso: "Instant"
+
+# Pubblicazione da chat (2026-09-29): il flusso "invia" parte SOLO con i campi passati nella
+# chiamata, senza la conversazione (vedi AISession.cloneSandbox in taffitools). Prima riceveva
+# l'intera chat e tutto ciò che viene letto "per nome" (credito e didascalia della foto, link,
+# immagine generata di ripiego, blocchi del corpo su Ghost) poteva arrivare da un lavoro
+# precedente della stessa chat, anche di giorni prima. Gli altri flussi restano come prima.
+opzioni:
+  contesto:
+    invia: soloRichiesta

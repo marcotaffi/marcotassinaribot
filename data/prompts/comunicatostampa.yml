@@ -1,4 +1,9 @@
 name: Scrivo un comunicato stampa usando i tools
+# (2026-09-29) Stessa uscita strutturata di giornalista.yml: "corpo" più il bottone a fine articolo.
+params:
+  type:
+    - corpo
+    - linkBottone
+    - testoBottone
 prompt: >
-  Redigi un comunicato stampa destinato a giornalisti di settore utilizzando il materiale fornito in precedenza, usando i tuoi tools. Se non hai ancora ricevuto in questa conversazione materiale sufficiente (testo, link o file), chiedimi prima cosa manca, prima di procedere.
-  
+  Redigi un comunicato stampa destinato a giornalisti di settore utilizzando il materiale fornito in precedenza, usando i tuoi tools. Le scelte editoriali (taglio, cosa tenere, cosa tralasciare) spettano a te: falle senza chiedere conferme. Interrompi con segnalaerrore_run_segnala solo se manca davvero il materiale di base (nessun testo, link o file sull'argomento). Restituisci il testo del comunicato, in markdown, nel campo "corpo"; nei campi "linkBottone" e "testoBottone" il bottone a fine articolo, secondo le tue istruzioni ("Il bottone a fine articolo").

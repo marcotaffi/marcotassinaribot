@@ -6,3 +6,11 @@ agentName: revisore
 # Backstop deterministico, stesso schema di scrivi_rilancio/cronaca/ecc: senza una richiesta vera
 # (arrivata come "prompt"), il modello non deve inventare un articolo o una modifica plausibile.
 richiedeMateriale: true
+# Caso C (2026-09-29): la bozza di questa conversazione, passata per intero da chi chiama
+# (parametro testoDaModificare di proceduratool_revisiona). Esplicita e non ripescata dalla
+# cronologia: in chat possono esserci più bozze, e il revisore deve modificare quella giusta.
+materiale:
+  - campo: testoDaModificare
+    pick: last
+    etichetta: "TESTO DELLA BOZZA DA MODIFICARE (Caso C: lavora solo su questo, restituiscilo intero e nello stesso formato)"
+    obbligatorio: false

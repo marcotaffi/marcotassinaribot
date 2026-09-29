@@ -7,6 +7,11 @@ cosafa: "This tool formats an already-written text according to semprenews.it's 
 # override della descrizione di default di "prompt": vedi lo stesso commento in
 # proceduratool_formattahtml.yml.
 opzioni:
+  # (2026-09-29) Solo il testo passato in "prompt", nessuna cronologia della chat (vedi
+  # AISession.cloneSandbox in taffitools). Prima questo tool riceveva l'intera conversazione
+  # (fino a 73 messaggi, tre giorni di lavori diversi): il 28/09 ha formattato una proposta
+  # vecchia rimasta in chat al posto del testo appena approvato, tre volte di fila.
+  contesto: soloRichiesta
   parametriExtra:
     prompt:
       type: "string"

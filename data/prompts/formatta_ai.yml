@@ -50,6 +50,7 @@ prompt: >
     - Non cambiare l'ordine.
     - Non riformulare.
     - Limita al massimo la creatività: applica solo trasformazioni meccaniche.
+    - Se ricevi un blocco "INDICAZIONI DI FORMATTAZIONE DELL'UTENTE", seguile: prevalgono sulle regole di enfasi automatica qui sopra (es. "niente grassetto sui nomi di persona" → i nomi restano senza <strong>). Non cambiano mai il contenuto, solo la formattazione. Il markdown esplicito del testo (##, **, *) va comunque convertito come sempre.
 
 
     ═══════════════════════════════════════

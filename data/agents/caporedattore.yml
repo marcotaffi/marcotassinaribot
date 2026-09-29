@@ -14,6 +14,14 @@ params:
     - fonte
     - image
     - text
+    # (2026-09-29) Il bottone a fine articolo (fonte o invito all'azione, vedi
+    # snippets/regole_bottone.md), ricopiato dall'output del tool di categoria. Senza, nel percorso
+    # da chat (scrivitesto → formattahtml → impaginaapg23) il bottone si perdeva: restava nella
+    # sandbox della scrittura, buttata a fine lavoro. Nomi diversi da "link" apposta: "link" è anche
+    # l'indirizzo del NOSTRO articolo appena pubblicato (output di invia), e confonderli ha già
+    # causato un bottone sbagliato (Cerea/Bologna).
+    - linkBottone
+    - testoBottone
   model: "gpt-5.4-mini-2026-03-17"
   # tool_choice:"required" solo al PRIMO giro (vedi then_tool_choice sotto): è la garanzia che
   # caporedattore chiami SEMPRE almeno un tool prima di poter rispondere — senza, potrebbe
