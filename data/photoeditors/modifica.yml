@@ -1,0 +1,11 @@
+name: modifica
+description: "Modifica una foto o immagine già inviata in chat (ritaglio, isolamento di un dettaglio, upscaling...) restando il più fedele possibile all'originale"
+# gpt-image-2.5-sunburst: più preciso di gpt-image-2.5-flare per modifiche di foto esistenti;
+# stesso prezzo a token (vedi ai/openai/chatgptimagegenerator.ts in taffitools).
+model: "gpt-image-2.5-sunburst"
+quality: "low"
+size: "1536x1024"
+output_format: "jpeg"
+# Passa le immagini già presenti in conversazione (es. foto da Telegram) al generatore come
+# riferimento reale via images.edit, invece di generare da zero dal solo prompt testuale.
+useReferences: true

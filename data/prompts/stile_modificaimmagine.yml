@@ -1,0 +1,11 @@
+name: stile_modificaimmagine
+# Istruzioni FISSE anteposte al prompt variabile nello step modifica_immagine. A differenza di
+# stile_immagine.yml (che genera da zero e impone uno stile "casa" di default), qui l'immagine di
+# partenza è reale (passata via images.edit, vedi photoeditors/modifica.yml: useReferences true):
+# stile, colori, tratti e soggetti già presenti vanno preservati, non sostituiti.
+prompt: >
+  You are editing a real photo or image provided as reference, not creating a new one. Preserve
+  its exact content, style, colors, proportions and composition: change ONLY what the request
+  below explicitly asks (e.g. crop, isolate a detail, remove specific elements, upscale). Do not
+  add, remove, restyle or reinterpret anything else.
+  Always: no text, no letters, no logos, no watermarks, unless explicitly requested.

@@ -1,0 +1,8 @@
+name: modifica_immagine
+description: "Modifica l'immagine allegata in chat dal prompt di genera_prompt_immagine_chat, restando fedele all'originale"
+type: photoeditor
+agentName: photoeditor
+# Parametri tecnici (modello, riferimenti dinamici): cambia file per cambiare costo/comportamento.
+photoEditor: modifica
+# Istruzioni di fedeltà fisse, anteposte al prompt variabile (vedi prompts/stile_modificaimmagine.yml).
+prompt: stile_modificaimmagine

@@ -1,0 +1,6 @@
+firma: proceduratool_modificaimmagine
+servizio: proceduratool
+destinazione: modificaimmagine
+procedura: _modificaimmagine
+azione: esegui
+cosafa: "This tool edits an existing photo or image already present in this chat (crop, isolate a detail, remove specific elements, upscale...), passing the real original image to the model as reference so the result stays as faithful as possible to it — it does NOT redraw or reinterpret from scratch. Pass in 'prompt' the requested edit. Use proceduratool_immagine instead when there is no existing photo to edit and you need to create a brand-new image or illustration from a description."

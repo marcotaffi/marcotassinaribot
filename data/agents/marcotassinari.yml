@@ -36,8 +36,12 @@ toolNames:
            # diretto non è raggiungibile dalla chat: passa da bozze_apg23_pubblica, dopo conferma.
            - wordpress_apg23_elencaarticoli
            - wordpress_apg23_elencarisorse
-           # Genera un'immagine da una descrizione e la mostra in chat (procedure/_immagine.yml).
+           # Genera un'immagine NUOVA da una descrizione e la mostra in chat (procedure/_immagine.yml).
            - proceduratool_immagine
+           # Modifica una foto/immagine GIÀ inviata in chat (ritaglio, isolamento di un dettaglio,
+           # upscaling...) restando fedele all'originale, passandola come riferimento reale al
+           # modello invece di rigenerarla da zero (procedure/_modificaimmagine.yml).
+           - proceduratool_modificaimmagine
            # SeoZoom: ogni firma breve seozoom_<categoria> carica tutte le azioni di quella categoria.
            - seozoom_crediti
            - seozoom_keywords

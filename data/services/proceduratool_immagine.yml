@@ -3,4 +3,4 @@ servizio: proceduratool
 destinazione: immagine
 procedura: _immagine
 azione: esegui
-cosafa: "This tool generates a new image (illustration or photo-like picture) from a description or from a text to illustrate, and shows it to the user in chat. Pass in 'prompt' what the image should depict (and the text to illustrate, if any). Do NOT use it to add a cover when publishing on apg23.org: publishing without a cover already generates one automatically."
+cosafa: "This tool generates a new image (illustration or photo-like picture) from a description or from a text to illustrate, and shows it to the user in chat. Pass in 'prompt' what the image should depict (and the text to illustrate, if any). Do NOT use it to add a cover when publishing on apg23.org: publishing without a cover already generates one automatically. Do NOT use it to edit, crop, isolate a detail from, or upscale a photo/image the user already sent in this chat while keeping it faithful to the original: it regenerates from scratch and will not preserve it — use proceduratool_modificaimmagine for that instead."

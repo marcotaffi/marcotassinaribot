@@ -1,0 +1,10 @@
+# "_" iniziale: esclude la procedura dalla registrazione automatica come comando Telegram (vedi
+# _testopronto.yml); da chat si raggiunge col tool proceduratool_modificaimmagine.
+name: _modificaimmagine
+description: modifica una foto o immagine già inviata in chat, restando fedele all'originale, e mostra il risultato all'utente
+type: sequenziale
+tasks:
+  - name: genera_prompt_immagine_chat
+    type: step
+  - name: modifica_immagine
+    type: step
