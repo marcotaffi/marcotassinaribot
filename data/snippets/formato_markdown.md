@@ -10,6 +10,6 @@
   - Tutti i nomi di associazioni e di enti: corsivo *
   - trattino per elenchi puntati
   - numero e parentesi per elenchi numerati
-  - Eventuali link esterni: [testo](url)
+  - Eventuali link esterni: [testo che dice cos'è](url), con l'indirizzo copiato esattamente, mai un indirizzo nudo; più link di seguito vanno in un elenco
   - Tutti i nomi di eventi o di progetti: corsivo fra virgolette ""
   - Tutte le dichiarazioni e le interviste: fra virgolette caporale «»

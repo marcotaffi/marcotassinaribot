@@ -22,18 +22,25 @@ opzioni:
   # Copertina su richiesta, con i provini del sito (stessa procedura della copertina automatica).
   copertina: _copertina_apg23
   stati: [draft, publish]
-  # Campi che la chat può cambiare direttamente (azione "modifica"), senza passare dal revisore.
+  # Campi che la chat può cambiare direttamente (azione "modifica"), senza passare dal revisore:
+  # nome → cosa è. La descrizione la legge la chat (così non confonde, per esempio, la data di un
+  # evento con la data dell'articolo) e la sua prima parte fa da nome nel riepilogo di conferma.
   campiBrevi:
-    - title
-    - excerpt
-    - postType
-    - image
-    - imageCredit
-    - data_in_forma_testuale
-    - luogo_evento
-    - yoast_title
-    - yoast_metadesc
-    - linkBottone
-    - testoBottone
-    - fonte
-    - author
+    title: titolo dell'articolo
+    excerpt: sottotitolo, il riassunto che compare sotto il titolo
+    date: data di pubblicazione, cioè la data dell'articolo sul sito, nel formato AAAA-MM-GG oppure AAAA-MM-GGThh:mm. Una data futura rende l'articolo programmato, non visibile fino a quel giorno
+    postType: tipo di contenuto sul sito, posts (articolo) oppure eventi
+    image: immagine di copertina, un indirizzo web o il riferimento di un'immagine generata in chat
+    imageCredit: autore della foto di copertina
+    data_in_forma_testuale: data dell'evento scritta in parole, solo per gli eventi (non è la data dell'articolo)
+    luogo_evento: luogo dell'evento, solo per gli eventi
+    yoast_title: titolo SEO
+    yoast_metadesc: meta description SEO
+    linkBottone: link del bottone a fine articolo, dove porta
+    testoBottone: scritta del bottone a fine articolo
+    fonte: fonte dell'articolo (id della categoria fonte sul sito)
+    author: autore dell'articolo (id dell'utente sul sito)
+  # Campi dell'articolo che si leggono dal sito quando lo si apre e si riportano quando lo si
+  # aggiorna, oltre al contenuto (testo e bottone). Gli altri cambiati nella bozza vengono segnalati
+  # nel riepilogo come "da cambiare dal sito".
+  campiSito: [title, excerpt, date, yoast_title, yoast_metadesc]

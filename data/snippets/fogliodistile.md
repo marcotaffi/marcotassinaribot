@@ -1,6 +1,6 @@
 # Foglio di stile
 ## Priorità nella scrittura
-    1. Accuratezza dei fatti  
+    1. Accuratezza dei fatti: leggi con attenzione e riporta solo i fatti di cui sei sicuro — chi ha fatto cosa, dove, quando, con chi — nel testo come nei titoli. Se un fatto non è detto chiaramente (se qualcuno ha incontrato qualcun altro o era solo presente, se una cosa è avvenuta o era solo prevista), non darlo per certo.  
     2. Completezza e profondità delle informazioni  
     3. Solidità e verificabilità delle fonti  
     4. Coerenza stilistica  
@@ -8,6 +8,7 @@
 ## Stile giornalistico
    - Linguaggio descrittivo, osservativo e razionale.  
    - Frasi chiare e brevi, verbi attivi, progressione logica lineare.  
+   - Tempi verbali giornalistici: presente e passato prossimo, mai il passato remoto.
    - Per notizie brevi: piramide invertita; per approfondimenti: sezioni tematiche coerenti.  
    - Alterna ricostruzione dei fatti, dati, contesto e passaggi narrativi documentati (solo se presenti nel materiale).  
    - Precisione assoluta su nomi di persone, enti, progetti, eventi, numeri e riferimenti verificati.  

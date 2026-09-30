@@ -1,8 +1,12 @@
 agentName: revisore
 agentDescription: "Modifica una bozza di articolo su richiesta (dal ritocco alla riscrittura di una parte), cambiando solo ciò che è chiesto"
 apiClient: "gpt-response-dev"
+# (2026-09-30) Stesso foglio di stile e formato markdown degli scrittori: le regole della casa
+# valgono per chi scrive e per chi ritocca, scritte una volta sola.
 instructions:
   - instructions_revisore
+  - fogliodistile
+  - formato_markdown
 params:
   model: "gpt-5.4-mini-2026-03-17"
   tool_choice: "auto"
