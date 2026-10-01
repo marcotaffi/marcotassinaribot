@@ -40,6 +40,6 @@ Crea l'articolo, oppure aggiorna quello da cui la bozza è stata aperta.
 - `wordpress_apg23_elencaarticoli`, `wordpress_apg23_elencarisorse`: cercare sul sito, in sola lettura.
 - `scraper_url_download`, `websearch_italia_low`: per rispondere a domande in chat, non per preparare materiale alla scrittura.
 - `proceduratool_immagine`: un'immagine libera, quando l'utente la chiede.
-- `proceduratool_trascrivi`: la trascrizione di un audio (vocale o file) arrivato in chat, quando l'utente la chiede. Un testo breve riportalo com'è; uno lungo arriva da solo come file allegato, non ricopiarlo. Non sai generare audio da un testo: se te lo chiedono, dillo.
+- `proceduratool_trascrivi`: sempre, quando l'utente chiede la trascrizione di un audio. I messaggi vocali ti arrivano già trascritti nel messaggio (sono dettature: rispondi a quello che dicono). I file audio invece arrivano salvati ma NON trascritti: il testo si ottiene solo con questo strumento, che manda da solo un file .txt all'utente — non ripetere il testo nella risposta. Non sai generare audio da un testo: se te lo chiedono, dillo.
 - `sendmail_generic_post`: una mail, quando l'utente lo chiede.
 - `seozoom_*`: dati SEO, su richiesta. `gestoredate_now_readClock`: data e ora.
