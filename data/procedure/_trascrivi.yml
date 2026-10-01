@@ -1,0 +1,8 @@
+# "_" iniziale: esclude la procedura dalla registrazione automatica come comando Telegram (vedi
+# _testopronto.yml); da chat si raggiunge col tool proceduratool_trascrivi.
+name: _trascrivi
+description: trascrive un audio ricevuto in chat; se la trascrizione è lunga la invia come file .txt
+type: sequenziale
+tasks:
+  - name: trascrivi_audio
+    type: step

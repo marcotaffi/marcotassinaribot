@@ -1,0 +1,10 @@
+name: trascrivi_audio
+description: "Trascrive l'audio ricevuto in chat (vocale o file audio) e, se il testo è lungo, lo prepara come file .txt da allegare"
+type: prompt
+prompt: trascrivi
+agentName: trascrittore
+# L'audio più recente arrivato in chat. Se non ce n'è, lo step lo segnala invece di inventare.
+audio:
+  - audio
+# Il trascrittore non ha bisogno della conversazione, solo dell'audio.
+cronologia: nessuna

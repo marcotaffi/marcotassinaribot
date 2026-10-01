@@ -1,0 +1,6 @@
+agentName: trascrittore
+agentDescription: "Trascrive gli audio con Whisper (usato dagli step di tipo prompt che dichiarano il campo audio)"
+apiClient: "whisper"
+# Nessun parametro: ChatGPTWhisper usa whisper-1 e, per gli audio oltre i 25MB, li divide in
+# blocchi con ffmpeg (serve ffmpeg sul server, vedi FFMPEG_PATH nel .env).
+params: {}

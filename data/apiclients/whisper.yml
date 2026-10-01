@@ -1,0 +1,5 @@
+clientName: whisper
+clientDescription: Trascrizione audio OpenAI (Whisper, audio.transcriptions)
+apiType: whisper
+apiKeyEnvVar: OPENAI_API_KEY
+providerType: openai

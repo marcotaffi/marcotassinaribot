@@ -1,0 +1,6 @@
+firma: proceduratool_trascrivi
+servizio: proceduratool
+destinazione: trascrivi
+procedura: _trascrivi
+azione: esegui
+cosafa: "This tool transcribes the audio (voice message or audio file) the user sent in this chat, word for word. Use it when the user asks to transcribe, 'sbobinare' or get the text of an audio. It takes no real input besides the audio itself ('prompt' can stay short). Short transcriptions come back as text: report them to the user exactly as returned, without rewriting. Long ones are sent to the user automatically as a .txt file attachment and the tool result only contains the beginning: in that case do NOT repeat the text, just tell the user the file is attached. Do NOT use it to read an audio aloud or to generate audio from text: that is not supported."

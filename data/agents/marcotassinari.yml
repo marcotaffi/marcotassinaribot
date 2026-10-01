@@ -42,6 +42,9 @@ toolNames:
            # upscaling...) restando fedele all'originale, passandola come riferimento reale al
            # modello invece di rigenerarla da zero (procedure/_modificaimmagine.yml).
            - proceduratool_modificaimmagine
+           # Trascrive un audio (vocale o file) ricevuto in chat: testo breve nel messaggio, testo
+           # lungo come file .txt allegato (procedure/_trascrivi.yml).
+           - proceduratool_trascrivi
            # SeoZoom: ogni firma breve seozoom_<categoria> carica tutte le azioni di quella categoria.
            - seozoom_crediti
            - seozoom_keywords
