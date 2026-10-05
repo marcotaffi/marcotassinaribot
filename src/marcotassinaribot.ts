@@ -326,7 +326,11 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
     await bot.aggiungieInizializzaInterfaccePredefinite(credenziali); 
   
     debug(3, "*Aggiungo i canali al bot*");
-     bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,segnalazioneEventiApg23,ripubblicaApg23Flusso], credenziali); //sitoIooo
+     // ATTENZIONE all'ordine: segnalazioneeventi_apg23 e ripubblica_apg23 sono entrambi canaleflusso/apg23 e
+     // trovaServizio ("canaleflusso_apg23_<flusso>") prende il PRIMO registrato. ripubblica_apg23 (che ha il
+     // flusso "invia" usato da bozze_apg23_pubblica) deve stare prima, finché la risoluzione per azione non c'è.
+     // (prod 2026-10-05: "Metodo invia non trovato nella classe canaleflusso")
+     bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,ripubblicaApg23Flusso,segnalazioneEventiApg23], credenziali); //sitoIooo
 
      debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
      bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, searchConsoleApg23]);
