@@ -1,5 +1,6 @@
 firma: linkedin_marcot_post 
 servizio: linkedin
+registraNelBot: true  # canale: post su LinkedIn
 destinazione: marcot
 procedura: _post_linkedin
 classificazione:

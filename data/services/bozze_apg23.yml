@@ -12,7 +12,7 @@ opzioni:
   scrittura: _scrivi
   revisione: _revisiona
   anteprima: _anteprima_apg23
-  pubblicazione: canaleflusso_apg23_invia
+  pubblicazione: ripubblica_apg23_invia
   lettura: wordpress_apg23_leggiArticolo
   aggiornamento: wordpress_apg23_aggiornaArticolo
   # Dove cercare un articolo da aprire, in ordine (di solito non si sa se è un articolo o un evento).

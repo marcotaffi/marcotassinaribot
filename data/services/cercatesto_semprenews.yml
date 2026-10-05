@@ -1,5 +1,6 @@
 firma: cercatesto_semprenews
 servizio: cercatesto
+registraNelBot: true  # servizio semplice, richiamato per firma dagli step delle procedure
 destinazione: semprenews  # solo un'etichetta per questa istanza, non usata come indirizzo
 azione: cerca
 opzioni:

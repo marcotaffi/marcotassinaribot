@@ -11,6 +11,7 @@
 # specifico di WordPress.
 firma: ripubblica_apg23
 servizio: canaleflusso
+registraNelBot: true  # canale: feed e flussi scrivi/invia
 destinazione: apg23
 flussi:
   invia: _wordpress_apg23_invia

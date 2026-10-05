@@ -1,5 +1,9 @@
+# Notifica a Mattia (sitonews@apg23.org, cc marco@taffi.it) quando wordpress_apg23_pubblica (step
+# invia_notifica_sitonews, vedi data/procedure/wordpress_apg23_invia.yml e wordpress_apg23_pubblica.yml)
+# carica un articolo in bozza su apg23.org. Stesso schema di componimessaggio_luccitelli + sendmail_luccitelli.
 firma: componimessaggio_notificasitonews
 servizio: componimessaggio
+registraNelBot: true  # servizio semplice, richiamato per firma dagli step delle procedure
 destinazione: notificasitonews  # solo un'etichetta per questa istanza, non un indirizzo
 azione: componi
 opzioni:

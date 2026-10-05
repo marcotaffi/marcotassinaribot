@@ -1,5 +1,6 @@
 firma: segnalazioneeventi_apg23
 servizio: canaleflusso
+registraNelBot: true  # canale: segnalazione eventi (CanaleFlusso)
 destinazione: apg23
 flussi:
   principale: _segnalazioneeventi

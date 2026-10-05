@@ -1,5 +1,6 @@
 firma: "sendmail_lucaluccitelli@apg23.org_send"
 servizio: "sendmail"
+registraNelBot: true  # servizio semplice, richiamato per firma dagli step delle procedure
 destinazione: "lucaluccitelli@apg23.org"
 azione: "send"
 opzioni:

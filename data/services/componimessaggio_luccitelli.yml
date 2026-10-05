@@ -1,5 +1,6 @@
 firma: componimessaggio_luccitelli
 servizio: componimessaggio
+registraNelBot: true  # servizio semplice, richiamato per firma dagli step delle procedure
 destinazione: luccitelli  # solo un'etichetta per questa istanza, non usata come indirizzo
 azione: componi
 opzioni:

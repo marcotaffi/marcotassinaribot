@@ -1,6 +1,7 @@
 firma: "wordpress_apg23"
 # Questo file definisce il bot telegram e il canale automatico
 servizio: "wordpress"
+registraNelBot: true  # canale: caricato dal bot (richiamato dallo step wordpress_pubblica, non più esposto in chat)
 destinazione: "apg23" #usata per costruire le firme chiamabili da ai
 # procedura: tolta il 2026-09-29 ("orchestra" non esiste più): la scrittura passa dal servizio
 # bozze_apg23, questo canale serve solo a leggere, pubblicare (post) e aggiornare articoli.

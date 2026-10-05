@@ -112,130 +112,11 @@ let feeds: TriggerProposti[] = [{
 
 
 
-    debug(3, "*Creo i canali*");
- const NotizieApg23 = await ServiceFactory.create("wordpress_apg23") as CanaleExtendsServizio;
-// const NotizieApg23 = await ServiceFactory.create("ripubblicaconorchestratore") as CanaleExtendsServizio;
-
- NotizieApg23.start(credenziali);
-
-// ripubblica_apg23 (CanaleFlusso): dal 2026-09-18 è l'unico percorso feed/chat per pubblicare su
-// apg23.org (vedi data/services/ripubblica_apg23.yml per lo storico completo della migrazione).
-// NotizieApg23 (sopra) resta avviato e registrato: "post" resta un metodo vero, richiamato
-// internamente dallo step wordpress_pubblica, ma non più esposto come tool a sé in chat (vedi
-// Wordpress.azioniNonEsposteAllAI in taffitools) — "elencaArticoli"/"leggiArticolo"/
-// "aggiornaArticolo"/"aggiornaMedia" restano raggiungibili direttamente da quell'istanza.
-// "run" non esiste più su Wordpress dal 2026-09-24 (non è mai stato specifico della piattaforma,
-// vedi proceduratool_scrivi qui sotto): "scrivere" non passa più da questo canale.
- const ripubblicaApg23Flusso = await ServiceFactory.create("ripubblica_apg23") as CanaleExtendsServizio;
- ripubblicaApg23Flusso.start(credenziali);
-
-// (2026-09-29) proceduratool_scrivi non esiste più: il flusso automatico "principale" va diretto
-// allo scrittore di rilanci (procedure/_wordpress_apg23_pubblica.yml) e la chat scrive tramite il
-// servizio bozze_apg23 (nel toolNames dell'agente marcotassinari).
-
- 
-
-//CARICAMENTO TRADIZIONALE
-
-    /*  
-        const procedureManager = new ProcedureManager();
-    //const listaPromptFiles : Files = await PromptManager.getInstance().elencaFiles("yml");
-
-    const listaPromptFiles : Files = await procedureManager.elencaFiles("yml");
-
-    let sitoIooo = new Wordpress ("wordpress_iooo");
-
-    const promptRichiestiSito = sitoIooo.requiredPrompts();
-    type PromptIDSito = typeof promptRichiestiSito[number]["id"];
-
-
-    const promptDisponibiliSito: Record<PromptIDSito, string> = {
-      run: "genera_articolo_completo",
-    };
-
-
-    sitoIooo
-      .addContent({hooks: ["Don Oreste Benzi"], type:"news", flusso:"Instant"})
-      //jn alternativa da provare     .addContent({categories: ["apg23"], flusso:"Instant" })
-      .removeContent({hooks: ["fondazionedonorestebenzi.org"], type:"urls"})
-      .setMyPrompts(promptDisponibiliSito, listaPromptFiles)
-      .start(credenziali);
-*/
-
-//----------
-//CARICAMENTO MODERNO
-
-//const sitoIooo = await ServiceFactory.create("wordpress_iooo") as CanaleExtendsServizio;
-//    sitoIooo.start(credenziali);
-
-//const sitoIooo = await ServiceFactory.create("wordpress_apg23") as CanaleExtendsServizio;
-//    sitoIooo.start(credenziali);
-
-    //---------------
-//CARICAMENTO TRADIZIONALE
-/*
-    let socialMarcoLinkedin = new Linkedin ("linkedin_marcot");
-    
-    const promptRichiestiLinkedin = socialMarcoLinkedin.requiredPrompts();
-    type PromptIDLinkedin = typeof promptRichiestiLinkedin[number]["id"];
-
-    
-    const promptDisponibiliLinkedin: Record<PromptIDLinkedin, string> = {
-      run: "post_linkedin",
-    };
-
-    socialMarcoLinkedin
-       .addContent({ hooks:["intelligenza artificiale"], categories:["intelligenza artificiale", "scienza"], type:"tags" , flusso:"RaggruppaSimili"})
-       .setMyPrompts(promptDisponibiliLinkedin,listaPromptFiles)
-       .start(credenziali);
-  */  
-//--------------
-//CARICAMENTO MODERNO
-const socialMarcoLinkedin = await ServiceFactory.create("linkedin_marcot_post") as CanaleExtendsServizio;
-
-// Non serve più definire manualmente promptDisponibiliLinkedin
-// Li prende dalla config
-socialMarcoLinkedin.start(credenziali);
-
-// La classificazione e i contenuti già vengono caricati dalla factory
-
-
-//--------------
-// Canale generico (CanaleFlusso, vedi taffitools/src/canali/canaleflusso.ts): segue gli eventi
-// apg23 e manda le mail di segnalazione/rilancio (vedi data/procedure/segnalazioneeventi.yml).
-// I servizi "semplici" che il suo flusso chiama per firma (cercatesto, componimessaggio,
-// sendmail) non sono canali: vanno registrati a parte con bot.aggiungiServizi, non con
-// bot.aggiungiCanali, altrimenti uno step "servizio" della procedura non li troverebbe.
-const segnalazioneEventiApg23 = await ServiceFactory.create("segnalazioneeventi_apg23") as CanaleExtendsServizio;
-segnalazioneEventiApg23.start(credenziali);
-
-const cercaTestoSemprenews = await ServiceFactory.create("cercatesto_semprenews");
-cercaTestoSemprenews.start(credenziali);
-
-const componiMessaggioLuccitelli = await ServiceFactory.create("componimessaggio_luccitelli");
-componiMessaggioLuccitelli.start(credenziali);
-
-const sendmailLuccitelli = await ServiceFactory.create("sendmail_luccitelli");
-sendmailLuccitelli.start(credenziali);
-
-const sendmailRedattori = await ServiceFactory.create("sendmail_redattori");
-sendmailRedattori.start(credenziali);
-
-// Notifica a Mattia (sitonews@apg23.org, cc marco@taffi.it) quando wordpress_apg23_pubblica
-// (step invia_notifica_sitonews, vedi data/procedure/wordpress_apg23_invia.yml e
-// wordpress_apg23_pubblica.yml) carica un articolo in bozza su apg23.org — stesso schema di
-// componiMessaggioLuccitelli/sendmailLuccitelli qui sopra.
-const componiMessaggioNotificaSitonews = await ServiceFactory.create("componimessaggio_notificasitonews");
-componiMessaggioNotificaSitonews.start(credenziali);
-
-const sendmailSitonews = await ServiceFactory.create("sendmail_sitonews");
-sendmailSitonews.start(credenziali);
-
-// Lettura dati di rendimento Search Console per apg23.org (vedi
-// taffitools/src/servizi/searchconsoletool.ts): stesso refresh token di sendmail_generic_post,
-// rigenerato il 2026-09-26 per includere anche lo scope webmasters.readonly.
-const searchConsoleApg23 = await ServiceFactory.create("searchconsole_apg23_org_query");
-searchConsoleApg23.start(credenziali);
+    // I canali e i servizi del bot non si creano più qui a mano: sono i file di data/services con
+    // `registraNelBot: true` (vedi bot.aggiungiServiziDaFile più sotto, e il commento in ciascun file per
+    // il perché di ogni servizio). Quali agenti usano un servizio lo decidono i toolNames dei loro file.
+    // Storico: sitoIooo (wordpress_iooo) e il caricamento "tradizionale" con new Wordpress/Linkedin e
+    // setMyPrompts sono stati tolti il 2026-10-05, restano nella storia git.
 
 
 //-------------
@@ -325,15 +206,9 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
 
     await bot.aggiungieInizializzaInterfaccePredefinite(credenziali); 
   
-    debug(3, "*Aggiungo i canali al bot*");
-     // L'ordine non conta più (dal registro con risoluzione per azione, 05/10/2026: vedi TODO.md §9):
-     // ripubblica_apg23 e segnalazioneeventi_apg23 sono entrambi canaleflusso/apg23 e
-     // "canaleflusso_apg23_invia" va a chi ha il flusso "invia". Prima, e col taffitools
-     // deployato precedente, serviva ripubblica_apg23 per primo (prod 05/10: "Metodo invia non trovato").
-     bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,ripubblicaApg23Flusso,segnalazioneEventiApg23], credenziali); //sitoIooo
-
-     debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
-     bot.aggiungiServizi([cercaTestoSemprenews, componiMessaggioLuccitelli, sendmailLuccitelli, sendmailRedattori, componiMessaggioNotificaSitonews, sendmailSitonews, searchConsoleApg23]);
+    debug(3, "*Carico canali e servizi del bot dai file*");
+     // Dal registro con risoluzione per azione (05/10/2026, TODO.md §9) l'ordine non conta più.
+     await bot.aggiungiServiziDaFile(credenziali);
 
 
     debug (3, "*Aggiungo le fonti e la conoscenza*");

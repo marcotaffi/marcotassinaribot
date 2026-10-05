@@ -1,5 +1,8 @@
+# Lettura dati di rendimento Search Console per apg23.org (vedi taffitools/src/servizi/searchconsoletool.ts):
+# stesso refresh token di sendmail_generic_post, rigenerato il 2026-09-26 per includere lo scope webmasters.readonly.
 firma: "searchconsole_apg23_org_query"
 servizio: "searchconsole"
+registraNelBot: true  # servizio semplice, richiamato per firma dagli step delle procedure
 destinazione: "apg23_org"
 azione: "query"
 opzioni:
