@@ -34,8 +34,7 @@ toolNames:
            # (bozze_apg23_apri, testo in markdown): leggiArticolo restituiva il contenuto grezzo
            # dei blocchi dell'editor, su cui la chat si perdeva (dev, 29/09). L'aggiornamento
            # diretto non è raggiungibile dalla chat: passa da bozze_apg23_pubblica, dopo conferma.
-           - wordpress_apg23_elencaarticoli
-           - wordpress_apg23_elencarisorse
+           - wordpress_apg23_org
            # Genera un'immagine NUOVA da una descrizione e la mostra in chat (procedure/_immagine.yml).
            - proceduratool_immagine
            # Modifica una foto/immagine GIÀ inviata in chat (ritaglio, isolamento di un dettaglio,

@@ -1,0 +1,27 @@
+firma: "wordpress_apg23_org"
+servizio: "wordpress"
+destinazione: "apg23.org" # nei nomi dei tool diventa apg23_org: wordpress_apg23_org_elencaArticoli / _elencaRisorse
+# Lettura del sito apg23.org per la chat, in sola lettura: elenca articoli (di tutti i tipi di
+# contenuto elencati sotto) e risorse (categorie, tag...). Sostituisce i due file
+# wordpress_apg23_elencaarticoli.yml e wordpress_apg23_elencarisorse.yml (2026-10-05): non erano
+# solo due filtri sulla stessa istanza ma avevano opzioni diverse (postTypes / categoryMapping),
+# che però incidono su azioni diverse: postTypes sullo schema di elencaArticoli, categoryMapping
+# solo sulla pubblicazione, che qui non c'è. Per questo le opzioni qui sono quelle di elencaArticoli.
+opzioni:
+  sito: "www.apg23.org" # usato per costruire le descrizioni dei tools per ai
+  basic_auth: "APG23_WORDPRESS"
+  postTypes:
+    - posts #default
+    - eventi
+    - campagne
+    - storie
+    - persone
+    - progetti
+
+# Del canale Wordpress l'agente vede solo le due liste: tutto il resto (leggiArticolo, scritture)
+# resta fuori dai tool, e l'aggiornamento di un articolo passa da bozze_apg23. "post" lo nasconde
+# già la classe.
+azioni:
+  leggiArticolo: { esponiAllAI: false }
+  aggiornaArticolo: { esponiAllAI: false }
+  aggiornaMedia: { esponiAllAI: false }

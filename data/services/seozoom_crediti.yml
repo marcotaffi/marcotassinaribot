@@ -1,0 +1,5 @@
+firma: seozoom_crediti
+servizio: seozoom
+destinazione: crediti
+# Senza "azione": un'istanza sola serve tutte le azioni della categoria (vedi taffitools/src/servizi/seozoomtool.ts).
+# Richiede la variabile d'ambiente SEOZOOM.

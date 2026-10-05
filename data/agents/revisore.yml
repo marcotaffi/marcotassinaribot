@@ -11,7 +11,7 @@ params:
   model: "gpt-5.4-mini-2026-03-17"
   tool_choice: "auto"
 # (2026-09-29) Lavora solo sulla bozza che riceve: niente più lettura degli articoli del sito
-# (leggiArticolo/elencaarticoli), che apre il servizio bozze_apg23 (azione "apri") convertendo
+# (leggiArticolo/elencaArticoli), che apre il servizio bozze_apg23 (azione "apri") convertendo
 # i blocchi del sito in markdown. Lo scraper serve per il materiale nuovo che l'utente indica.
 toolNames:
   - scraper_url_download

@@ -1,0 +1,5 @@
+firma: seozoom_domains
+servizio: seozoom
+destinazione: domains
+# Senza "azione": un'istanza sola serve tutte le azioni della categoria (vedi taffitools/src/servizi/seozoomtool.ts).
+# Richiede la variabile d'ambiente SEOZOOM.

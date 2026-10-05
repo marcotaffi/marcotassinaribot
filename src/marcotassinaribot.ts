@@ -326,10 +326,10 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
     await bot.aggiungieInizializzaInterfaccePredefinite(credenziali); 
   
     debug(3, "*Aggiungo i canali al bot*");
-     // ATTENZIONE all'ordine: segnalazioneeventi_apg23 e ripubblica_apg23 sono entrambi canaleflusso/apg23 e
-     // trovaServizio ("canaleflusso_apg23_<flusso>") prende il PRIMO registrato. ripubblica_apg23 (che ha il
-     // flusso "invia" usato da bozze_apg23_pubblica) deve stare prima, finché la risoluzione per azione non c'è.
-     // (prod 2026-10-05: "Metodo invia non trovato nella classe canaleflusso")
+     // L'ordine non conta più (dal registro con risoluzione per azione, 05/10/2026: vedi TODO.md §9):
+     // ripubblica_apg23 e segnalazioneeventi_apg23 sono entrambi canaleflusso/apg23 e
+     // "canaleflusso_apg23_invia" va a chi ha il flusso "invia". Prima, e col taffitools
+     // deployato precedente, serviva ripubblica_apg23 per primo (prod 05/10: "Metodo invia non trovato").
      bot.aggiungiCanali([socialMarcoLinkedin,NotizieApg23,ripubblicaApg23Flusso,segnalazioneEventiApg23], credenziali); //sitoIooo
 
      debug(3, "*Aggiungo i servizi semplici al bot*"); // non sono canali: niente feed/classificazione, solo azioni chiamabili per firma da uno step "servizio"
