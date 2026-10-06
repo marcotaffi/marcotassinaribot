@@ -17,7 +17,7 @@ materiale:
   # da chat) o l'HTML semplice di converti_html (flusso automatico); "text" è il ripiego, per la
   # copertina chiesta in chat (_copertina_apg23, che riceve il testo della bozza in "text"). Da
   # quando "text" contiene i blocchi dell'editor (2026-09-29) non va preferito a "corpo".
-  - campo: [corpo, text]
+  - campo: [testoMarkdown, corpo, text]   # testoMarkdown: la pubblicazione da bozza (bozze.ts) lo passa; senza, corpo/text come prima
     etichetta: ARTICOLO
     obbligatorio: false
 # Cronologia (2026-09-29): questo step lavora solo sul proprio input esplicito (prompt +
