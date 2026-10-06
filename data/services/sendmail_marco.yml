@@ -1,0 +1,15 @@
+firma: "sendmail_marco@taffi.it_send"
+servizio: "sendmail"
+registraNelBot: true  # servizio semplice, richiamato per id (non è un tool della chat: nessun agente lo elenca)
+destinazione: "marco@taffi.it"
+azione: "send"
+# (2026-10-06, richiesto da Marco, OK per mail vere) Serve all'avviso automatico a marco@taffi.it quando un flusso
+# automatico fallisce senza che nessuno lo veda (procedure/erroreautomatico.ts, notificaErroreSeGrave: cerca proprio
+# l'id "sendmail_marco"). Prima mancava in questo bot e l'avviso restava solo nel log ("Servizio non trovato").
+#
+# QUANDO PARTE L'AVVISO: la soglia è il DEBUG_LEVEL del .env contro il livello dell'errore. Un errore normale ha
+# livello 5 (parte solo da DEBUG_LEVEL 5 in su); il FALLIMENTO TERMINALE di una procedura lanciata senza utente in chat
+# (un flusso dal feed, un'azione esterna) ha livello 3, quindi parte anche a DEBUG_LEVEL 4, cioè in produzione (deciso
+# da Marco il 06/10: un articolo finito in dead-letter deve arrivare per mail). Gli step opzionali che falliscono restano
+# a 5. Alzare il DEBUG_LEVEL a 5 per ricevere più avvisi NON va bene in produzione: da 5 in su SendMail simula ogni mail
+# (anche quelle a Luca e ai redattori, che andrebbero a Marco). In dev (livello 6) la mail va a Marco con "[TEST per ...]".
