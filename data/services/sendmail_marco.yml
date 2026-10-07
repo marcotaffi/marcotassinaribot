@@ -11,5 +11,5 @@ azione: "send"
 # livello 5 (parte solo da DEBUG_LEVEL 5 in su); il FALLIMENTO TERMINALE di una procedura lanciata senza utente in chat
 # (un flusso dal feed, un'azione esterna) ha livello 3, quindi parte anche a DEBUG_LEVEL 4, cioè in produzione (deciso
 # da Marco il 06/10: un articolo finito in dead-letter deve arrivare per mail). Gli step opzionali che falliscono restano
-# a 5. Alzare il DEBUG_LEVEL a 5 per ricevere più avvisi NON va bene in produzione: da 5 in su SendMail simula ogni mail
-# (anche quelle a Luca e ai redattori, che andrebbero a Marco). In dev (livello 6) la mail va a Marco con "[TEST per ...]".
+# a 5. Dal 2026-10-07 il DEBUG_LEVEL regola solo i log e la soglia degli avvisi: se le mail partono davvero o vanno a
+# Marco ("[TEST per ...]") lo decide MODALITA nel .env (reale | sicuro | simulato), non più il livello.

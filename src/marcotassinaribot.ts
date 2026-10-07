@@ -32,9 +32,8 @@ const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET||"";
 const googleRefreshToken = process.env.GOOGLE_REFRESH_TOKEN||"";
 
 ProcessManager.getInstance().setDebugLevel(process.env.DEBUG_LEVEL);
+ProcessManager.getInstance().setModalita(process.env.MODALITA); // reale | sicuro | simulato: senza, il bot non parte
 
-const TEST_ONLY: boolean = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
-if (TEST_ONLY) debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
 
 /*
 const categoryMapping:  { [key: string]: string } = {
@@ -47,7 +46,6 @@ iftttKey: iftttKey,
 googleClientId: googleClientId,
 googleClientSecret: googleClientSecret,
 googleRefreshToken: googleRefreshToken,
-test_only:TEST_ONLY,
 botToken: botToken as string,
 //wordpress_sito: "https://iooo.ai",
 //wordpress_sito: "https://www.apg23.org",
@@ -227,7 +225,7 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
 
 
       debug(3, "*Avvio il bot*");
-      bot.start(TEST_ONLY); // inizializza i canali e avvia il websocket
+      bot.start(); // inizializza i canali e avvia il websocket
  
 
 

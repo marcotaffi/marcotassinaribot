@@ -23,9 +23,7 @@ const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
 const googleRefreshToken = process.env.GOOGLE_REFRESH_TOKEN || "";
 ProcessManager.getInstance().setDebugLevel(process.env.DEBUG_LEVEL);
-const TEST_ONLY = !!process.env['TEST_ONLY'] && process.env['TEST_ONLY'] !== "false";
-if (TEST_ONLY)
-    debug(2, "Sono in test e quindi faccio tutto senza pubblicare");
+ProcessManager.getInstance().setModalita(process.env.MODALITA); // reale | sicuro | simulato: senza, il bot non parte
 /*
 const categoryMapping:  { [key: string]: string } = {
   "*": "44",
@@ -36,7 +34,6 @@ const credenziali = {
     googleClientId: googleClientId,
     googleClientSecret: googleClientSecret,
     googleRefreshToken: googleRefreshToken,
-    test_only: TEST_ONLY,
     botToken: botToken,
     //wordpress_sito: "https://iooo.ai",
     //wordpress_sito: "https://www.apg23.org",
@@ -167,7 +164,7 @@ let feeds = [{
         //debug (3, "*Aggiorno le funtions dell'assistente online*");
         // await aiManager.uploadServiziToApi();
         debug(3, "*Avvio il bot*");
-        bot.start(TEST_ONLY); // inizializza i canali e avvia il websocket
+        bot.start(); // inizializza i canali e avvia il websocket
     }
     catch (error) {
         debug(1, `Errore nell'avvio del bot Marco Tassinari:`, error);
