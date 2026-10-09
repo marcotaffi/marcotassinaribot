@@ -17,6 +17,17 @@ opzioni:
   aggiornamento: wordpress_apg23_aggiornaArticolo
   # Dove cercare un articolo da aprire, in ordine (di solito non si sa se è un articolo o un evento).
   tipiArticolo: [posts, eventi]
+  # Avvisi nel risultato di "scrivi" (09/10/2026): `image` arriva riempito da solo con l'immagine del materiale
+  # (un allegato, la pagina di un link letto) e il chat la mostrava come copertina. Provato con lo stesso modello:
+  # le sole istruzioni 0 volte su 3, con questo avviso nel risultato dello strumento 3 su 3.
+  avvisiScrittura:
+    - campo: image
+      nome: avvisoCopertina
+      testo: >-
+        Attenzione alla copertina: il campo image contiene l'immagine trovata nel materiale (un allegato o una
+        pagina letta), non una copertina scelta dall'utente. Tienila solo se è un rilancio proprio di quell'articolo
+        o se l'utente ha detto di usarla come copertina; altrimenti svuotala SUBITO con bozze_apg23_modifica
+        (image = "") prima di mostrare la bozza: la copertina nello stile del sito si genera da sola al salvataggio.
   esportazioni:
     semprenews: _formattasemprenews
   # Copertina su richiesta, con i provini del sito (stessa procedura della copertina automatica).
