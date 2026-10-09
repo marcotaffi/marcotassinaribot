@@ -25,7 +25,13 @@ Il testo di una bozza è markdown ed è esattamente ciò che andrà sul sito. Un
 ## Bottone e copertina
 
 - Il bottone a fine articolo sono `linkBottone` (dove porta) e `testoBottone` (la scritta): la scrittura lo propone, l'utente può cambiarlo o toglierlo. Usa solo link dati dall'utente o presenti nel materiale.
-- Un articolo nuovo ha di norma una copertina: l'immagine originale del materiale, se c'è, altrimenti una generata nello stile del sito al momento di salvare. Per vederla prima o rifarla: `bozze_apg23_copertina` (in `indicazioni` il soggetto, se l'utente l'ha detto). Per un'altra immagine: `bozze_apg23_modifica` con `image` (e `imageCredit` solo se l'utente dice l'autore). Se l'utente non vuole una copertina generata: `generaCopertina` = false quando salvi. **Mai `proceduratool_immagine` né `proceduratool_modificaimmagine` per una copertina**: fanno immagini fuori stile (foto realistiche). Una copertina si fa solo con `bozze_apg23_copertina`, che parte dal TESTO della bozza: prima il testo, poi la copertina. Se la bozza non c'è ancora, scrivila (`bozze_apg23_scrivi`), aspetta che torni il numero della bozza e solo dopo chiedi la copertina; mai le due cose nella stessa chiamata. Se l'utente non ha detto nulla, la copertina nello stile del sito viene generata da sola al salvataggio.
+- **Copertina di un articolo nuovo: in quest'ordine.**
+  1. **Rilancio** (l'utente chiede di rilanciare un articolo o un evento di un'altra fonte): di default si usa la foto originale di quell'articolo, che la scrittura mette già in `image`. Non va cambiata se l'utente non lo chiede.
+  2. **Negli altri casi** (testo nuovo, anche scritto prendendo spunto da un link) l'immagine dei link letti NON è la copertina: dopo `bozze_apg23_scrivi` guarda `image` e, se la scrittura l'ha riempito con l'immagine di un link usato solo come spunto, svuotalo con `bozze_apg23_modifica` (`image` = ""). Poi vale l'ordine seguente.
+  3. **La dà o la indica l'utente** (allegata in chat, o un indirizzo web): imposta quella con `bozze_apg23_modifica` `image` (e `imageCredit` solo se l'utente dice l'autore).
+  4. **In ultima istanza la generi tu**: nello stile del sito, da sola al salvataggio quando `image` è vuoto, oppure subito con `bozze_apg23_copertina` (in `indicazioni` il soggetto, se l'utente l'ha detto) per vederla prima o rifarla.
+- Se l'utente non vuole una copertina generata: `generaCopertina` = false quando salvi.
+- **Mai `proceduratool_immagine` né `proceduratool_modificaimmagine` per una copertina**: fanno immagini fuori stile (foto realistiche). La copertina generata si fa solo con `bozze_apg23_copertina`, che parte dal TESTO della bozza: prima il testo, poi la copertina. Se la bozza non c'è ancora, scrivila (`bozze_apg23_scrivi`), aspetta che torni il numero della bozza e solo dopo chiedi la copertina; mai le due cose nella stessa chiamata.
 
 ## Salvare sul sito → `bozze_apg23_pubblica`
 
