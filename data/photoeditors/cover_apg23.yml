@@ -15,8 +15,7 @@ output_format: jpeg
 # false: la copertina deve seguire lo stile del sito, non somigliare alla foto dell'articolo.
 useReferences: false
 
-# Provini di stile: tutta la cartella (vedi il README in referenceimages). ATTENZIONE: i due
-# file attuali sono GRIGLIE di illustrazioni, non singole immagini — il prompt di stile dice
-# esplicitamente di prenderne solo il tratto e di produrre UNA scena sola.
+# Provini di stile: tutta la cartella (vedi il README in referenceimages). Il prompt di stile
+# dice di prenderne solo il tratto e di produrre UNA scena sola.
 referenceImages:
   - referenceimages/apg23

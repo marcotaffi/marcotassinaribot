@@ -1,4 +1,4 @@
-# Copertina di una bozza su richiesta, nello stile del sito (2026-09-29): gli stessi due step (e
+# Copertina di una bozza su richiesta, nello stile del sito (2026-09-29): lo stesso step (e
 # quindi gli stessi provini di data/referenceimages/apg23, photoeditor cover_apg23) della copertina
 # che la pubblicazione genera da sola quando manca un'immagine. Lanciata dal servizio bozze_apg23
 # (azione "copertina"). Prima in chat c'era solo proceduratool_immagine, che usa il photoeditor
@@ -7,7 +7,5 @@ name: _copertina_apg23
 description: genera la copertina di una bozza nello stile di apg23.org
 type: sequenziale
 tasks:
-  - name: genera_prompt_cover_apg23
-    type: step
   - name: genera_cover_apg23
     type: step

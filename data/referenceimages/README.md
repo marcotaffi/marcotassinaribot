@@ -22,12 +22,13 @@ editoriale contemporanea, forme semplificate con texture, personaggi riconoscibi
 comunità diversa per età e provenienza, città sullo sfondo. Palette di azzurri, blu e verde
 acqua con pochi accenti caldi.
 
-I due file attuali sono GRIGLIE di illustrazioni, non immagini singole. Va bene come campionario
-di tratto, ma il prompt di stile (`prompts/stile_cover_apg23.yml`) deve dire esplicitamente di
-produrre UNA scena sola: senza quella riga il modello tende a copiare anche la griglia.
+I file attuali (dal 09/10/2026) sono 8 immagini singole, non più griglie:
+blu e bianco, forme piatte, contorni netti. Il prompt di stile (`prompts/stile_cover_apg23.yml`)
+dice di prenderne il tratto e non i soggetti, e di produrre UNA scena sola.
 
-La descrizione testuale completa, quella che viene davvero inviata al modello, sta in
-`prompts/stile_cover_apg23.yml`. Per cambiare stile basta aggiungere o togliere file qui.
+Il testo di stile che viene davvero inviato al modello sta in `prompts/stile_cover_apg23.yml`; l'articolo
+(titolo, sommario, inizio del testo) gli viene dato direttamente dal passo `genera_cover_apg23`,
+senza art director. Per cambiare stile basta aggiungere o togliere file qui.
 
 ## Dove sono i file (dal 23/09/2026)
 

@@ -12,7 +12,7 @@ tasks:
   # ultimo ripiego.
   # generaCopertina = false (2026-09-29): l'utente non vuole una copertina generata (servizio
   # bozze_apg23, azione pubblica): l'articolo esce con la sua immagine, se ce l'ha, o senza.
-  - name: genera_prompt_cover_apg23
+  - name: genera_cover_apg23
     type: step
     opzionale: true
     condizione: &senzaCopertina
@@ -27,10 +27,6 @@ tasks:
           - campo: generaCopertina
             operatore: equals
             valore: false
-  - name: genera_cover_apg23
-    type: step
-    opzionale: true
-    condizione: *senzaCopertina
   # Campi di archiviazione della copertina (nome file, titolo, alt, parole chiave): serve sia per
   # l'immagine originale dell'articolo sia per quella generata qui sopra, quindi gira ogni volta
   # che una copertina c'è.

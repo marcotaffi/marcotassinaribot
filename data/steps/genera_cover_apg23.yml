@@ -1,8 +1,32 @@
 name: genera_cover_apg23
-description: "Genera l'illustrazione di copertina per apg23.org nello stile del sito"
+description: "Genera l'illustrazione di copertina per apg23.org nello stile del sito, direttamente dall'articolo"
 type: photoeditor
 agentName: photoeditor
 # Modello, misure (1216x608, rapporto 2:1) e provini di stile.
 photoEditor: cover_apg23
-# Stile della casa, anteposto al soggetto scelto dall'art director.
+# Stile della casa, anteposto all'articolo.
 prompt: stile_cover_apg23
+# 2026-10-09: niente art director. Prima un modello di testo (genera_prompt_cover_apg23) leggeva
+# l'articolo e scriveva la scena, ma la sua scena concreta contraddiceva lo stile simbolico del
+# sito; provato lo stesso articolo dato direttamente al generatore, con stile e provini, la
+# copertina è uscita più nello stile. Nel prompt entra solo ciò che è elencato qui (vedi taffitools
+# docs/passaggio-contenuti.md). Tutti facoltativi: basta che ce ne sia uno.
+materiale:
+  - campo: title
+    etichetta: TITLE
+    obbligatorio: false
+  - campo: excerpt
+    etichetta: SUBTITLE
+    obbligatorio: false
+  # Il testo dell'articolo, non l'impaginazione: "testoMarkdown" è il markdown della bozza
+  # (bozze.ts), "corpo" l'HTML semplice di converti_html (flusso automatico), "text" il ripiego per
+  # la copertina chiesta in chat. Solo l'inizio: serve come spunto del tema, non da illustrare tutto.
+  - campo: [testoMarkdown, corpo, text]
+    etichetta: ARTICLE (beginning)
+    obbligatorio: false
+    maxCaratteri: 1500
+  # Le indicazioni dell'utente per la copertina (bozze_apg23_copertina le passa come "prompt").
+  - campo: prompt
+    etichetta: "USER'S INDICATIONS FOR THE COVER (if present, follow them)"
+    obbligatorio: false
+cronologia: nessuna
