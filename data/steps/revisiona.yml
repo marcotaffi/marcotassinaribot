@@ -8,7 +8,13 @@ agentName: revisore
 richiedeMateriale: true
 # La bozza da modificare, passata per intero dal servizio bozze_apg23 (azione "ritocca"). Esplicita
 # e non ripescata dalla cronologia: in chat possono esserci più bozze, e va modificata quella giusta.
+# La richiesta va elencata qui: con "materiale" dichiarato nel prompt entra solo ciò che è
+# elencato (2026-10-09, vedi taffitools docs/passaggio-contenuti.md).
 materiale:
+  - campo: prompt
+    pick: last
+    etichetta: "RICHIESTA DI MODIFICA"
+    obbligatorio: true
   - campo: testoDaModificare
     pick: last
     etichetta: "TESTO DELLA BOZZA DA MODIFICARE (lavora solo su questo; se lo cambi, restituiscilo intero)"

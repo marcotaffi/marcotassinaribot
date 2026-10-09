@@ -3,9 +3,10 @@ description: "Analizza l'articolo e descrive il soggetto della copertina per apg
 type: prompt
 prompt: genera_prompt_cover_apg23
 agentName: artdirector
-# "prompt" (richiesta dalla chat) e "materialeIniziale" (articolo dal feed) entrano da soli nel
-# prompt; qui aggiungo l'articolo già scritto, che nei flussi di pubblicazione è il materiale
-# più affidabile. Tutti facoltativi: basta che ce ne sia uno.
+# Nel prompt entra solo ciò che è elencato qui (2026-10-09, vedi taffitools
+# docs/passaggio-contenuti.md): l'articolo già scritto e le eventuali indicazioni dell'utente.
+# Il materiale grezzo del feed non serve più: in ogni percorso c'è l'articolo scritto. Tutti
+# facoltativi: basta che ce ne sia uno.
 materiale:
   - campo: title
     etichetta: TITOLO
@@ -19,6 +20,11 @@ materiale:
   # quando "text" contiene i blocchi dell'editor (2026-09-29) non va preferito a "corpo".
   - campo: [testoMarkdown, corpo, text]   # testoMarkdown: la pubblicazione da bozza (bozze.ts) lo passa; senza, corpo/text come prima
     etichetta: ARTICOLO
+    obbligatorio: false
+  # Le indicazioni dell'utente per la copertina (bozze_apg23_copertina le passa come "prompt").
+  # Nella pubblicazione e sul feed "prompt" non c'è.
+  - campo: prompt
+    etichetta: "INDICAZIONI DELL'UTENTE PER LA COPERTINA (se ci sono, seguile)"
     obbligatorio: false
 # Cronologia (2026-09-29): questo step lavora solo sul proprio input esplicito (prompt +
 # materiale dichiarato qui). Il resto della conversazione per lui è rumore e rischia di mescolare

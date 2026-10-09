@@ -173,6 +173,10 @@ await aiManager.creaApiDaCartelleLocali(); //costruisce i servizi dai file degli
 
      const bot = new BotIooo(aiManager, "marcotassinari");
 
+     // SIGTERM/SIGINT = chiusura ordinata (aspetta il lavoro in corso, fa partire le risposte, salva); errore non
+     // gestito = log, chiusura, uscita con codice 1. Vedi BotIooo.stop e TODO.md §10 (P0).
+     bot.gestisciChiusura();
+
 
                    
    // FORSE NON SERVE  aiManager.aggiungiServizio(socialMarcoLinkedin); //SE VOGLIO POTER UTILIZZARE UN CANALE ANCHE COME SERVIZIO  
