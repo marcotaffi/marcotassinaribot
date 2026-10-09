@@ -17,6 +17,11 @@ opzioni:
   aggiornamento: wordpress_apg23_aggiornaArticolo
   # Dove cercare un articolo da aprire, in ordine (di solito non si sa se è un articolo o un evento).
   tipiArticolo: [posts, eventi]
+  # L'immagine trovata nel materiale diventa la copertina solo per un rilancio (categoria "ripubblica": è
+  # l'immagine dell'articolo che si rilancia). Per un testo nuovo scritto prendendo spunto da un link
+  # (cronaca, dossier...) quell'immagine, spesso il logo del sito, viene scartata e la copertina nasce
+  # da sola nello stile del sito (09/10/2026, produzione: il logo APG23 era finito come copertina).
+  immagineSoloDaCategorie: [ripubblica]
   esportazioni:
     semprenews: _formattasemprenews
   # Copertina su richiesta, con i provini del sito (stessa procedura della copertina automatica).
