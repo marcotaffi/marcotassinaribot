@@ -1,0 +1,48 @@
+# bot.yml — il bot "marcotassinari" (apg23.org, l'avatar di Marco su Telegram) per il programma unico semprebot.
+#
+# Prima queste cose stavano nel codice (src/marcotassinaribot.ts); ora sono qui. Tutto il resto del bot (agenti, procedure,
+# servizi) sta, come sempre, in data/. I segreti restano nel .env: qui ci sono solo i NOMI delle variabili.
+# Guida con tutti i campi: ../semprebot/README.md e ../semprebot/bot.esempio.yml.
+
+# Identità: il bot è "bot-marcotassinari" per il taffiserver e il suo agente di chat è data/agents/marcotassinari.yml.
+# Attenzione: la CARTELLA si chiama marcotassinaribot, il BOT marcotassinari. NON cambiarlo: cambierebbe l'identità.
+nome: marcotassinari
+descrizione: "L'avatar di Marco su Telegram: notizie ed eventi di apg23.org (bozze, pubblicazione, copertine)"
+
+interfacce:
+  telegram: TELEGRAM_TOKEN      # nessuna chat web per questo bot
+
+# Anagrafica sul taffiserver (taffiserver/data/bot/bot-marcotassinari.yml). Se la variabile non c'è, il bot si registra senza verifica.
+segretoTaffiserver: MARCOTASSINARIBOT_TAFFISERVER_SEGRETO
+
+# Nessuna sezione `ingressi`: questo bot non ha procedure a cadenza (il vecchio file di avvio non le caricava).
+
+# Le credenziali per mail e servizi Google sono quelle standard (IFTTT_WEBHOOKKEY, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET,
+# GOOGLE_REFRESH_TOKEN): non serve scriverle.
+
+# Fonti: cosa il taffiserver controlla per questo bot. Sono rimaste com'erano in src/marcotassinaribot.ts.
+feeds:
+  # FIX ALLA RADICE (2026-09-15, suggerito dall'utente): prima era la pagina tag HTML
+  # (…Comunita-Papa-Giovanni-XXIII.html), scansionata scartando i link non pertinenti — un
+  # rimedio fragile, sempre esposto a qualunque nuovo link "di contorno" la pagina aggiunga in
+  # futuro (privacy_policy.pdf, condizioni_d_uso.pdf, mailto:, tel:, social, voci di menu erano
+  # già finiti tutti nella Map dei candidati, vedi il bug corretto in questa stessa giornata).
+  # Il sito espone anche il feed RSS reale allo stesso tag (…Comunita-Papa-Giovanni-XXIII.xml,
+  # verificato: 60 <item> puliti, ciascuno con <link> a un vero articolo /news/<slug>.html).
+  # FeedsManager (taffiserver) riconosce ".xml" e lo instrada al parser RSS vero (rss-parser),
+  # un percorso strutturato e non alla scansione euristica dei tag <a> — niente più bisogno di
+  # includiLink qui, esattamente come gli altri hook reali già a feed RSS (annabassi.com/feed/,
+  # comunicazionenonviolenta.org/eventi/feed/, ecc., nessuno dei quali ha includiLink).
+  - hooks: ["https://www.semprenews.it/tag/Comunita-Papa-Giovanni-XXIII.xml"]
+    categories: [apg23]
+    lingua: it
+    intervalloControllo: 3h   # 3 ore: fonte più dinamica della media, la ricontrollo più spesso del default del taffiserver
+
+  # Pagina eventi di apg23.org (HTML statico, verificato): i singoli eventi sono link sotto
+  # /eventi/, includiLink filtra via tutto il resto (paginazione, altre voci del menu).
+  - hooks: ["https://www.apg23.org/news-ed-eventi/?type=eventi"]
+    categories: [apg23]
+    lingua: it
+    includiLink: ["/eventi/"]
+    intervalloControllo: 1d   # una volta al giorno, come richiesto
+
