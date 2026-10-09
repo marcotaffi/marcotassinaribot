@@ -1,9 +1,9 @@
 {
-  "name": "taffiserver",
+  "name": "marcotassinaribot",
   "version": "1.0.0",
   "description": "Gestore AI by Taffi",
   "type": "module",
-  "main": "dist/taffiserver.js",
+  "main": "dist/marcotassinaribot.js",
   "types": "types",
   "scripts": {
     "start": "node dist/marcotassinaribot.js > /var/log/iooo/marcotassinaribot.log 2>&1 &",
