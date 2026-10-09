@@ -20,13 +20,14 @@ materiale:
     obbligatorio: false
   # Il testo dell'articolo, non l'impaginazione: "testoMarkdown" è il markdown della bozza
   # (bozze.ts), "corpo" l'HTML semplice di converti_html (flusso automatico), "text" il ripiego per
-  # la copertina chiesta in chat. Solo l'inizio: serve come spunto del tema, non da illustrare tutto.
+  # la copertina chiesta in chat. Solo l'inizio (600 caratteri: più testo vuol dire più oggetti da disegnare alla lettera, visto in
+  # produzione il 09/10 con panettone e chitarra): serve come spunto del tema, non da illustrare.
   - campo: [testoMarkdown, corpo, text]
     etichetta: ARTICLE (beginning)
     obbligatorio: false
-    maxCaratteri: 1500
+    maxCaratteri: 600
   # Le indicazioni dell'utente per la copertina (bozze_apg23_copertina le passa come "prompt").
   - campo: prompt
-    etichetta: "USER'S INDICATIONS FOR THE COVER (if present, follow them)"
+    etichetta: "USER'S INDICATIONS ABOUT THE SUBJECT (if present, follow them; the house style stays symbolic and pop)"
     obbligatorio: false
 cronologia: nessuna
