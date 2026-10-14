@@ -21,13 +21,16 @@ opzioni:
   # (un allegato, la pagina di un link letto) e il chat la mostrava come copertina. Provato con lo stesso modello:
   # le sole istruzioni 0 volte su 3, con questo avviso nel risultato dello strumento 3 su 3.
   avvisiScrittura:
+    # Salvo nei rilanci (categoria "ripubblica" del caporedattore, _scrivi.yml): lì l'immagine è la foto originale
+    # dell'articolo rilanciato e va tenuta (10/2026: con l'avviso anche nei rilanci il chat la toglieva 12 volte su 12).
     - campo: image
       nome: avvisoCopertina
+      salvoSe: { campo: categoria, valore: ripubblica }
       testo: >-
         Attenzione alla copertina: il campo image contiene l'immagine trovata nel materiale (un allegato o una
-        pagina letta), non una copertina scelta dall'utente. Tienila solo se è un rilancio proprio di quell'articolo
-        o se l'utente ha detto di usarla come copertina; altrimenti svuotala SUBITO con bozze_apg23_modifica
-        (image = "") prima di mostrare la bozza: la copertina nello stile del sito si genera da sola al salvataggio.
+        pagina letta), non una copertina scelta dall'utente. Tienila solo se l'utente ha detto di usarla come
+        copertina; altrimenti svuotala SUBITO con bozze_apg23_modifica (image = "") prima di mostrare la bozza:
+        la copertina nello stile del sito si genera da sola al salvataggio.
   esportazioni:
     semprenews: _formattasemprenews
   # Copertina su richiesta, con i provini del sito (stessa procedura della copertina automatica).
